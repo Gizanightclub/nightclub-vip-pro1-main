@@ -1,0 +1,179 @@
+"use client";
+
+import { useState, useEffect } from "react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { motion } from "framer-motion";
+import { Sparkles, Music, Users, Crown } from "lucide-react";
+
+const HeroSection = () => {
+  const [particles, setParticles] = useState<Array<{left: string, top: string, delay: string}>>([]);
+
+  useEffect(() => {
+    // Generate particles on client side to avoid hydration mismatch
+    const newParticles = Array.from({ length: 20 }, (_, i) => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 3}s`,
+    }));
+    setParticles(newParticles);
+  }, []);
+
+  return (
+    <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-nightclub">
+        <div className="absolute inset-0 bg-[rgba(30,60,90,0.4)] backdrop-blur-md/30"></div>
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {particles.map((particle, i) => (
+            <div
+              key={i}
+              className="absolute w-2 h-2 bg-nightclub-purple rounded-full animate-sparkle"
+              style={{
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.delay,
+              }}
+            />
+          ))}
+        </div>
+      </div>
+
+      {/* Hero Content */}
+      <div className="relative z-10 text-center px-4 max-w-6xl mx-auto">
+        {/* Badge */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="mb-8"
+        >
+          <Badge className="glass-dark px-6 py-2 text-lg border-nightclub-purple/50 animate-glow">
+            <Crown className="w-5 h-5 ml-2 text-nightclub-gold" />
+
+          </Badge>
+        </motion.div>
+
+        {/* Main Title */}
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.2 }}
+          className="text-6xl md:text-8xl font-bold mb-6 animate-neon"
+        >
+          Night Club
+          <span className="block text-nightclub-gold">VIP</span>
+        </motion.h1>
+
+        {/* Subtitle */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.4 }}
+          className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed"
+        >
+          اكتشف عالم الترفيه الفاخر في أفضل نايت كلوب بالقاهرة
+          <br />
+          حفلات استثنائية • عروض حية • أجواء لا تُنسى
+        </motion.p>
+
+        {/* Features */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.6 }}
+          className="flex flex-wrap justify-center gap-6 mb-12"
+        >
+          {[
+            { icon: Music, text: "موسيقى حية" },
+            { icon: Users, text: "أكثر من 5000 عميل سعيد" },
+            { icon: Sparkles, text: "أجواء فاخرة" },
+          ].map((feature, index) => (
+            <div
+              key={index}
+              className="flex items-center gap-3 glass-dark px-6 py-3 rounded-full animate-float"
+              style={{ animationDelay: `${index * 0.2}s` }}
+            >
+              <feature.icon className="w-5 h-5 text-nightclub-gold" />
+              <span className="text-lg">{feature.text}</span>
+            </div>
+          ))}
+        </motion.div>
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, delay: 0.8 }}
+          className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+        >
+          <Button
+            size="lg"
+            onClick={() => {
+              const packagesSection = document.getElementById('packages');
+              if (packagesSection) {
+                packagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="bg-gradient-gold text-black font-bold text-xl px-12 py-6 rounded-full hover:scale-105 transition-all duration-300 animate-pulse-purple"
+          >
+            احجز الآن مع خصم 20%
+          </Button>
+
+          <Button
+            variant="outline"
+            size="lg"
+            onClick={() => {
+              const packagesSection = document.getElementById('packages');
+              if (packagesSection) {
+                packagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+              }
+            }}
+            className="glass-dark border-nightclub-purple/50 text-xl px-8 py-6 rounded-full hover:bg-nightclub-purple/20"
+          >
+            استكشف العروض
+          </Button>
+        </motion.div>
+
+        {/* Social Proof */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.6, delay: 1 }}
+          className="mt-12 text-center"
+        >
+          <p className="text-gray-400 text-lg mb-4">يثق بنا الآلاف من العملاء</p>
+          <div className="flex justify-center gap-8 items-center">
+            <div className="text-center">
+              <div className="text-3xl font-bold text-nightclub-gold">5000+</div>
+              <div className="text-gray-400">عميل سعيد</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-nightclub-gold">100+</div>
+              <div className="text-gray-400">حفلة مميزة</div>
+            </div>
+            <div className="text-center">
+              <div className="text-3xl font-bold text-nightclub-gold">24/7</div>
+              <div className="text-gray-400">خدمة العملاء</div>
+            </div>
+          </div>
+        </motion.div>
+      </div>
+
+      {/* Scroll Indicator */}
+      <motion.div
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.6, delay: 1.2 }}
+        className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
+      >
+        <div className="w-6 h-10 border-2 border-nightclub-purple rounded-full flex justify-center">
+          <div className="w-1 h-3 bg-nightclub-purple rounded-full mt-2 animate-bounce"></div>
+        </div>
+      </motion.div>
+    </div>
+  );
+};
+
+export default HeroSection;
