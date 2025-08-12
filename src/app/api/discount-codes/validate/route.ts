@@ -1,11 +1,37 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { supabaseAdmin, testSupabaseConnection } from '@/lib/supabase';
 
 export async function POST(request: NextRequest) {
+  console.log('=== Discount Code Validation API Called ===');
+  console.log('Environment check:', {
+    hasSupabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+    hasSupabaseKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+    nodeEnv: process.env.NODE_ENV,
+    vercelEnv: process.env.VERCEL_ENV
+  });
+
   try {
+    // Test database connection first
+    const connectionTest = await testSupabaseConnection();
+    if (!connectionTest.success) {
+      console.error('Database connection failed:', connectionTest.error);
+      return NextResponse.json(
+        {
+          valid: false,
+          message: 'خطأ في الاتصال بقاعدة البيانات',
+          debug: connectionTest.error
+        },
+        { status: 500 }
+      );
+    }
+
+    console.log('Database connection successful');
+
     const { code } = await request.json();
+    console.log('Received discount code:', code);
 
     if (!code || typeof code !== 'string') {
+      console.log('Invalid code format:', typeof code);
       return NextResponse.json(
         { valid: false, message: 'كود الخصم مطلوب' },
         { status: 400 }
@@ -13,24 +39,56 @@ export async function POST(request: NextRequest) {
     }
 
     // البحث عن الكود في قاعدة البيانات
-    const { data, error } = await supabase
+    console.log('Searching for discount code in database...');
+    const { data, error } = await supabaseAdmin
       .from('discount_codes')
       .select('*')
       .eq('code', code.toUpperCase())
       .eq('is_active', true)
       .single();
 
-    if (error || !data) {
+    console.log('Database query result:', { data: !!data, error: error?.message });
+
+    if (error) {
+      console.error('Database error details:', {
+        message: error.message,
+        details: error.details,
+        hint: error.hint,
+        code: error.code
+      });
+
+      if (error.code === 'PGRST116') {
+        return NextResponse.json(
+          { valid: false, message: 'كود خصم غير صحيح' },
+          { status: 404 }
+        );
+      }
+
+      return NextResponse.json(
+        {
+          valid: false,
+          message: 'خطأ في قاعدة البيانات',
+          debug: error.message
+        },
+        { status: 500 }
+      );
+    }
+
+    if (!data) {
+      console.log('No discount code found');
       return NextResponse.json(
         { valid: false, message: 'كود خصم غير صحيح' },
         { status: 404 }
       );
     }
 
+    console.log('Discount code found, validating...');
+
     // التحقق من صحة التواريخ
     const now = new Date();
 
     if (data.valid_from && new Date(data.valid_from) > now) {
+      console.log('Code not yet valid');
       return NextResponse.json(
         { valid: false, message: 'كود الخصم لم يصبح ساري المفعول بعد' },
         { status: 400 }
@@ -38,6 +96,7 @@ export async function POST(request: NextRequest) {
     }
 
     if (data.valid_until && new Date(data.valid_until) < now) {
+      console.log('Code expired');
       return NextResponse.json(
         { valid: false, message: 'كود الخصم منتهي الصلاحية' },
         { status: 400 }
@@ -46,11 +105,14 @@ export async function POST(request: NextRequest) {
 
     // التحقق من حد الاستخدام
     if (data.usage_limit > 0 && data.used_count >= data.usage_limit) {
+      console.log('Code usage limit exceeded');
       return NextResponse.json(
         { valid: false, message: 'تم استنفاد حد استخدام هذا الكود' },
         { status: 400 }
       );
     }
+
+    console.log('Code validation successful');
 
     // إرجاع بيانات الكود الصحيح
     return NextResponse.json({
@@ -66,9 +128,18 @@ export async function POST(request: NextRequest) {
     });
 
   } catch (error) {
-    console.error('Error validating discount code:', error);
+    console.error('Unexpected error in validation API:', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+      stack: error instanceof Error ? error.stack : 'No stack trace',
+      type: typeof error
+    });
+
     return NextResponse.json(
-      { valid: false, message: 'حدث خطأ أثناء التحقق من كود الخصم' },
+      {
+        valid: false,
+        message: 'حدث خطأ أثناء التحقق من كود الخصم',
+        debug: error instanceof Error ? error.message : 'Unknown error'
+      },
       { status: 500 }
     );
   }

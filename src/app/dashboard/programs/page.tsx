@@ -627,7 +627,7 @@ export default function ProgramsPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start sm:items-center justify-center z-50 p-2 sm:p-4"
             onClick={resetForm}
           >
             <motion.div
@@ -635,13 +635,18 @@ export default function ProgramsPage() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-slate-800/95 backdrop-blur-xl border border-slate-700/50 p-8 rounded-2xl shadow-2xl w-full max-w-md"
+              className="backdrop-blur-xl border border-slate-300/50 rounded-1xl shadow-1xl w-full max-w-md bg-[#071a31] max-h-[95vh] sm:max-h-[90vh] flex flex-col my-2 sm:my-0"
             >
-              <h2 className="text-2xl font-bold text-white mb-6">
-                {editingProgram ? 'تعديل البرنامج' : 'إضافة برنامج جديد'}
-              </h2>
+              {/* Header - ثابت */}
+              <div className="p-4 sm:p-6 pb-0 flex-shrink-0">
+                <h2 className="text-xl sm:text-2xl font-bold text-white">
+                  {editingProgram ? 'تعديل البرنامج' : 'إضافة برنامج جديد'}
+                </h2>
+              </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Content - قابل للتمرير */}
+              <div className="flex-1 overflow-y-auto px-4 sm:px-6">
+                <form id="program-form" onSubmit={handleSubmit} className="space-y-3 sm:space-y-4 py-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
                     عنوان البرنامج
@@ -650,7 +655,7 @@ export default function ProgramsPage() {
                     type="text"
                     value={formData.title}
                     onChange={(e) => setFormData({ ...formData, title: e.target.value })}
-                    className="w-full bg-slate-700/50 border-slate-600/50 text-white"
+                    className="w-full bg-slate-700/50 border-slate-600/50 text-white text-sm sm:text-base"
                     required
                     placeholder="أدخل عنوان البرنامج"
                   />
@@ -663,8 +668,8 @@ export default function ProgramsPage() {
                   <Textarea
                     value={formData.description}
                     onChange={(e) => setFormData({ ...formData, description: e.target.value })}
-                    rows={4}
-                    className="w-full bg-slate-700/50 border-slate-600/50 text-white"
+                    rows={3}
+                    className="w-full bg-slate-700/50 border-slate-600/50 text-white text-sm sm:text-base"
                     required
                     placeholder="أدخل وصف البرنامج"
                   />
@@ -676,11 +681,11 @@ export default function ProgramsPage() {
                   </label>
 
                   {/* خيارات رفع الصورة */}
-                  <div className="flex space-x-4 mb-4">
+                  <div className="grid grid-cols-2 gap-2 sm:gap-4 mb-3 sm:mb-4">
                     <button
                       type="button"
                       onClick={() => setUploadMethod('url')}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         uploadMethod === 'url'
                           ? 'bg-purple-600 text-white'
                           : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
@@ -691,7 +696,7 @@ export default function ProgramsPage() {
                     <button
                       type="button"
                       onClick={() => setUploadMethod('file')}
-                      className={`px-4 py-2 rounded-lg text-sm font-medium transition-colors ${
+                      className={`px-3 sm:px-4 py-2 rounded-lg text-xs sm:text-sm font-medium transition-colors ${
                         uploadMethod === 'file'
                           ? 'bg-purple-600 text-white'
                           : 'bg-slate-700 text-slate-300 hover:bg-slate-600'
@@ -711,7 +716,7 @@ export default function ProgramsPage() {
                           setPreviewUrl(e.target.value);
                         }
                       }}
-                      className="w-full bg-slate-700/50 border-slate-600/50 text-white"
+                      className="w-full bg-slate-700/50 border-slate-600/50 text-white text-sm sm:text-base"
                       placeholder="https://example.com/image.jpg"
                     />
                   ) : (
@@ -725,13 +730,13 @@ export default function ProgramsPage() {
                       />
                       <label
                         htmlFor="image-upload"
-                        className="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-slate-600 rounded-lg cursor-pointer hover:border-slate-500 transition-colors bg-slate-700/30"
+                        className="flex flex-col items-center justify-center w-full h-24 sm:h-32 border-2 border-dashed border-slate-600 rounded-lg cursor-pointer hover:border-slate-500 transition-colors bg-slate-700/30"
                       >
-                        <Upload className="w-8 h-8 text-slate-400 mb-2" />
-                        <span className="text-sm text-slate-400">
+                        <Upload className="w-6 h-6 sm:w-8 sm:h-8 text-slate-400 mb-1 sm:mb-2" />
+                        <span className="text-xs sm:text-sm text-slate-400 text-center px-2">
                           {selectedImage ? selectedImage.name : 'اختر صورة للرفع'}
                         </span>
-                        <span className="text-xs text-slate-500 mt-1">
+                        <span className="text-xs text-slate-500 mt-1 hidden sm:block">
                           JPG, PNG, GIF, WebP - حد أقصى 5MB
                         </span>
                       </label>
@@ -748,7 +753,7 @@ export default function ProgramsPage() {
                         <img
                           src={previewUrl}
                           alt="معاينة"
-                          className="w-full h-32 object-cover rounded-lg border border-slate-600"
+                          className="w-full h-24 sm:h-32 object-cover rounded-lg border border-slate-600"
                         />
                         <button
                           type="button"
@@ -766,35 +771,41 @@ export default function ProgramsPage() {
                   )}
                 </div>
 
-                <div className="flex items-center space-x-2">
+                <div className="flex items-start space-x-2">
                   <input
                     type="checkbox"
                     id="is_featured"
                     checked={formData.is_featured}
                     onChange={(e) => setFormData({ ...formData, is_featured: e.target.checked })}
-                    className="w-4 h-4 text-purple-600 bg-slate-700 border-slate-600 rounded focus:ring-purple-500"
+                    className="w-4 h-4 mt-0.5 text-purple-600 bg-slate-700 border-slate-600 rounded focus:ring-purple-500 flex-shrink-0"
                   />
-                  <label htmlFor="is_featured" className="text-sm font-medium text-slate-300">
+                  <label htmlFor="is_featured" className="text-xs sm:text-sm font-medium text-slate-300 leading-relaxed">
                     برنامج مميز (يظهر في الصفحة الرئيسية)
                   </label>
                 </div>
 
-                <div className="flex justify-end space-x-3 pt-4">
+                </form>
+              </div>
+
+              {/* Footer - الأزرار ثابتة */}
+              <div className="p-4 sm:p-6 pt-0 flex-shrink-0 border-t border-slate-600/30">
+                <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3">
                   <motion.button
                     type="button"
                     onClick={resetForm}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 border border-slate-600 rounded-xl text-slate-300 hover:bg-slate-700/50 transition-colors"
+                    className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 border border-slate-600 rounded-xl text-slate-300 hover:bg-slate-700/50 transition-colors text-sm sm:text-base"
                   >
                     إلغاء
                   </motion.button>
                   <motion.button
                     type="submit"
+                    form="program-form"
                     disabled={imageUploading}
                     whileHover={{ scale: imageUploading ? 1 : 1.02 }}
                     whileTap={{ scale: imageUploading ? 1 : 0.98 }}
-                    className={`px-6 py-3 rounded-xl font-medium transition-all shadow-lg flex items-center ${
+                    className={`w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 rounded-xl font-medium transition-all shadow-lg flex items-center justify-center text-sm sm:text-base ${
                       imageUploading
                         ? 'bg-slate-600 cursor-not-allowed'
                         : 'bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700'
@@ -802,7 +813,7 @@ export default function ProgramsPage() {
                   >
                     {imageUploading ? (
                       <>
-                        <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white ml-2"></div>
+                        <div className="animate-spin rounded-full h-3 w-3 sm:h-4 sm:w-4 border-b-2 border-white ml-2"></div>
                         جاري رفع الصورة...
                       </>
                     ) : (
@@ -810,7 +821,7 @@ export default function ProgramsPage() {
                     )}
                   </motion.button>
                 </div>
-              </form>
+              </div>
             </motion.div>
           </motion.div>
         )}

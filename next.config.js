@@ -1,7 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  distDir: 'out',
   trailingSlash: true,
   eslint: {
     // تجاهل أخطاء ESLint أثناء البناء
@@ -43,6 +41,8 @@ const nextConfig = {
       },
     ],
   },
+  // إعدادات إضافية للنشر على Vercel
+  serverExternalPackages: ['@supabase/supabase-js']
 };
 
 module.exports = nextConfig;

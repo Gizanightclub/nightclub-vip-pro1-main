@@ -1,0 +1,23 @@
+{
+  "buildCommand": "bun run build",
+  "framework": "nextjs",
+  "functions": {
+    "src/app/api/**/*": {
+      "maxDuration": 30
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "headers": [
+    {
+      "source": "/api/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "no-cache, no-store, must-revalidate"
+        }
+      ]
+    }
+  ]
+}

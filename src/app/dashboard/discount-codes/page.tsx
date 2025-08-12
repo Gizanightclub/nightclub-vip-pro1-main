@@ -550,7 +550,7 @@ export default function DiscountCodesPage() {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-center justify-center z-50 p-4"
+            className="fixed inset-0 bg-black/50 backdrop-blur-sm flex items-start sm:items-center justify-center z-50 p-2 sm:p-4"
             onClick={resetForm}
           >
             <motion.div
@@ -558,13 +558,18 @@ export default function DiscountCodesPage() {
               animate={{ opacity: 1, scale: 1, y: 0 }}
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               onClick={(e) => e.stopPropagation()}
-              className="bg-slate-800/95 backdrop-blur-xl border border-slate-700/50 p-8 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[90vh] overflow-y-auto"
+              className="bg-slate-800/95 backdrop-blur-xl border border-slate-700/50 rounded-2xl shadow-2xl w-full max-w-2xl max-h-[95vh] sm:max-h-[90vh] flex flex-col my-2 sm:my-0"
             >
-              <h2 className="text-2xl font-bold text-white mb-6">
-                {editingCode ? 'تعديل كود الخصم' : 'إضافة كود خصم جديد'}
-              </h2>
+              {/* Header - ثابت */}
+              <div className="p-4 sm:p-6 pb-0 flex-shrink-0">
+                <h2 className="text-xl sm:text-2xl font-bold text-white">
+                  {editingCode ? 'تعديل كود الخصم' : 'إضافة كود خصم جديد'}
+                </h2>
+              </div>
 
-              <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Content - قابل للتمرير */}
+              <div className="flex-1 overflow-y-auto px-4 sm:px-6">
+                <form id="discount-form" onSubmit={handleSubmit} className="space-y-4 sm:space-y-6 py-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-300 mb-2">
                     كود الخصم
@@ -687,26 +692,32 @@ export default function DiscountCodesPage() {
                   </label>
                 </div>
 
-                <div className="flex justify-end space-x-3 pt-6 border-t border-slate-700/50">
+                </form>
+              </div>
+
+              {/* Footer - الأزرار ثابتة */}
+              <div className="p-4 sm:p-6 pt-0 flex-shrink-0 border-t border-slate-600/30">
+                <div className="flex flex-col sm:flex-row justify-end space-y-2 sm:space-y-0 sm:space-x-3">
                   <motion.button
                     type="button"
                     onClick={resetForm}
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 border border-slate-600 rounded-xl text-slate-300 hover:bg-slate-700/50 transition-colors"
+                    className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 border border-slate-600 rounded-xl text-slate-300 hover:bg-slate-700/50 transition-colors text-sm sm:text-base"
                   >
                     إلغاء
                   </motion.button>
                   <motion.button
                     type="submit"
+                    form="discount-form"
                     whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
-                    className="px-6 py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl font-medium hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg"
+                    className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-500 to-purple-600 text-white rounded-xl font-medium hover:from-purple-600 hover:to-purple-700 transition-all shadow-lg text-sm sm:text-base"
                   >
                     {editingCode ? 'تحديث' : 'إضافة'}
                   </motion.button>
                 </div>
-              </form>
+              </div>
             </motion.div>
           </motion.div>
         )}

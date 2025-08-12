@@ -1,9 +1,52 @@
 import { createClient } from '@supabase/supabase-js'
 
+// Client-side Supabase client (للمتصفح)
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
 export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+
+// Server-side Supabase client (للـ API routes فقط)
+// يتم إنشاؤه فقط في البيئة الخلفية
+let supabaseAdmin: any = null
+
+if (typeof window === 'undefined') {
+  // Server-side only
+  const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
+
+  supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
+    auth: {
+      autoRefreshToken: false,
+      persistSession: false
+    }
+  })
+}
+
+export { supabaseAdmin }
+
+// Utility function للتحقق من اتصال قاعدة البيانات (server-side only)
+export async function testSupabaseConnection() {
+  if (typeof window !== 'undefined' || !supabaseAdmin) {
+    return { success: false, error: 'This function is server-side only' }
+  }
+
+  try {
+    const { data, error } = await supabaseAdmin
+      .from('discount_codes')
+      .select('count')
+      .limit(1)
+
+    if (error) {
+      console.error('Database connection test failed:', error)
+      return { success: false, error: error.message }
+    }
+
+    return { success: true, data }
+  } catch (error) {
+    console.error('Database connection test error:', error)
+    return { success: false, error: error instanceof Error ? error.message : 'Unknown error' }
+  }
+}
 
 // Types for our database tables
 export interface Program {
