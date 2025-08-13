@@ -132,7 +132,7 @@ const Navigation = () => {
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl overflow-hidden bg-gradient-gold">
-                    <img src="public/images/nightclubegyptlogo.jpg" alt="Night Club Egypt" className="w-full h-full object-cover" />
+                    <img src="images/nightclubegyptlogo.jpg" alt="Night Club Egypt" className="w-full h-full object-cover" />
                   </div>
                   <div className="text-right">
                     <div className="text-xl font-bold text-nightclub-gold">

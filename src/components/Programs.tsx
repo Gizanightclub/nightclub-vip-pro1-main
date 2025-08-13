@@ -130,7 +130,7 @@ const Programs = () => {
             الحفلات القادمة
           </Badge>
           <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            حفلات <span className="text-nightclub-gold">قادمة مميزة</span>
+            حفلات <span className="text-nightclub-gold">قادمة </span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             استعد لأجمل الليالي مع حفلاتنا القادمة المليئة بالإثارة والترفيه

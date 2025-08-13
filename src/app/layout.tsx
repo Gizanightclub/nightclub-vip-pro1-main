@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cairo, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "../components/ui/sonner";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -99,6 +100,7 @@ export default function RootLayout({
       <body className={`${cairo.variable} ${inter.variable} font-cairo antialiased bg-black text-white overflow-x-hidden`}>
         {children}
         <Toaster />
+        <GoogleAnalytics gaId="G-H1ZWPG12HP" />
       </body>
     </html>
   );

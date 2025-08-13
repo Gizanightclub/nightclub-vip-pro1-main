@@ -35,9 +35,9 @@ const Gallery = () => {
       description: "استمتع بأجمل الليالي"
     },
     {
-      url: "/images/nightclubegypt.com (6).jpg",
-      title: "نجوم الطرب الشعبي",
-      description: "تجربة فريدة من نوعها"
+      url: "/images/nightclubegypt.com (5).jpg",
+      title: "حفلات راقصة مميزة",
+      description: "استمتع بأجمل الليالي"
     },
   ];
 
