@@ -25,9 +25,19 @@ const Gallery = () => {
       description: "تجربة حصرية مع خدمة متميزة"
     },
     {
-      url: "/images/nightclubegypt.com (4).jpg",
+      url: "/images/nightclubegypt.com (11).jpg",
       title: "ليلة لا تُنسى",
       description: "أجواء ساحرة ومميزة"
+    },
+    {
+      url: "/images/nightclubegypt.com (8).jpg",
+      title: "حفلات مميزة",
+      description: "استمتع بأجمل الليالي"
+    },
+    {
+      url: "/images/nightclub.com.jpg",
+      title: "حفلات راقصة مميزة",
+      description: "استمتع بأجمل الليالي"
     },
     {
       url: "/images/nightclubegypt.com (7).jpg",
