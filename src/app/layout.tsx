@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Cairo, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "../components/ui/sonner";
+import Script from "next/script"; // ✅ استيراد Script
 
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
@@ -63,10 +64,10 @@ export default function RootLayout({
     <html lang="ar" dir="rtl" className="scroll-smooth">
       <head>
         <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#e4e4e4ff" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
         <meta name="format-detection" content="telephone=yes" />
@@ -96,7 +97,21 @@ export default function RootLayout({
           })}
         </script>
       </head>
-      <body className={`${cairo.variable} ${inter.variable} font-cairo antialiased bg-black text-white overflow-x-hidden`}>
+      <body className={${cairo.variable} ${inter.variable} font-cairo antialiased bg-black text-white overflow-x-hidden}>
+        {/* ✅ كود Google Analytics */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-H1ZWPG12HP"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-H1ZWPG12HP');
+          `}
+        </Script>
+
         {children}
         <Toaster />
       </body>
