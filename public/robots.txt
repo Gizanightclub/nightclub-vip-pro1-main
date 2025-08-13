@@ -1,24 +1,14 @@
+# *
 User-agent: *
 Allow: /
-
-# السماح بالزحف إلى جميع أقسام الموقع
-Allow: /#programs
-Allow: /#pricing
-Allow: /#gallery
-Allow: /#about
-Allow: /#contact
-
-# منع الزحف إلى لوحة التحكم الإدارية
-Disallow: /dashboard/
 Disallow: /api/
-
-# منع الزحف إلى الملفات الداخلية
+Disallow: /admin/
+Disallow: /test-api
 Disallow: /_next/
-Disallow: /node_modules/
+Disallow: /private/
 
-# رابط خريطة الموقع
-Sitemap: https://nightclub-vip-egypt.netlify.app/sitemap.xml
+# Host
+Host: https://nightclubegypt.com
 
-# معلومات إضافية لمحركات البحث
-# Night Club VIP Egypt - أفضل نايت كلوب في القاهرة
-# خدمات VIP، حفلات استثنائية، وأجواء لا تُنسى
+# Sitemaps
+Sitemap: https://nightclubegypt.com/sitemap.xml
