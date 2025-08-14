@@ -1,6 +1,9 @@
 "use client";
 
-import { useState, useEffect, useRef, useCallback } from "react";
+// Importing utility function to concatenate class names
+// باقي الكود...
+
+import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
@@ -9,88 +12,59 @@ import Image from "next/image";
 
 const Gallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
-  const [isVisible, setIsVisible] = useState(false);
-  const galleryRef = useRef<HTMLElement>(null);
-
-  // Intersection Observer for performance
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-          observer.unobserve(entry.target);
-        }
-      },
-      { threshold: 0.1 }
-    );
-
-    if (galleryRef.current) {
-      observer.observe(galleryRef.current);
-    }
-
-    return () => observer.disconnect();
-  }, []);
 
   const images = [
     {
       url: "/images/nightclubegypt.com (10).jpg",
       title: "مشريب فاخره",
-      description: "أمسية لا تُنسى مع أشهر المطربين",
-      altText: "مشريب فاخرة في Night Club Egypt - أفضل نايت كلوب في القاهرة والجيزة - حفلات ليلية مميزة"
+      description: "أمسية لا تُنسى مع أشهر المطربين"
     },
     {
       url: "/images/nightclubegypt.com (3).jpg",
       title: "أجواء VIP فاخرة",
-      description: "تجربة حصرية مع خدمة متميزة",
-      altText: "أجواء VIP فاخرة في أفضل نايت كلوب بمصر - 6 أكتوبر الشيخ زايد التجمع الخامس - خدمة استثنائية"
+      description: "تجربة حصرية مع خدمة متميزة"
     },
     {
       url: "/images/nightclubegypt.com (11).jpg",
       title: "ليلة لا تُنسى",
-      description: "أجواء ساحرة ومميزة",
-      altText: "ليلة لا تُنسى في نايت كلوب مصر - الزمالك المعادي مصر الجديدة - أجواء ساحرة وترفيه ليلي"
+      description: "أجواء ساحرة ومميزة"
     },
     {
       url: "/images/nightclubegypt.com (8).jpg",
       title: "حفلات مميزة",
-      description: "استمتع بأجمل الليالي",
-      altText: "حفلات مميزة في أفضل نايت كلوب بالقاهرة - مدينة نصر هليوبوليس - سهرات ليلية فاخرة"
+      description: "استمتع بأجمل الليالي"
     },
     {
       url: "/images/nightclubegypt.com (7).jpg",
       title: "حفلات راقصة مميزة",
-      description: "استمتع بأجمل الليالي",
-      altText: "عروض حية وموسيقى مميزة في نايت كلوب مصر - Egypt nightclub entertainment - حفلات خاصة"
+      description: "استمتع بأجمل الليالي"
     },
     {
       url: "/images/nightclubegypt.com (5).jpg",
       title: "حفلات راقصة مميزة",
-      description: "استمتع بأجمل الليالي",
-      altText: "أجواء النايت كلوب الفاخرة في مصر - birthday parties corporate events - احتفالات خاصة"
+      description: "استمتع بأجمل الليالي"
     },
   ];
 
-  // Auto-play functionality only when visible
+  // Auto-play functionality
   useEffect(() => {
-    if (!isVisible) return;
-
     const autoSlide = setInterval(() => {
       setCurrentImage((prev) => (prev + 1) % images.length);
-    }, 5000); // Increased to 5 seconds for better UX
+    }, 4000); // Change image every 4 seconds
 
     return () => clearInterval(autoSlide);
-  }, [images.length, isVisible]);
+  }, [images.length]);
 
-  const nextImage = useCallback(() => {
+  const nextImage = () => {
     setCurrentImage((prev) => (prev + 1) % images.length);
-  }, [images.length]);
+  };
 
-  const prevImage = useCallback(() => {
+  const prevImage = () => {
     setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
-  }, [images.length]);
+  };
 
   return (
-    <section ref={galleryRef} className="py-20 relative overflow-hidden">
+    <section className="py-20 relative overflow-hidden">
       {/* Background Elements */}
       {/*<div className="absolute inset-0 bg-gradient-to-b from-black via-nightclub-dark/20 to-black"></div>*/}
 
@@ -131,15 +105,11 @@ const Gallery = () => {
               >
                 <Image
                   src={images[currentImage].url}
-                  alt={images[currentImage].altText}
-                  title={`${images[currentImage].title} - Night Club Egypt`}
+                  alt={`صورة من حفلات Night Club Egypt - ${images[currentImage].title}: ${images[currentImage].description}`}
+                  title={images[currentImage].title}
                   fill
                   priority={currentImage === 0} // Prioritize first image
                   className="object-cover"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
-                  quality={85}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
 
                 {/* Overlay */}
@@ -197,15 +167,11 @@ const Gallery = () => {
               >
                 <Image
                   src={image.url}
-                  alt={`معاينة صغيرة - ${image.altText}`}
-                  title={`${image.title} - معاينة`}
+                  alt={`معاينة صغيرة لصورة ${image.title} - Night Club Egypt`}
+                  title={image.title}
                   fill
                   loading="lazy" // Lazy load thumbnails
                   className="object-cover"
-                  sizes="96px"
-                  quality={75}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                 />
                 <div className={`absolute inset-0 transition-all duration-300 ${
                   currentImage === index ? "bg-transparent" : "bg-black/50"
