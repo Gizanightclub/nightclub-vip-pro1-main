@@ -73,9 +73,11 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          اكتشف عالم الترفيه الفاخر في أفضل نايت كلوب بالقاهرة
+          اكتشف عالم الترفيه الفاخر في أفضل نايت كلوب في مصر
           <br />
-          حفلات استثنائية • عروض حية • أجواء لا تُنسى
+          <span className="text-nightclub-gold">القاهرة • الجيزة • العجوزه </span>
+          <br />
+          حفلات استثنائية • عروض حية • أجواء لا تُنسى • خدمة VIP فاخرة
         </motion.p>
 
         {/* Features */}
@@ -86,16 +88,18 @@ const HeroSection = () => {
           className="flex flex-wrap justify-center gap-6 mb-12"
         >
           {[
-            { icon: Music, text: "موسيقى حية" },
-            { icon: Users, text: "أكثر من 5000 عميل سعيد" },
-            { icon: Sparkles, text: "أجواء فاخرة" },
+            { icon: Music, text: "موسيقى حية", ariaLabel: "موسيقى حية وعروض فنية مميزة في Night Club Egypt" },
+            { icon: Users, text: "أكثر من 5000 عميل سعيد", ariaLabel: "أكثر من 5000 عميل سعيد في جميع أنحاء مصر" },
+            { icon: Sparkles, text: "أجواء فاخرة", ariaLabel: "أجواء فاخرة وخدمة VIP استثنائية في أفضل المواقع" },
           ].map((feature, index) => (
             <div
               key={index}
               className="flex items-center gap-3 glass-dark px-6 py-3 rounded-full animate-float"
               style={{ animationDelay: `${index * 0.2}s` }}
+              role="img"
+              aria-label={feature.ariaLabel}
             >
-              <feature.icon className="w-5 h-5 text-nightclub-gold" />
+              <feature.icon className="w-5 h-5 text-nightclub-gold" aria-hidden="true" />
               <span className="text-lg">{feature.text}</span>
             </div>
           ))}
@@ -116,7 +120,7 @@ const HeroSection = () => {
                 packagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            aria-label="احجز الآن في Night Club Egypt مع خصم 20% - انتقل إلى قسم الباقات"
+            aria-label="احجز الآن في Night Club Egypt مع خصم 20% - أفضل نايت كلوب في القاهرة والجيزة وجميع محافظات مصر"
             className="bg-gradient-gold text-black font-bold text-xl px-12 py-6 rounded-full hover:scale-105 transition-all duration-300 animate-pulse-purple"
           >
             احجز الآن مع خصم 20%
@@ -131,7 +135,7 @@ const HeroSection = () => {
                 packagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
-            aria-label="استكشف العروض المتاحة في Night Club Egypt"
+            aria-label="استكشف العروض المتاحة في Night Club Egypt - حفلات VIP وخدمات متميزة في أفضل المواقع السياحية"
             className="glass-dark border-nightclub-purple/50 text-xl px-8 py-6 rounded-full hover:bg-nightclub-purple/20"
           >
             استكشف العروض
@@ -145,17 +149,17 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 1 }}
           className="mt-12 text-center"
         >
-          <p className="text-gray-400 text-lg mb-4">يثق بنا الآلاف من العملاء</p>
-          <div className="flex justify-center gap-8 items-center">
-            <div className="text-center">
+          <p className="text-gray-400 text-lg mb-4">يثق بنا الآلاف من العملاء في جميع أنحاء مصر</p>
+          <div className="flex justify-center gap-8 items-center flex-wrap">
+            <div className="text-center" role="img" aria-label="أكثر من 5000 عميل سعيد في Night Club Egypt">
               <div className="text-3xl font-bold text-nightclub-gold">5000+</div>
               <div className="text-gray-400">عميل سعيد</div>
             </div>
-            <div className="text-center">
+            <div className="text-center" role="img" aria-label="أكثر من 100 حفلة مميزة نظمها Night Club Egypt">
               <div className="text-3xl font-bold text-nightclub-gold">100+</div>
               <div className="text-gray-400">حفلة مميزة</div>
             </div>
-            <div className="text-center">
+            <div className="text-center" role="img" aria-label="خدمة عملاء متاحة 24 ساعة طوال أيام الأسبوع">
               <div className="text-3xl font-bold text-nightclub-gold">24/7</div>
               <div className="text-gray-400">خدمة العملاء</div>
             </div>

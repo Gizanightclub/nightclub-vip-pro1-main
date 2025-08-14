@@ -8,9 +8,11 @@ const nextConfig = {
 
   // تحسين الصور
   images: {
-    unoptimized: true,
+    unoptimized: false, // تفعيل تحسين الصور للحصول على WebP/AVIF
     formats: ['image/webp', 'image/avif'], // تفضيل الصيغ الحديثة
     minimumCacheTTL: 60 * 60 * 24 * 365, // Cache لسنة كاملة
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
     domains: [
       "source.unsplash.com",
       "images.unsplash.com",
@@ -99,15 +101,48 @@ const nextConfig = {
 
   // تحسين Bundle
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-navigation-menu'],
+  },
+
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
       },
     },
+  },
+
+  // Code Splitting & Bundle Optimization
+  webpack: (config, { dev, isServer }) => {
+    if (!dev && !isServer) {
+      // Split chunks for better caching
+      config.optimization.splitChunks = {
+        chunks: 'all',
+        cacheGroups: {
+          framework: {
+            chunks: 'all',
+            name: 'framework',
+            test: /[\\/]node_modules[\\/](react|react-dom|next)[\\/]/,
+            priority: 40,
+            enforce: true,
+          },
+          commons: {
+            name: 'commons',
+            chunks: 'all',
+            minChunks: 2,
+            priority: 20,
+          },
+          lib: {
+            test: /[\\/]node_modules[\\/]/,
+            name: 'lib',
+            chunks: 'all',
+            priority: 10,
+          },
+        },
+      };
+    }
+    return config;
   },
 
   // ضغط إضافي

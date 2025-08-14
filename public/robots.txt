@@ -1,14 +1,44 @@
-# *
+# robots.txt for Night Club Egypt - www.nightclubegypt.com
+# Optimized for SEO and search engine indexing
+
 User-agent: *
 Allow: /
-Disallow: /api/
-Disallow: /admin/
-Disallow: /test-api
+
+# Allow all images for better SEO
+Allow: /images/
+Allow: /_next/static/
+Allow: /favicon.ico
+Allow: /apple-touch-icon.png
+Allow: /android-chrome-*.png
+
+# Block development and admin URLs
 Disallow: /_next/
-Disallow: /private/
+Disallow: /api/
+Disallow: /dashboard/
+Disallow: /test-api/
 
-# Host
-Host: https://nightclubegypt.com
+# Block any potential duplicate content
+Disallow: /*?
+Disallow: /*.json$
+Disallow: /*.xml$
 
-# Sitemaps
-Sitemap: https://nightclubegypt.com/sitemap.xml
+# Special instructions for major search engines
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+# Sitemap location
+Sitemap: https://www.nightclubegypt.com/sitemap.xml
+
+# Host directive for preferred domain
+Host: https://www.nightclubegypt.com
