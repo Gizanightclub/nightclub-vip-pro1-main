@@ -66,7 +66,11 @@ const Navigation = () => {
               className="flex items-center gap-4"
             >
               <div className="w-12 h-12 rounded-xl overflow-hidden bg-gradient-gold animate-glow">
-                <img src="images/nightclubegyptlogo.jpg" alt="Night Club Egypt" className="w-full h-full object-cover" />
+                <img
+                  src="images/nightclubegyptlogo.jpg"
+                  alt="شعار Night Club Egypt - أفضل نايت كلوب في القاهرة"
+                  className="w-full h-full object-cover"
+                />
               </div>
               <div className="text-right">
                 <div className="text-2xl font-bold text-nightclub-gold animate-neon">
@@ -86,9 +90,10 @@ const Navigation = () => {
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ scale: 1.05, y: -2 }}
                   onClick={() => scrollToSection(item.href)}
+                  aria-label={`انتقل إلى قسم ${item.name}`}
                   className="flex items-center gap-2 px-4 py-2 rounded-lg text-white hover:text-nightclub-gold transition-all duration-300 hover:bg-nightclub-purple/20"
                 >
-                  <item.icon className="w-4 h-4" />
+                  <item.icon className="w-4 h-4" aria-hidden="true" />
                   <span className="font-medium">{item.name}</span>
                 </motion.button>
               ))}
@@ -98,6 +103,7 @@ const Navigation = () => {
             <div className="hidden lg:block">
               <Button
                 onClick={() => scrollToSection("#contact")}
+                aria-label="احجز الآن في Night Club Egypt - انتقل إلى قسم التواصل"
                 className="bg-gradient-gold text-black font-bold px-6 py-2 rounded-full hover:scale-105 transition-all duration-300 animate-pulse-purple"
               >
                 احجز الآن
@@ -109,9 +115,11 @@ const Navigation = () => {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
+              aria-label={isOpen ? "إغلاق القائمة الجانبية" : "فتح القائمة الجانبية"}
+              aria-expanded={isOpen}
               className="lg:hidden text-white hover:bg-nightclub-purple/20"
             >
-              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
             </Button>
           </div>
         </div>
@@ -132,7 +140,11 @@ const Navigation = () => {
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
                   <div className="w-10 h-10 rounded-xl overflow-hidden bg-gradient-gold">
-                    <img src="images/nightclubegyptlogo.jpg" alt="Night Club Egypt" className="w-full h-full object-cover" />
+                    <img
+                      src="images/nightclubegyptlogo.jpg"
+                      alt="شعار Night Club Egypt - أفضل نايت كلوب في القاهرة"
+                      className="w-full h-full object-cover"
+                    />
                   </div>
                   <div className="text-right">
                     <div className="text-xl font-bold text-nightclub-gold">
@@ -144,9 +156,10 @@ const Navigation = () => {
                   variant="ghost"
                   size="icon"
                   onClick={() => setIsOpen(false)}
+                  aria-label="إغلاق القائمة الجانبية"
                   className="text-white"
                 >
-                  <X className="w-6 h-6" />
+                  <X className="w-6 h-6" aria-hidden="true" />
                 </Button>
               </div>
 
@@ -160,9 +173,10 @@ const Navigation = () => {
                     transition={{ delay: index * 0.1 }}
                     whileHover={{ x: 10 }}
                     onClick={() => scrollToSection(item.href)}
+                    aria-label={`انتقل إلى قسم ${item.name}`}
                     className="flex items-center gap-4 w-full p-4 rounded-xl text-white hover:text-nightclub-gold transition-all duration-300 hover:bg-nightclub-purple/20 text-right"
                   >
-                    <item.icon className="w-5 h-5" />
+                    <item.icon className="w-5 h-5" aria-hidden="true" />
                     <span className="font-medium text-lg">{item.name}</span>
                   </motion.button>
                 ))}
@@ -177,6 +191,7 @@ const Navigation = () => {
               >
                 <Button
                   onClick={() => scrollToSection("#contact")}
+                  aria-label="احجز الآن في Night Club Egypt مع خصم خاص - انتقل إلى قسم التواصل"
                   className="w-full bg-gradient-gold text-black font-bold py-4 rounded-xl text-lg hover:scale-105 transition-all duration-300"
                 >
                   احجز الآن مع خصم خاص

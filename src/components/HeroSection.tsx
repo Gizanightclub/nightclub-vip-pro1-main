@@ -116,6 +116,7 @@ const HeroSection = () => {
                 packagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
+            aria-label="احجز الآن في Night Club Egypt مع خصم 20% - انتقل إلى قسم الباقات"
             className="bg-gradient-gold text-black font-bold text-xl px-12 py-6 rounded-full hover:scale-105 transition-all duration-300 animate-pulse-purple"
           >
             احجز الآن مع خصم 20%
@@ -130,6 +131,7 @@ const HeroSection = () => {
                 packagesSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
               }
             }}
+            aria-label="استكشف العروض المتاحة في Night Club Egypt"
             className="glass-dark border-nightclub-purple/50 text-xl px-8 py-6 rounded-full hover:bg-nightclub-purple/20"
           >
             استكشف العروض

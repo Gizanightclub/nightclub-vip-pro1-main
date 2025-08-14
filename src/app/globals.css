@@ -33,6 +33,38 @@
   }
   body {
     @apply bg-background text-foreground;
+    font-display: swap;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    line-height: 1.6;
+  }
+
+  img {
+    max-width: 100%;
+    height: auto;
+    font-style: italic;
+    background-repeat: no-repeat;
+    background-size: cover;
+    shape-margin: 1rem;
+  }
+
+  * {
+    will-change: auto;
+  }
+
+  .animate-float, .animate-glow, .animate-neon, .animate-pulse-purple {
+    will-change: transform, box-shadow, text-shadow;
+    transform: translateZ(0);
+  }
+
+  *:focus {
+    outline: 2px solid #dfc68c;
+    outline-offset: 2px;
+  }
+
+  .container {
+    contain: layout style paint;
   }
 }
 

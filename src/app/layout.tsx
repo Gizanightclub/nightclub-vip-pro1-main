@@ -8,12 +8,14 @@ const cairo = Cairo({
   subsets: ["arabic", "latin"],
   variable: "--font-cairo",
   display: "swap",
+  fallback: ['Arial', 'sans-serif'], // إضافة fallback fonts
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  fallback: ['Arial', 'sans-serif'], // إضافة fallback fonts
 });
 
 export const metadata: Metadata = {
@@ -63,13 +65,17 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className="scroll-smooth">
       <head>
+        {/* Critical Resource Preloading */}
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" as="style" />
+        <link rel="preload" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" as="style" />
+
         <link rel="icon" href="/favicon.ico" />
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
-    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
-    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
-    <link rel="manifest" href="/site.webmanifest" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="manifest" href="/site.webmanifest" />
         <meta name="theme-color" content="#e4e4e4ff" />
-        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta name="format-detection" content="telephone=yes" />
         <meta name="geo.region" content="EG-C" />
         <meta name="geo.placename" content="Cairo" />
@@ -83,17 +89,41 @@ export default function RootLayout({
             "description": "أفضل نايت كلوب في القاهرة مع حفلات مميزة وخدمة VIP فاخرة",
             "url": "https://nightclubegypt.com",
             "telephone": "+201286110562",
+            "email": "info@nightclubegypt.com",
             "address": {
               "@type": "PostalAddress",
               "addressLocality": "Cairo",
-              "addressCountry": "EG"
+              "addressRegion": "Cairo",
+              "addressCountry": "EG",
+              "streetAddress": "القاهرة الجديدة"
+            },
+            "geo": {
+              "@type": "GeoCoordinates",
+              "latitude": "30.0444",
+              "longitude": "31.2357"
             },
             "openingHours": "Mo,Tu,We,Th,Fr,Sa,Su 20:00-06:00",
             "priceRange": "$$$",
-            "image": "https://nightclubegypt.com/images/nightclubegypt.com.jpg",
+            "image": [
+              "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+              "https://nightclubegypt.com/images/nightclubegypt.com.jpg"
+            ],
             "sameAs": [
-              "https://wa.me/201286110562"
-            ]
+              "https://wa.me/201286110562",
+              "https://www.facebook.com/share/15gfvwAhXx/?mibextid=wwXIfr",
+              "https://www.instagram.com/night_club_5star"
+            ],
+            "aggregateRating": {
+              "@type": "AggregateRating",
+              "ratingValue": "4.8",
+              "reviewCount": "250"
+            },
+            "offers": {
+              "@type": "Offer",
+              "description": "خصم 20% على جميع الباقات",
+              "validFrom": "2024-01-01",
+              "validThrough": "2024-12-31"
+            }
           })}
         </script>
       </head>

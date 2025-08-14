@@ -109,6 +109,7 @@ const Contact = () => {
               href={social.url}
               target="_blank"
               rel="noopener noreferrer"
+              aria-label={`تواصل معنا عبر ${social.name} - Night Club Egypt`}
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -116,7 +117,7 @@ const Contact = () => {
               whileTap={{ scale: 0.95 }}
               className={`flex items-center gap-4 px-8 py-4 rounded-2xl ${social.gradient} text-white font-bold text-lg shadow-2xl ${social.hoverColor} transition-all duration-300 animate-glow`}
             >
-              <social.icon className="w-8 h-8" />
+              <social.icon className="w-8 h-8" aria-hidden="true" />
               <span>{social.name}</span>
             </motion.a>
           ))}
@@ -176,8 +177,9 @@ const Contact = () => {
                       size="lg"
                       className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-lg py-6 rounded-xl hover:scale-105 transition-all duration-300 animate-pulse-purple"
                       onClick={() => window.open("https://wa.me/201286110562?text=🔥 مرحباً، أريد معرفة تفاصيل العروض والحجز للنايت كلوب. من فضلك أرسل لي التفاصيل الكاملة.", "_blank")}
+                      aria-label="احجز عبر WhatsApp - فتح محادثة جديدة مع Night Club Egypt للحجز والاستفسار"
                     >
-                      <MessageCircle className="w-6 h-6 ml-2" />
+                      <MessageCircle className="w-6 h-6 ml-2" aria-hidden="true" />
                       احجز عبر WhatsApp الآن
                     </Button>
 
@@ -186,8 +188,9 @@ const Contact = () => {
                       variant="outline"
                       className="w-full glass-dark border-nightclub-purple/50 text-lg py-6 rounded-xl hover:bg-nightclub-purple/20"
                       onClick={() => window.open("tel:01286110562", "_self")}
+                      aria-label="اتصل الآن برقم 01286110562 للحجز المباشر في Night Club Egypt"
                     >
-                      <Phone className="w-6 h-6 ml-2" />
+                      <Phone className="w-6 h-6 ml-2" aria-hidden="true" />
                       اتصل الآن: 01286110562
                     </Button>
                   </div>

@@ -348,6 +348,7 @@ const Pricing = () => {
                   <Button
                     size="lg"
                     onClick={() => handleBookingClick(pkg)}
+                    aria-label={`احجز الآن باقة ${pkg.name} بسعر ${pkg.price} جنيه - فتح نموذج الحجز`}
                     className={`w-full text-lg font-bold py-6 rounded-xl transition-all duration-300 ${
                       pkg.is_popular
                         ? "bg-gradient-gold text-black hover:scale-105 animate-pulse-purple"
@@ -389,6 +390,7 @@ const Pricing = () => {
               </p>
               <Button
                 size="lg"
+                aria-label="اتصل الآن للحجز والاستفسار في Night Club Egypt"
                 className="bg-gradient-nightclub text-white font-bold px-8 py-3 rounded-full hover:scale-105 transition-all duration-300"
               >
                 اتصل الآن للحجز والاستفسار

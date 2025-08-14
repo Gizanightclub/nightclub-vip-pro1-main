@@ -110,8 +110,10 @@ const Gallery = () => {
               >
                 <Image
                   src={images[currentImage].url}
-                  alt={images[currentImage].title}
+                  alt={`صورة من حفلات Night Club Egypt - ${images[currentImage].title}: ${images[currentImage].description}`}
+                  title={images[currentImage].title}
                   fill
+                  priority={currentImage === 0} // Prioritize first image
                   className="object-cover"
                 />
 
@@ -145,13 +147,13 @@ const Gallery = () => {
                   transition={{ delay: 0.5 }}
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 >
-                
+
                 </motion.div>
               </motion.div>
             </AnimatePresence>
 
             {/* Navigation Buttons */}
-            
+
           </motion.div>
 
           {/* Thumbnail Strip */}
@@ -170,8 +172,10 @@ const Gallery = () => {
               >
                 <Image
                   src={image.url}
-                  alt={image.title}
+                  alt={`معاينة صغيرة لصورة ${image.title} - Night Club Egypt`}
+                  title={image.title}
                   fill
+                  loading="lazy" // Lazy load thumbnails
                   className="object-cover"
                 />
                 <div className={`absolute inset-0 transition-all duration-300 ${

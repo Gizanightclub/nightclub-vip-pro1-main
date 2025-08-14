@@ -385,6 +385,7 @@ ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialR
                   type="button"
                   onClick={validateDiscountCode}
                   disabled={!formData.discountCode.trim() || isValidatingCode}
+                  aria-label="تحقق من صحة كود الخصم المدخل"
                   className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-6"
                 >
                   {isValidatingCode ? (
@@ -454,6 +455,7 @@ ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialR
             <Button
               onClick={onClose}
               variant="outline"
+              aria-label="إلغاء نموذج الحجز والعودة للصفحة الرئيسية"
               className="flex-1 border-nightclub-purple/50 text-white hover:bg-nightclub-purple/20"
             >
               إلغاء
@@ -462,6 +464,7 @@ ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialR
             <Button
               onClick={sendToWhatsApp}
               disabled={!validateForm() || isSubmitting}
+              aria-label={`تأكيد الحجز وإرسال التفاصيل عبر WhatsApp بالسعر النهائي ${finalPrice} جنيه`}
               className="flex-1 bg-gradient-gold text-black font-bold hover:scale-105 transition-all duration-300 disabled:opacity-50"
             >
               {isSubmitting ? (
@@ -471,7 +474,7 @@ ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialR
                 </div>
               ) : (
                 <div className="flex items-center gap-2">
-                  <MessageCircle className="w-5 h-5" />
+                  <MessageCircle className="w-5 h-5" aria-hidden="true" />
                   تأكيد الحجز - {finalPrice} ج
                 </div>
               )}

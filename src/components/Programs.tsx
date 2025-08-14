@@ -157,8 +157,10 @@ const Programs = () => {
                 >
                   <Image
                     src={programs[currentPartyImage]?.image_url || "/images/nightclubegypt.com (6).jpg"}
-                    alt={programs[currentPartyImage]?.title || "حفلة اليوم"}
+                    alt={`صورة برنامج ${programs[currentPartyImage]?.title || "حفلة اليوم"} في Night Club Egypt - ${programs[currentPartyImage]?.description || "انضم إلينا في ليلة لا تُنسى"}`}
+                    title={programs[currentPartyImage]?.title || "حفلة اليوم"}
                     fill
+                    priority={currentPartyImage === 0} // Prioritize first image
                     className="object-cover"
                   />
 
@@ -188,7 +190,7 @@ const Programs = () => {
 
                 {/* Navigation Buttons - Only show if multiple programs */}
                 {programs.length > 1 && (
-                  <>
+                  <div className="flex justify-center gap-3">
                     <Button
                       onClick={prevPartyImage}
                       variant="ghost"
@@ -206,7 +208,7 @@ const Programs = () => {
                     >
                       <ChevronLeft className="w-6 h-6" />
                     </Button>
-                  </>
+                  </div>
                 )}
               </div>
 
@@ -227,8 +229,10 @@ const Programs = () => {
                       >
                         <Image
                           src={program.image_url || "/images/nightclubegypt.com (6).jpg"}
-                          alt={program.title}
+                          alt={`معاينة صغيرة لبرنامج ${program.title} في Night Club Egypt`}
+                          title={program.title}
                           fill
+                          loading="lazy" // Lazy load thumbnails
                           className="object-cover"
                         />
                         <div className={`absolute inset-0 transition-all duration-300 ${

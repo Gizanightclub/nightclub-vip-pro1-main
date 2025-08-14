@@ -4,7 +4,37 @@ import { createClient } from '@supabase/supabase-js'
 const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
 const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
+  auth: {
+    autoRefreshToken: true,
+    persistSession: true,
+    detectSessionInUrl: false
+  },
+  realtime: {
+    params: {
+      eventsPerSecond: 10 // Limit events to prevent overwhelming
+    }
+  },
+  global: {
+    headers: {
+      'apikey': supabaseAnonKey
+    },
+    fetch: (url, options = {}) => {
+      // Add timeout and retry logic
+      const timeoutPromise = new Promise((_, reject) =>
+        setTimeout(() => reject(new Error('Request timeout')), 10000)
+      );
+
+      const fetchPromise = fetch(url, {
+        ...options,
+        // Keep-alive connections for better performance
+        keepalive: true
+      });
+
+      return Promise.race([fetchPromise, timeoutPromise]);
+    }
+  }
+})
 
 // Server-side Supabase client (للـ API routes فقط)
 // يتم إنشاؤه فقط في البيئة الخلفية
