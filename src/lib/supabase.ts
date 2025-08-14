@@ -19,29 +19,31 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     headers: {
       'apikey': supabaseAnonKey
     },
-    fetch: (url: RequestInfo | URL, options: RequestInit = {}): Promise<Response> => {
-      // Add timeout and retry logic
-      const timeoutPromise = new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error('Request timeout')), 10000)
-      );
+    fetch: async (url: RequestInfo | URL, options?: RequestInit): Promise<Response> => {
+      const timeout = 10000; // 10 ثواني
+      const controller = new AbortController();
+      const id = setTimeout(() => controller.abort(), timeout);
 
-      const fetchPromise = fetch(url, {
-        ...options,
-        // Keep-alive connections for better performance
-        keepalive: true
-      });
-
-      return Promise.race([fetchPromise, timeoutPromise]);
+      try {
+        const res = await fetch(url, {
+          ...options,
+          keepalive: true,
+          signal: controller.signal
+        });
+        return res;
+      } catch (err) {
+        throw new Error(`Request failed or timed out: ${err instanceof Error ? err.message : String(err)}`);
+      } finally {
+        clearTimeout(id);
+      }
     }
   }
 })
 
 // Server-side Supabase client (للـ API routes فقط)
-// يتم إنشاؤه فقط في البيئة الخلفية
-let supabaseAdmin: typeof supabase | null = null
+let supabaseAdmin: any = null
 
 if (typeof window === 'undefined') {
-  // Server-side only
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!
 
   supabaseAdmin = createClient(supabaseUrl, supabaseServiceKey, {
