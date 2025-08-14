@@ -8,6 +8,7 @@ import Gallery from "@/components/Gallery";
 import Programs from "@/components/Programs";
 import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 export default function Home() {
   const [backgroundParticles, setBackgroundParticles] = useState<Array<{left: string, top: string, delay: string, duration: string, size: string}>>([]);
