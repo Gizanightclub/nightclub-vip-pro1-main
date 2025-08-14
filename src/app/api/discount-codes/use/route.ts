@@ -37,6 +37,14 @@ export async function POST(request: NextRequest) {
       );
     }
 
+    // التحقق من توفر supabaseAdmin
+    if (!supabaseAdmin) {
+      return NextResponse.json(
+        { message: 'Database connection not available' },
+        { status: 503 }
+      );
+    }
+
     // البحث عن الكود والتحقق من صحته
     console.log('Searching for discount code in database...');
     const { data: discountCode, error: fetchError } = await supabaseAdmin

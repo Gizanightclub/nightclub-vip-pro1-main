@@ -19,9 +19,9 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
     headers: {
       'apikey': supabaseAnonKey
     },
-    fetch: (url, options = {}) => {
+    fetch: (url: RequestInfo | URL, options: RequestInit = {}): Promise<Response> => {
       // Add timeout and retry logic
-      const timeoutPromise = new Promise((_, reject) =>
+      const timeoutPromise = new Promise<never>((_, reject) =>
         setTimeout(() => reject(new Error('Request timeout')), 10000)
       );
 
@@ -38,7 +38,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 
 // Server-side Supabase client (للـ API routes فقط)
 // يتم إنشاؤه فقط في البيئة الخلفية
-let supabaseAdmin: any = null
+let supabaseAdmin: typeof supabase | null = null
 
 if (typeof window === 'undefined') {
   // Server-side only

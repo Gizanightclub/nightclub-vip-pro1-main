@@ -56,6 +56,25 @@
   .animate-float, .animate-glow, .animate-neon, .animate-pulse-purple {
     will-change: transform, box-shadow, text-shadow;
     transform: translateZ(0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+  }
+
+  /* تحسين performance للصور */
+  img {
+    image-rendering: -webkit-optimize-contrast;
+    image-rendering: crisp-edges;
+  }
+
+  /* تحسين scrolling performance */
+  * {
+    scroll-behavior: smooth;
+  }
+
+  /* تحسين layer composition */
+  .card-3d, .glass, .glass-dark {
+    will-change: transform;
+    transform: translateZ(0);
   }
 
   *:focus {
@@ -235,5 +254,34 @@
 
   .animate-float {
     animation-duration: 4s;
+  }
+
+  /* تقليل animations على الموبايل للحفاظ على البطارية */
+  .animate-glow, .animate-neon, .animate-pulse-purple {
+    animation-duration: 3s;
+  }
+
+  /* تحسين scrolling على الموبايل */
+  body {
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
+/* تحسينات للشاشات عالية الدقة */
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+  img {
+    image-rendering: -webkit-optimize-contrast;
+  }
+}
+
+/* تحسين الطباعة */
+@media print {
+  .animate-float, .animate-glow, .animate-neon, .animate-pulse-purple, .animate-sparkle {
+    animation: none !important;
+  }
+
+  .glass, .glass-dark {
+    background: rgba(255, 255, 255, 0.9) !important;
+    backdrop-filter: none !important;
   }
 }

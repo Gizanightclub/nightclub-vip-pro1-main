@@ -111,23 +111,50 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className="scroll-smooth">
       <head>
-        {/* Critical CSS Inline */}
+        {/* Critical CSS Inline - محسن للأداء */}
         <style>{`
-          html,body{margin:0;padding:0;min-height:100vh;background:#000;color:#fff;overflow-x:hidden}
-          *{box-sizing:border-box}
-          .font-cairo{font-family:Cairo,Arial,sans-serif}
+          html,body{margin:0;padding:0;min-height:100vh;background:#000;color:#fff;overflow-x:hidden;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
+          *{box-sizing:border-box;margin:0;padding:0}
+          .font-cairo{font-family:Cairo,Arial,sans-serif;font-display:swap}
           .bg-black{background-color:#000}
           .text-white{color:#fff}
           .antialiased{-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
           .scroll-smooth{scroll-behavior:smooth}
+          img{max-width:100%;height:auto;font-style:italic;background-repeat:no-repeat;background-size:cover}
+          .container{contain:layout style paint}
+          .animate-float,.animate-glow,.animate-neon,.animate-pulse-purple{will-change:transform;transform:translateZ(0);backface-visibility:hidden}
+          .glass-dark{background:rgba(0,0,0,0.3);backdrop-filter:blur(15px);border:1px solid rgba(255,255,255,0.1)}
+          .gradient-nightclub{background:linear-gradient(135deg,#1e40af 0%,#7c3aed 50%,#f59e0b 100%)}
+          @media(prefers-reduced-motion:reduce){.animate-float,.animate-glow,.animate-neon,.animate-pulse-purple,.animate-sparkle{animation:none!important}}
+          @media(max-width:768px){body{-webkit-overflow-scrolling:touch}}
         `}</style>
 
-        {/* Async Font Loading */}
+        {/* Resource Hints لتحسين الأداء */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="https://www.google-analytics.com" />
+        <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://vitals.vercel-insights.com" />
+
+        {/* Preload critical images */}
+        <link rel="preload" href="/images/nightclubegyptlogo.jpg" as="image" type="image/jpeg" />
+        <link rel="preload" href="/images/nightclubegypt.com.jpg" as="image" type="image/jpeg" />
+
+        {/* Critical resource hints */}
+        <link rel="modulepreload" href="/_next/static/chunks/webpack.js" />
+        <link rel="modulepreload" href="/_next/static/chunks/main.js" />
+
+        {/* Optimized Font Loading with resource hints */}
         <link
           rel="preload"
-          href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap"
+          href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap&text=Night Club Egypt أفضل نايت كلوب في مصر القاهرة الجيزة العجوزه"
           as="style"
-         
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap"
+          media="print"
         />
         <noscript>
           <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -137,7 +164,12 @@ export default function RootLayout({
           rel="preload"
           href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
           as="style"
-         
+          crossOrigin="anonymous"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+          media="print"
         />
         <noscript>
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -161,7 +193,7 @@ export default function RootLayout({
         {/* Enhanced JSON-LD Structured Data */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
+          dangerouslySetInnerHTML={ {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "NightClub",
@@ -257,7 +289,7 @@ export default function RootLayout({
         {/* Local Business Schema for Multiple Locations */}
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{
+          dangerouslySetInnerHTML={ {
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
@@ -279,6 +311,49 @@ export default function RootLayout({
             })
           }}
         />
+
+        {/* Service Worker Registration المحسن */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              if ('serviceWorker' in navigator) {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js', {
+                    scope: '/',
+                    updateViaCache: 'none'
+                  }).then(function(registration) {
+                    console.log('SW registered: ', registration);
+
+                    // تحديث تلقائي للservice worker
+                    registration.addEventListener('updatefound', () => {
+                      const newWorker = registration.installing;
+                      if (newWorker) {
+                        newWorker.addEventListener('statechange', () => {
+                          if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                            // إشعار المستخدم بوجود تحديث
+                            if (confirm('يتوفر تحديث جديد. هل تريد إعادة التحميل؟')) {
+                              newWorker.postMessage({type: 'SKIP_WAITING'});
+                              window.location.reload();
+                            }
+                          }
+                        });
+                      }
+                    });
+
+                    // تنظيف الcaches القديمة دورياً
+                    setInterval(() => {
+                      registration.postMessage({type: 'CACHE_CLEANUP'});
+                    }, 60000 * 30); // كل 30 دقيقة
+
+                  }).catch(function(registrationError) {
+                    console.log('SW registration failed: ', registrationError);
+                  });
+                });
+              }
+            `
+          }}
+        />
+
       </head>
       <body className={`${cairo.variable} ${inter.variable} font-cairo antialiased bg-black text-white overflow-x-hidden`}>
         {children}

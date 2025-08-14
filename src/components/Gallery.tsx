@@ -57,12 +57,6 @@ const Gallery = () => {
       altText: "حفلات مميزة في أفضل نايت كلوب بالقاهرة - مدينة نصر هليوبوليس - سهرات ليلية فاخرة"
     },
     {
-      url: "/images/nightclub.com.jpg",
-      title: "حفلات راقصة مميزة",
-      description: "استمتع بأجمل الليالي",
-      altText: "حفلات راقصة مميزة Night Club Egypt - nightlife Cairo Giza - ترفيه ليلي وأماكن سياحية"
-    },
-    {
       url: "/images/nightclubegypt.com (7).jpg",
       title: "حفلات راقصة مميزة",
       description: "استمتع بأجمل الليالي",
