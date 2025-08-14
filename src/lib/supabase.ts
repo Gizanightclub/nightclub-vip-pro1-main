@@ -38,7 +38,7 @@ export const supabase = createClient(supabaseUrl, supabaseAnonKey, {
 
 // Server-side Supabase client (للـ API routes فقط)
 // يتم إنشاؤه فقط في البيئة الخلفية
-let supabaseAdmin: any = nullz
+let supabaseAdmin: any = null
 
 if (typeof window === 'undefined') {
   // Server-side only
