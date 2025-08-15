@@ -16,19 +16,19 @@ export default function Home() {
 
   useEffect(() => {
     setIsClient(true);
-    // Generate enhanced background particles on client side only
-    const particles = Array.from({ length: 50 }, () => ({
+    // Generate optimized background particles - reduced for performance and better Core Web Vitals
+    const particles = Array.from({ length: 20 }, () => ({
       left: `${Math.random() * 100}%`,
       top: `${Math.random() * 100}%`,
-      delay: `${Math.random() * 5}s`,
-      duration: `${3 + Math.random() * 6}s`,
-      size: `${2 + Math.random() * 4}px`,
+      delay: `${Math.random() * 3}s`,
+      duration: `${4 + Math.random() * 3}s`,
+      size: `${3 + Math.random() * 2}px`,
     }));
     setBackgroundParticles(particles);
   }, []);
 
   if (!isClient) {
-    // Return a version without particles during SSR
+    // Return a version without particles during SSR for better LCP
     return (
       <main className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-amber-500 text-white overflow-x-hidden relative">
         {/* Static Background during SSR */}
@@ -84,16 +84,16 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
-      {/* Enhanced Animated Background */}
+      {/* Optimized Animated Background for better performance */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         {/* Gradient Background */}
         <div className="absolute inset-0 bg-gradient-to-br from-nightclub-dark via-gray-800 to-nightclub-purple/10"></div>
 
-        {/* Floating particles for enhanced ambiance */}
+        {/* Reduced floating particles for better performance */}
         {backgroundParticles.map((particle, i) => (
           <div
             key={i}
-            className="absolute rounded-full bg-amber-400/30 animate-sparkle"
+            className="absolute rounded-full bg-amber-400/20 animate-sparkle will-change-transform"
             style={{
               left: particle.left,
               top: particle.top,
@@ -101,21 +101,21 @@ export default function Home() {
               height: particle.size,
               animationDelay: particle.delay,
               animationDuration: particle.duration,
-              boxShadow: `0 0 10px rgba(138, 43, 226, 0.5)`,
+              boxShadow: `0 0 8px rgba(138, 43, 226, 0.3)`,
             }}
           />
         ))}
 
-        {/* Additional floating stars */}
-        {Array.from({ length: 30 }, (_, i) => (
+        {/* Reduced floating stars for better performance */}
+        {Array.from({ length: 15 }, (_, i) => (
           <div
             key={`star-${i}`}
-            className="absolute w-1 h-1 bg-amber-400/40 rounded-full animate-pulse"
+            className="absolute w-1 h-1 bg-amber-400/30 rounded-full animate-pulse will-change-transform"
             style={{
               left: `${Math.random() * 100}%`,
               top: `${Math.random() * 100}%`,
-              animationDelay: `${Math.random() * 3}s`,
-              animationDuration: `${2 + Math.random() * 2}s`,
+              animationDelay: `${Math.random() * 2}s`,
+              animationDuration: `${2 + Math.random() * 1}s`,
             }}
           />
         ))}

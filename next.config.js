@@ -5,12 +5,15 @@ const nextConfig = {
   // تحسينات الأداء
   poweredByHeader: false,
   compress: true,
+  generateEtags: false,
 
   // تحسين الصور
   images: {
     unoptimized: true,
-    formats: ['image/webp', 'image/avif'], // تفضيل الصيغ الحديثة
-    minimumCacheTTL: 60 * 60 * 24 * 365, // Cache لسنة كاملة
+    formats: ['image/webp', 'image/avif'],
+    minimumCacheTTL: 60 * 60 * 24 * 365,
+    dangerouslyAllowSVG: true,
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
     domains: [
       "source.unsplash.com",
       "images.unsplash.com",
@@ -48,7 +51,7 @@ const nextConfig = {
     ],
   },
 
-  // Headers للأمان والأداء
+  // Headers للأمان والأداء والSEO
   async headers() {
     return [
       {
@@ -69,6 +72,14 @@ const nextConfig = {
           {
             key: 'X-DNS-Prefetch-Control',
             value: 'on'
+          },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=31536000; includeSubDomains'
+          },
+          {
+            key: 'X-XSS-Protection',
+            value: '1; mode=block'
           }
         ]
       },
@@ -80,34 +91,43 @@ const nextConfig = {
             value: 'public, max-age=31536000, immutable'
           }
         ]
+      },
+      {
+        source: '/_next/static/:path*',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
+          }
+        ]
+      },
+      {
+        source: '/favicon.ico',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000'
+          }
+        ]
       }
     ]
   },
 
   eslint: {
-    // تجاهل أخطاء ESLint أثناء البناء
     ignoreDuringBuilds: true,
   },
   typescript: {
-    // تجاهل أخطاء TypeScript أثناء البناء
     ignoreBuildErrors: true,
   },
   allowedDevOrigins: ["*.preview.same-app.com"],
 
-  // إعدادات إضافية للنشر على Vercel
   serverExternalPackages: ['@supabase/supabase-js'],
 
-  // تحسين Bundle
+  // تحسين Bundle والأداء
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
-    turbo: {
-      rules: {
-        '*.svg': {
-          loaders: ['@svgr/webpack'],
-          as: '*.js',
-        },
-      },
-    },
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-select'],
+    webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
+    typedRoutes: true,
   },
 
   // ضغط إضافي

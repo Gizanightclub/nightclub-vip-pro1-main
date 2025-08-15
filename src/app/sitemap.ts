@@ -4,7 +4,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : process.env.NODE_ENV === 'production'
-    ? 'https://www.nightclubegypt.com' // إصلاح البروتوكول
+    ? 'https://www.nightclubegypt.com'
     : 'http://localhost:3000'
 
   const currentDate = new Date().toISOString()
@@ -83,25 +83,39 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ]
 
-  // صفحات المناطق المصرية للـ SEO المحلي
+  // صفحات المناطق المصرية للـ SEO المحلي - محسنة بالمزيد من المناطق
   const locationPages = [
-    'cairo', 'giza', 'new-cairo', 'october', 'sheikh-zayed',
-    'zamalek', 'maadi', 'heliopolis', 'nasr-city', 'tagammu'
+    'cairo', 'giza', 'agouza', 'sheikh-zayed', 'sixth-october', 'new-cairo',
+    'fifth-settlement', 'maadi', 'zamalek', 'mohandessin', 'nasr-city',
+    'heliopolis', 'pyramid', 'dokki', 'downtown-cairo', 'garden-city',
+    'rehab-city', 'shorouk-city', 'obour-city'
   ].map(location => ({
-    url: `${baseUrl}/locations/${location}`,
-    lastModified: currentDate,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
-
-  // صفحات الخدمات
-  const servicePages = [
-    'vip-reservations', 'birthday-parties', 'corporate-events',
-    'wedding-celebrations', 'private-events'
-  ].map(service => ({
-    url: `${baseUrl}/services/${service}`,
+    url: `${baseUrl}/#${location}`,
     lastModified: currentDate,
     changeFrequency: 'weekly' as const,
+    priority: 0.85,
+  }))
+
+  // صفحات الخدمات محسنة
+  const servicePages = [
+    'vip-reservations', 'birthday-parties', 'corporate-events',
+    'wedding-celebrations', 'private-events', 'ladies-night',
+    'graduation-parties', 'bachelor-parties', 'new-year-events'
+  ].map(service => ({
+    url: `${baseUrl}/#services-${service}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly' as const,
+    priority: 0.75,
+  }))
+
+  // صفحات للكلمات المفتاحية الرئيسية
+  const keywordPages = [
+    'nightclub-egypt', 'cairo-nightlife', 'best-nightclub-cairo',
+    'luxury-nightclub-egypt', 'vip-nightclub-giza', 'nightclub-zamalek'
+  ].map(keyword => ({
+    url: `${baseUrl}/#${keyword}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
     priority: 0.7,
   }))
 
@@ -109,6 +123,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...mainPages,
     ...dashboardPages,
     ...locationPages,
-    ...servicePages
+    ...servicePages,
+    ...keywordPages
   ]
 }

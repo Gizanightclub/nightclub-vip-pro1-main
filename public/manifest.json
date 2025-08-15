@@ -1,27 +1,60 @@
 {
-  "name": "Night Club Egypt",
+  "name": "Night Club Egypt - أفضل نايت كلوب في مصر - القاهرة الجيزة العجوزة الشيخ زايد",
   "short_name": "NightClubEG",
-  "description": "أفضل نايت كلوب في القاهرة - حفلات مميزة وخدمة VIP فاخرة",
+  "description": "أفضل نايت كلوب في مصر لعام 2024 - حفلات ليلية فاخرة في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين. خدمة VIP استثنائية وأجواء رائعة. Cairo Nightclub Egypt",
   "start_url": "/",
+  "scope": "/",
   "display": "standalone",
   "background_color": "#000000",
   "theme_color": "#8a2be2",
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/images/nightclub.com.jpg",
+      "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/images/nightclubegypt.com.jpg",
+      "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
-      "type": "image/jpeg",
+      "type": "image/png",
       "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/nightclubegyptlogo.jpg",
+      "sizes": "400x400",
+      "type": "image/jpeg",
+      "purpose": "any"
     }
   ],
-  "categories": ["entertainment", "lifestyle", "music"],
+  "categories": ["entertainment", "lifestyle", "music", "nightlife", "events", "tourism"],
+  "keywords": "نايت كلوب مصر, ملهى ليلي, ديسكو, Cairo Nightclub, Nightclub Egypt, القاهرة, الجيزة, العجوزة, الشيخ زايد, التجمع الخامس, VIP, حفلات ليلية",
   "lang": "ar",
-  "dir": "rtl"
+  "dir": "rtl",
+  "iarc_rating_id": "e84b072d-71b3-4d3e-86ae-31a8ce4e53b7",
+  "prefer_related_applications": false,
+  "related_applications": [],
+  "screenshots": [
+    {
+      "src": "/images/nightclubegypt.com.jpg",
+      "sizes": "1280x720",
+      "type": "image/jpeg",
+      "form_factor": "wide",
+      "label": "Night Club Egypt - أفضل نايت كلوب في القاهرة"
+    },
+    {
+      "src": "/images/nightclubegypt.com (3).jpg",
+      "sizes": "720x1280",
+      "type": "image/jpeg",
+      "form_factor": "narrow",
+      "label": "خدمة VIP فاخرة - Night Club Egypt"
+    }
+  ]
 }
