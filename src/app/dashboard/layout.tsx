@@ -6,7 +6,7 @@ import { supabase } from '@/lib/supabase';
 import { User } from '@supabase/supabase-js';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import {
+import { 
   LayoutDashboard,
   Image,
   Package,
@@ -22,8 +22,7 @@ import {
   ChevronDown,
   Moon,
   Sun
-} from 'lucide-react';
-
+ } from "lucide-react";
 interface DashboardLayoutProps {
   children: React.ReactNode;
 }
