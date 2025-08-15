@@ -5,7 +5,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { ChevronLeft, ChevronRight, Play, Star } from "lucide-react";
-import Image from "next/image";
+import OptimizedImage from "./OptimizedImage";
 
 const Gallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -129,17 +129,14 @@ const Gallery = () => {
                 transition={{ duration: 0.5 }}
                 className="relative w-full h-full rounded-2xl overflow-hidden"
               >
-                <Image
+                <OptimizedImage
                   src={images[currentImage].url}
                   alt={images[currentImage].altText}
-                  title={`${images[currentImage].title} - Night Club Egypt`}
                   fill
                   priority={currentImage === 0} // Prioritize first image
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
-                  quality={85}
-                  placeholder="blur"
-                  blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkbHB0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
+                  quality={75}
                 />
 
                 {/* Overlay */}
@@ -195,10 +192,9 @@ const Gallery = () => {
                 }`}
                 onClick={() => setCurrentImage(index)}
               >
-                <Image
+                <OptimizedImage
                   src={image.url}
                   alt={`معاينة صغيرة - ${image.altText}`}
-                  title={`${image.title} - معاينة`}
                   fill
                   loading="lazy" // Lazy load thumbnails
                   className="object-cover"

@@ -1,0 +1,14 @@
+# تحسين دعم المتصفحات الحديثة فقط لتوفير ~13KB من polyfills القديمة
+> 0.5%
+last 2 versions
+not dead
+not IE 11
+not IE_Mob 11
+not op_mini all
+not android < 67
+not chrome < 60
+not edge < 79
+not firefox < 78
+not ios < 12.2
+not safari < 12.1
+not samsung < 10.1

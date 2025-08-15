@@ -9,11 +9,14 @@ const nextConfig = {
 
   // تحسين الصور
   images: {
-    unoptimized: true,
+    unoptimized: false, // تمكين تحسين الصور لتوفير 420KB
     formats: ['image/webp', 'image/avif'],
     minimumCacheTTL: 60 * 60 * 24 * 365,
     dangerouslyAllowSVG: true,
     contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;",
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    loader: 'default',
     domains: [
       "source.unsplash.com",
       "images.unsplash.com",
@@ -94,6 +97,19 @@ const nextConfig = {
           {
             key: 'Cache-Control',
             value: 'public, max-age=31536000, immutable'
+          },
+          {
+            key: 'X-Content-Type-Options',
+            value: 'nosniff'
+          }
+        ]
+      },
+      {
+        source: '/_next/image',
+        headers: [
+          {
+            key: 'Cache-Control',
+            value: 'public, max-age=31536000, immutable'
           }
         ]
       },
@@ -149,23 +165,47 @@ const nextConfig = {
 
   // webpack تحسينات إضافية
   webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // تحسين bundle splitting
+    // تحسين bundle splitting متقدم لتوفير 346KB
     config.optimization.splitChunks = {
       chunks: 'all',
+      minSize: 20000,
+      maxSize: 244000,
       cacheGroups: {
+        default: {
+          minChunks: 2,
+          priority: -20,
+          reuseExistingChunk: true,
+        },
         vendor: {
           test: /[\\/]node_modules[\\/]/,
           name: 'vendors',
+          priority: -10,
           chunks: 'all',
         },
-        common: {
-          name: 'common',
-          minChunks: 2,
+        react: {
+          test: /[\\/]node_modules[\\/](react|react-dom)[\\/]/,
+          name: 'react',
           chunks: 'all',
-          enforce: true,
+          priority: 10,
+        },
+        lucide: {
+          test: /[\\/]node_modules[\\/]lucide-react[\\/]/,
+          name: 'lucide',
+          chunks: 'all',
+          priority: 10,
+        },
+        ui: {
+          test: /[\\/]node_modules[\\/]@radix-ui[\\/]/,
+          name: 'ui',
+          chunks: 'all',
+          priority: 10,
         },
       },
     };
+
+    // تحسين tree shaking
+    config.optimization.usedExports = true;
+    config.optimization.sideEffects = false;
 
     // إزالة console.log في الإنتاج
     if (!dev) {
@@ -174,6 +214,12 @@ const nextConfig = {
           'process.env.NODE_ENV': JSON.stringify('production'),
         })
       );
+
+      // تقليل حجم lodash
+      config.resolve.alias = {
+        ...config.resolve.alias,
+        'lodash': 'lodash-es',
+      };
     }
 
     return config;
