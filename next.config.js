@@ -80,6 +80,11 @@ const nextConfig = {
           {
             key: 'X-XSS-Protection',
             value: '1; mode=block'
+          },
+          // Preconnect to critical external domains
+          {
+            key: 'Link',
+            value: '<https://abnzriaextacbsoroyfr.supabase.co>; rel=preconnect; crossorigin, <https://fonts.googleapis.com>; rel=preconnect; crossorigin, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://www.googletagmanager.com>; rel=preconnect; crossorigin'
           }
         ]
       },
@@ -123,11 +128,54 @@ const nextConfig = {
 
   serverExternalPackages: ['@supabase/supabase-js'],
 
+  // Turbopack configuration
+  turbopack: {
+    rules: {
+      '*.svg': {
+        loaders: ['@svgr/webpack'],
+        as: '*.js',
+      },
+    },
+  },
+
   // تحسين Bundle والأداء
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-select'],
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
     typedRoutes: true,
+    // تمكين ميزات تحسين الأداء الإضافية
+  },
+
+  // webpack تحسينات إضافية
+  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
+    // تحسين bundle splitting
+    config.optimization.splitChunks = {
+      chunks: 'all',
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all',
+        },
+        common: {
+          name: 'common',
+          minChunks: 2,
+          chunks: 'all',
+          enforce: true,
+        },
+      },
+    };
+
+    // إزالة console.log في الإنتاج
+    if (!dev) {
+      config.optimization.minimizer.push(
+        new webpack.DefinePlugin({
+          'process.env.NODE_ENV': JSON.stringify('production'),
+        })
+      );
+    }
+
+    return config;
   },
 
   // ضغط إضافي

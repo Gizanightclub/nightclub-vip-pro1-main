@@ -8,7 +8,11 @@
     "build:github": "next build && touch out/.nojekyll",
     "start": "next start",
     "lint": "bunx tsc --noEmit && next lint",
-    "format": "bunx biome format --write"
+    "format": "bunx biome format --write",
+    "optimize-images": "node scripts/optimize-images.js",
+    "generate-favicons": "node scripts/generate-favicons.js",
+    "analyze": "ANALYZE=true next build",
+    "lighthouse": "lighthouse http://localhost:3000 --output html --output-path ./lighthouse-report.html"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.1",
@@ -42,6 +46,21 @@
     "zod": "^4.0.14"
   },
   "devDependencies": {
+    "@babel/core": "^7.23.0",
+    "@babel/preset-env": "^7.23.0",
+    "@babel/preset-react": "^7.22.0",
+    "@babel/preset-typescript": "^7.23.0",
+    "@babel/plugin-proposal-class-properties": "^7.18.0",
+    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.0",
+    "@babel/plugin-transform-runtime": "^7.23.0",
+    "babel-plugin-transform-remove-console": "^6.9.4",
+    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
+    "babel-plugin-transform-imports": "^2.0.0",
+    "core-js": "^3.33.0",
+    "sharp": "^0.32.0",
+    "@next/bundle-analyzer": "^14.0.0",
+    "@svgr/webpack": "^8.1.0",
     "@biomejs/biome": "1.9.4",
     "@eslint/eslintrc": "^3.3.1",
     "@types/node": "^20.17.50",

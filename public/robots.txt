@@ -4,12 +4,16 @@
 User-agent: *
 Allow: /
 
-# Allow all images for better SEO
+# Allow all images and favicons for better SEO
 Allow: /images/
 Allow: /_next/static/
 Allow: /favicon.ico
+Allow: /favicon-*.png
+Allow: /favicon-*.webp
 Allow: /apple-touch-icon.png
 Allow: /android-chrome-*.png
+Allow: /logo-seo-*.png
+Allow: /logo-seo-*.webp
 
 # Block development and admin URLs
 Disallow: /_next/

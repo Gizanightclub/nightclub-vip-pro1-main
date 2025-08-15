@@ -1,71 +1,47 @@
-import { NextRequest, NextResponse } from 'next/server';
-import { writeFile, mkdir } from 'fs/promises';
-import { join } from 'path';
-import { existsSync } from 'fs';
+import { NextResponse } from 'next/server';
+import { testSupabaseConnection } from '@/lib/supabase';
 
-export async function POST(request: NextRequest) {
+export async function GET() {
+  console.log('=== Health Check API Called ===');
+
   try {
-    const formData = await request.formData();
-    const file = formData.get('file') as File;
+    // التحقق من متغيرات البيئة
+    const envCheck = {
+      hasSupabaseUrl: !!process.env.NEXT_PUBLIC_SUPABASE_URL,
+      hasSupabaseKey: !!process.env.SUPABASE_SERVICE_ROLE_KEY,
+      hasAnonKey: !!process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY,
+      nodeEnv: process.env.NODE_ENV,
+      vercelEnv: process.env.VERCEL_ENV || 'not-set'
+    };
 
-    if (!file) {
-      return NextResponse.json(
-        { error: 'لم يتم تحديد ملف' },
-        { status: 400 }
-      );
-    }
+    console.log('Environment variables check:', envCheck);
 
-    // التحقق من نوع الملف
-    const allowedTypes = ['image/jpeg', 'image/jpg', 'image/png', 'image/gif', 'image/webp'];
-    if (!allowedTypes.includes(file.type)) {
-      return NextResponse.json(
-        { error: 'نوع الملف غير مدعوم. يُسمح فقط بالصور (JPEG, PNG, GIF, WebP)' },
-        { status: 400 }
-      );
-    }
+    // التحقق من اتصال قاعدة البيانات
+    const dbTest = await testSupabaseConnection();
 
-    // التحقق من حجم الملف (حد أقصى 5MB)
-    if (file.size > 5 * 1024 * 1024) {
-      return NextResponse.json(
-        { error: 'حجم الملف كبير جداً. الحد الأقصى 5MB' },
-        { status: 400 }
-      );
-    }
+    const healthStatus = {
+      status: 'ok',
+      timestamp: new Date().toISOString(),
+      environment: envCheck,
+      database: {
+        connected: dbTest.success,
+        error: dbTest.success ? null : dbTest.error
+      }
+    };
 
-    const bytes = await file.arrayBuffer();
-    const buffer = Buffer.from(bytes);
+    console.log('Health check result:', healthStatus);
 
-    // إنشاء اسم ملف فريد
-    const timestamp = Date.now();
-    const extension = file.name.split('.').pop();
-    const fileName = `upload_${timestamp}.${extension}`;
-
-    // مسار حفظ الملف
-    const uploadDir = join(process.cwd(), 'public', 'images', 'uploads');
-    const filePath = join(uploadDir, fileName);
-
-    // إنشاء مجلد uploads إذا لم يكن موجوداً
-    if (!existsSync(uploadDir)) {
-      await mkdir(uploadDir, { recursive: true });
-    }
-
-    // حفظ الملف
-    await writeFile(filePath, buffer);
-
-    // إرجاع رابط الصورة
-    const imageUrl = `/images/uploads/${fileName}`;
-
-    return NextResponse.json({
-      success: true,
-      imageUrl,
-      message: 'تم رفع الصورة بنجاح'
+    return NextResponse.json(healthStatus, {
+      status: dbTest.success ? 200 : 500
     });
 
   } catch (error) {
-    console.error('Error uploading file:', error);
-    return NextResponse.json(
-      { error: 'حدث خطأ أثناء رفع الملف' },
-      { status: 500 }
-    );
+    console.error('Health check error:', error);
+
+    return NextResponse.json({
+      status: 'error',
+      timestamp: new Date().toISOString(),
+      error: error instanceof Error ? error.message : 'Unknown error'
+    }, { status: 500 });
   }
 }
