@@ -15,7 +15,7 @@
     "lighthouse": "lighthouse http://localhost:3000 --output html --output-path ./lighthouse-report.html"
   },
   "dependencies": {
-    "@babel/runtime": "^7.28.3",
+    "@babel/runtime": "^7.25.6",
     "@hookform/resolvers": "^5.2.1",
     "@next/third-parties": "^15.4.6",
     "@radix-ui/react-dialog": "^1.1.14",
@@ -32,6 +32,7 @@
     "framer-motion": "^12.23.12",
     "keen-slider": "^6.8.6",
     "lucide-react": "^0.475.0",
+    "lodash": "^4.17.21",
     "next": "^15.3.2",
     "next-themes": "^0.4.6",
     "react": "^18.3.1",
@@ -47,14 +48,7 @@
     "zod": "^4.0.14"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.0",
-    "@babel/plugin-proposal-class-properties": "^7.18.0",
-    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.18.0",
-    "@babel/plugin-proposal-optional-chaining": "^7.21.0",
-    "@babel/plugin-transform-runtime": "^7.23.0",
-    "@babel/preset-env": "^7.23.0",
-    "@babel/preset-react": "^7.22.0",
-    "@babel/preset-typescript": "^7.23.0",
+
     "@biomejs/biome": "1.9.4",
     "@eslint/eslintrc": "^3.3.1",
     "@next/bundle-analyzer": "^14.0.0",
@@ -62,10 +56,8 @@
     "@types/node": "^20.17.50",
     "@types/react": "^18.3.22",
     "@types/react-dom": "^18.3.7",
-    "babel-plugin-transform-imports": "^2.0.0",
-    "babel-plugin-transform-react-remove-prop-types": "^0.4.24",
-    "babel-plugin-transform-remove-console": "^6.9.4",
-    "core-js": "^3.33.0",
+    "@types/lodash": "^4.17.13",
+
     "eslint": "^9.27.0",
     "eslint-config-next": "15.1.7",
     "postcss": "^8.5.3",

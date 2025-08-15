@@ -142,6 +142,7 @@ export default function RootLayout({
         {/* Resource Hints لتحسين الأداء */}
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://abnzriaextacbsoroyfr.supabase.co" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://www.google-analytics.com" />
         <link rel="dns-prefetch" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://vitals.vercel-insights.com" />
@@ -165,7 +166,6 @@ export default function RootLayout({
           rel="stylesheet"
           href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap"
           media="print"
-
         />
         <noscript>
           <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -186,12 +186,19 @@ export default function RootLayout({
           <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
         </noscript>
 
-        {/* Favicon and Icons */}
+        {/* Favicon and Icons - محسن للظهور في Google */}
         <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon-512x512.png" sizes="512x512" type="image/png" />
+        <link rel="icon" href="/favicon-48x48.png" sizes="48x48" type="image/png" />
         <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
         <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/android-chrome-192x192.png" />
         <link rel="manifest" href="/site.webmanifest" />
+
+        {/* WebP alternatives للمتصفحات الحديثة */}
+        <link rel="icon" href="/favicon-512x512.webp" sizes="512x512" type="image/webp" />
+        <link rel="icon" href="/favicon-48x48.webp" sizes="48x48" type="image/webp" />
 
         {/* Meta Tags for Mobile and Accessibility */}
         <meta name="theme-color" content="#e4e4e4ff" />
@@ -211,7 +218,14 @@ export default function RootLayout({
               "name": "Night Club Egypt",
               "description": "أفضل نايت كلوب في مصر مع حفلات مميزة وخدمة VIP فاخرة في القاهرة، الجيزة، العجوزه، الشيخ زايد، التجمع الخامس",
               "url": "https://nightclubegypt.com",
-              "logo": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://nightclubegypt.com/favicon-512x512.png",
+                "width": 512,
+                "height": 512,
+                "caption": "Night Club Egypt Logo",
+                "contentUrl": "https://nightclubegypt.com/logo-seo-1200x1200.png"
+              },
               "telephone": "+201286110562",
               "email": "info@nightclubegypt.com",
               "address": [
@@ -377,7 +391,14 @@ export default function RootLayout({
               "@type": "Organization",
               "name": "Night Club Egypt",
               "url": "https://nightclubegypt.com",
-              "logo": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://nightclubegypt.com/favicon-512x512.png",
+                "width": 512,
+                "height": 512,
+                "caption": "Night Club Egypt Logo",
+                "contentUrl": "https://nightclubegypt.com/logo-seo-1200x1200.png"
+              },
               "contactPoint": {
                 "@type": "ContactPoint",
                 "telephone": "+201286110562",
@@ -396,7 +417,7 @@ export default function RootLayout({
 
         {/* Service Worker Registration المحسن */}
         <script
-          dangerouslySetInnerHTML={{
+          dangerouslySetInnerHTML={ {
             __html: `
               if ('serviceWorker' in navigator) {
                 window.addEventListener('load', function() {

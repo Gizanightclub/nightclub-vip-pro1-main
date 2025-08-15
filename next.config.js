@@ -140,9 +140,10 @@ const nextConfig = {
 
   // تحسين Bundle والأداء
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-select'],
+    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-select', 'lodash'],
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
     typedRoutes: true,
+    // تمكين SWC بدلاً من Babel (enabled by default in Next.js 13+)
     // تمكين ميزات تحسين الأداء الإضافية
   },
 
