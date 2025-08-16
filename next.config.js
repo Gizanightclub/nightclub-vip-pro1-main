@@ -134,6 +134,14 @@ const nextConfig = {
     ]
   },
 
+  async redirects() {
+    return [
+      { source: '/index', destination: '/', permanent: true },
+      { source: '/index/', destination: '/', permanent: true },
+      { source: '/index.html', destination: '/', permanent: true },
+    ];
+  },
+
   eslint: {
     ignoreDuringBuilds: true,
   },
