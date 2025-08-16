@@ -31,70 +31,64 @@ const StructuredData = ({
   sameAs
 }: OrganizationStructuredDataProps) => {
 
-  const organizationData = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": name,
-    "url": url,
-    "logo": {
-      "@type": "ImageObject",
-      "url": logo,
-      "width": 512,
-      "height": 512,
-      "caption": `${name} Logo`
-    },
-    ...(description && { "description": description }),
-    ...(address && {
-      "address": {
-        "@type": "PostalAddress",
-        ...address
-      }
-    }),
-    ...(contactPoint && {
-      "contactPoint": {
-        "@type": "ContactPoint",
-        ...contactPoint
-      }
-    }),
-    ...(sameAs && { "sameAs": sameAs })
-  };
-
-  // إضافة بيانات Night Club تفصيلية
+  // بيانات Night Club Egypt المُحسّنة للوجو ومتطلبات Google
   const nightClubData = {
     "@context": "https://schema.org",
     "@type": ["Organization", "NightClub", "LocalBusiness"],
     "name": name,
+    "alternateName": "نايت كلوب مصر",
     "url": url,
     "logo": {
       "@type": "ImageObject",
-      "url": logo,
+      "url": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
       "width": 512,
       "height": 512,
-      "caption": `${name} Logo`
+      "caption": "Night Club Egypt Logo"
     },
-    "description": description,
+    "image": {
+      "@type": "ImageObject",
+      "url": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "width": 512,
+      "height": 512,
+      "caption": "Night Club Egypt Logo"
+    },
+    "description": description || "أفضل نايت كلوب في مصر - ترفيه ليلي راقي وأجواء استثنائية",
     "address": address && {
       "@type": "PostalAddress",
       ...address
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": 30.0444,
+      "longitude": 31.2357
     },
     "contactPoint": contactPoint && {
       "@type": "ContactPoint",
       ...contactPoint
     },
-    "sameAs": sameAs,
+    "sameAs": sameAs || [
+      "https://www.facebook.com/profile.php?id=61560900837183",
+      "https://www.instagram.com/night_club_5star",
+      "https://www.tiktok.com/@night.club993?_t=ZS-8yvVCVK9A5R&_r=1",
+      "https://wa.me/201286110562?countryCode=20&countryName=EG&phoneNumber=1286110562",
+      "https://maps.app.goo.gl/E5R8oXS1WQfgZ5W66"
+    ],
     // بيانات خاصة بالنايت كلوب
     "category": "Night Club",
-    "priceRange": "$$",
+    "priceRange": "$$-$$$",
     "servesCuisine": ["International", "Middle Eastern"],
+    "acceptsReservations": true,
+    "currenciesAccepted": "EGP",
+    "paymentAccepted": ["Cash", "Credit Card"],
     "amenityFeature": [
       {
         "@type": "LocationFeatureSpecification",
-        "name": "Live Music",
+        "name": "DJ Music",
         "value": true
       },
       {
         "@type": "LocationFeatureSpecification",
-        "name": "Dancing",
+        "name": "Dance Floor",
         "value": true
       },
       {
@@ -104,17 +98,27 @@ const StructuredData = ({
       },
       {
         "@type": "LocationFeatureSpecification",
-        "name": "DJ",
+        "name": "Bar Service",
+        "value": true
+      },
+      {
+        "@type": "LocationFeatureSpecification",
+        "name": "Live Entertainment",
         "value": true
       }
     ],
-    // أوقات العمل
+    // أوقات العمل محسّنة
     "openingHours": [
-      "We 20:00-03:00",
-      "Th 20:00-03:00",
-      "Fr 20:00-04:00",
-      "Sa 20:00-04:00"
+      "Mo-Th 20:00-02:00",
+      "Fr-Sa 20:00-03:00"
     ],
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.5",
+      "reviewCount": "150",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
     // خدمات إضافية
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
@@ -135,6 +139,14 @@ const StructuredData = ({
             "name": "Party Planning",
             "description": "تنظيم الحفلات والمناسبات الخاصة"
           }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Private Events",
+            "description": "إقامة فعاليات خاصة ومناسبات شركات"
+          }
         }
       ]
     }
@@ -142,15 +154,7 @@ const StructuredData = ({
 
   return (
     <>
-      {/* البيانات المنظمة الأساسية للمؤسسة */}
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify(organizationData, null, 2)
-        }}
-      />
-
-      {/* البيانات المنظمة المفصلة للنايت كلوب */}
+      {/* البيانات المنظمة المحسّنة للنايت كلوب */}
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{

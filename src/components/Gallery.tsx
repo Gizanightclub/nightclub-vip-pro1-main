@@ -45,12 +45,6 @@ const Gallery = () => {
       altText: "أجواء VIP فاخرة في أفضل نايت كلوب بمصر - 6 أكتوبر الشيخ زايد التجمع الخامس - خدمة استثنائية"
     },
     {
-      url: "/images/nightclubegypt.com (11).jpg",
-      title: "ليلة لا تُنسى",
-      description: "أجواء ساحرة ومميزة",
-      altText: "ليلة لا تُنسى في نايت كلوب مصر - الزمالك المعادي مصر الجديدة - أجواء ساحرة وترفيه ليلي"
-    },
-    {
       url: "/images/nightclubegypt.com (8).jpg",
       title: "حفلات مميزة",
       description: "استمتع بأجمل الليالي",
@@ -61,12 +55,6 @@ const Gallery = () => {
       title: "حفلات راقصة مميزة",
       description: "استمتع بأجمل الليالي",
       altText: "عروض حية وموسيقى مميزة في نايت كلوب مصر - Egypt nightclub entertainment - حفلات خاصة"
-    },
-    {
-      url: "/images/nightclubegypt.com (5).jpg",
-      title: "حفلات راقصة مميزة",
-      description: "استمتع بأجمل الليالي",
-      altText: "أجواء النايت كلوب الفاخرة في مصر - birthday parties corporate events - احتفالات خاصة"
     },
   ];
 
