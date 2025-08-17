@@ -68,46 +68,46 @@
   }
 }
 
-/* Custom Animations */
+/* Custom Animations - محسنة لتكون أخف وأسرع */
 @keyframes float {
   0%, 100% {
     transform: translateY(0px);
   }
   50% {
-    transform: translateY(-20px);
+    transform: translateY(-12px); /* تقليل من -20px إلى -12px */
   }
 }
 
 @keyframes glow {
   0%, 100% {
-    box-shadow: 0 0 10px rgba(37, 99, 235, 0.3);
+    box-shadow: 0 0 8px rgba(37, 99, 235, 0.2); /* تقليل من 10px إلى 8px */
   }
   50% {
-    box-shadow: 0 0 20px rgba(37, 99, 235, 0.5);
+    box-shadow: 0 0 16px rgba(37, 99, 235, 0.4); /* تقليل من 20px إلى 16px */
   }
 }
 
 @keyframes pulse-purple {
   0%, 100% {
-    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.4);
+    box-shadow: 0 0 0 0 rgba(37, 99, 235, 0.3); /* تقليل من 0.4 إلى 0.3 */
   }
   50% {
-    box-shadow: 0 0 0 15px rgba(37, 99, 235, 0);
+    box-shadow: 0 0 0 12px rgba(37, 99, 235, 0); /* تقليل من 15px إلى 12px */
   }
 }
 
 @keyframes neon-text {
   from {
     text-shadow:
-      0 0 5px #fff,
-      0 0 10px #2563eb,
-      0 0 15px #2563eb;
+      0 0 4px #fff, /* تقليل من 5px إلى 4px */
+      0 0 8px #2563eb, /* تقليل من 10px إلى 8px */
+      0 0 12px #2563eb; /* تقليل من 15px إلى 12px */
   }
   to {
     text-shadow:
-      0 0 3px #fff,
-      0 0 8px #2563eb,
-      0 0 12px #7c3aed;
+      0 0 2px #fff, /* تقليل من 3px إلى 2px */
+      0 0 6px #2563eb, /* تقليل من 8px إلى 6px */
+      0 0 10px #7c3aed; /* تقليل من 12px إلى 10px */
   }
 }
 
@@ -117,15 +117,15 @@
     transform: scale(0);
   }
   50% {
-    opacity: 1;
-    transform: scale(1);
+    opacity: 0.8; /* تقليل من 1 إلى 0.8 */
+    transform: scale(0.9); /* تقليل من 1 إلى 0.9 */
   }
 }
 
 @keyframes slideInUp {
   from {
     opacity: 0;
-    transform: translateY(30px);
+    transform: translateY(20px); /* تقليل من 30px إلى 20px */
   }
   to {
     opacity: 1;
@@ -136,13 +136,13 @@
 /* Glass Morphism */
 .glass {
   background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(8px); /* تقليل من 10px إلى 8px */
   border: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 .glass-dark {
   background: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(15px);
+  backdrop-filter: blur(12px); /* تقليل من 15px إلى 12px */
   border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -159,43 +159,43 @@
   background: linear-gradient(135deg, #f59e0b 0%, #eab308 100%);
 }
 
-/* Utility Classes */
+/* Utility Classes - محسنة لتكون أخف وأسرع */
 .animate-float {
-  animation: float 2.85s ease-in-out infinite;
+  animation: float 2.4s ease-in-out infinite; /* تقليل من 2.85s إلى 2.4s */
 }
 
 .animate-glow {
-  animation: glow 1.9s ease-in-out infinite alternate;
+  animation: glow 1.6s ease-in-out infinite alternate; /* تقليل من 1.9s إلى 1.6s */
 }
 
 .animate-pulse-purple {
-  animation: pulse-purple 1.9s infinite;
+  animation: pulse-purple 1.6s infinite; /* تقليل من 1.9s إلى 1.6s */
 }
 
 .animate-neon {
-  animation: neon-text 1.425s ease-in-out infinite alternate;
+  animation: neon-text 1.2s ease-in-out infinite alternate; /* تقليل من 1.425s إلى 1.2s */
 }
 
 .animate-sparkle {
-  animation: sparkle 1.425s ease-in-out infinite;
+  animation: sparkle 1.2s ease-in-out infinite; /* تقليل من 1.425s إلى 1.2s */
 }
 
 .animate-slide-up {
-  animation: slideInUp 0.57s ease-out;
+  animation: slideInUp 0.45s ease-out; /* تقليل من 0.57s إلى 0.45s */
 }
 
-/* 3D Effects */
+/* 3D Effects - محسنة لتكون أخف */
 .transform-3d {
   transform-style: preserve-3d;
 }
 
 .card-3d {
-  transition: all 0.285s ease;
+  transition: all 0.24s ease; /* تقليل من 0.285s إلى 0.24s */
   transform-style: preserve-3d;
 }
 
 .card-3d:hover {
-  transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+  transform: rotateY(3deg) rotateX(3deg) scale(1.03); /* تقليل من 5deg إلى 3deg و1.05 إلى 1.03 */
 }
 
 /* Particle Background */
@@ -211,7 +211,7 @@
 
 /* Scrollbar Styling */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px; /* تقليل من 8px إلى 6px */
 }
 
 ::-webkit-scrollbar-track {
@@ -220,7 +220,7 @@
 
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, #667eea, #764ba2);
-  border-radius: 4px;
+  border-radius: 3px; /* تقليل من 4px إلى 3px */
 }
 
 ::-webkit-scrollbar-thumb:hover {
@@ -230,10 +230,19 @@
 /* Mobile Optimizations */
 @media (max-width: 768px) {
   .card-3d:hover {
-    transform: scale(1.02);
+    transform: scale(1.01); /* تقليل من 1.02 إلى 1.01 */
   }
 
   .animate-float {
-    animation-duration: 3.8s;
+    animation-duration: 3.2s; /* تقليل من 3.8s إلى 3.2s */
+  }
+  
+  /* تقليل الأنيميشن على الأجهزة المحمولة لتحسين الأداء */
+  .animate-glow {
+    animation-duration: 2s;
+  }
+  
+  .animate-pulse-purple {
+    animation-duration: 2s;
   }
 }

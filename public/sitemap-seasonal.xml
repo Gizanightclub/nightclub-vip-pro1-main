@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <!-- الفصول الموسمية -->
+  <url>
+    <loc>https://nightclubegypt.com/#summer-2024</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#summer-2024"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#summer-2024"/>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#winter-2024</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#winter-2024"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#winter-2024"/>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#spring-2024</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#spring-2024"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#spring-2024"/>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#autumn-2024</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#autumn-2024"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#autumn-2024"/>
+  </url>
+
+  <!-- المناسبات الدينية -->
+  <url>
+    <loc>https://nightclubegypt.com/#ramadan-events</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#ramadan-events"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#ramadan-events"/>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#eid-celebrations</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#eid-celebrations"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#eid-celebrations"/>
+  </url>
+
+  <!-- المناسبات العالمية -->
+  <url>
+    <loc>https://nightclubegypt.com/#christmas-parties</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#christmas-parties"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#christmas-parties"/>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#new-year-2025</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#new-year-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#new-year-2025"/>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#valentine-2025</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#valentine-2025"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#valentine-2025"/>
+  </url>
+
+  <!-- المناسبات التعليمية -->
+  <url>
+    <loc>https://nightclubegypt.com/#graduation-season</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://nightclubegypt.com/#graduation-season"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://nightclubegypt.com/en/#graduation-season"/>
+  </url>
+
+</urlset>

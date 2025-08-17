@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:ads="http://www.google.com/schemas/sitemap-ads/1.0">
+  
+  <!-- إعلانات Night Club Egypt -->
+  <url>
+    <loc>https://nightclubegypt.com/</loc>
+    <ads:ad>
+      <ads:ad_id>NIGHTCLUB_EGYPT_MAIN</ads:ad_id>
+      <ads:ad_name>أفضل نايت كلوب في مصر</ads:ad_name>
+      <ads:ad_display_url>nightclubegypt.com</ads:ad_display_url>
+      <ads:ad_destination_url>https://nightclubegypt.com/</ads:ad_destination_url>
+      <ads:ad_headline>أفضل نايت كلوب في مصر - حفلات ليلية فاخرة</ads:ad_headline>
+      <ads:ad_description1>خدمة VIP استثنائية في القاهرة، الجيزة، العجوزة، الشيخ زايد</ads:ad_description1>
+      <ads:ad_description2>عروض حية، موسيقى عالمية، أجواء رائعة - احجز الآن</ads:ad_description2>
+      <ads:ad_type>TEXT_AD</ads:ad_type>
+      <ads:ad_status>ACTIVE</ads:ad_status>
+      <ads:ad_priority>HIGH</ads:ad_priority>
+      <ads:ad_budget>1000</ads:ad_budget>
+      <ads:ad_bid>2.50</ads:ad_bid>
+      <ads:ad_quality_score>9</ads:ad_quality_score>
+      <ads:ad_impressions>10000</ads:ad_impressions>
+      <ads:ad_clicks>500</ads:ad_clicks>
+      <ads:ad_ctr>5.0</ads:ad_ctr>
+      <ads:ad_avg_cpc>2.00</ads:ad_avg_cpc>
+      <ads:ad_cost>1000</ads:ad_cost>
+      <ads:ad_conversions>50</ads:ad_conversions>
+      <ads:ad_conversion_rate>10.0</ads:ad_conversion_rate>
+      <ads:ad_conversion_value>5000</ads:ad_conversion_value>
+      <ads:ad_roas>5.0</ads:ad_roas>
+    </ads:ad>
+  </url>
+
+  <!-- إعلانات المناطق -->
+  <url>
+    <loc>https://nightclubegypt.com/#cairo</loc>
+    <ads:ad>
+      <ads:ad_id>NIGHTCLUB_CAIRO</ads:ad_id>
+      <ads:ad_name>نايت كلوب القاهرة</ads:ad_name>
+      <ads:ad_display_url>nightclubegypt.com/#cairo</ads:ad_display_url>
+      <ads:ad_destination_url>https://nightclubegypt.com/#cairo</ads:ad_destination_url>
+      <ads:ad_headline>أفضل نايت كلوب في القاهرة - تجربة ترفيهية لا تُنسى</ads:ad_headline>
+      <ads:ad_description1>سهرات ليلية مميزة مع خدمة VIP فاخرة</ads:ad_description1>
+      <ads:ad_description2>حفلات ليلية، عروض حية، موسيقى عالمية - احجز الآن</ads:ad_description2>
+      <ads:ad_type>TEXT_AD</ads:ad_type>
+      <ads:ad_status>ACTIVE</ads:ad_status>
+      <ads:ad_priority>HIGH</ads:ad_priority>
+      <ads:ad_budget>800</ads:ad_budget>
+      <ads:ad_bid>2.00</ads:ad_bid>
+      <ads:ad_quality_score>8</ads:ad_quality_score>
+      <ads:ad_impressions>8000</ads:ad_impressions>
+      <ads:ad_clicks>400</ads:ad_clicks>
+      <ads:ad_ctr>5.0</ads:ad_ctr>
+      <ads:ad_avg_cpc>1.80</ads:ad_avg_cpc>
+      <ads:ad_cost>720</ads:ad_cost>
+      <ads:ad_conversions>40</ads:ad_conversions>
+      <ads:ad_conversion_rate>10.0</ads:ad_conversion_rate>
+      <ads:ad_conversion_value>4000</ads:ad_conversion_value>
+      <ads:ad_roas>5.6</ads:ad_roas>
+    </ads:ad>
+  </url>
+
+  <!-- إعلانات الخدمات -->
+  <url>
+    <loc>https://nightclubegypt.com/#services-vip-reservations</loc>
+    <ads:ad>
+      <ads:ad_id>VIP_SERVICE_EGYPT</ads:ad_id>
+      <ads:ad_name>خدمة VIP في نايت كلوب مصر</ads:ad_name>
+      <ads:ad_display_url>nightclubegypt.com/#services-vip</ads:ad_display_url>
+      <ads:ad_destination_url>https://nightclubegypt.com/#services-vip-reservations</ads:ad_destination_url>
+      <ads:ad_headline>خدمة VIP استثنائية في نايت كلوب مصر</ads:ad_headline>
+      <ads:ad_description1>تجربة فاخرة مع عروض حية وموسيقى عالمية</ads:ad_description1>
+      <ads:ad_description2>أجواء رائعة، خدمة VIP، حجز فوري - احجز الآن</ads:ad_description2>
+      <ads:ad_type>TEXT_AD</ads:ad_type>
+      <ads:ad_status>ACTIVE</ads:ad_status>
+      <ads:ad_priority>HIGH</ads:ad_priority>
+      <ads:ad_budget>600</ads:ad_budget>
+      <ads:ad_bid>1.80</ads:ad_bid>
+      <ads:ad_quality_score>9</ads:ad_quality_score>
+      <ads:ad_impressions>6000</ads:ad_impressions>
+      <ads:ad_clicks>300</ads:ad_clicks>
+      <ads:ad_ctr>5.0</ads:ad_ctr>
+      <ads:ad_avg_cpc>1.60</ads:ad_avg_cpc>
+      <ads:ad_cost>480</ads:ad_cost>
+      <ads:ad_conversions>30</ads:ad_conversions>
+      <ads:ad_conversion_rate>10.0</ads:ad_conversion_rate>
+      <ads:ad_conversion_value>3000</ads:ad_conversion_value>
+      <ads:ad_roas>6.3</ads:ad_roas>
+    </ads:ad>
+  </url>
+
+</urlset>

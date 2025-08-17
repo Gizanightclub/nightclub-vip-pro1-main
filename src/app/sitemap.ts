@@ -88,7 +88,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     'cairo', 'giza', 'agouza', 'sheikh-zayed', 'sixth-october', 'new-cairo',
     'fifth-settlement', 'maadi', 'zamalek', 'mohandessin', 'nasr-city',
     'heliopolis', 'pyramid', 'dokki', 'downtown-cairo', 'garden-city',
-    'rehab-city', 'shorouk-city', 'obour-city'
+    'rehab-city', 'shorouk-city', 'obour-city', 'smart-village', 'cairo-festival-city'
   ].map(location => ({
     url: `${baseUrl}/#${location}`,
     lastModified: currentDate,
@@ -100,7 +100,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const servicePages = [
     'vip-reservations', 'birthday-parties', 'corporate-events',
     'wedding-celebrations', 'private-events', 'ladies-night',
-    'graduation-parties', 'bachelor-parties', 'new-year-events'
+    'graduation-parties', 'bachelor-parties', 'new-year-events',
+    'valentine-events', 'summer-parties', 'winter-events'
   ].map(service => ({
     url: `${baseUrl}/#services-${service}`,
     lastModified: currentDate,
@@ -111,7 +112,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
   // صفحات للكلمات المفتاحية الرئيسية
   const keywordPages = [
     'nightclub-egypt', 'cairo-nightlife', 'best-nightclub-cairo',
-    'luxury-nightclub-egypt', 'vip-nightclub-giza', 'nightclub-zamalek'
+    'luxury-nightclub-egypt', 'vip-nightclub-giza', 'nightclub-zamalek',
+    'egypt-entertainment', 'cairo-parties', 'giza-nightlife',
+    'sheikh-zayed-nightclub', 'new-cairo-entertainment'
   ].map(keyword => ({
     url: `${baseUrl}/#${keyword}`,
     lastModified: currentDate,
@@ -119,11 +122,24 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
+  // صفحات الموسمية والمناسبات
+  const seasonalPages = [
+    'summer-2024', 'winter-2024', 'spring-2024', 'autumn-2024',
+    'ramadan-events', 'eid-celebrations', 'christmas-parties',
+    'new-year-2025', 'valentine-2025', 'graduation-season'
+  ].map(seasonal => ({
+    url: `${baseUrl}/#${seasonal}`,
+    lastModified: currentDate,
+    changeFrequency: 'monthly' as const,
+    priority: 0.6,
+  }))
+
   return [
     ...mainPages,
     ...dashboardPages,
     ...locationPages,
     ...servicePages,
-    ...keywordPages
+    ...keywordPages,
+    ...seasonalPages
   ]
 }

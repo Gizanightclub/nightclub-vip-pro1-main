@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0">
+  
+  <!-- الصفحات المحسنة للموبايل -->
+  <url>
+    <loc>https://nightclubegypt.com/</loc>
+    <mobile:mobile/>
+    <mobile:image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</mobile:image:loc>
+    <mobile:image:caption>أفضل نايت كلوب في مصر - حفلات ليلية فاخرة</mobile:image:caption>
+  </url>
+
+  <!-- صفحات المناطق للموبايل -->
+  <url>
+    <loc>https://nightclubegypt.com/#cairo</loc>
+    <mobile:mobile/>
+    <mobile:image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</mobile:image:loc>
+    <mobile:image:caption>نايت كلوب القاهرة - أفضل أماكن الترفيه الليلي</mobile:image:caption>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#giza</loc>
+    <mobile:mobile/>
+    <mobile:image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</mobile:image:loc>
+    <mobile:image:caption>نايت كلوب الجيزة - سهرات ليلية مميزة</mobile:image:caption>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#sheikh-zayed</loc>
+    <mobile:mobile/>
+    <mobile:image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</mobile:image:loc>
+    <mobile:image:caption>نايت كلوب الشيخ زايد - تجربة ترفيهية فاخرة</mobile:image:caption>
+  </url>
+
+  <!-- صفحات الخدمات للموبايل -->
+  <url>
+    <loc>https://nightclubegypt.com/#services-vip-reservations</loc>
+    <mobile:mobile/>
+    <mobile:image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</mobile:image:loc>
+    <mobile:image:caption>خدمة VIP في نايت كلوب مصر</mobile:image:caption>
+  </url>
+
+  <url>
+    <loc>https://nightclubegypt.com/#services-birthday-parties</loc>
+    <mobile:mobile/>
+    <mobile:image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</mobile:image:loc>
+    <mobile:image:caption>حفلات أعياد الميلاد في نايت كلوب مصر</mobile:image:caption>
+  </url>
+
+  <!-- صفحات الحجز للموبايل -->
+  <url>
+    <loc>https://nightclubegypt.com/#contact</loc>
+    <mobile:mobile/>
+    <mobile:image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</mobile:image:loc>
+    <mobile:image:caption>احجز الآن في أفضل نايت كلوب في مصر</mobile:image:caption>
+  </url>
+
+  <!-- صفحات العروض للموبايل -->
+  <url>
+    <loc>https://nightclubegypt.com/#pricing</loc>
+    <mobile:mobile/>
+    <mobile:image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</mobile:image:loc>
+    <mobile:image:caption>أفضل العروض والحزم في نايت كلوب مصر</mobile:image:caption>
+  </url>
+
+</urlset>

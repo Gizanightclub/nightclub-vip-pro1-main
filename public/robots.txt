@@ -1,3 +1,4 @@
+# Night Club Egypt - أفضل نايت كلوب في مصر
 # تحسين فهرسة اللوجو والصور لمحركات البحث
 User-agent: *
 Allow: /
@@ -18,10 +19,70 @@ Disallow: /_next/
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
+Disallow: /scripts/
+Disallow: /out/
 
-# Sitemap
+# Sitemap الرئيسي - Master Sitemap
 Sitemap: https://nightclubegypt.com/sitemap.xml
 
-# إضافة معلومات إضافية للـ SEO
+# معلومات إضافية للـ SEO
 # Night Club Egypt - أفضل نايت كلوب في مصر
 # القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس
+# 6 أكتوبر، المعادي، الزمالك، المهندسين، مدينة نصر، هليوبوليس
+
+# Crawl-delay للتحكم في سرعة الزحف
+Crawl-delay: 1
+
+# إعدادات خاصة لمحركات البحث المختلفة
+User-agent: Googlebot
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 1
+
+# إعدادات للصور
+User-agent: Googlebot-Image
+Allow: /images/
+Allow: /favicon.ico
+Allow: /apple-touch-icon.png
+Allow: /android-chrome-*.png
+Allow: /favicon-*.png
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# إعدادات للفيديو
+User-agent: Googlebot-Video
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+
+# إعدادات للموبايل
+User-agent: *
+Allow: /
+Disallow: /_next/
+Disallow: /api/
+Disallow: /admin/
+Disallow: /private/
+Crawl-delay: 1

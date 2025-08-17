@@ -117,6 +117,22 @@ export const metadata: Metadata = {
       bing: "nightclub-egypt-bing-verification",
     },
   },
+  // إضافة metadata للـ favicon
+  icons: {
+    icon: [
+      { url: '/favicon.ico', sizes: 'any' },
+      { url: '/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+    ],
+    apple: [
+      { url: '/apple-touch-icon.png', sizes: '180x180', type: 'image/png' },
+    ],
+    other: [
+      { url: '/android-chrome-192x192.png', sizes: '192x192', type: 'image/png' },
+      { url: '/android-chrome-512x512.png', sizes: '512x512', type: 'image/png' },
+    ],
+  },
+  manifest: '/site.webmanifest',
 };
 
 export default function RootLayout({
@@ -127,9 +143,15 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={`${cairo.variable} ${inter.variable}`}>
       <head>
-        {/* Favicon والIcon بصورة اللوجو للسيو */}
-        <link rel="icon" href="/images/nightclubegyptlogo.jpg" type="image/jpeg" />
-        <link rel="apple-touch-icon" href="/images/nightclubegyptlogo.jpg" />
+        {/* Favicon محسن لجميع الأجهزة والمتصفحات */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
+        <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/site.webmanifest" />
+        <meta name="theme-color" content="#000000" />
+        <meta name="msapplication-TileColor" content="#000000" />
+        <meta name="msapplication-config" content="/browserconfig.xml" />
 
         {/* Preload critical resources لتحسين LCP وتقليل blocking */}
         <link rel="preload" href="/images/nightclubegyptlogo.jpg" as="image" type="image/jpeg" />

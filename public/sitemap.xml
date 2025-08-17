@@ -1,77 +1,64 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
-        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
-  <!-- الصفحة الرئيسية مع اللوجو -->
-  <url>
-    <loc>https://nightclubegypt.com/</loc>
+  <!-- Sitemap للمناطق المصرية -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-locations.xml</loc>
     <lastmod>2024-12-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>1.0</priority>
-    <image:image>
-      <image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</image:loc>
-      <image:title>Night Club Egypt - أفضل نايت كلوب في مصر</image:title>
-      <image:caption>شعار Night Club Egypt - أفضل نايت كلوب في القاهرة، الجيزة، العجوزة، الشيخ زايد</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://nightclubegypt.com/images/logo-seo-1200x1200.png</image:loc>
-      <image:title>Night Club Egypt Logo - شعار عالي الجودة</image:title>
-      <image:caption>شعار Night Club Egypt بصورة عالية الجودة - أفضل نايت كلوب في مصر</image:caption>
-    </image:image>
-    <image:image>
-      <image:loc>https://nightclubegypt.com/images/nightclubegypt.com.jpg</image:loc>
-      <image:title>حفلات ليلية فاخرة في أفضل نايت كلوب بمصر</image:title>
-      <image:caption>حفلات ليلية فاخرة في أفضل نايت كلوب بمصر - خدمة VIP استثنائية</image:caption>
-    </image:image>
-  </url>
-  
-  <!-- صفحة لوحة التحكم -->
-  <url>
-    <loc>https://nightclubegypt.com/dashboard</loc>
+  </sitemap>
+
+  <!-- Sitemap للخدمات -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-services.xml</loc>
     <lastmod>2024-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- صفحة البرامج -->
-  <url>
-    <loc>https://nightclubegypt.com/dashboard/programs</loc>
+  </sitemap>
+
+  <!-- Sitemap للكلمات المفتاحية -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-keywords.xml</loc>
     <lastmod>2024-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- صفحة الأسعار -->
-  <url>
-    <loc>https://nightclubegypt.com/dashboard/pricing</loc>
+  </sitemap>
+
+  <!-- Sitemap للموسمية -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-seasonal.xml</loc>
     <lastmod>2024-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  
-  <!-- صفحة رموز الخصم -->
-  <url>
-    <loc>https://nightclubegypt.com/dashboard/discount-codes</loc>
+  </sitemap>
+
+  <!-- Sitemap للداشبورد -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-dashboard.xml</loc>
     <lastmod>2024-12-19</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- صفحة العرض العام -->
-  <url>
-    <loc>https://nightclubegypt.com/dashboard/universal-offer</loc>
+  </sitemap>
+
+  <!-- Sitemap للصور -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-images.xml</loc>
     <lastmod>2024-12-19</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  
-  <!-- صفحة اختبار API -->
-  <url>
-    <loc>https://nightclubegypt.com/test-api</loc>
+  </sitemap>
+
+  <!-- Sitemap للفيديوهات -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-videos.xml</loc>
     <lastmod>2024-12-19</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.3</priority>
-  </url>
-  
-</urlset>
+  </sitemap>
+
+  <!-- Sitemap للأخبار -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-news.xml</loc>
+    <lastmod>2024-12-19</lastmod>
+  </sitemap>
+
+  <!-- Sitemap للموبايل -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-mobile.xml</loc>
+    <lastmod>2024-12-19</lastmod>
+  </sitemap>
+
+  <!-- Sitemap للإعلانات -->
+  <sitemap>
+    <loc>https://nightclubegypt.com/sitemap-ads.xml</loc>
+    <lastmod>2024-12-19</lastmod>
+  </sitemap>
+
+</sitemapindex>
