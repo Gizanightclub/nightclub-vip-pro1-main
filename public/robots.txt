@@ -1,5 +1,7 @@
 # Night Club Egypt - أفضل نايت كلوب في مصر
 # تحسين فهرسة اللوجو والصور لمحركات البحث
+
+# إعدادات عامة لجميع محركات البحث
 User-agent: *
 Allow: /
 
@@ -11,7 +13,6 @@ Allow: /images/nightclubegypt.com.jpg
 
 # تحسين فهرسة الصفحات المهمة
 Allow: /dashboard
-Allow: /api/health
 Allow: /sitemap.xml
 
 # منع فهرسة الملفات غير المهمة
@@ -22,7 +23,7 @@ Disallow: /private/
 Disallow: /scripts/
 Disallow: /out/
 
-# Sitemap الرئيسي - Master Sitemap
+# Sitemap الرئيسي
 Sitemap: https://nightclubegypt.com/sitemap.xml
 
 # معلومات إضافية للـ SEO
@@ -77,12 +78,3 @@ Disallow: /_next/
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
-
-# إعدادات للموبايل
-User-agent: *
-Allow: /
-Disallow: /_next/
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-Crawl-delay: 1
