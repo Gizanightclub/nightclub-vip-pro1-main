@@ -1,80 +1,8 @@
-# Night Club Egypt - أفضل نايت كلوب في مصر
-# تحسين فهرسة اللوجو والصور لمحركات البحث
-
-# إعدادات عامة لجميع محركات البحث
 User-agent: *
 Allow: /
-
-# السماح بفهرسة الصور واللوجو
-Allow: /images/
-Allow: /images/nightclubegyptlogo.jpg
-Allow: /images/logo-seo-1200x1200.png
-Allow: /images/nightclubegypt.com.jpg
-
-# تحسين فهرسة الصفحات المهمة
-Allow: /dashboard
-Allow: /sitemap.xml
-
-# منع فهرسة الملفات غير المهمة
 Disallow: /_next/
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
-Disallow: /scripts/
-Disallow: /out/
 
-# Sitemap الرئيسي
 Sitemap: https://nightclubegypt.com/sitemap.xml
-
-# معلومات إضافية للـ SEO
-# Night Club Egypt - أفضل نايت كلوب في مصر
-# القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس
-# 6 أكتوبر، المعادي، الزمالك، المهندسين، مدينة نصر، هليوبوليس
-
-# Crawl-delay للتحكم في سرعة الزحف
-Crawl-delay: 1
-
-# إعدادات خاصة لمحركات البحث المختلفة
-User-agent: Googlebot
-Allow: /
-Disallow: /_next/
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Disallow: /_next/
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Disallow: /_next/
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-Crawl-delay: 1
-
-# إعدادات للصور
-User-agent: Googlebot-Image
-Allow: /images/
-Allow: /favicon.ico
-Allow: /apple-touch-icon.png
-Allow: /android-chrome-*.png
-Allow: /favicon-*.png
-Disallow: /_next/
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
-
-# إعدادات للفيديو
-User-agent: Googlebot-Video
-Allow: /
-Disallow: /_next/
-Disallow: /api/
-Disallow: /admin/
-Disallow: /private/
