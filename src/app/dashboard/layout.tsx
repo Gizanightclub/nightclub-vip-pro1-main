@@ -308,7 +308,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
                 transition={{ delay: index * 0.1 }}
               >
                 <Link
-                  href={item.href}
+                  href={item.href as string}
                   className={`group flex items-center px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 mb-2 ${
                     isActive
                       ? 'bg-gradient-to-r from-purple-500/20 to-purple-600/20 text-purple-300 shadow-lg shadow-purple-500/10 border border-purple-500/30'

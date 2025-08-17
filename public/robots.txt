@@ -1,48 +1,27 @@
-# robots.txt for Night Club Egypt - www.nightclubegypt.com
-# Optimized for SEO and search engine indexing
-
+# تحسين فهرسة اللوجو والصور لمحركات البحث
 User-agent: *
 Allow: /
 
-# Allow all images and favicons for better SEO
+# السماح بفهرسة الصور واللوجو
 Allow: /images/
-Allow: /_next/static/
-Allow: /favicon.ico
-Allow: /favicon-*.png
-Allow: /favicon-*.webp
-Allow: /apple-touch-icon.png
-Allow: /android-chrome-*.png
-Allow: /logo-seo-*.png
-Allow: /logo-seo-*.webp
+Allow: /images/nightclubegyptlogo.jpg
+Allow: /images/logo-seo-1200x1200.png
+Allow: /images/nightclubegypt.com.jpg
 
-# Block development and admin URLs
+# تحسين فهرسة الصفحات المهمة
+Allow: /dashboard
+Allow: /api/health
+Allow: /sitemap.xml
+
+# منع فهرسة الملفات غير المهمة
 Disallow: /_next/
 Disallow: /api/
-Disallow: /dashboard/
-Disallow: /test-api/
+Disallow: /admin/
+Disallow: /private/
 
-# Block any potential duplicate content
-Disallow: /*?
-Disallow: /*.json$
-Disallow: /*.xml$
+# Sitemap
+Sitemap: https://nightclubegypt.com/sitemap.xml
 
-# Special instructions for major search engines
-User-agent: Googlebot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: facebookexternalhit
-Allow: /
-
-User-agent: Twitterbot
-Allow: /
-
-# Sitemap location
-Sitemap: https://www.nightclubegypt.com/sitemap.xml
-
-# Host directive for preferred domain
-Host: https://www.nightclubegypt.com
+# إضافة معلومات إضافية للـ SEO
+# Night Club Egypt - أفضل نايت كلوب في مصر
+# القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس

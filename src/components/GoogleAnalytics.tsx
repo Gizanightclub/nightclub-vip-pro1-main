@@ -6,7 +6,7 @@ import { useEffect } from 'react';
 // تعريف النوع للـ gtag
 declare global {
   interface Window {
-    gtag: (...args: any[]) => void;
+    gtag: (...args: unknown[]) => void;
   }
 }
 
@@ -18,8 +18,8 @@ const GoogleAnalytics = () => {
       if (typeof window !== 'undefined' && !window.gtag) {
         // إنشاء dataLayer فقط عند الحاجة
         window.dataLayer = window.dataLayer || [];
-        window.gtag = function(){
-          window.dataLayer?.push(arguments);
+        window.gtag = function(...args: unknown[]){
+          window.dataLayer?.push(args);
         };
         window.gtag('js', new Date());
         window.gtag('config', 'G-H1ZWPG12HP', {

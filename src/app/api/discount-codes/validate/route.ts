@@ -40,6 +40,12 @@ export async function POST(request: NextRequest) {
 
     // البحث عن الكود في قاعدة البيانات
     console.log('Searching for discount code in database...');
+    if (!supabaseAdmin) {
+      return NextResponse.json(
+        { valid: false, message: 'خطأ في إعداد قاعدة البيانات' },
+        { status: 500 }
+      );
+    }
     const { data, error } = await supabaseAdmin
       .from('discount_codes')
       .select('*')
@@ -87,7 +93,7 @@ export async function POST(request: NextRequest) {
     // التحقق من صحة التواريخ
     const now = new Date();
 
-    if (data.valid_from && new Date(data.valid_from) > now) {
+    if (data.valid_from && typeof data.valid_from === 'string' && new Date(data.valid_from) > now) {
       console.log('Code not yet valid');
       return NextResponse.json(
         { valid: false, message: 'كود الخصم لم يصبح ساري المفعول بعد' },
@@ -95,7 +101,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (data.valid_until && new Date(data.valid_until) < now) {
+    if (data.valid_until && typeof data.valid_until === 'string' && new Date(data.valid_until) < now) {
       console.log('Code expired');
       return NextResponse.json(
         { valid: false, message: 'كود الخصم منتهي الصلاحية' },
@@ -104,7 +110,10 @@ export async function POST(request: NextRequest) {
     }
 
     // التحقق من حد الاستخدام
-    if (data.usage_limit > 0 && data.used_count >= data.usage_limit) {
+    const usageLimit = typeof data.usage_limit === 'number' ? data.usage_limit : 0;
+    const usedCount = typeof data.used_count === 'number' ? data.used_count : 0;
+    
+    if (usageLimit > 0 && usedCount >= usageLimit) {
       console.log('Code usage limit exceeded');
       return NextResponse.json(
         { valid: false, message: 'تم استنفاد حد استخدام هذا الكود' },

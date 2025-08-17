@@ -5,6 +5,8 @@ import { Toaster } from "../components/ui/sonner";
 import { GoogleAnalytics } from '@next/third-parties/google';
 import StructuredData from "../components/StructuredData";
 import { SpeedInsights } from '@vercel/speed-insights/next';
+import LogoStructuredData from "../components/LogoStructuredData";
+import SEOOptimizer from "../components/SEOOptimizer";
 
 // تحسين font loading لتقليل CLS
 const cairo = Cairo({
@@ -133,6 +135,8 @@ export default function RootLayout({
         <link rel="preload" href="/images/nightclubegyptlogo.jpg" as="image" type="image/jpeg" />
         <link rel="preconnect" href="https://abnzriaextacbsoroyfr.supabase.co" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
@@ -177,6 +181,12 @@ export default function RootLayout({
             "https://maps.app.goo.gl/E5R8oXS1WQfgZ5W66"
           ]}
         />
+        
+        {/* Logo Structured Data */}
+        <LogoStructuredData />
+        
+        {/* SEO Optimizer */}
+        <SEOOptimizer />
         <SpeedInsights />
         {children}
         <Toaster position="top-center" />

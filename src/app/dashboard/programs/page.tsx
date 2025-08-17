@@ -338,7 +338,7 @@ export default function ProgramsPage() {
               <Filter className="w-4 h-4 text-slate-400" />
               <select
                 value={filterStatus}
-                onChange={(e) => setFilterStatus(e.target.value as any)}
+                onChange={(e) => setFilterStatus(e.target.value as 'all' | 'featured' | 'regular')}
                 className="bg-slate-700/50 border border-slate-600/50 rounded-lg px-3 py-2 text-white text-sm focus:ring-2 focus:ring-purple-500 focus:border-transparent"
               >
                 <option value="all">جميع البرامج</option>

@@ -140,9 +140,23 @@ const nextConfig = {
 
   // تحسين Bundle والأداء
   experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-select', 'lodash'],
+    optimizePackageImports: [
+      'lucide-react', 
+      'framer-motion', 
+      '@radix-ui/react-dialog', 
+      '@radix-ui/react-select', 
+      'lodash',
+      'recharts',
+      'react-tsparticles',
+      'embla-carousel-react',
+      'keen-slider',
+      'react-hook-form',
+      'zod'
+    ],
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
     typedRoutes: true,
+    // تحسين الأداء
+    // optimizeCss: true, // تعطيل مؤقتاً بسبب مشكلة critters
     // تمكين SWC بدلاً من Babel (enabled by default in Next.js 13+)
     // تمكين ميزات تحسين الأداء الإضافية
   },

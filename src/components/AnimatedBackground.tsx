@@ -22,7 +22,7 @@ export default function AnimatedBackground() {
     return () => clearTimeout(timer);
   }, []);
 
-  const particlesInit = useCallback(async (engine: any) => {
+  const particlesInit = useCallback(async (engine: unknown) => {
     // Dynamic import tsparticles to reduce initial bundle
     const { loadFull } = await import('tsparticles');
     await loadFull(engine);

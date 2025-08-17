@@ -3,8 +3,8 @@
 import { useState } from 'react';
 
 export default function TestApiPage() {
-  const [healthResult, setHealthResult] = useState<any>(null);
-  const [validateResult, setValidateResult] = useState<any>(null);
+  const [healthResult, setHealthResult] = useState<unknown>(null);
+  const [validateResult, setValidateResult] = useState<unknown>(null);
   const [testCode, setTestCode] = useState('');
   const [loading, setLoading] = useState(false);
 

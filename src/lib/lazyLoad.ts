@@ -1,10 +1,10 @@
 import { lazy, ComponentType } from 'react';
 
 // Type for lazy loaded components
-type LazyComponent<T = {}> = ComponentType<T>;
+type LazyComponent<T = Record<string, unknown>> = ComponentType<T>;
 
 // Lazy load utility with better error handling and loading states
-export const createLazyComponent = <T = {}>(
+export const createLazyComponent = <T = Record<string, unknown>>(
   importFunction: () => Promise<{ default: ComponentType<T> }>,
   displayName?: string
 ) => {
@@ -12,7 +12,7 @@ export const createLazyComponent = <T = {}>(
 
   if (displayName) {
     // TypeScript workaround for displayName
-    (LazyComponent as any).displayName = displayName;
+    (LazyComponent as { displayName?: string }).displayName = displayName;
   }
 
   return LazyComponent;
@@ -20,14 +20,14 @@ export const createLazyComponent = <T = {}>(
 
 // Pre-load components for better UX
 export const preloadComponent = (
-  importFunction: () => Promise<{ default: ComponentType<any> }>
+  importFunction: () => Promise<{ default: ComponentType<unknown> }>
 ) => {
   const componentPromise = importFunction();
   return componentPromise;
 };
 
 // Lazy load components with retry mechanism
-export const createRetryableLazyComponent = <T = {}>(
+export const createRetryableLazyComponent = <T = Record<string, unknown>>(
   importFunction: () => Promise<{ default: ComponentType<T> }>,
   retries = 3
 ) => {

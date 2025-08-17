@@ -1,60 +1,77 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
   
+  <!-- الصفحة الرئيسية مع اللوجو -->
   <url>
     <loc>https://nightclubegypt.com/</loc>
-    <lastmod>2025-08-13T18:16:36+00:00</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>daily</changefreq>
-    <priority>1</priority>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://nightclubegypt.com/images/nightclubegyptlogo.jpg</image:loc>
+      <image:title>Night Club Egypt - أفضل نايت كلوب في مصر</image:title>
+      <image:caption>شعار Night Club Egypt - أفضل نايت كلوب في القاهرة، الجيزة، العجوزة، الشيخ زايد</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nightclubegypt.com/images/logo-seo-1200x1200.png</image:loc>
+      <image:title>Night Club Egypt Logo - شعار عالي الجودة</image:title>
+      <image:caption>شعار Night Club Egypt بصورة عالية الجودة - أفضل نايت كلوب في مصر</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://nightclubegypt.com/images/nightclubegypt.com.jpg</image:loc>
+      <image:title>حفلات ليلية فاخرة في أفضل نايت كلوب بمصر</image:title>
+      <image:caption>حفلات ليلية فاخرة في أفضل نايت كلوب بمصر - خدمة VIP استثنائية</image:caption>
+    </image:image>
   </url>
-
+  
+  <!-- صفحة لوحة التحكم -->
   <url>
-    <loc>https://nightclubegypt.com/#about</loc>
-    <lastmod>2025-08-13T18:16:36+00:00</lastmod>
+    <loc>https://nightclubegypt.com/dashboard</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
+  
+  <!-- صفحة البرامج -->
   <url>
-    <loc>https://nightclubegypt.com/#programs</loc>
-    <lastmod>2025-08-13T18:16:36+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-  <url>
-    <loc>https://nightclubegypt.com/#pricing</loc>
-    <lastmod>2025-08-13T18:16:36+00:00</lastmod>
+    <loc>https://nightclubegypt.com/dashboard/programs</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
-
+  
+  <!-- صفحة الأسعار -->
   <url>
-    <loc>https://nightclubegypt.com/#gallery</loc>
-    <lastmod>2025-08-13T18:16:36+00:00</lastmod>
+    <loc>https://nightclubegypt.com/dashboard/pricing</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  
+  <!-- صفحة رموز الخصم -->
+  <url>
+    <loc>https://nightclubegypt.com/dashboard/discount-codes</loc>
+    <lastmod>2024-12-19</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.7</priority>
+  </url>
+  
+  <!-- صفحة العرض العام -->
+  <url>
+    <loc>https://nightclubegypt.com/dashboard/universal-offer</loc>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.7</priority>
   </url>
-
-  <url>
-    <loc>https://nightclubegypt.com/#contact</loc>
-    <lastmod>2025-08-13T18:16:36+00:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-
-  <url>
-    <loc>https://nightclubegypt.com/dashboard</loc>
-    <lastmod>2025-08-13T18:16:36+00:00</lastmod>
-    <changefreq>daily</changefreq>
-    <priority>0.5</priority>
-  </url>
-
+  
+  <!-- صفحة اختبار API -->
   <url>
     <loc>https://nightclubegypt.com/test-api</loc>
-    <lastmod>2025-08-13T18:16:36+00:00</lastmod>
+    <lastmod>2024-12-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.3</priority>
   </url>
-
+  
 </urlset>

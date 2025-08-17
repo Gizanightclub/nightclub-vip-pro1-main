@@ -1,342 +1,233 @@
-// Service Worker for Night Club Egypt - أفضل نايت كلوب في مصر
-// Enhanced for performance, Core Web Vitals, and offline caching
+// Service Worker for Night Club Egypt
+// تحسين الأداء والتخزين المؤقت
 
-const CACHE_NAME = 'nightclub-egypt-v3.0';
-const STATIC_CACHE = 'static-v3.0';
-const IMAGES_CACHE = 'images-v3.0';
-const API_CACHE = 'api-v3.0';
-const FONTS_CACHE = 'fonts-v3.0';
+const CACHE_NAME = 'nightclub-egypt-v1.0.0';
+const STATIC_CACHE = 'nightclub-static-v1.0.0';
+const DYNAMIC_CACHE = 'nightclub-dynamic-v1.0.0';
 
-// Critical resources to cache immediately for LCP optimization
-const CRITICAL_RESOURCES = [
+// الملفات المهمة للتخزين المؤقت
+const STATIC_FILES = [
   '/',
-  '/manifest.json',
+  '/images/nightclubegyptlogo.jpg',
+  '/images/logo-seo-1200x1200.png',
+  '/images/nightclubegypt.com.jpg',
   '/favicon.ico',
   '/apple-touch-icon.png',
   '/android-chrome-192x192.png',
   '/android-chrome-512x512.png',
-  '/images/nightclubegyptlogo.jpg',
-  '/images/nightclubegypt.com.jpg'
+  '/site.webmanifest'
 ];
 
-// Important images for preloading
-const HERO_IMAGES = [
-  '/images/nightclubegypt.com (3).jpg',
-  '/images/nightclubegypt.com (8).jpg',
-  '/images/nightclubegypt.com (10).jpg'
-];
+// استراتيجية التخزين المؤقت: Cache First
+const cacheFirst = async (request) => {
+  const cache = await caches.open(STATIC_CACHE);
+  const cachedResponse = await cache.match(request);
+  
+  if (cachedResponse) {
+    return cachedResponse;
+  }
+  
+  try {
+    const networkResponse = await fetch(request);
+    if (networkResponse.ok) {
+      cache.put(request, networkResponse.clone());
+    }
+    return networkResponse;
+  } catch (error) {
+    console.error('Cache First failed:', error);
+    return new Response('Network error', { status: 503 });
+  }
+};
 
-// API endpoints to cache
-const API_ENDPOINTS = [
-  '/api/health'
-];
+// استراتيجية التخزين المؤقت: Network First
+const networkFirst = async (request) => {
+  try {
+    const networkResponse = await fetch(request);
+    const cache = await caches.open(DYNAMIC_CACHE);
+    cache.put(request, networkResponse.clone());
+    return networkResponse;
+  } catch (error) {
+    const cachedResponse = await caches.match(request);
+    if (cachedResponse) {
+      return cachedResponse;
+    }
+    return new Response('Network error', { status: 503 });
+  }
+};
 
-// Install event - cache critical resources for better FCP/LCP
+// استراتيجية التخزين المؤقت: Stale While Revalidate
+const staleWhileRevalidate = async (request) => {
+  const cache = await caches.open(DYNAMIC_CACHE);
+  const cachedResponse = await cache.match(request);
+  
+  const fetchPromise = fetch(request).then((networkResponse) => {
+    if (networkResponse.ok) {
+      cache.put(request, networkResponse.clone());
+    }
+    return networkResponse;
+  }).catch(() => cachedResponse);
+  
+  return cachedResponse || fetchPromise;
+};
+
+// Install Event
 self.addEventListener('install', (event) => {
-  console.log('Night Club Egypt SW v3.0: Installing...');
-
+  console.log('Service Worker installing...');
+  
   event.waitUntil(
-    Promise.all([
-      // Cache critical resources
-      caches.open(STATIC_CACHE).then(cache => {
-        console.log('SW: Caching critical resources for LCP optimization');
-        return cache.addAll(CRITICAL_RESOURCES.concat(HERO_IMAGES).map(url => new Request(url, {
-          cache: 'reload',
-          mode: 'cors'
-        })));
-      }),
-
-      // Cache fonts separately for FCP optimization
-      caches.open(FONTS_CACHE).then(cache => {
-        const fontUrls = [
-          'https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700&display=swap',
-          'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap'
-        ];
-        return cache.addAll(fontUrls.map(url => new Request(url, {
-          cache: 'force-cache',
-          mode: 'cors'
-        })));
-      }),
-
-      // Skip waiting to activate immediately
-      self.skipWaiting()
-    ]).catch(error => {
-      console.error('SW: Install failed', error);
-    })
+    caches.open(STATIC_CACHE)
+      .then((cache) => {
+        console.log('Caching static files...');
+        return cache.addAll(STATIC_FILES);
+      })
+      .then(() => {
+        console.log('Service Worker installed successfully');
+        return self.skipWaiting();
+      })
+      .catch((error) => {
+        console.error('Service Worker installation failed:', error);
+      })
   );
 });
 
-// Activate event - clean old caches
+// Activate Event
 self.addEventListener('activate', (event) => {
-  console.log('Night Club Egypt SW v3.0: Activating...');
-
+  console.log('Service Worker activating...');
+  
   event.waitUntil(
-    Promise.all([
-      // Take control of all clients immediately
-      self.clients.claim(),
-
-      // Clean old caches to reduce storage usage
-      caches.keys().then(cacheNames => {
+    caches.keys()
+      .then((cacheNames) => {
         return Promise.all(
-          cacheNames
-            .filter(cacheName =>
-              cacheName !== STATIC_CACHE &&
-              cacheName !== IMAGES_CACHE &&
-              cacheName !== API_CACHE &&
-              cacheName !== FONTS_CACHE
-            )
-            .map(cacheName => {
-              console.log('SW: Deleting old cache:', cacheName);
+          cacheNames.map((cacheName) => {
+            if (cacheName !== STATIC_CACHE && cacheName !== DYNAMIC_CACHE) {
+              console.log('Deleting old cache:', cacheName);
               return caches.delete(cacheName);
-            })
+            }
+          })
         );
       })
-    ]).catch(error => {
-      console.error('SW: Activation failed', error);
-    })
+      .then(() => {
+        console.log('Service Worker activated successfully');
+        return self.clients.claim();
+      })
   );
 });
 
-// Fetch event - optimized caching strategy for Core Web Vitals
+// Fetch Event
 self.addEventListener('fetch', (event) => {
   const { request } = event;
   const url = new URL(request.url);
-
-  // Skip cross-origin requests except for fonts and specific domains
-  if (!url.origin.includes(self.location.origin) &&
-      !url.origin.includes('fonts.googleapis.com') &&
-      !url.origin.includes('fonts.gstatic.com')) {
-    return;
-  }
-
-  // Skip non-GET requests
+  
+  // تجاهل طلبات POST
   if (request.method !== 'GET') {
     return;
   }
-
-  // Strategy for different resource types optimized for performance
-  if (url.origin.includes('fonts.googleapis.com') || url.origin.includes('fonts.gstatic.com')) {
-    event.respondWith(handleFontRequest(request));
-  } else if (request.destination === 'image') {
-    event.respondWith(handleImageRequest(request));
-  } else if (url.pathname.startsWith('/api/')) {
-    event.respondWith(handleApiRequest(request));
-  } else if (request.destination === 'document') {
-    event.respondWith(handlePageRequest(request));
+  
+  // تجاهل طلبات API
+  if (url.pathname.startsWith('/api/')) {
+    return;
+  }
+  
+  // تجاهل طلبات WebSocket
+  if (url.protocol === 'ws:' || url.protocol === 'wss:') {
+    return;
+  }
+  
+  // استراتيجيات التخزين المؤقت حسب نوع الملف
+  if (STATIC_FILES.includes(url.pathname) || url.pathname.startsWith('/_next/static/')) {
+    // الملفات الثابتة: Cache First
+    event.respondWith(cacheFirst(request));
+  } else if (url.pathname.startsWith('/images/')) {
+    // الصور: Stale While Revalidate
+    event.respondWith(staleWhileRevalidate(request));
+  } else if (url.pathname.startsWith('/dashboard/')) {
+    // صفحات لوحة التحكم: Network First
+    event.respondWith(networkFirst(request));
   } else {
-    event.respondWith(handleStaticRequest(request));
+    // باقي الصفحات: Network First
+    event.respondWith(networkFirst(request));
   }
 });
 
-// Handle font requests - Cache First (fonts rarely change)
-async function handleFontRequest(request) {
-  try {
-    const cache = await caches.open(FONTS_CACHE);
-    const cached = await cache.match(request);
-
-    if (cached) {
-      return cached;
-    }
-
-    const response = await fetch(request);
-    if (response.ok) {
-      cache.put(request, response.clone());
-    }
-    return response;
-  } catch (error) {
-    console.error('SW: Font request failed', error);
-    return new Response('Font unavailable', { status: 404 });
+// Background Sync
+self.addEventListener('sync', (event) => {
+  if (event.tag === 'background-sync') {
+    console.log('Background sync triggered');
+    event.waitUntil(doBackgroundSync());
   }
-}
+});
 
-// Handle image requests - Cache First with optimizations for LCP
-async function handleImageRequest(request) {
-  try {
-    const cache = await caches.open(IMAGES_CACHE);
-    const cached = await cache.match(request);
-
-    if (cached) {
-      // Return cached version immediately for better LCP
-      return cached;
-    }
-
-    // Fetch from network and cache with timeout for better performance
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 5000);
-
-    try {
-      const response = await fetch(request, { signal: controller.signal });
-      clearTimeout(timeoutId);
-
-      if (response.ok) {
-        cache.put(request, response.clone());
+// Push Notifications
+self.addEventListener('push', (event) => {
+  const options = {
+    body: event.data ? event.data.text() : 'Night Club Egypt - تحديث جديد!',
+    icon: '/images/nightclubegyptlogo.jpg',
+    badge: '/images/nightclubegyptlogo.jpg',
+    vibrate: [100, 50, 100],
+    data: {
+      dateOfArrival: Date.now(),
+      primaryKey: 1
+    },
+    actions: [
+      {
+        action: 'explore',
+        title: 'استكشف الموقع',
+        icon: '/images/nightclubegyptlogo.jpg'
+      },
+      {
+        action: 'close',
+        title: 'إغلاق',
+        icon: '/images/nightclubegyptlogo.jpg'
       }
-      return response;
-    } catch (fetchError) {
-      clearTimeout(timeoutId);
-      throw fetchError;
-    }
-  } catch (error) {
-    console.error('SW: Image request failed', error);
-    return new Response('Image unavailable', { status: 404 });
+    ]
+  };
+  
+  event.waitUntil(
+    self.registration.showNotification('Night Club Egypt', options)
+  );
+});
+
+// Notification Click
+self.addEventListener('notificationclick', (event) => {
+  event.notification.close();
+  
+  if (event.action === 'explore') {
+    event.waitUntil(
+      clients.openWindow('/')
+    );
   }
-}
+});
 
-// Handle API requests - Network First with shorter timeout
-async function handleApiRequest(request) {
+// Background Sync Function
+async function doBackgroundSync() {
   try {
-    const cache = await caches.open(API_CACHE);
-
-    // Try network first with shorter timeout for better FID
-    const controller = new AbortController();
-    const timeoutId = setTimeout(() => controller.abort(), 2000);
-
-    try {
-      const response = await fetch(request, { signal: controller.signal });
-      clearTimeout(timeoutId);
-
-      if (response.ok) {
-        cache.put(request, response.clone());
-      }
-      return response;
-    } catch (networkError) {
-      clearTimeout(timeoutId);
-
-      // Fallback to cache
-      const cached = await cache.match(request);
-      if (cached) {
-        return cached;
-      }
-      throw networkError;
-    }
-  } catch (error) {
-    console.error('SW: API request failed', error);
-    return new Response(JSON.stringify({ error: 'Service unavailable' }), {
-      status: 503,
-      headers: { 'Content-Type': 'application/json' }
-    });
-  }
-}
-
-// Handle page requests - Stale While Revalidate for better performance
-async function handlePageRequest(request) {
-  try {
-    const cache = await caches.open(STATIC_CACHE);
-    const cached = await cache.match(request);
-
-    // Return cached version immediately if available (faster LCP)
-    if (cached) {
-      // Update cache in background
-      fetch(request).then(response => {
-        if (response.ok) {
-          cache.put(request, response.clone());
-        }
-      }).catch(() => {});
-
-      return cached;
-    }
-
-    // If not cached, fetch from network
-    const response = await fetch(request);
+    // تحديث البيانات في الخلفية
+    const response = await fetch('/api/health');
     if (response.ok) {
-      cache.put(request, response.clone());
+      console.log('Background sync completed successfully');
     }
-    return response;
   } catch (error) {
-    console.error('SW: Page request failed', error);
-    return new Response('Page unavailable offline', { status: 503 });
+    console.error('Background sync failed:', error);
   }
 }
 
-// Handle static assets - Cache First with long TTL
-async function handleStaticRequest(request) {
-  try {
-    const cache = await caches.open(STATIC_CACHE);
-    const cached = await cache.match(request);
-
-    if (cached) {
-      return cached;
-    }
-
-    const response = await fetch(request);
-    if (response.ok) {
-      cache.put(request, response.clone());
-    }
-    return response;
-  } catch (error) {
-    console.error('SW: Static request failed', error);
-    return new Response('Resource unavailable', { status: 404 });
-  }
-}
-
-// Handle messages from main thread
+// Message Handler
 self.addEventListener('message', (event) => {
   if (event.data && event.data.type === 'SKIP_WAITING') {
     self.skipWaiting();
   }
-
-  if (event.data && event.data.type === 'CACHE_CLEANUP') {
-    cleanupOldCaches();
-  }
-
-  if (event.data && event.data.type === 'PRELOAD_CRITICAL') {
-    preloadCriticalResources();
+  
+  if (event.data && event.data.type === 'GET_VERSION') {
+    event.ports[0].postMessage({ version: CACHE_NAME });
   }
 });
 
-// Preload critical resources for better Core Web Vitals
-async function preloadCriticalResources() {
-  try {
-    const cache = await caches.open(IMAGES_CACHE);
-    const criticalImages = [
-      '/images/nightclubegyptlogo.jpg',
-      '/images/nightclubegypt.com.jpg',
-      '/images/nightclubegypt.com (3).jpg'
-    ];
-
-    await Promise.all(
-      criticalImages.map(async (url) => {
-        const cached = await cache.match(url);
-        if (!cached) {
-          try {
-            const response = await fetch(url);
-            if (response.ok) {
-              await cache.put(url, response);
-            }
-          } catch (error) {
-            console.log('SW: Failed to preload', url);
-          }
-        }
-      })
-    );
-    console.log('SW: Critical resources preloaded');
-  } catch (error) {
-    console.error('SW: Preload failed', error);
-  }
-}
-
-// Periodic cache cleanup to prevent storage bloat
-async function cleanupOldCaches() {
-  try {
-    const cacheNames = await caches.keys();
-    const oldCaches = cacheNames.filter(name =>
-      !name.includes('v3.0') && name.includes('nightclub')
-    );
-
-    await Promise.all(oldCaches.map(name => caches.delete(name)));
-    console.log('SW: Cleaned up old caches');
-  } catch (error) {
-    console.error('SW: Cache cleanup failed', error);
-  }
-}
-
-// Error handling
+// Error Handler
 self.addEventListener('error', (event) => {
-  console.error('SW: Error occurred', event.error);
+  console.error('Service Worker error:', event.error);
 });
 
+// Unhandled Rejection Handler
 self.addEventListener('unhandledrejection', (event) => {
-  console.error('SW: Unhandled promise rejection', event.reason);
+  console.error('Service Worker unhandled rejection:', event.reason);
 });
-
-console.log('Night Club Egypt Service Worker v3.0 loaded - Optimized for Core Web Vitals');

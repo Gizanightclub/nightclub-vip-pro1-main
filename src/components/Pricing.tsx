@@ -34,7 +34,7 @@ interface DisplayPackage extends PricingPackage {
   originalPrice: number;
   discount: number;
   featuresList: Array<{
-    icon: any;
+    icon: React.ComponentType<{ className?: string }>;
     text: string;
     premium: boolean;
   }>;

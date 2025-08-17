@@ -93,7 +93,7 @@ export async function POST(request: NextRequest) {
     // التحقق من صحة التواريخ
     const now = new Date();
 
-    if (discountCode.valid_from && new Date(discountCode.valid_from) > now) {
+    if (discountCode.valid_from && typeof discountCode.valid_from === 'string' && new Date(discountCode.valid_from) > now) {
       console.log('Code not yet valid');
       return NextResponse.json(
         { error: 'كود الخصم لم يصبح ساري المفعول بعد' },
@@ -101,7 +101,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    if (discountCode.valid_until && new Date(discountCode.valid_until) < now) {
+    if (discountCode.valid_until && typeof discountCode.valid_until === 'string' && new Date(discountCode.valid_until) < now) {
       console.log('Code expired');
       return NextResponse.json(
         { error: 'كود الخصم منتهي الصلاحية' },
@@ -110,7 +110,10 @@ export async function POST(request: NextRequest) {
     }
 
     // التحقق من حد الاستخدام
-    if (discountCode.usage_limit > 0 && discountCode.used_count >= discountCode.usage_limit) {
+    const usageLimit = typeof discountCode.usage_limit === 'number' ? discountCode.usage_limit : 0;
+    const usedCount = typeof discountCode.used_count === 'number' ? discountCode.used_count : 0;
+    
+    if (usageLimit > 0 && usedCount >= usageLimit) {
       console.log('Code usage limit exceeded');
       return NextResponse.json(
         { error: 'تم استنفاد حد استخدام هذا الكود' },
@@ -124,10 +127,10 @@ export async function POST(request: NextRequest) {
     const { error: updateError } = await supabaseAdmin
       .from('discount_codes')
       .update({
-        used_count: discountCode.used_count + 1,
+        used_count: usedCount + 1,
         updated_at: new Date().toISOString()
       })
-      .eq('id', discountCode.id);
+      .eq('id', discountCode.id as string);
 
     if (updateError) {
       console.error('Error updating usage count:', {
