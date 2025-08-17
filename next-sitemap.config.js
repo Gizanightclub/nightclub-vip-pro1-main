@@ -80,7 +80,7 @@ module.exports = {
     }
     
     return {
-      loc: path,
+      loc: `https://nightclubegypt.com${path}`,
       changefreq,
       priority,
       lastmod: new Date().toISOString(),
@@ -110,7 +110,7 @@ module.exports = {
     
     locations.forEach(location => {
       result.push({
-        loc: `/#${location}`,
+        loc: `https://nightclubegypt.com/#${location}`,
         changefreq: 'weekly',
         priority: 0.85,
         lastmod: new Date().toISOString(),
@@ -127,7 +127,7 @@ module.exports = {
     
     services.forEach(service => {
       result.push({
-        loc: `/#services-${service}`,
+        loc: `https://nightclubegypt.com/#services-${service}`,
         changefreq: 'weekly',
         priority: 0.75,
         lastmod: new Date().toISOString(),

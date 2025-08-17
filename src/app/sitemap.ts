@@ -1,11 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : process.env.NODE_ENV === 'production'
-    ? 'https://www.nightclubegypt.com'
-    : 'http://localhost:3000'
+  const baseUrl = 'https://nightclubegypt.com'
 
   const currentDate = new Date().toISOString()
 
@@ -18,31 +14,31 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${baseUrl}/#about`,
+      url: `${baseUrl}/about`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/#programs`,
+      url: `${baseUrl}/programs`,
       lastModified: currentDate,
       changeFrequency: 'daily' as const,
       priority: 0.95,
     },
     {
-      url: `${baseUrl}/#pricing`,
+      url: `${baseUrl}/pricing`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/#gallery`,
+      url: `${baseUrl}/gallery`,
       lastModified: currentDate,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
-      url: `${baseUrl}/#contact`,
+      url: `${baseUrl}/contact`,
       lastModified: currentDate,
       changeFrequency: 'monthly' as const,
       priority: 0.7,
