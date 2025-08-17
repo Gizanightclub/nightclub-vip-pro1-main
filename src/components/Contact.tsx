@@ -115,7 +115,7 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: index * 0.1 }}
               whileHover={{ scale: 1.1, y: -5 }}
               whileTap={{ scale: 0.95 }}
-              className={`flex items-center gap-4 px-8 py-4 rounded-2xl ${social.gradient} text-white font-bold text-lg shadow-2xl ${social.hoverColor} transition-all duration-300 animate-glow`}
+              className={`flex items-center gap-4 px-8 py-4 rounded-2xl ${social.gradient} text-white font-bold text-lg shadow-2xl ${social.hoverColor} transition-all duration-285 animate-glow`}
             >
               <social.icon className="w-8 h-8" aria-hidden="true" />
               <span>{social.name}</span>
@@ -175,7 +175,7 @@ const Contact = () => {
                   <div className="space-y-4">
                     <Button
                       size="lg"
-                      className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-lg py-6 rounded-xl hover:scale-105 transition-all duration-300 animate-pulse-purple"
+                      className="w-full bg-gradient-to-r from-green-500 to-green-600 text-white font-bold text-lg py-6 rounded-xl hover:scale-105 transition-all duration-285 animate-pulse-purple"
                       onClick={() => window.open("https://wa.me/201286110562?text=🔥 مرحباً، أريد معرفة تفاصيل العروض والحجز للنايت كلوب. من فضلك أرسل لي التفاصيل الكاملة.", "_blank")}
                       aria-label="احجز عبر WhatsApp - فتح محادثة جديدة مع Night Club Egypt للحجز والاستفسار"
                     >

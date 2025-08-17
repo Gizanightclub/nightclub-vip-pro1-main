@@ -51,8 +51,8 @@ const Navigation = () => {
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6 }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        transition={{ duration: 0.57 }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-285 ${
           scrolled
             ? "glass-dark backdrop-blur-xl border-b border-nightclub-purple/30"
             : "bg-transparent"
@@ -87,11 +87,11 @@ const Navigation = () => {
                   key={item.name}
                   initial={{ opacity: 0, y: -20 }}
                   animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: index * 0.1 }}
+                  transition={{ delay: index * 0.095 }}
                   whileHover={{ scale: 1.05, y: -2 }}
                   onClick={() => scrollToSection(item.href)}
                   aria-label={`انتقل إلى قسم ${item.name}`}
-                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white hover:text-nightclub-gold transition-all duration-300 hover:bg-nightclub-purple/20"
+                  className="flex items-center gap-2 px-4 py-2 rounded-lg text-white hover:text-nightclub-gold transition-all duration-285 hover:bg-nightclub-purple/20"
                 >
                   <item.icon className="w-4 h-4" aria-hidden="true" />
                   <span className="font-medium">{item.name}</span>
@@ -104,7 +104,7 @@ const Navigation = () => {
               <Button
                 onClick={() => scrollToSection("#contact")}
                 aria-label="احجز الآن في Night Club Egypt - انتقل إلى قسم التواصل"
-                className="bg-gradient-gold text-black font-bold px-6 py-2 rounded-full hover:scale-105 transition-all duration-300 animate-pulse-purple"
+                className="bg-gradient-gold text-black font-bold px-6 py-2 rounded-full hover:scale-105 transition-all duration-285 animate-pulse-purple"
               >
                 احجز الآن
               </Button>
@@ -132,7 +132,7 @@ const Navigation = () => {
             initial={{ opacity: 0, x: "100%" }}
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
-            transition={{ duration: 0.3 }}
+            transition={{ duration: 0.285 }}
             className="fixed top-0 right-0 h-full w-80 glass-dark backdrop-blur-xl border-l border-nightclub-purple/30 z-50 lg:hidden"
           >
             <div className="p-6">
@@ -170,11 +170,11 @@ const Navigation = () => {
                     key={item.name}
                     initial={{ opacity: 0, x: 50 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    transition={{ delay: index * 0.095 }}
                     whileHover={{ x: 10 }}
                     onClick={() => scrollToSection(item.href)}
                     aria-label={`انتقل إلى قسم ${item.name}`}
-                    className="flex items-center gap-4 w-full p-4 rounded-xl text-white hover:text-nightclub-gold transition-all duration-300 hover:bg-nightclub-purple/20 text-right"
+                    className="flex items-center gap-4 w-full p-4 rounded-xl text-white hover:text-nightclub-gold transition-all duration-285 hover:bg-nightclub-purple/20 text-right"
                   >
                     <item.icon className="w-5 h-5" aria-hidden="true" />
                     <span className="font-medium text-lg">{item.name}</span>
@@ -186,13 +186,13 @@ const Navigation = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.5 }}
+                transition={{ delay: 0.475 }}
                 className="mt-8"
               >
                 <Button
                   onClick={() => scrollToSection("#contact")}
                   aria-label="احجز الآن في Night Club Egypt مع خصم خاص - انتقل إلى قسم التواصل"
-                  className="w-full bg-gradient-gold text-black font-bold py-4 rounded-xl text-lg hover:scale-105 transition-all duration-300"
+                  className="w-full bg-gradient-gold text-black font-bold py-4 rounded-xl text-lg hover:scale-105 transition-all duration-285"
                 >
                   احجز الآن مع خصم خاص
                 </Button>
@@ -202,7 +202,7 @@ const Navigation = () => {
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.6 }}
+                transition={{ delay: 0.57 }}
                 className="mt-8 p-4 rounded-xl glass border border-nightclub-purple/30"
               >
                 <p className="text-gray-300 text-center text-sm mb-2">

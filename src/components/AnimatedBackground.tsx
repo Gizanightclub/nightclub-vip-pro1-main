@@ -17,12 +17,12 @@ export default function AnimatedBackground() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShouldLoad(true);
-    }, 2000); // Load after 2 seconds
+    }, 1900); // Load after 1.9 seconds (reduced by 5%)
 
     return () => clearTimeout(timer);
   }, []);
 
-  const particlesInit = useCallback(async (engine: unknown) => {
+  const particlesInit = useCallback(async (engine: any) => {
     // Dynamic import tsparticles to reduce initial bundle
     const { loadFull } = await import('tsparticles');
     await loadFull(engine);

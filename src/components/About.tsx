@@ -80,7 +80,7 @@ const About = () => {
               transition={{ duration: 0.6, delay: index * 0.2 }}
               className="group"
             >
-              <Card className="glass-dark border-nightclub-gold/30 h-full card-3d group-hover:border-nightclub-gold/50 transition-all duration-300">
+              <Card className="glass-dark border-nightclub-gold/30 h-full card-3d group-hover:border-nightclub-gold/50 transition-all duration-285">
                 <CardContent className="p-8 text-center">
                   <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-nightclub-gold/20 mb-6">
                     <feature.icon className={`w-8 h-8 ${feature.color}`} />

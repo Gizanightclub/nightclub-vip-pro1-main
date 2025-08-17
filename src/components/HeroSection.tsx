@@ -121,7 +121,7 @@ const HeroSection = () => {
               }
             }}
             aria-label="احجز الآن في Night Club Egypt مع خصم 20% - أفضل نايت كلوب في القاهرة والجيزة وجميع محافظات مصر"
-            className="bg-gradient-gold text-black font-bold text-xl px-12 py-6 rounded-full hover:scale-105 transition-all duration-300 animate-pulse-purple"
+                            className="bg-gradient-gold text-black font-bold text-xl px-12 py-6 rounded-full hover:scale-105 transition-all duration-285 animate-pulse-purple"
           >
             احجز الآن مع خصم 20%
           </Button>
