@@ -37,13 +37,6 @@ const About = () => {
     }
   ];
 
-  const stats = [
-    { number: "5000+", label: "عميل سعيد", icon: Heart },
-    { number: "100+", label: "حفلة مميزة", icon: Star },
-    { number: "50+", label: "نجم شهير", icon: Trophy },
-    { number: "24/7", label: "خدمة العملاء", icon: CheckCircle }
-  ];
-
     return (
     <section className="py-20 relative overflow-hidden">
       {/* Clean Background */}
@@ -99,30 +92,6 @@ const About = () => {
           transition={{ duration: 0.6, delay: 0.3 }}
           className="grid grid-cols-2 md:grid-cols-4 gap-8"
         >
-          {stats.map((stat, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-              whileHover={{ scale: 1.1 }}
-              className="text-center"
-            >
-              <Card className="glass-dark border-nightclub-purple/30 card-3d">
-                <CardContent className="p-6">
-                  <div className="mb-4">
-                    <stat.icon className="w-8 h-8 text-nightclub-gold mx-auto animate-float" />
-                  </div>
-                  <div className="text-3xl md:text-4xl font-bold text-nightclub-gold mb-2 animate-neon">
-                    {stat.number}
-                  </div>
-                  <div className="text-gray-400 text-sm md:text-base">
-                    {stat.label}
-                  </div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
         </motion.div>
       </div>
     </section>

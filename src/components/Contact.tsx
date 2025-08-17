@@ -60,7 +60,7 @@ const Contact = () => {
     {
       icon: MapPin,
       title: "الموقع",
-      description: "نايل كورنيش، أجوزا، شارع النيل",
+      description: "نايل كورنيش، العجوزه، شارع النيل",
       color: "text-green-400"
     },
     {

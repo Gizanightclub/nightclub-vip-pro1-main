@@ -174,8 +174,6 @@ ${appliedDiscount.description ? `📝 ${appliedDiscount.description}` : ""}`;
 
 👑 *الباقة المختارة:* ${selectedPackage.title}
 💰 *السعر الأصلي:* ${selectedPackage.originalPrice} جنيه
-💲 *سعر الباقة:* ${selectedPackage.price} جنيه
-${discountMessage}
 💵 *السعر النهائي:* ${finalPrice} جنيه
 🎉 *إجمالي التوفير:* ${totalSavings} جنيه!
 
@@ -185,9 +183,6 @@ ${discountMessage}
 • يوم الحجز: ${formData.day}
 • وقت الوصول: ${formData.time}
 • عدد الأشخاص: ${formData.guests}
-
-📋 *تفاصيل الباقة:*
-${selectedPackage.features.map(feature => `• ${feature}`).join("\n")}
 
 ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialRequests}` : ''}
 
