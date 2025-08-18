@@ -1,24 +1,24 @@
-# Robots.txt for nightclubegypt.com
+ Robots.txt for nightclubegypt.com
 
-# Allow all web crawlers
+ Allow all web crawlers
 User-agent: *
 Allow: /
 
-# Block access to private admin areas
+Block access to private admin areas
 Disallow: /dashboard/
 Disallow: /api/
 
-# Block access to system files
+Block access to system files
 Disallow: /_next/
 Disallow: /admin/
 Disallow: /.well-known/
 
-# Allow access to important SEO files
+Allow access to important SEO files
 Allow: /sitemap.xml
 Allow: /robots.txt
 
-# Crawl delay (optional - helps with server load)
+Crawl delay (optional - helps with server load)
 Crawl-delay: 1
 
-# Sitemap location
+Sitemap location
 Sitemap: https://nightclubegypt.com/sitemap.xml
