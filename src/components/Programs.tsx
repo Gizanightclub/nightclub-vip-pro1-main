@@ -146,14 +146,14 @@ const Programs = () => {
         >
           <Card className="glass-dark border-nightclub-gold/50 card-3d animate-glow overflow-hidden">
             <CardContent className="p-0">
-              <div className="relative h-[70vh]">
+              <div className="relative h-[70vh] md:h-[70vh] sm:h-[50vh] min-h-[400px] bg-gradient-to-br from-nightclub-dark/5 to-black/5">
                 {/* Main Party Image */}
                 <motion.div
                   key={currentPartyImage}
                   initial={{ opacity: 0, scale: 1.1 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 0.8 }}
-                  className="relative w-full h-full"
+                  className="relative w-full h-full rounded-lg overflow-hidden image-container-responsive"
                 >
                   <Image
                     src={programs[currentPartyImage]?.image_url || "/images/nightclubegypt.com (6).jpg"}
@@ -161,11 +161,11 @@ const Programs = () => {
                     title={programs[currentPartyImage]?.title || "حفلة اليوم"}
                     fill
                     priority={currentPartyImage === 0} // Prioritize first image
-                    className="object-cover"
+                    className="image-contain-enhanced"
                   />
 
-                  {/* Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent"></div>
+                  {/* Overlay with enhanced gradient for better visual appeal */}
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
 
                   {/* Content */}
                   <div className="absolute bottom-8 right-8 text-right">
@@ -215,14 +215,14 @@ const Programs = () => {
               {/* Thumbnails - Only show if multiple programs */}
               {programs.length > 1 && (
                 <div className="p-6">
-                  <div className="flex justify-center gap-3 overflow-x-auto">
+                  <div className="flex justify-center gap-2 md:gap-3 overflow-x-auto pb-2 px-2">
                     {programs.map((program, index) => (
                       <motion.div
                         key={program.id}
                         whileHover={{ scale: 1.05 }}
-                        className={`relative w-20 h-20 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 flex-shrink-0 ${
+                        className={`relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 flex-shrink-0 thumbnail-container ${
                           currentPartyImage === index
-                            ? "ring-3 ring-nightclub-gold"
+                            ? "ring-2 md:ring-3 ring-nightclub-gold"
                             : "ring-1 ring-white/20 hover:ring-nightclub-purple"
                         }`}
                         onClick={() => setCurrentPartyImage(index)}
@@ -233,7 +233,7 @@ const Programs = () => {
                           title={program.title}
                           fill
                           loading="lazy" // Lazy load thumbnails
-                          className="object-cover"
+                          className="image-contain-enhanced"
                         />
                         <div className={`absolute inset-0 transition-all duration-300 ${
                           currentPartyImage === index ? "bg-transparent" : "bg-black/50"

@@ -196,7 +196,6 @@ ${appliedDiscount.description ? `📝 ${appliedDiscount.description}` : ""}`;
 👑 *الباقة المختارة:* ${selectedPackage.title}
 💰 *السعر الأصلي:* ${selectedPackage.originalPrice} جنيه
 💵 *السعر النهائي:* ${finalPrice} جنيه
-🎉 *إجمالي التوفير:* ${totalSavings} جنيه!
 
 👤 *بيانات العميل:*
 • الاسم: ${formData.name}
@@ -275,8 +274,8 @@ ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialR
             <Sparkles className="w-6 h-6 text-nightclub-gold animate-sparkle" />
           </motion.div>
 
-          <DialogTitle className="text-3xl font-bold text-nightclub-gold animate-neon mb-2">
-                         تأكيد حجز {selectedPackage.title}
+          <DialogTitle className="text-3xl font-bold text-nightclub-gold animate-neon gap-4 mb-2">
+            تأكيد حجز {selectedPackage.title}
           </DialogTitle>
 
           <div className="flex items-center justify-center gap-4 mt-4">

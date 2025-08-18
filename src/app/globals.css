@@ -236,13 +236,63 @@
   .animate-float {
     animation-duration: 3.2s; /* تقليل من 3.8s إلى 3.2s */
   }
-  
+
   /* تقليل الأنيميشن على الأجهزة المحمولة لتحسين الأداء */
   .animate-glow {
     animation-duration: 2s;
   }
-  
+
   .animate-pulse-purple {
     animation-duration: 2s;
   }
+}
+
+/* Image Display Enhancements */
+.image-contain-enhanced {
+  object-fit: contain;
+  object-position: center;
+  width: 100%;
+  height: 100%;
+  transition: all 0.3s ease;
+}
+
+.image-container-responsive {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.1), rgba(37, 99, 235, 0.05));
+}
+
+.image-container-responsive::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(45deg, transparent 30%, rgba(37, 99, 235, 0.03) 50%, transparent 70%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Enhanced mobile image display */
+@media (max-width: 640px) {
+  .image-container-responsive {
+    min-height: 300px;
+  }
+
+  .image-contain-enhanced {
+    object-fit: contain;
+    padding: 8px;
+  }
+}
+
+/* Thumbnail specific enhancements */
+.thumbnail-container {
+  background: linear-gradient(135deg, rgba(0, 0, 0, 0.2), rgba(37, 99, 235, 0.1));
+  transition: all 0.3s ease;
+}
+
+.thumbnail-container:hover {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.1), rgba(123, 58, 237, 0.1));
 }
