@@ -154,7 +154,8 @@ const nextConfig = {
       'zod'
     ],
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
-    typedRoutes: true,
+    // typedRoutes is not supported by Turbopack yet
+    // typedRoutes: true,
     // تحسين الأداء
     // optimizeCss: true, // تعطيل مؤقتاً بسبب مشكلة critters
     // تمكين SWC بدلاً من Babel (enabled by default in Next.js 13+)

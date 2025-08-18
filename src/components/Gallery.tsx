@@ -10,10 +10,12 @@ import Image from "next/image";
 const Gallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
   const [isVisible, setIsVisible] = useState(false);
+  const [mounted, setMounted] = useState(false);
   const galleryRef = useRef<HTMLElement>(null);
 
   // Intersection Observer for performance
   useEffect(() => {
+    setMounted(true);
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -77,8 +79,19 @@ const Gallery = () => {
     setCurrentImage((prev) => (prev - 1 + images.length) % images.length);
   }, [images.length]);
 
+  if (!mounted) {
+    // Avoid SSR/CSR hydration mismatches by rendering a stable placeholder on the server
+    return (
+      <section ref={galleryRef} className="py-20 relative overflow-hidden" suppressHydrationWarning>
+        <div className="container mx-auto px-4 relative z-10">
+          <div className="relative h-[70vh] rounded-3xl overflow-hidden glass-dark" />
+        </div>
+      </section>
+    );
+  }
+
   return (
-    <section ref={galleryRef} className="py-20 relative overflow-hidden">
+    <section ref={galleryRef} className="py-20 relative overflow-hidden" suppressHydrationWarning>
       {/* Background Elements */}
       {/*<div className="absolute inset-0 bg-gradient-to-b from-black via-nightclub-dark/20 to-black"></div>*/}
 
@@ -122,7 +135,7 @@ const Gallery = () => {
                   alt={images[currentImage].altText}
                   title={`${images[currentImage].title} - Night Club Egypt`}
                   fill
-                  priority={currentImage === 0} // Prioritize first image
+                  priority={currentImage === 0}
                   className="object-cover"
                   sizes="(max-width: 768px) 100vw, (max-width: 1200px) 90vw, 80vw"
                   quality={85}
@@ -160,13 +173,11 @@ const Gallery = () => {
                   transition={{ delay: 0.5 }}
                   className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2"
                 >
-
                 </motion.div>
               </motion.div>
             </AnimatePresence>
 
             {/* Navigation Buttons */}
-
           </motion.div>
 
           {/* Thumbnail Strip */}
@@ -188,7 +199,7 @@ const Gallery = () => {
                   alt={`معاينة صغيرة - ${image.altText}`}
                   title={`${image.title} - معاينة`}
                   fill
-                  loading="lazy" // Lazy load thumbnails
+                  loading="lazy"
                   className="object-cover"
                   sizes="96px"
                   quality={75}

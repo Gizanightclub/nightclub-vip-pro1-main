@@ -21,9 +21,8 @@ const HeroSection = () => {
 
   return (
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Animated Background */}
-      <div className="absolute inset-0 bg-gradient-nightclub">
-        <div className="absolute inset-0 bg-[rgba(30,60,90,0.4)] backdrop-blur-md/30"></div>
+      {/* Background inherits global unified background; keep only minimal particles if needed */}
+      <div className="absolute inset-0">
         {/* Floating Particles */}
         <div className="absolute inset-0">
           {particles.map((particle, i) => (

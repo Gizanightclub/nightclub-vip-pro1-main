@@ -99,15 +99,15 @@
 @keyframes neon-text {
   from {
     text-shadow:
-      0 0 4px #fff, /* تقليل من 5px إلى 4px */
-      0 0 8px #2563eb, /* تقليل من 10px إلى 8px */
-      0 0 12px #2563eb; /* تقليل من 15px إلى 12px */
+      0 0 0px #fff, /* تقليل من 5px إلى 4px */
+      0 0 0px #2563eb, /* تقليل من 10px إلى 8px */
+      0 0 1px #2563eb; /* تقليل من 15px إلى 12px */
   }
   to {
     text-shadow:
-      0 0 2px #fff, /* تقليل من 3px إلى 2px */
-      0 0 6px #2563eb, /* تقليل من 8px إلى 6px */
-      0 0 10px #7c3aed; /* تقليل من 12px إلى 10px */
+      0 0 0px #fff, /* تقليل من 3px إلى 2px */
+      0 0 0px #2563eb, /* تقليل من 8px إلى 6px */
+      0 0 0px #7c3aed; /* تقليل من 12px إلى 10px */
   }
 }
 

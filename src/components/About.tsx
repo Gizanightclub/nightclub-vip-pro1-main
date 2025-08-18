@@ -39,8 +39,8 @@ const About = () => {
 
     return (
     <section className="py-20 relative overflow-hidden">
-      {/* Clean Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-nightclub-primary/5 via-transparent to-nightclub-primary/5"></div>
+      {/* Inherit unified background */}
+      <div className="absolute inset-0"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}

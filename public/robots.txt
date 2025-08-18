@@ -1,8 +1,53 @@
 User-agent: *
 Allow: /
+Allow: /images/
+Allow: /favicon.ico
+Allow: /sitemap.xml
+Allow: /robots.txt
+
+# Disallow sensitive paths
 Disallow: /_next/
 Disallow: /api/
 Disallow: /admin/
 Disallow: /private/
+Disallow: /dashboard/
+Disallow: /.env
+Disallow: /package.json
+Disallow: /next.config.js
 
+# Specific search engine directives
+User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Slurp
+Allow: /
+Crawl-delay: 2
+
+User-agent: DuckDuckBot
+Allow: /
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: MJ12bot
+Disallow: /
+
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+# Sitemaps
 Sitemap: https://nightclubegypt.com/sitemap.xml
+Sitemap: https://nightclubegypt.com/sitemap-0.xml
+
+# Cache directive
+Cache-delay: 86400
+
+# Host directive (for search engines that support it)
+Host: https://nightclubegypt.com

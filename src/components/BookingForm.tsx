@@ -145,6 +145,24 @@ const BookingForm = ({ isOpen, onClose, selectedPackage }: BookingFormProps) => 
     return formData.name && formData.phone && formData.day && formData.time;
   };
 
+  // دالة تحويل الوقت من 24 ساعة إلى 12 ساعة مع AM/PM
+  const formatTime12Hour = (time24: string) => {
+    if (!time24) return '';
+
+    const [hour, minute] = time24.split(':');
+    const hourNum = parseInt(hour);
+
+    if (hourNum === 0) {
+      return `12:${minute} صباحاً`;
+    } else if (hourNum < 12) {
+      return `${hourNum}:${minute} صباحاً`;
+    } else if (hourNum === 12) {
+      return `12:${minute} مساءً`;
+    } else {
+      return `${hourNum - 12}:${minute} مساءً`;
+    }
+  };
+
   const sendToWhatsApp = async () => {
     if (!selectedPackage || !validateForm()) return;
 
@@ -170,6 +188,9 @@ const BookingForm = ({ isOpen, onClose, selectedPackage }: BookingFormProps) => 
 ${appliedDiscount.description ? `📝 ${appliedDiscount.description}` : ""}`;
       }
 
+      // تحويل الوقت إلى صيغة 12 ساعة
+      const formattedTime = formatTime12Hour(formData.time);
+
       const message = `🔥 *حجز جديد - Night Club VIP* 🔥
 
 👑 *الباقة المختارة:* ${selectedPackage.title}
@@ -181,11 +202,9 @@ ${appliedDiscount.description ? `📝 ${appliedDiscount.description}` : ""}`;
 • الاسم: ${formData.name}
 • الهاتف: ${formData.phone}
 • يوم الحجز: ${formData.day}
-• وقت الوصول: ${formData.time}
+• وقت الوصول: ${formattedTime}
 • عدد الأشخاص: ${formData.guests}
-
 ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialRequests}` : ''}
-
 🌟 *تم الحجز من خلال الموقع الرسمي*
 ⏰ *يرجى تأكيد الحجز خلال 24 ساعة*`;
 
@@ -208,7 +227,7 @@ ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialR
           discount_code: appliedDiscount?.code || null,
           discount_amount: discountAmount,
           final_amount: finalPrice,
-          notes: `يوم الحجز: ${formData.day} - وقت الوصول: ${formData.time}${formData.specialRequests ? ` - طلبات خاصة: ${formData.specialRequests}` : ''}`
+          notes: `يوم الحجز: ${formData.day} - وقت الوصول: ${formatTime12Hour(formData.time)}${formData.specialRequests ? ` - طلبات خاصة: ${formData.specialRequests}` : ''}`
         })
       });
 
@@ -256,8 +275,8 @@ ${formData.specialRequests ? `\n📝 *طلبات خاصة:*\n${formData.specialR
             <Sparkles className="w-6 h-6 text-nightclub-gold animate-sparkle" />
           </motion.div>
 
-          <DialogTitle className="text-3xl font-bold text-nightclub-gold animate-neon">
-            تأكيد حجز {selectedPackage.title}
+          <DialogTitle className="text-3xl font-bold text-nightclub-gold animate-neon mb-2">
+                         تأكيد حجز {selectedPackage.title}
           </DialogTitle>
 
           <div className="flex items-center justify-center gap-4 mt-4">

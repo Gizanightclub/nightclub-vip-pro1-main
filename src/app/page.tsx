@@ -30,11 +30,9 @@ export default function Home() {
   if (!isClient) {
     // Return a version without particles during SSR for better LCP
     return (
-      <main className="min-h-screen bg-gradient-to-br from-purple-600 via-purple-700 to-amber-500 text-white overflow-x-hidden relative">
-        {/* Static Background during SSR */}
-        <div className="fixed inset-0 z-0 pointer-events-none">
-          <div className="absolute inset-0 bg-gradient-to-br from-purple-600/20 via-purple-700/10 to-amber-500/20"></div>
-        </div>
+      <main className="min-h-screen text-white overflow-x-hidden relative">
+        {/* Static Background during SSR (no extra overlays to keep unified background) */}
+        <div className="fixed inset-0 z-0 pointer-events-none"></div>
 
         {/* Main Content */}
         <div className="relative z-10">
@@ -83,12 +81,9 @@ export default function Home() {
   }
 
   return (
-    <main className="min-h-screen bg-gray-900 text-white overflow-x-hidden relative">
-      {/* Optimized Animated Background for better performance */}
+    <main className="min-h-screen text-white overflow-x-hidden relative">
+      {/* Optimized Animated Background without extra gradients to keep unified background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-br from-nightclub-dark via-gray-800 to-nightclub-purple/10"></div>
-
         {/* Reduced floating particles for better performance */}
         {backgroundParticles.map((particle, i) => (
           <div

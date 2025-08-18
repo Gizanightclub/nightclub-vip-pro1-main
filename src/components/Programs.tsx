@@ -115,7 +115,7 @@ const Programs = () => {
   return (
     <section className="py-20 relative overflow-hidden">
       {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-nightclub-dark/30 via-black to-nightclub-dark/30"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-nightclub-dark/0 via-black to-nightclub-dark/0"></div>
 
       <div className="container mx-auto px-4 relative z-10">
         {/* Section Header */}

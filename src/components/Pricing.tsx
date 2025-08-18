@@ -228,14 +228,14 @@ const Pricing = () => {
   return (
     <section id="packages" className="py-20 relative overflow-hidden">
       {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-600/10 via-purple-700/10 to-amber-500/10"></div>
+      <div className="absolute inset-0 bg-gradient-to-b from-purple-00/0 via-purple-00/0 to-amber-00/0"></div>
 
       {/* Animated Background Particles */}
       <div className="absolute inset-0">
         {particles.map((particle, i) => (
           <div
             key={i}
-            className="absolute w-3 h-3 bg-amber-400/40 rounded-full animate-sparkle"
+            className="absolute w-3 h-3 bg-amber-00/0 rounded-full animate-sparkle"
             style={{
               left: particle.left,
               top: particle.top,
@@ -270,7 +270,7 @@ const Pricing = () => {
           {packages.map((pkg, index) => (
             <motion.div
               key={pkg.id}
-              initial={{ opacity: 0, y: 30, scale: 0.9 }}
+              initial={{ opacity: 0, y: 10, scale: 0.9 }}
               whileInView={{ opacity: 1, y: 0, scale: 1 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               whileHover={{ y: -10, scale: 1.02 }}
@@ -330,9 +330,6 @@ const Pricing = () => {
                     {pkg.featuresList.map((feature, featureIndex) => (
                       <motion.div
                         key={featureIndex}
-                        initial={{ opacity: 0, x: -20 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        transition={{ delay: 0.3 + featureIndex * 0.1 }}
                         className="flex items-center gap-4 p-3 rounded-lg bg-black/20 backdrop-blur-sm"
                       >
                         <div className={`p-2 rounded-lg ${feature.premium ? 'bg-nightclub-gold/20' : 'bg-nightclub-purple/20'}`}>

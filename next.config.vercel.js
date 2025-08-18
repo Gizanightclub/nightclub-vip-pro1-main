@@ -44,7 +44,8 @@ const nextConfig = {
   // تحسينات الأداء
   experimental: {
     optimizePackageImports: ['lucide-react', 'framer-motion', '@radix-ui/react-dialog', '@radix-ui/react-select', 'lodash'],
-    typedRoutes: true,
+    // typedRoutes is not supported by Turbopack yet
+    // typedRoutes: true,
   },
 
   // إعدادات الأمان
