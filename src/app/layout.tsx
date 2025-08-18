@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     "نايت كلوب VIP مصر", "حجز نايت كلوب القاهرة", "أسعار نايت كلوب مصر", "ليالي ترفيهية فاخرة",
     "خدمات ترفيه راقية", "أجواء ليلية مميزة", "entertainment Egypt 2025", "luxury nightlife Cairo"
   ].join(", "),
-  authors: [{ name: "Night Club Egypt", url: "https://nightclubegypt.com" }],
+  authors: [{ name: "Night Club Egypt", url: "https://www.nightclubegypt.com" }],
   creator: "Night Club Egypt",
   publisher: "Night Club Egypt",
   applicationName: "Night Club Egypt",
@@ -111,28 +111,28 @@ export const metadata: Metadata = {
     title: "Night Club Egypt | أفضل نايت كلوب في مصر - جميع المحافظات",
     description: "🔥 استمتع بأفضل سهرة ليلية في مصر مع حفلات مميزة وخدمة VIP فاخرة في القاهرة، الجيزة، العجوزه، الشيخ زايد، التجمع. أجواء لا تُنسى في أفضل الأماكن السياحية. احجز الآن! 📞 01286110562",
     type: "website",
-    url: "https://nightclubegypt.com",
+    url: "https://www.nightclubegypt.com",
     siteName: "Night Club Egypt",
     locale: "ar_EG",
     alternateLocale: ["en_US", "en_GB", "fr_FR"],
     countryName: "Egypt",
     images: [
       {
-        url: "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+        url: "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
         width: 1200,
         height: 630,
         alt: "Night Club Egypt - أفضل نايت كلوب في مصر - القاهرة الجيزة العجوزه الشيخ زايد",
         type: "image/jpeg",
       },
       {
-        url: "https://nightclubegypt.com/images/nightclubegypt.com.jpg",
+        url: "https://www.nightclubegypt.com/images/nightclubegypt.com.jpg",
         width: 1200,
         height: 630,
         alt: "حفلات ليلية فاخرة في أفضل نايت كلوب بمصر - خدمة VIP استثنائية",
         type: "image/jpeg",
       },
       {
-        url: "https://nightclubegypt.com/images/logo-seo-1200x1200.jpg",
+        url: "https://www.nightclubegypt.com/images/logo-seo-1200x1200.jpg",
         width: 1200,
         height: 1200,
         alt: "Night Club Egypt Logo - شعار نايت كلوب مصر",
@@ -141,7 +141,7 @@ export const metadata: Metadata = {
     ],
     videos: [
       {
-        url: "https://nightclubegypt.com/videos/nightclub-promo.mp4",
+        url: "https://www.nightclubegypt.com/videos/nightclub-promo.mp4",
         width: 1280,
         height: 720,
         type: "video/mp4",
@@ -149,13 +149,13 @@ export const metadata: Metadata = {
     ],
     audio: [
       {
-        url: "https://nightclubegypt.com/audio/nightclub-ambiance.mp3",
+        url: "https://www.nightclubegypt.com/audio/nightclub-ambiance.mp3",
         type: "audio/mpeg",
       }
     ],
     emails: ["info@nightclubegypt.com", "bookings@nightclubegypt.com"],
     phoneNumbers: ["+201286110562", "+20-128-611-0562"],
-    faxNumbers: ["+20-2-12345678"],
+    faxNumbers: ["+20-1286110562"],
     ttl: 604800, // 7 days
   },
   twitter: {
@@ -165,16 +165,16 @@ export const metadata: Metadata = {
     title: "Night Club Egypt | أفضل نايت كلوب في مصر 🔥",
     description: "استمتع بأفضل سهرة ليلية في القاهرة، الجيزة، العجوزه، الشيخ زايد مع حفلات مميزة وخدمة VIP فاخرة 🎉 احجز الآن: 01286110562",
     images: {
-      url: "https://nightclubegypt.com/images/nightclubegypt.com.jpg",
+      url: "https://www.nightclubegypt.com/images/nightclubegypt.com.jpg",
       alt: "Night Club Egypt - أفضل نايت كلوب في مصر",
     },
 
   },
   alternates: {
-    canonical: "https://nightclubegypt.com",
+    canonical: "https://www.nightclubegypt.com",
     languages: {
-      'ar': 'https://nightclubegypt.com',
-      'en': 'https://nightclubegypt.com/en',
+      'ar': 'https://www.nightclubegypt.com',
+      'en': 'https://www.nightclubegypt.com/en',
     },
   },
   verification: {
@@ -209,6 +209,7 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" className={`${cairo.variable} ${inter.variable}`}>
       <head>
+        <meta name="google-site-verification" content="vIFvNXtiEElV5o0_lQyVrK50RaetndJXR4Vu4Qc2ohc" />
         {/* Favicon محسن لجميع الأجهزة والمتصفحات */}
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon-16x16.png" type="image/png" sizes="16x16" />
@@ -238,8 +239,8 @@ export default function RootLayout({
             __html: JSON.stringify({
               "@context": "https://schema.org",
               "@type": "Organization",
-              url: "https://nightclubegypt.com",
-              logo: "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+              url: "https://www.nightclubegypt.com",
+              logo: "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
             }),
           })}
         />
@@ -260,8 +261,8 @@ export default function RootLayout({
         {/* Structured Data محسن للوجو والمؤسسة لتحسين SEO */}
         <StructuredData
           name="Night Club Egypt"
-          url="https://nightclubegypt.com"
-          logo="https://nightclubegypt.com/images/nightclubegyptlogo.jpg"
+          url="https://www.nightclubegypt.com"
+          logo="https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg"
           description="أفضل نايت كلوب في مصر لعام 2025 - حفلات ليلية فاخرة في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين. خدمة VIP استثنائية، عروض حية، موسيقى عالمية، أجواء رائعة."
           address={{"addressLocality": "Cairo", "addressRegion": "Cairo Governorate", "addressCountry": "EG"}}
           contactPoint={{"telephone": "+201286110562", "email": "info@nightclubegypt.com", "contactType": "customer service", "availableLanguage": ["Arabic", "English"]}}

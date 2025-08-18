@@ -20,4 +20,4 @@ Allow: /robots.txt
 Crawl-delay: 1
 
 # Sitemap location
-Sitemap: https://nightclubegypt.com/sitemap.xml
+Sitemap: https://www.nightclubegypt.com/sitemap.xml
