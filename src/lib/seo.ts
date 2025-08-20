@@ -39,10 +39,10 @@ export const generateBusinessSchema = () => ({
   "name": "Night Club Egypt",
   "alternateName": "نايت كلوب مصر",
   "description": "أفضل نايت كلوب في مصر لعام 2025 - حفلات ليلية فاخرة في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين. خدمة VIP استثنائية، عروض حية، موسيقى عالمية، أجواء رائعة.",
-  "url": "https://nightclubegypt.com",
+  "url": "https://www.nightclubegypt.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+    "url": "https://wwww.nightclubegypt.com/images/nightclubegyptlogo.jpg",
     "width": 512,
     "height": 512,
     "caption": "Night Club Egypt Logo - شعار نايت كلوب مصر"
@@ -50,14 +50,14 @@ export const generateBusinessSchema = () => ({
   "image": [
     {
       "@type": "ImageObject",
-      "url": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
       "width": 512,
       "height": 512,
       "caption": "Night Club Egypt - أفضل نايت كلوب في مصر"
     },
     {
       "@type": "ImageObject", 
-      "url": "https://nightclubegypt.com/images/nightclubegypt.com.jpg",
+      "url": "https://wwww.nightclubegypt.com/images/nightclubegypt.com.jpg",
       "width": 1200,
       "height": 630,
       "caption": "حفلات ليلية فاخرة في أفضل نايت كلوب بمصر"
@@ -101,7 +101,7 @@ export const generateBusinessSchema = () => ({
   "currenciesAccepted": "EGP, USD, EUR",
   "paymentAccepted": "Cash, Credit Card, Mobile Payment",
   "servesCuisine": ["International", "Arabic", "Mediterranean"],
-  "hasMenu": "https://nightclubegypt.com/menu",
+  "hasMenu": "https://www.nightclubegypt.com/menu",
   "amenityFeature": [
     {
       "@type": "LocationFeatureSpecification",
@@ -154,7 +154,7 @@ export const generateBusinessSchema = () => ({
   "brand": {
     "@type": "Brand",
     "name": "Night Club Egypt",
-    "logo": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+    "logo": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
     "description": "أفضل نايت كلوب في مصر - خدمة VIP استثنائية"
   },
   "aggregateRating": {
@@ -208,7 +208,7 @@ export const generateEventSchema = (eventData: {
   "organizer": {
     "@type": "Organization",
     "name": "Night Club Egypt",
-    "url": "https://nightclubegypt.com"
+    "url": "https://www.nightclubegypt.com"
   },
   "performer": {
     "@type": "MusicGroup",
@@ -254,7 +254,7 @@ export const generateLocalBusinessSchema = () => ({
   "@type": "NightClub",
   "name": "Night Club Egypt",
   "description": "أفضل نايت كلوب في مصر - حفلات ليلية فاخرة وخدمة VIP استثنائية",
-  "url": "https://nightclubegypt.com",
+  "url": "https://www.nightclubegypt.com",
   "telephone": "+201286110562",
   "address": {
     "@type": "PostalAddress",
@@ -304,9 +304,9 @@ export const generateMetaTags = (pageData: {
   image?: string;
   url?: string;
 }): Record<string, string> => {
-  const defaultImage = "https://nightclubegypt.com/images/nightclubegyptlogo.jpg";
-  const defaultUrl = "https://nightclubegypt.com";
-  
+  const defaultImage = "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg";
+  const defaultUrl = "https://www.nightclubegypt.com";
+
   return {
     title: pageData.title,
     description: pageData.description,
@@ -329,38 +329,38 @@ export const generateMetaTags = (pageData: {
 
 // Canonical URL Generator
 export const generateCanonicalUrl = (path: string = "") => {
-  const baseUrl = "https://nightclubegypt.com";
+  const baseUrl = "https://www.nightclubegypt.com";
   return `${baseUrl}${path}`;
 };
 
 // Sitemap URL Generator
 export const generateSitemapUrls = () => [
   {
-    url: "https://nightclubegypt.com",
+    url: "https://www.nightclubegypt.com",
     lastmod: new Date().toISOString(),
     changefreq: "daily",
     priority: 1.0
   },
   {
-    url: "https://nightclubegypt.com/about",
+    url: "https://www.nightclubegypt.com/about",
     lastmod: new Date().toISOString(),
     changefreq: "weekly",
     priority: 0.8
   },
   {
-    url: "https://nightclubegypt.com/services",
+    url: "https://www.nightclubegypt.com/services",
     lastmod: new Date().toISOString(),
     changefreq: "weekly", 
     priority: 0.8
   },
   {
-    url: "https://nightclubegypt.com/contact",
+    url: "https://www.nightclubegypt.com/contact",
     lastmod: new Date().toISOString(),
     changefreq: "monthly",
     priority: 0.7
   },
   {
-    url: "https://nightclubegypt.com/gallery",
+    url: "https://www.nightclubegypt.com/gallery",
     lastmod: new Date().toISOString(),
     changefreq: "weekly",
     priority: 0.6

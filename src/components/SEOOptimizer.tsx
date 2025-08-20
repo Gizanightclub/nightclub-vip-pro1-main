@@ -16,8 +16,8 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
   title = "Night Club Egypt | أفضل نايت كلوب في مصر",
   description = "أفضل نايت كلوب في مصر لعام 2025 - حفلات ليلية فاخرة في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين. خدمة VIP استثنائية، عروض حية، موسيقى عالمية، أجواء رائعة.",
   keywords = ["نايت كلوب مصر", "ديسكو القاهرة", "حفلات ليلية", "سهرات خليجية", "ملهى ليلي"],
-  image = "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
-  url = "https://nightclubegypt.com",
+  image = "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+  url = "https://www.nightclubegypt.com",
   type = "website"
 }) => {
   useEffect(() => {
@@ -117,7 +117,7 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
         "@type": "NightClub",
         "name": "Night Club Egypt",
         "description": "أفضل نايت كلوب في مصر - حفلات ليلية فاخرة وخدمة VIP استثنائية",
-        "url": "https://nightclubegypt.com",
+        "url": "https://www.nightclubegypt.com",
         "telephone": "+201286110562",
         "address": {
           "@type": "PostalAddress",

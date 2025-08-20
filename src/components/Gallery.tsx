@@ -6,6 +6,7 @@ import { Card } from "../components/ui/card";
 import { Button } from "../components/ui/button";
 import { ChevronLeft, ChevronRight, Play, Star } from "lucide-react";
 import Image from "next/image";
+import VideoSection from "./VideoSection";
 
 const Gallery = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -36,27 +37,27 @@ const Gallery = () => {
   const images = [
     {
       url: "/images/nightclubegypt.com (10).jpg",
-      title: "مشريب فاخره",
-      description: "أمسية لا تُنسى مع أشهر المطربين",
-      altText: "مشريب فاخرة في Night Club Egypt - أفضل نايت كلوب في القاهرة والجيزة - حفلات ليلية مميزة"
+      title: "أجواء فاخرة مميزة",
+      description: "أمسية لا تُنسى مع أفضل الخدمات",
+      altText: "أجواء فاخرة في Night Club Egypt - أفضل نايت كلوب في القاهرة والجيزة - حفلات ليلية VIP - خدمة استثنائية في العجوزة والزمالك"
     },
     {
       url: "/images/nightclubegypt.com (3).jpg",
-      title: "أجواء VIP فاخرة",
-      description: "تجربة حصرية مع خدمة متميزة",
-      altText: "أجواء VIP فاخرة في أفضل نايت كلوب بمصر - 6 أكتوبر الشيخ زايد التجمع الخامس - خدمة استثنائية"
+      title: "خدمة VIP حصرية",
+      description: "تجربة لا مثيل لها مع خدمة متميزة",
+      altText: "خدمة VIP حصرية في أفضل نايت كلوب بمصر - الشيخ زايد 6 أكتوبر التجمع الخامس - سهرات فاخرة في المهندسين والمعادي"
     },
     {
       url: "/images/nightclubegypt.com (8).jpg",
-      title: "حفلات مميزة",
-      description: "استمتع بأجمل الليالي",
-      altText: "حفلات مميزة في أفضل نايت كلوب بالقاهرة - مدينة نصر هليوبوليس - سهرات ليلية فاخرة"
+      title: "حفلات استثنائية",
+      description: "ليالي ترفيهية لا تُنسى",
+      altText: "حفلات استثنائية في نايت كلوب القاهرة - مدينة نصر هليوبوليس مصر الجديدة - أفضل سهرات ليلية في Egypt nightlife"
     },
     {
       url: "/images/nightclubegypt.com (7).jpg",
-      title: "حفلات راقصة مميزة",
-      description: "استمتع بأجمل الليالي",
-      altText: "عروض حية وموسيقى مميزة في نايت كلوب مصر - Egypt nightclub entertainment - حفلات خاصة"
+      title: "عروض حية مذهلة",
+      description: "موسيقى وترفيه على أعلى مستوى",
+      altText: "عروض حية مذهلة في نايت كلوب مصر - Cairo nightclub entertainment - موسيقى live في أفضل نادي ليلي بالقاهرة والجيزة"
     },
   ];
 
@@ -105,15 +106,27 @@ const Gallery = () => {
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-6 animate-neon">
             <Star className="inline-block w-12 h-12 text-nightclub-gold ml-4" />
-            حفلاتنا السابقة
+            تجربة Night Club Egypt
             <Star className="inline-block w-12 h-12 text-nightclub-gold mr-4" />
           </h2>
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
-            استكشف أجمل اللحظات من حفلاتنا المميزة وكن جزءاً من التجربة القادمة
+            استمتع بجولة حصرية داخل أفضل نايت كلوب في مصر واكتشف الأجواء المميزة
           </p>
         </motion.div>
 
-        {/* Main Gallery */}
+        {/* ====== VIDEO PLACEHOLDER START ====== */}
+        <VideoSection
+          videoUrl="/videos/nightclub-promo.mp4"
+          posterUrl="/images/nightclubegypt.com.jpg"
+        />
+        {/* ====== VIDEO PLACEHOLDER END ====== */}
+
+        <div className="mt-20">
+          <h3 className="text-4xl font-bold text-center mb-12 text-nightclub-gold">
+            لمحات من حفلاتنا السابقة
+          </h3>
+
+          {/* Main Gallery */}
         <div className="relative max-w-5xl mx-auto">
           {/* Main Image Display */}
           <motion.div
@@ -227,6 +240,7 @@ const Gallery = () => {
               />
             ))}
           </div>
+        </div>
         </div>
 
         {/* Bottom Text */}

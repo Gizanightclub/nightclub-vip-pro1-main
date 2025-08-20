@@ -40,19 +40,19 @@ const StructuredData = ({
     "url": url,
     "logo": {
       "@type": "ImageObject",
-      "url": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
       "width": 512,
       "height": 512,
       "caption": "Night Club Egypt Logo"
     },
     "image": {
       "@type": "ImageObject",
-      "url": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
       "width": 512,
       "height": 512,
       "caption": "Night Club Egypt Logo"
     },
-    "description": description || "أفضل نايت كلوب في مصر - ترفيه ليلي راقي وأجواء استثنائية",
+    "description": description || "🔥 أفضل نايت كلوب في مصر لعام 2025 - حفلات ليلية فاخرة، خدمة VIP استثنائية، موسيقى عالمية، DJs مشاهير في القاهرة والجيزة والعجوزة والشيخ زايد والهرم والتجمع الخامس. ترفيه ليلي راقي وأجواء لا تُنسى. احجز الآن!",
     "address": address && {
       "@type": "PostalAddress",
       ...address
