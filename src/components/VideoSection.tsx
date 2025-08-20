@@ -15,7 +15,7 @@ interface VideoSectionProps {
 const VideoSection = ({
   videoUrl = "/videos/nightclub-promo.mp4",
   posterUrl = "/images/nightclubegypt.com.jpg",
-  title = "🔥 Night Club Egypt - أفضل نايت كلوب في مصر ",
+  title = "🔥 Night Club Egypt",
   description = "🎉!"
 }: VideoSectionProps) => {
   const [isPlaying, setIsPlaying] = useState(false);
