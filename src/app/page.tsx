@@ -9,6 +9,9 @@ import Programs from "@/components/Programs";
 import Pricing from "@/components/Pricing";
 import Contact from "@/components/Contact";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import SeoHead from "@/components/SeoHead";
+import JsonLd from "@/components/JsonLd";
+import { generateOrganizationSchema, generateFAQSchema, generateWebsiteSchema, HOME_PAGE_TITLES } from "@/lib/seo-enhanced";
 
 export default function Home() {
   const [backgroundParticles, setBackgroundParticles] = useState<Array<{left: string, top: string, delay: string, duration: string, size: string}>>([]);
@@ -27,15 +30,32 @@ export default function Home() {
     setBackgroundParticles(particles);
   }, []);
 
+  // Get a random title for variety
+  const randomTitle = HOME_PAGE_TITLES[Math.floor(Math.random() * HOME_PAGE_TITLES.length)];
+
   if (!isClient) {
     // Return a version without particles during SSR for better LCP
     return (
-      <main className="min-h-screen text-white overflow-x-hidden relative">
-        {/* Static Background during SSR (no extra overlays to keep unified background) */}
-        <div className="fixed inset-0 z-0 pointer-events-none"></div>
+      <>
+        {/* Enhanced SEO Head */}
+        <SeoHead
+          title={randomTitle}
+          description="🎉 استمتع بأفضل سهرة ليلية في مصر! حفلات فاخرة، خدمة VIP استثنائية، موسيقى عالمية، DJs مشاهير في القاهرة والجيزة والعجوزة والشيخ زايد. احجز الآن: 01286110562"
+          keywords={["نايت كلوب مصر", "حفلات ليلية فاخرة", "سهرات VIP", "ديسكو القاهرة", "نايت كلوب الجيزة"]}
+          location="القاهرة"
+        />
 
-        {/* Main Content */}
-        <div className="relative z-10">
+        {/* JSON-LD Structured Data */}
+        <JsonLd data={generateOrganizationSchema()} id="organization" />
+        <JsonLd data={generateWebsiteSchema()} id="website" />
+        <JsonLd data={generateFAQSchema()} id="faq" />
+
+        <main className="min-h-screen text-white overflow-x-hidden relative">
+          {/* Static Background during SSR (no extra overlays to keep unified background) */}
+          <div className="fixed inset-0 z-0 pointer-events-none"></div>
+
+          {/* Main Content */}
+          <div className="relative z-10">
           <Navigation />
           <section id="home"><HeroSection /></section>
           <section id="about"><About /></section>
@@ -77,11 +97,26 @@ export default function Home() {
           </div>
         </div>
       </main>
+      </>
     );
   }
 
   return (
-    <main className="min-h-screen text-white overflow-x-hidden relative">
+    <>
+      {/* Enhanced SEO Head */}
+      <SeoHead
+        title={randomTitle}
+        description="🎉 استمتع بأفضل سهرة ليلية في مصر! حفلات فاخرة، خدمة VIP استثنائية، موسيقى عالمية، DJs مشاهير في القاهرة والجيزة والعجوزة والشيخ زايد. احجز الآن: 01286110562"
+        keywords={["نايت كلوب مصر", "حفلات ليلية فاخرة", "سهرات VIP", "ديسكو القاهرة", "نايت كلوب الجيزة"]}
+        location="القاهرة"
+      />
+
+      {/* JSON-LD Structured Data */}
+      <JsonLd data={generateOrganizationSchema()} id="organization" />
+      <JsonLd data={generateWebsiteSchema()} id="website" />
+      <JsonLd data={generateFAQSchema()} id="faq" />
+
+      <main className="min-h-screen text-white overflow-x-hidden relative">
       {/* Optimized Animated Background without extra gradients to keep unified background */}
       <div className="fixed inset-0 z-0 pointer-events-none">
         {/* Reduced floating particles for better performance */}
@@ -192,5 +227,6 @@ export default function Home() {
         </div>
       </div>
     </main>
+    </>
   );
 }

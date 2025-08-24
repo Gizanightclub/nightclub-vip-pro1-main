@@ -15,6 +15,7 @@ import {
   Music,
   PartyPopper
 } from "lucide-react";
+import Image from "next/image";
 
 const Navigation = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -65,18 +66,22 @@ const Navigation = () => {
               whileHover={{ scale: 1.05 }}
               className="flex items-center gap-4"
             >
-              <div className="w-12 h-12 rounded-xl overflow-hidden bg-gradient-gold animate-glow">
-                <img
-                  src="images/nightclubegyptlogo.jpg"
+              <div className="w-12 h-12 rounded-xl overflow-hidden bg-gradient-gold animate-glow relative">
+                <Image
+                  src="/images/nightclubegyptlogo.jpg"
                   alt="شعار Night Club Egypt - أفضل نايت كلوب في القاهرة"
-                  className="w-full h-full object-cover"
+                  fill
+                  className="object-cover"
+                  priority
                 />
               </div>
               <div className="text-right">
                 <div className="text-2xl font-bold text-nightclub-gold animate-neon">
                   Night Club Egypt
                 </div>
-                <div className="text-sm text-gray-300">أفضل نايت كلوب في القاهرة</div>
+                <div className="text-sm text-gray-300">
+                  أفضل نايت كلوب في القاهرة
+                </div>
               </div>
             </motion.div>
 
@@ -119,7 +124,11 @@ const Navigation = () => {
               aria-expanded={isOpen}
               className="lg:hidden text-white hover:bg-nightclub-purple/20"
             >
-              {isOpen ? <X className="w-6 h-6" aria-hidden="true" /> : <Menu className="w-6 h-6" aria-hidden="true" />}
+              {isOpen ? (
+                <X className="w-6 h-6" aria-hidden="true" />
+              ) : (
+                <Menu className="w-6 h-6" aria-hidden="true" />
+              )}
             </Button>
           </div>
         </div>
@@ -139,11 +148,12 @@ const Navigation = () => {
               {/* Mobile Header */}
               <div className="flex items-center justify-between mb-8">
                 <div className="flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl overflow-hidden bg-gradient-gold">
-                    <img
-                      src="images/nightclubegyptlogo.jpg"
+                  <div className="w-10 h-10 rounded-xl overflow-hidden bg-gradient-gold relative">
+                    <Image
+                      src="/images/nightclubegyptlogo.jpg"
                       alt="شعار Night Club Egypt - أفضل نايت كلوب في القاهرة"
-                      className="w-full h-full object-cover"
+                      fill
+                      className="object-cover"
                     />
                   </div>
                   <div className="text-right">

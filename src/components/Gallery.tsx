@@ -257,6 +257,48 @@ const Gallery = () => {
             كن جزءاً من التجربة القادمة واصنع ذكرياتك الخاصة
           </p>
         </motion.div>
+
+        {/* Image Schema Structured Data لكل صورة */}
+        {images.map((image, index) => (
+          <script
+            key={`schema-${index}`}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify({
+                "@context": "https://schema.org",
+                "@type": "ImageObject",
+                "name": `${image.title} - Night Club Egypt`,
+                "description": `${image.description} - أفضل نايت كلوب في مصر، خدمة VIP فاخرة في القاهرة والجيزة`,
+                "url": `https://www.nightclubegypt.com${image.url}`,
+                "contentUrl": `https://www.nightclubegypt.com${image.url}`,
+                "thumbnailUrl": `https://www.nightclubegypt.com${image.url}`,
+                "width": 1200,
+                "height": 800,
+                "encodingFormat": "image/jpeg",
+                "publisher": {
+                  "@type": "Organization",
+                  "name": "Night Club Egypt",
+                  "logo": {
+                    "@type": "ImageObject",
+                    "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg"
+                  }
+                },
+                "copyrightHolder": {
+                  "@type": "Organization",
+                  "name": "Night Club Egypt"
+                },
+                "license": "https://www.nightclubegypt.com/license",
+                "acquireLicensePage": "https://www.nightclubegypt.com/contact",
+                "creditText": "Night Club Egypt - أفضل نايت كلوب في مصر",
+                "creator": {
+                  "@type": "Organization",
+                  "name": "Night Club Egypt"
+                },
+                "keywords": `نايت كلوب القاهرة، ${image.title}، سهرات فاخرة، VIP nightclub Egypt، حفلات ليلية مصر، ترفيه ليلي القاهرة`
+              })
+            }}
+          />
+        ))}
       </div>
     </section>
   );

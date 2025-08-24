@@ -8,8 +8,10 @@ import { Sparkles, Music, Users, Crown } from "lucide-react";
 
 const HeroSection = () => {
   const [particles, setParticles] = useState<Array<{left: string, top: string, delay: string}>>([]);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
+    setMounted(true);
     // Generate particles on client side to avoid hydration mismatch
     const newParticles = Array.from({ length: 20 }, (_, i) => ({
       left: `${Math.random() * 100}%`,
@@ -23,20 +25,22 @@ const HeroSection = () => {
     <div className="relative min-h-screen flex items-center justify-center overflow-hidden">
       {/* Background inherits global unified background; keep only minimal particles if needed */}
       <div className="absolute inset-0">
-        {/* Floating Particles */}
-        <div className="absolute inset-0">
-          {particles.map((particle, i) => (
-            <div
-              key={i}
-              className="absolute w-2 h-2 bg-nightclub-purple rounded-full animate-sparkle"
-              style={{
-                left: particle.left,
-                top: particle.top,
-                animationDelay: particle.delay,
-              }}
-            />
-          ))}
-        </div>
+        {/* Floating Particles - Only render on client */}
+        {mounted && (
+          <div className="absolute inset-0">
+            {particles.map((particle, i) => (
+              <div
+                key={i}
+                className="absolute w-2 h-2 bg-nightclub-purple rounded-full animate-sparkle"
+                style={{
+                  left: particle.left,
+                  top: particle.top,
+                  animationDelay: particle.delay,
+                }}
+              />
+            ))}
+          </div>
+        )}
       </div>
 
       {/* Hero Content */}
@@ -72,11 +76,13 @@ const HeroSection = () => {
           transition={{ duration: 0.6, delay: 0.4 }}
           className="text-xl md:text-2xl mb-8 text-gray-300 max-w-3xl mx-auto leading-relaxed"
         >
-          اكتشف عالم الترفيه الفاخر في أفضل نايت كلوب في مصر
+          🔥 <span className="text-nightclub-gold font-bold">عايز تعيش أجمد سهرة في حياتك؟</span>
           <br />
-          <span className="text-nightclub-gold">القاهرة • الجيزة • العجوزه    </span>
+          إحنا هنا عشان نخليك تحس إنك ملك المكان!
           <br />
-          حفلات استثنائية • عروض حية • أجواء لا تُنسى • خدمة VIP فاخرة
+          <span className="text-nightclub-gold">📍 القاهرة • الجيزة • العجوزة • الشيخ زايد • التجمع الخامس</span>
+          <br />
+          🎉 حفلات مش هتلاقيها في أي حتة تانية • موسيقى عالمية • خدمة VIP ملكية 👑
         </motion.p>
 
         {/* Features */}

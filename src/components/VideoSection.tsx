@@ -99,11 +99,10 @@ const VideoSection = ({
       onMouseLeave={() => setShowControls(false)}
     >
       {/* ====== VIDEO PLACEHOLDER START ====== */}
-      <div className="relative aspect-video bg-black rounded-2xl overflow-hidden">
-        <video
-          ref={videoRef}
-          className="w-full h-full object-cover"
-          poster={posterUrl}
+    <div className="relative aspect-[4/3] bg-black rounded-2xl overflow-hidden">
+  <video
+    ref={videoRef}
+    className="w-full h-full object-cover"
           muted={isMuted}
           playsInline
           preload="metadata"

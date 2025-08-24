@@ -2,6 +2,8 @@
 
 import { useEffect } from 'react';
 import { generateBusinessSchema, generateMetaTags } from '../lib/seo';
+import { generateOrganizationSchema, generateSEOKeywords } from '../lib/seo-enhanced';
+import { initPerformanceOptimizations } from '../lib/performance-seo';
 
 interface SEOOptimizerProps {
   title?: string;
@@ -10,22 +12,32 @@ interface SEOOptimizerProps {
   image?: string;
   url?: string;
   type?: 'website' | 'article' | 'event';
+  location?: string;
+  eventType?: string;
 }
 
 const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
-  title = "Night Club Egypt | أفضل نايت كلوب في مصر",
-  description = "أفضل نايت كلوب في مصر لعام 2025 - حفلات ليلية فاخرة في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين. خدمة VIP استثنائية، عروض حية، موسيقى عالمية، أجواء رائعة.",
-  keywords = ["نايت كلوب مصر", "ديسكو القاهرة", "حفلات ليلية", "سهرات خليجية", "ملهى ليلي"],
+  title = "🔥 أفضل نايت كلوب في مصر 2025 | احجز الآن",
+  description = "🎉 استمتع بأفضل سهرة ليلية في مصر! حفلات فاخرة، خدمة VIP استثنائية، موسيقى عالمية، DJs مشاهير في القاهرة والجيزة. احجز الآن: 01286110562",
+  keywords = ["نايت كلوب مصر", "ديسكو القاهرة", "حفلات ليلية", "سهرات VIP", "ملهى ليلي"],
   image = "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
   url = "https://www.nightclubegypt.com",
-  type = "website"
+  type = "website",
+  location,
+  eventType
 }) => {
   useEffect(() => {
+    // Initialize performance optimizations
+    initPerformanceOptimizations();
+
+    // Generate enhanced SEO keywords
+    const enhancedKeywords = generateSEOKeywords(keywords, location, eventType);
+
     // Update meta tags dynamically
     const updateMetaTags = () => {
       // Title
       document.title = title;
-      
+
       // Meta description
       let metaDescription = document.querySelector('meta[name="description"]');
       if (!metaDescription) {
@@ -34,16 +46,16 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
         document.head.appendChild(metaDescription);
       }
       metaDescription.setAttribute('content', description);
-      
-      // Keywords
+
+      // Keywords with enhanced SEO
       let metaKeywords = document.querySelector('meta[name="keywords"]');
       if (!metaKeywords) {
         metaKeywords = document.createElement('meta');
         metaKeywords.setAttribute('name', 'keywords');
         document.head.appendChild(metaKeywords);
       }
-      metaKeywords.setAttribute('content', keywords.join(', '));
-      
+      metaKeywords.setAttribute('content', enhancedKeywords.join(', '));
+
       // Open Graph tags
       const ogTags = [
         { property: 'og:title', content: title },
@@ -52,9 +64,10 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
         { property: 'og:url', content: url },
         { property: 'og:type', content: type },
         { property: 'og:site_name', content: 'Night Club Egypt' },
-        { property: 'og:locale', content: 'ar_EG' }
+        { property: 'og:locale', content: 'ar_EG' },
+        { property: 'og:locale:alternate', content: 'en_US' }
       ];
-      
+
       ogTags.forEach(({ property, content }) => {
         let ogTag = document.querySelector(`meta[property="${property}"]`);
         if (!ogTag) {
@@ -64,7 +77,7 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
         }
         ogTag.setAttribute('content', content);
       });
-      
+
       // Twitter Card tags
       const twitterTags = [
         { name: 'twitter:card', content: 'summary_large_image' },
@@ -74,7 +87,7 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
         { name: 'twitter:site', content: '@nightclubegypt' },
         { name: 'twitter:creator', content: '@nightclubegypt' }
       ];
-      
+
       twitterTags.forEach(({ name, content }) => {
         let twitterTag = document.querySelector(`meta[name="${name}"]`);
         if (!twitterTag) {
@@ -84,7 +97,7 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
         }
         twitterTag.setAttribute('content', content);
       });
-      
+
       // Canonical URL
       let canonicalLink = document.querySelector('link[rel="canonical"]');
       if (!canonicalLink) {
@@ -93,116 +106,118 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
         document.head.appendChild(canonicalLink);
       }
       canonicalLink.setAttribute('href', url);
-    };
-    
-    // Update meta tags
-    updateMetaTags();
-    
-    // Add structured data
-    const addStructuredData = () => {
-      // Remove existing structured data
-      const existingScripts = document.querySelectorAll('script[type="application/ld+json"]');
-      existingScripts.forEach(script => script.remove());
-      
-      // Add business schema
-      const businessSchema = generateBusinessSchema();
-      const businessScript = document.createElement('script');
-      businessScript.type = 'application/ld+json';
-      businessScript.textContent = JSON.stringify(businessSchema, null, 2);
-      document.head.appendChild(businessScript);
-      
-      // Add local business schema
-      const localBusinessSchema = {
-        "@context": "https://schema.org",
-        "@type": "NightClub",
-        "name": "Night Club Egypt",
-        "description": "أفضل نايت كلوب في مصر - حفلات ليلية فاخرة وخدمة VIP استثنائية",
-        "url": "https://www.nightclubegypt.com",
-        "telephone": "+201286110562",
-        "address": {
-          "@type": "PostalAddress",
-          "addressLocality": "Cairo",
-          "addressRegion": "Cairo Governorate",
-          "addressCountry": "EG"
-        },
-        "geo": {
-          "@type": "GeoCoordinates",
-          "latitude": 30.0444,
-          "longitude": 31.2357
-        },
-        "openingHoursSpecification": [
-          {
-            "@type": "OpeningHoursSpecification",
-            "dayOfWeek": ["Thursday", "Friday", "Saturday"],
-            "opens": "22:00",
-            "closes": "04:00"
-          }
-        ],
-        "priceRange": "$$",
-        "servesCuisine": ["International", "Arabic", "Mediterranean"],
-        "amenityFeature": [
-          {
-            "@type": "LocationFeatureSpecification",
-            "name": "VIP Service",
-            "value": true
-          },
-          {
-            "@type": "LocationFeatureSpecification",
-            "name": "Live Music",
-            "value": true
-          },
-          {
-            "@type": "LocationFeatureSpecification",
-            "name": "Dance Floor",
-            "value": true
-          }
-        ]
-      };
-      
-      const localBusinessScript = document.createElement('script');
-      localBusinessScript.type = 'application/ld+json';
-      localBusinessScript.textContent = JSON.stringify(localBusinessSchema, null, 2);
-      document.head.appendChild(localBusinessScript);
-    };
-    
-    // Add structured data
-    addStructuredData();
-    
-    // Optimize images for SEO
-    const optimizeImagesForSEO = () => {
-      const images = document.querySelectorAll('img');
-      
-      images.forEach((img) => {
-        // Add alt text if missing
-        if (!img.hasAttribute('alt')) {
-          const fileName = img.src.split('/').pop()?.split('.')[0];
-          img.setAttribute('alt', `Night Club Egypt - ${fileName || 'صورة'}`);
+
+      // Geo and Local SEO tags
+      const geoTags = [
+        { name: 'geo.region', content: 'EG-C' },
+        { name: 'geo.placename', content: 'Cairo, Egypt' },
+        { name: 'geo.position', content: '30.0444;31.2357' },
+        { name: 'ICBM', content: '30.0444, 31.2357' }
+      ];
+
+      geoTags.forEach(({ name, content }) => {
+        let geoTag = document.querySelector(`meta[name="${name}"]`);
+        if (!geoTag) {
+          geoTag = document.createElement('meta');
+          geoTag.setAttribute('name', name);
+          document.head.appendChild(geoTag);
         }
-        
-        // Add loading="lazy" for images below the fold
-        if (!img.hasAttribute('loading')) {
-          img.setAttribute('loading', 'lazy');
-        }
-        
-        // Add aspect ratio for images without dimensions
-        if (!img.hasAttribute('width') || !img.hasAttribute('height')) {
-          (img as HTMLElement).style.aspectRatio = '16/9';
-        }
+        geoTag.setAttribute('content', content);
       });
     };
-    
+
+    // Update meta tags
+    updateMetaTags();
+
+    // Add enhanced structured data
+    const addEnhancedStructuredData = () => {
+      // Remove existing structured data scripts
+      const existingScripts = document.querySelectorAll('script[type="application/ld+json"]:not([id="initial-schema"])');
+      existingScripts.forEach(script => script.remove());
+
+      // Add enhanced organization schema
+      const organizationSchema = generateOrganizationSchema();
+      const organizationScript = document.createElement('script');
+      organizationScript.type = 'application/ld+json';
+      organizationScript.id = 'organization-schema';
+      organizationScript.textContent = JSON.stringify(organizationSchema, null, 0);
+      document.head.appendChild(organizationScript);
+
+      // Add website schema with search action
+      const websiteSchema = {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Night Club Egypt",
+        "alternateName": "نايت كلوب مصر",
+        "url": "https://www.nightclubegypt.com",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": {
+            "@type": "EntryPoint",
+            "urlTemplate": "https://www.nightclubegypt.com/search?q={search_term_string}"
+          },
+          "query-input": "required name=search_term_string"
+        }
+      };
+
+      const websiteScript = document.createElement('script');
+      websiteScript.type = 'application/ld+json';
+      websiteScript.id = 'website-schema';
+      websiteScript.textContent = JSON.stringify(websiteSchema, null, 0);
+      document.head.appendChild(websiteScript);
+    };
+
+    // Add enhanced structured data
+    addEnhancedStructuredData();
+
+    // Optimize images for SEO with enhanced alt text
+    const optimizeImagesForSEO = () => {
+      const images = document.querySelectorAll('img');
+
+      images.forEach((img, index) => {
+        // Add descriptive alt text if missing
+        if (!img.hasAttribute('alt') || img.getAttribute('alt') === '') {
+          const fileName = img.src.split('/').pop()?.split('.')[0];
+          const altTexts = [
+            `Night Club Egypt - أفضل نايت كلوب في مصر`,
+            `حفلات ليلية فاخرة في نايت كلوب القاهرة`,
+            `سهرات VIP استثنائية في أرقى نايت كلوب بمصر`,
+            `أجواء رائعة وموسيقى عالمية في نايت كلوب مصر`,
+            `خدمة VIP مميزة في أفضل ملهى ليلي بالقاهرة`
+          ];
+          img.setAttribute('alt', altTexts[index % altTexts.length] || `Night Club Egypt - ${fileName || 'صورة'}`);
+        }
+
+        // Add loading optimization
+        if (!img.hasAttribute('loading')) {
+          // First 2 images are eager, rest are lazy
+          img.setAttribute('loading', index < 2 ? 'eager' : 'lazy');
+        }
+
+        // Add aspect ratio for CLS prevention
+        if (!img.hasAttribute('width') || !img.hasAttribute('height')) {
+          if (!img.style.aspectRatio) {
+            (img as HTMLElement).style.aspectRatio = '16/9';
+          }
+        }
+
+        // Add decode="async" for better performance
+        img.setAttribute('decoding', 'async');
+      });
+    };
+
     // Optimize images
-    optimizeImagesForSEO();
-    
-    // Add preload links for critical resources
-    const addPreloadLinks = () => {
+    setTimeout(optimizeImagesForSEO, 100);
+
+    // Add enhanced preload links for critical resources
+    const addEnhancedPreloadLinks = () => {
       const preloadLinks = [
-        { href: '/images/nightclubegyptlogo.jpg', as: 'image', type: 'image/jpeg' },
+        { href: '/images/nightclubegyptlogo.jpg', as: 'image', type: 'image/jpeg', priority: 'high' },
         { href: 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap', as: 'style' },
         { href: 'https://abnzriaextacbsoroyfr.supabase.co', as: 'fetch', crossorigin: 'anonymous' }
       ];
-      
-      preloadLinks.forEach(({ href, as, type, crossorigin }) => {
+
+      preloadLinks.forEach(({ href, as, type, crossorigin, priority }) => {
         let link = document.querySelector(`link[href="${href}"]`);
         if (!link) {
           link = document.createElement('link');
@@ -211,38 +226,41 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
           link.setAttribute('as', as);
           if (type) link.setAttribute('type', type);
           if (crossorigin) link.setAttribute('crossorigin', crossorigin);
+          if (priority) link.setAttribute('fetchpriority', priority);
           document.head.appendChild(link);
         }
       });
     };
-    
+
     // Add preload links
-    addPreloadLinks();
-    
-    // Add DNS prefetch for external domains
-    const addDNSPrefetch = () => {
-      const domains = [
-        'https://fonts.googleapis.com',
-        'https://fonts.gstatic.com',
-        'https://www.googletagmanager.com',
-        'https://www.google-analytics.com'
+    addEnhancedPreloadLinks();
+
+    // Add DNS prefetch and preconnect for performance
+    const addResourceHints = () => {
+      const hints = [
+        { type: 'preconnect', href: 'https://fonts.googleapis.com' },
+        { type: 'preconnect', href: 'https://fonts.gstatic.com', crossorigin: true },
+        { type: 'preconnect', href: 'https://www.googletagmanager.com' },
+        { type: 'dns-prefetch', href: 'https://www.google-analytics.com' },
+        { type: 'dns-prefetch', href: 'https://abnzriaextacbsoroyfr.supabase.co' }
       ];
-      
-      domains.forEach(domain => {
-        let link = document.querySelector(`link[href="${domain}"]`);
+
+      hints.forEach(({ type, href, crossorigin }) => {
+        let link = document.querySelector(`link[href="${href}"]`);
         if (!link) {
           link = document.createElement('link');
-          link.setAttribute('rel', 'dns-prefetch');
-          link.setAttribute('href', domain);
+          link.setAttribute('rel', type);
+          link.setAttribute('href', href);
+          if (crossorigin) link.setAttribute('crossorigin', 'anonymous');
           document.head.appendChild(link);
         }
       });
     };
-    
-    // Add DNS prefetch
-    addDNSPrefetch();
-    
-  }, [title, description, keywords, image, url, type]);
+
+    // Add resource hints
+    addResourceHints();
+
+  }, [title, description, keywords, image, url, type, location, eventType]);
 
   return null; // This component doesn't render anything
 };
