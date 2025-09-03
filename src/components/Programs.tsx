@@ -1,274 +1,346 @@
 "use client";
 
-import { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { Card, CardContent } from "../components/ui/card";
-import { Badge } from "../components/ui/badge";
-import { Calendar, Star, ChevronLeft, ChevronRight } from "lucide-react";
-import { Button } from "../components/ui/button";
-import Image from "next/image";
-import { supabase, Program } from "@/lib/supabase";
+import { Card, CardContent } from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
+import {
+  Clock,
+  Star,
+  Music,
+  Mic,
+  PartyPopper,
+  Calendar,
+  Sparkles,
+  Flame,
+  Award,
+  Heart,
+} from "lucide-react";
+import { useEffect, useState } from "react";
 
 const Programs = () => {
-  const [currentPartyImage, setCurrentPartyImage] = useState(0);
-  const [programs, setPrograms] = useState<Program[]>([]);
-  const [loading, setLoading] = useState(true);
+  const weekPrograms = [
+    {
+      icon: Star,
+      title: "ألمع النجوم",
+      description: "عروض حية مع أشهر المطربين والفنانين في أجواء استثنائية",
+      iconColor: "text-yellow-400",
+      bgColor: "bg-gradient-to-br from-yellow-600/20 to-yellow-800/10",
+    },
+    {
+      icon: Music,
+      title: "الطرب الشعبي الأصيل",
+      description: "أمسيات طربية أصيلة مع أجمل الأغاني الشعبية والتراثية",
+      iconColor: "text-purple-400",
+      bgColor: "bg-gradient-to-br from-purple-600/20 to-purple-800/10",
+    },
+    {
+      icon: Flame,
+      title: "العروض الحارقة",
+      description: "أقوى العروض الغنائية والاستعراضية مع فرق عالمية",
+      iconColor: "text-red-400",
+      bgColor: "bg-gradient-to-br from-red-600/20 to-red-800/10",
+    },
+    {
+      icon: Heart,
+      title: "ليالي الحب والغرام",
+      description: "أجمل الأغاني الرومانسية التي تلامس القلب",
+      iconColor: "text-pink-400",
+      bgColor: "bg-gradient-to-br from-pink-600/20 to-pink-800/10",
+    },
+  ];
 
-  // Fetch programs from Supabase
+  const schedule = [
+    {
+      time: "8:00 م",
+      title: "افتتاح الأمسية",
+      icon: PartyPopper,
+      description: "استقبال الضيوف وبداية الأجواء الرائعة",
+      highlight: true,
+    },
+    {
+      time: "9:30 م",
+      title: "فقرات ترفيهية",
+      icon: Sparkles,
+      description: "عروض مسرحية واستعراضات مبهرة",
+    },
+    {
+      time: "10:45 م",
+      title: "كواليس الفن",
+      icon: Award,
+      description: "لقاءات حصرية مع نجوم الفن والإبداع",
+    },
+    {
+      time: "12:30 ص",
+      title: "عروض النجوم",
+      icon: Star,
+      description: "العروض الحية للنجوم والمطربين المشهورين",
+      highlight: true,
+    },
+    {
+      time: "1:30 ص",
+      title: "الطرب الشعبي",
+      icon: Mic,
+      description: "أجمل الأغاني الشعبية والتراثية",
+    },
+    {
+      time: "3:00 ص",
+      title: "أغاني الزمن الجميل",
+      icon: Heart,
+      description: "رحلة موسيقية عبر ذاكرة الفن الأصيل",
+    },
+    {
+      time: "6:00 ص",
+      title: "ختام مميز",
+      icon: Music,
+      description: "نهاية لا تُنسى لليلة استثنائية",
+      highlight: true,
+    },
+  ];
+
+  const [particles, setParticles] = useState<
+    Array<{ left: string; top: string; delay: string }>
+  >([]);
+
   useEffect(() => {
-    const fetchPrograms = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('programs')
-          .select('*')
-          .order('is_featured', { ascending: false })
-          .order('created_at', { ascending: false });
-
-        if (error) throw error;
-
-        setPrograms(data || []);
-
-        // Fallback data if no programs exist
-        if (!data || data.length === 0) {
-          setPrograms([{
-            id: '1',
-            title: "حفلة اليوم",
-            description: "انضم إلينا في ليلة لا تُنسى مع أفضل الموسيقى والأجواء",
-            image_url: "/images/nightclubegypt.com (6).jpg",
-            is_featured: true,
-            created_at: new Date().toISOString(),
-            updated_at: new Date().toISOString()
-          }]);
-        }
-      } catch (error) {
-        console.error('Error fetching programs:', error);
-        // Fallback data on error
-        setPrograms([{
-          id: '1',
-          title: "حفلة اليوم",
-          description: "انضم إلينا في ليلة لا تُنسى مع أفضل الموسيقى والأجواء",
-          image_url: "/images/nightclubegypt.com (6).jpg",
-          is_featured: true,
-          created_at: new Date().toISOString(),
-          updated_at: new Date().toISOString()
-        }]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPrograms();
-
-    // Subscribe to real-time changes
-    const subscription = supabase
-      .channel('programs_changes')
-      .on('postgres_changes',
-        { event: '*', schema: 'public', table: 'programs' },
-        () => {
-          fetchPrograms();
-        }
-      )
-      .subscribe();
-
-    return () => {
-      subscription.unsubscribe();
-    };
+    const newParticles = Array.from({ length: 15 }, (_, i) => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 2}s`,
+    }));
+    setParticles(newParticles);
   }, []);
 
-  // Auto-slide للحفلات القادمة
-  useEffect(() => {
-    if (programs.length === 0) return;
-
-    const interval = setInterval(() => {
-      setCurrentPartyImage((prev) => (prev + 1) % programs.length);
-    }, 5000);
-
-    return () => clearInterval(interval);
-  }, [programs.length]);
-
-  const nextPartyImage = () => {
-    setCurrentPartyImage((prev) => (prev + 1) % programs.length);
-  };
-
-  const prevPartyImage = () => {
-    setCurrentPartyImage((prev) => (prev - 1 + programs.length) % programs.length);
-  };
-
-  if (loading) {
-    return (
-      <section className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-nightclub-dark/30 via-black to-nightclub-dark/30"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <div className="h-8 w-48 bg-gray-700 rounded-full mx-auto mb-6 animate-pulse"></div>
-            <div className="h-12 w-96 bg-gray-700 rounded mx-auto mb-6 animate-pulse"></div>
-            <div className="h-6 w-2/3 bg-gray-700 rounded mx-auto animate-pulse"></div>
-          </div>
-          <div className="max-w-4xl mx-auto">
-            <div className="h-96 bg-gray-700 rounded-lg animate-pulse"></div>
-          </div>
-        </div>
-      </section>
-    );
-  }
-
   return (
-    <section className="py-20 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-gradient-to-b from-nightclub-dark/0 via-black to-nightclub-dark/0"></div>
+    <section id="programs" className="relative py-24 overflow-hidden bg-black">
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black">
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {particles.map((particle, i) => (
+            <div
+              key={i}
+              className="absolute w-1.5 h-1.5 bg-purple-500 rounded-full animate-sparkle"
+              style={{
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.delay,
+              }}
+            />
+          ))}
+        </div>
+      </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+      <div className="container max-w-7xl mx-auto relative z-10">
+        {/* العنوان الرئيسي */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.8, type: "spring" }}
           className="text-center mb-16"
         >
-          <Badge className="glass-dark px-6 py-2 text-lg border-nightclub-purple/50 mb-6 animate-glow">
-            <Calendar className="w-5 h-5 ml-2" />
-            الحفلات القادمة
+          <Badge className="bg-black/70 px-6 py-2.5 text-lg border border-purple-500/50 text-purple-300 mb-6 hover:bg-purple-900/30 transition-colors">
+            <Calendar className="w-5 h-5 ml-2 text-yellow-400 animate-pulse" />
+            برنامج هذا الأسبوع
           </Badge>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            حفلات <span className="text-nightclub-gold">قادمة </span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+              برامجنا الحصرية
+            </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            استعد لأجمل الليالي مع حفلاتنا القادمة المليئة بالإثارة والترفيه
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
+            رحلة فنية استثنائية عبر أجمل الألحان وأروع العروض مع نخبة من نجوم
+            الوطن العربي
           </p>
         </motion.div>
 
-        {/* صور الحفلات القادمة مع السلايدر التلقائي */}
+        {/* برامج الأسبوع */}
+        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-20">
+          {weekPrograms.map((program, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50, scale: 0.95 }}
+              whileInView={{ opacity: 1, y: 0, scale: 1 }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.1,
+                type: "spring",
+                stiffness: 100,
+              }}
+              whileHover={{ y: -10 }}
+            >
+              <Card
+                className={`${
+                  program.bgColor
+                } border border-white/10 h-full backdrop-blur-sm hover:shadow-lg hover:shadow-${
+                  program.iconColor.split("text-")[1]
+                }/20 transition-all`}
+              >
+                <CardContent className="p-8">
+                  <div className="flex flex-col items-center text-center gap-5">
+                    <div
+                      className={`p-4 rounded-xl ${program.bgColor} border border-white/10 shadow-lg`}
+                    >
+                      <program.icon
+                        className={`w-8 h-8 ${program.iconColor}`}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white mb-3">
+                        {program.title}
+                      </h3>
+                      <p className="text-gray-300 leading-relaxed">
+                        {program.description}
+                      </p>
+                    </div>
+                    <div className="mt-4 w-full h-px bg-gradient-to-r from-transparent via-white/30 to-transparent"></div>
+                    <button className="text-sm font-medium text-white px-4 py-2 rounded-lg bg-white/10 hover:bg-white/20 transition-colors">
+                      عرض التفاصيل
+                    </button>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
+        </div>
+
+        {/* الجدول الزمني */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="max-w-4xl mx-auto mb-16"
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.8 }}
+          className="max-w-4xl mx-auto mb-20"
         >
-          <Card className="glass-dark border-nightclub-gold/50 card-3d animate-glow overflow-hidden">
-            <CardContent className="p-0">
-              <div className="relative h-[70vh] md:h-[70vh] sm:h-[50vh] min-h-[400px] bg-gradient-to-br from-nightclub-dark/5 to-black/5">
-                {/* Main Party Image */}
+          <div className="text-center mb-12">
+            <motion.h3
+              className="text-3xl font-bold text-white mb-4 flex items-center justify-center gap-3"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.2 }}
+            >
+              <Clock className="w-8 h-8 text-yellow-400 animate-pulse" />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-yellow-600">
+                مواعيد العروض اليومية
+              </span>
+            </motion.h3>
+            <motion.p
+              className="text-lg text-gray-400 max-w-2xl mx-auto"
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ delay: 0.4 }}
+            >
+              جدول حافل بالإثارة والمتعة والفن الأصيل
+            </motion.p>
+          </div>
+
+          <div className="relative">
+            {/* خط الجدول */}
+            <div className="absolute right-6 top-0 bottom-0 w-0.5 bg-gradient-to-b from-transparent via-purple-500 to-transparent"></div>
+
+            {/* عناصر الجدول */}
+            <div className="space-y-8">
+              {schedule.map((item, index) => (
                 <motion.div
-                  key={currentPartyImage}
-                  initial={{ opacity: 0, scale: 1.1 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ duration: 0.8 }}
-                  className="relative w-full h-full rounded-lg overflow-hidden image-container-responsive"
+                  key={index}
+                  initial={{ opacity: 0, x: 30 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  transition={{
+                    duration: 0.5,
+                    delay: index * 0.1,
+                    type: "spring",
+                    stiffness: 100,
+                  }}
+                  className="relative"
                 >
-                  <Image
-                    src={programs[currentPartyImage]?.image_url || "/images/nightclubegypt.com (6).jpg"}
-                    alt={`صورة برنامج ${programs[currentPartyImage]?.title || "حفلة اليوم"} في Night Club Egypt - ${programs[currentPartyImage]?.description || "انضم إلينا في ليلة لا تُنسى"}`}
-                    title={programs[currentPartyImage]?.title || "حفلة اليوم"}
-                    fill
-                    priority={currentPartyImage === 0} // Prioritize first image
-                    className="image-contain-enhanced"
-                  />
+                  {/* نقطة المؤشر */}
+                  <div
+                    className={`absolute right-5 w-4 h-4 rounded-full border-4 border-black z-10 ${
+                      item.highlight
+                        ? "bg-yellow-400 animate-pulse"
+                        : "bg-purple-400"
+                    }`}
+                  ></div>
 
-                  {/* Overlay with enhanced gradient for better visual appeal */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent"></div>
-
-                  {/* Content */}
-                  <div className="absolute bottom-8 right-8 text-right">
-                    <motion.h3
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.3 }}
-                      className="text-3xl font-bold mb-2 text-nightclub-gold animate-neon"
-                    >
-                      {programs[currentPartyImage]?.title || "حفلة اليوم"}
-                    </motion.h3>
-                    <motion.p
-                      initial={{ opacity: 0, x: 30 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: 0.4 }}
-                      className="text-lg text-gray-300"
-                    >
-                      {programs[currentPartyImage]?.description || "انضم إلينا في ليلة لا تُنسى"}
-                    </motion.p>
-                  </div>
-                </motion.div>
-
-                {/* Navigation Buttons - Only show if multiple programs */}
-                {programs.length > 1 && (
-                  <div className="flex justify-center gap-3">
-                    <Button
-                      onClick={prevPartyImage}
-                      variant="ghost"
-                      size="icon"
-                      className="absolute left-6 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full glass-dark border border-white/20 hover:border-nightclub-purple"
-                    >
-                      <ChevronRight className="w-6 h-6" />
-                    </Button>
-
-                    <Button
-                      onClick={nextPartyImage}
-                      variant="ghost"
-                      size="icon"
-                      className="absolute right-6 top-1/2 transform -translate-y-1/2 w-12 h-12 rounded-full glass-dark border border-white/20 hover:border-nightclub-purple"
-                    >
-                      <ChevronLeft className="w-6 h-6" />
-                    </Button>
-                  </div>
-                )}
-              </div>
-
-              {/* Thumbnails - Only show if multiple programs */}
-              {programs.length > 1 && (
-                <div className="p-6">
-                  <div className="flex justify-center gap-2 md:gap-3 overflow-x-auto pb-2 px-2">
-                    {programs.map((program, index) => (
-                      <motion.div
-                        key={program.id}
-                        whileHover={{ scale: 1.05 }}
-                        className={`relative w-16 h-16 md:w-20 md:h-20 rounded-lg overflow-hidden cursor-pointer transition-all duration-300 flex-shrink-0 thumbnail-container ${
-                          currentPartyImage === index
-                            ? "ring-2 md:ring-3 ring-nightclub-gold"
-                            : "ring-1 ring-white/20 hover:ring-nightclub-purple"
+                  {/* بطاقة المحتوى */}
+                  <Card
+                    className={`bg-gradient-to-br ${
+                      item.highlight
+                        ? "from-yellow-900/30 to-yellow-600/10 border-yellow-400/30"
+                        : "from-purple-900/20 to-black/50 border-purple-500/20"
+                    } border ml-12 backdrop-blur-sm`}
+                  >
+                    <CardContent className="p-6">
+                      <div className="flex flex-col sm:flex-row sm:items-center gap-4">
+                        <Badge
+                          className={`${
+                            item.highlight
+                              ? "bg-yellow-400 text-black"
+                              : "bg-purple-400 text-white"
+                          } font-bold px-4 py-1.5 w-fit shadow-md`}
+                        >
+                          {item.time}
+                        </Badge>
+                        <div className="flex items-center gap-3">
+                          <item.icon
+                            className={`w-6 h-6 ${
+                              item.highlight
+                                ? "text-yellow-300"
+                                : "text-purple-300"
+                            }`}
+                          />
+                          <h4
+                            className={`font-bold text-lg ${
+                              item.highlight ? "text-yellow-300" : "text-white"
+                            }`}
+                          >
+                            {item.title}
+                          </h4>
+                        </div>
+                      </div>
+                      <p
+                        className={`mt-3 text-sm ${
+                          item.highlight ? "text-yellow-200" : "text-gray-300"
+                        } pl-2 border-l-2 ${
+                          item.highlight
+                            ? "border-yellow-400"
+                            : "border-purple-400"
                         }`}
-                        onClick={() => setCurrentPartyImage(index)}
                       >
-                        <Image
-                          src={program.image_url || "/images/nightclubegypt.com (6).jpg"}
-                          alt={`معاينة صغيرة لبرنامج ${program.title} في Night Club Egypt`}
-                          title={program.title}
-                          fill
-                          loading="lazy" // Lazy load thumbnails
-                          className="image-contain-enhanced"
-                        />
-                        <div className={`absolute inset-0 transition-all duration-300 ${
-                          currentPartyImage === index ? "bg-transparent" : "bg-black/50"
-                        }`}></div>
-                      </motion.div>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </CardContent>
-          </Card>
+                        {item.description}
+                      </p>
+                    </CardContent>
+                  </Card>
+                </motion.div>
+              ))}
+            </div>
+          </div>
         </motion.div>
 
-        {/* Call to Action */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
+        {/* دعوة للعمل */}
+        {/* <motion.div
+          initial={{ opacity: 0, scale: 0.95 }}
+          whileInView={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.6, type: "spring" }}
           className="text-center"
         >
-          <Card className="glass-dark border-nightclub-purple/50 max-w-2xl mx-auto card-3d">
-            <CardContent className="p-8">
-              <Star className="w-12 h-12 text-nightclub-gold mx-auto mb-4 animate-float" />
-              <h3 className="text-3xl font-bold text-nightclub-gold mb-4">
-                احجز مكانك الآن
-              </h3>
-              <p className="text-gray-300 text-lg mb-6">
-                لا تفوت الفرصة وكن جزءاً من أجمل الليالي في القاهرة
-              </p>
-              <Badge className="bg-gradient-gold text-black px-8 py-3 text-lg font-bold animate-pulse">
-                اتصل الآن: 01286110562
-              </Badge>
+          <Card className="bg-gradient-to-br from-purple-900/30 to-black/50 border border-purple-500/30 max-w-2xl mx-auto backdrop-blur-sm hover:shadow-purple-500/20 hover:shadow-xl transition-all">
+            <CardContent className="p-10">
+              <div className="flex flex-col items-center">
+                <div className="p-4 mb-6 rounded-full bg-gradient-to-br from-yellow-400 to-yellow-600 shadow-lg shadow-yellow-500/30">
+                  <Sparkles className="w-8 h-8 text-black" />
+                </div>
+                <h3 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                  هل أنت مستعد لليلة لا تُنسى؟
+                </h3>
+                <p className="text-gray-300 mb-6 text-lg max-w-lg">
+                  احجز تذكرتك الآن وكن جزءاً من أروع الأمسيات الفنية مع كبار النجوم
+                </p>
+                <button className="px-8 py-3 bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold rounded-lg hover:shadow-lg hover:shadow-yellow-500/30 transition-all">
+                  احجز مقعدك الآن
+                </button>
+              </div>
             </CardContent>
           </Card>
-        </motion.div>
+        </motion.div> */}
       </div>
     </section>
   );

@@ -1,41 +1,66 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Cairo, Inter } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "../components/ui/sonner";
-import { GoogleAnalytics } from '@next/third-parties/google';
-import StructuredData from "../components/StructuredData";
-import { SpeedInsights } from '@vercel/speed-insights/next';
+import { Toaster } from "@/components/ui/sonner";
+import Script from "next/script";
 import LogoStructuredData from "../components/LogoStructuredData";
 import SEOOptimizer from "../components/SEOOptimizer";
 import SEOEnhancer from "../components/SEOEnhancer";
+import StructuredData from "../components/StructuredData";
+import GoogleAnalytics from "../components/GoogleAnalytics";
 
-// تحسين font loading لتقليل CLS
 const cairo = Cairo({
   subsets: ["arabic", "latin"],
   variable: "--font-cairo",
-  display: "swap", // تحسين FOUT
-  fallback: ['Arial', 'sans-serif'],
-  preload: true, // preload للخط الرئيسي
+  display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
-  fallback: ['Arial', 'sans-serif'],
-  preload: false, // inter كـ fallback فقط
+  preload: true,
 });
 
+// تحسين Viewport للجوال والأجهزة اللوحية
+export const viewport: Viewport = {
+  width: 'device-width',
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+  themeColor: [
+    { media: '(prefers-color-scheme: light)', color: '#fffcfcff' },
+    { media: '(prefers-color-scheme: dark)', color: '#000000' }
+  ],
+  colorScheme: 'dark light',
+}
+
+// تحسين metadata شامل لـ SEO
 export const metadata: Metadata = {
   title: {
     default: "🔥 أفضل نايت كلوب في مصر 2025 | احجز الآن",
-    template: "%s | Night Club Egypt - أفضل نايت كلوب في مصر"
+    template: "%s | Night Club - أفضل نايت كلوب في مصر"
   },
-  description: "🔥 أفضل نايت كلوب في مصر لعام 2025 | احجز الآن في Night Club Egypt واستمتع بحفلات ليلية فاخرة وخدمة VIP استثنائية في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين، مدينة نصر، هليوبوليس. عروض حية، موسيقى عالمية، سهرات لا تُنسى، أجواء رائعة مع أفضل DJs. نقدم خدمات حفلات أعياد الميلاد، المناسبات الخاصة، الفعاليات الشركات. أفضل ترفيه ليلي في مصر! 📞 اتصل الآن: 01286110562",
+  description: "🔥 نايت كلوب من الآخر في مصر 2025! لو عايز أحلى أجواء وسهرات مش هتنساها، عندنا أجمل سهرات خليجي 🎶 ورقص شرقي وديسكو، مع DJs عالميين وأجواء نار. الأسعار تبدأ من 750 جنيه بس 💸 وخدمة VIP فخمة. سواء في القاهرة، الجيزة، الشيخ زايد، الزمالك أو المعادي – هتلاقي مكانك معانا. احجز دلوقتي وعيش سهرة ماحصلتش 📞 01286110562",
   keywords: [
     // الكلمات المفتاحية الأساسية المحدثة 2025 مع AI-powered keywords
-    "نايت كلوب مصر 2025", "أفضل نايت كلوب في مصر", "ملهى ليلي VIP", "نادي ليلي فاخر", "Night Club Egypt", "احجز نايت كلوب", "حفلات ليلية فاخرة", "سهرات مميزة مصر",
+     "نايت كلوب مصر", "أفضل نايت كلوب في مصر", " سهرات نايت كلوب", "اسعار نايت كلوب", "Night Club", "نايت كلوب", "ارخص نايت كلوب", "سهرات خليجي", "نايت", "سهرات ديسكو", "كباريه", "ديسكو", "nightclub", "نايت كلوب القاهره", "نايت كلوب في الجيزه","نايت كلوب مصر 2025", "أفضل نايت كلوب في مصر", "ملهى ليلي VIP", "نادي ليلي فاخر", "Night Club Egypt", "احجز نايت كلوب", "حفلات ليلية فاخرة", "سهرات مميزة مصر",
     // المدن والمناطق المصرية - تحسين محلي Local SEO
+     // المدن والمناطق المصرية - تحسين محلي
+    "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة", "نايت كلوب العجوزه", "نايت كلوب الشيخ زايد", "نايت كلوب الهرم", "نايت كلوب التجمع الخامس", "نايت كلوب 6 أكتوبر", "نايت كلوب المعادي", "نايت كلوب الزمالك", "نايت كلوب المهندسين", "نايت كلوب مدينة نصر", "نايت كلوب مصر الجديدة", "نايت كلوب القاهرة الجديدة", "نايت كلوب الدقي",
+
+    // كلمات بحث عربية تفصيلية
+    "افضل نايت كلوب في القاهرة", "ارخص نايت كلوب في مصر", "اشهر نايت كلوب", "اجمل نايت كلوب", "ارقى نايت كلوب", "نايت كلوب راقي مصر", "نايت كلوب فخم", "نايت كلوب حديث", "نايت كلوب عصري", "حجز نايت كلوب", "اسعار نايت كلوب", "عروض نايت كلوب", "باقات نايت كلوب", "خصومات نايت كلوب",
+
+    // English keywords for international visitors
+    "nightclub Cairo 2025", "best nightclub Egypt", "nightclub Cairo", "VIP nightclub Egypt", "Cairo nightlife", "nightclub Giza", "Egypt nightclub VIP", "Cairo night entertainment", "premium nightclub Egypt", "exclusive nightclub Cairo", "upscale nightclub Egypt",
+
+    // خدمات ومناسبات وفعاليات
+    "حفلات ليلية مصر", "سهرات القاهرة", "ترفيه ليلي VIP", "حفلات خاصة", "مناسبات خاصة", "حفلات رقص", "DJ nights Egypt", "live music Cairo", "party nights Egypt", "VIP tables Egypt", "nightclub booking Egypt",
+
+    // Social Media Presence
+    "نايت كلوب انستقرام", "نايت كلوب تيك توك", "نايت كلوب فيسبوك", "viral nightclub Egypt", "Instagram worthy nightclub",
     "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة", "نايت كلوب العجوزه", "نايت كلوب الشيخ زايد", "نايت كلوب الهرم",
     "نايت كلوب التجمع الخامس", "نايت كلوب 6 أكتوبر", "نايت كلوب المعادي", "نايت كلوب الزمالك", "نايت كلوب المهندسين",
     "نايت كلوب مدينة نصر", "نايت كلوب هليوبوليس", "نايت كلوب مصر الجديدة", "نايت كلوب القاهرة الجديدة", "نايت كلوب الدقي",
@@ -45,7 +70,7 @@ export const metadata: Metadata = {
     "نايت كلوب راقي مصر", "نايت كلوب فخم", "نايت كلوب حديث", "نايت كلوب مودرن", "نايت كلوب عصري",
     "حجز نايت كلوب مصر", "اسعار نايت كلوب", "عروض نايت كلوب", "باقات نايت كلوب", "خصومات نايت كلوب",
     // English keywords for tourists and international visitors
-    "nightclub Cairo 2025", "best nightclub Egypt", "luxury nightclub Cairo", "VIP nightclub Egypt", "Cairo nightlife",
+    "nightclub Egypt", "best nightclub Cairo", "luxury nightclub Egypt", "VIP nightclub Cairo", "Cairo nightlife",
     "nightclub Giza", "nightclub Agouza", "nightclub Sheikh Zayed", "nightclub 6th October", "nightclub New Cairo",
     "nightclub Maadi", "nightclub Zamalek", "nightclub Mohandessin", "nightclub Heliopolis", "nightclub Nasr City",
     "Egypt nightclub VIP", "Cairo night entertainment", "Egypt nightlife scene", "premium nightclub Egypt",
@@ -132,21 +157,21 @@ export const metadata: Metadata = {
     countryName: "Egypt",
     images: [
       {
-        url: "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+        url: "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
         width: 1200,
         height: 630,
-        alt: "Night Club Egypt - أفضل نايت كلوب في مصر - القاهرة الجيزة العجوزه الشيخ زايد",
+        alt: "Night Club Egypt -  نايت كلوب- القاهرة الجيزة العجوزه الشيخ زايد",
         type: "image/jpeg",
       },
       {
-        url: "https://www.nightclubegypt.com/images/nightclubegypt.com.jpg",
+        url: "https://www.nightclubegypt.com/images/bestnightclb.jpg",
         width: 1200,
         height: 630,
-        alt: "حفلات ليلية فاخرة في أفضل نايت كلوب بمصر - خدمة VIP استثنائية",
+        alt: " أفضل نايت كلوب بمصر",
         type: "image/jpeg",
       },
       {
-        url: "https://www.nightclubegypt.com/images/logo-seo-1200x1200.jpg",
+        url: "https://www.nightclubegypt.com/images/nightclubegypt.com6.jpg",
         width: 1200,
         height: 1200,
         alt: "Night Club Egypt Logo - شعار نايت كلوب مصر",
@@ -155,7 +180,7 @@ export const metadata: Metadata = {
     ],
     videos: [
       {
-        url: "https://www.nightclubegypt.com/videos/nightclub-promo.mp4",
+        url: "https://www.nightclubegypt.com/videos//videos/sasa2.mp4",
         width: 1280,
         height: 720,
         type: "video/mp4",
@@ -167,7 +192,7 @@ export const metadata: Metadata = {
         type: "audio/mpeg",
       }
     ],
-    emails: ["info@nightclubegypt.com", "bookings@nightclubegypt.com"],
+    emails: ["info@nightclubegypt.com", "nightclub2026@gmail.com"],
     phoneNumbers: ["+201286110562", "+20-128-611-0562"],
     faxNumbers: ["+20-1286110562"],
     ttl: 604800, // 7 days
@@ -179,7 +204,7 @@ export const metadata: Metadata = {
     title: "🔥 Night Club Egypt | أفضل نايت كلوب في مصر 2025 - احجز الآن!",
     description: "🎉 تجربة ليلية لا تُنسى! حفلات فاخرة، VIP خدمة، موسيقى عالمية، DJs مشاهير في القاهرة والجيزة والعجوزة والشيخ زايد. احجز الآن: 01286110562 🔥",
     images: {
-      url: "https://www.nightclubegypt.com/images/nightclubegypt.com.jpg",
+      url: "https://www.nightclubegypt.com/images/nightclubegypt.com2.jpg",
       alt: "Night Club Egypt - أفضل نايت كلوب في مصر",
     },
 
@@ -221,7 +246,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ar" dir="rtl" className={`${cairo.variable} ${inter.variable}`}>
+      <html lang="ar" dir="rtl" className={`${cairo.variable} ${inter.variable}`}>
       <head>
         <meta name="google-site-verification" content="vIFvNXtiEElV5o0_lQyVrK50RaetndJXR4Vu4Qc2ohc" />
         {/* Favicon محسن لجميع الأجهزة والمتصفحات */}
@@ -235,16 +260,13 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
 
         {/* Preload critical resources لتحسين LCP وتقليل blocking */}
-        <link rel="preload" href="/images/nightclubegyptlogo.jpg" as="image" type="image/jpeg" />
-        <link rel="preconnect" href="https://abnzriaextacbsoroyfr.supabase.co" />
+        <link rel="preload" href="images/mmas.jpg" as="image" type="image/jpeg" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
         <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
 
-        {/* Optimize CSS loading */}
-        <link rel="preload" href="/_next/static/css/app/layout.css" as="style" />
 
         {/* Organization Logo JSON-LD for Google Search */}
         <script
@@ -254,7 +276,7 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "Organization",
               url: "https://www.nightclubegypt.com",
-              logo: "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+              logo: "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
             }),
           })}
         />
@@ -276,7 +298,7 @@ export default function RootLayout({
         <StructuredData
           name="Night Club Egypt"
           url="https://www.nightclubegypt.com"
-          logo="https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg"
+          logo="https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp"
           description="أفضل نايت كلوب في مصر لعام 2025 - حفلات ليلية فاخرة في القاهرة، الجيزة، العجوزة، الشيخ زايد، الهرم، التجمع الخامس، 6 أكتوبر، المعادي، الزمالك، المهندسين. خدمة VIP استثنائية، عروض حية، موسيقى عالمية، أجواء رائعة."
           address={{"addressLocality": "Cairo", "addressRegion": "Cairo Governorate", "addressCountry": "EG"}}
           contactPoint={{"telephone": "+201286110562", "email": "info@nightclubegypt.com", "contactType": "customer service", "availableLanguage": ["Arabic", "English"]}}
@@ -295,12 +317,9 @@ export default function RootLayout({
         {/* SEO Optimizer */}
         <SEOOptimizer />
         <SEOEnhancer />
-        <SpeedInsights />
         {children}
         <Toaster position="top-center" />
-        {process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID && (
-          <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID} />
-        )}
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-H1ZWPG12HP"} />
       </body>
     </html>
   );

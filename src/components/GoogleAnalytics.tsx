@@ -3,16 +3,23 @@
 import Script from 'next/script';
 import { useEffect } from 'react';
 
-// تعريف النوع للـ gtag
+// تعريف النوع للـ gtag و dataLayer
 declare global {
   interface Window {
     gtag: (...args: unknown[]) => void;
+    dataLayer: unknown[];
   }
 }
 
-const GoogleAnalytics = () => {
+interface GoogleAnalyticsProps {
+  gaId: string;
+}
+
+const GoogleAnalytics = ({ gaId }: GoogleAnalyticsProps) => {
   // تحميل محسن ومنفصل للـ Analytics
   useEffect(() => {
+    if (!gaId) return;
+
     // تأخير تحميل Analytics حتى بعد تحميل الصفحة بالكامل
     const timer = setTimeout(() => {
       if (typeof window !== 'undefined' && !window.gtag) {
@@ -22,7 +29,7 @@ const GoogleAnalytics = () => {
           window.dataLayer?.push(args);
         };
         window.gtag('js', new Date());
-        window.gtag('config', 'G-H1ZWPG12HP', {
+        window.gtag('config', gaId, {
           // تحسينات الأداء
           send_page_view: true,
           cookie_flags: 'SameSite=None;Secure',
@@ -35,13 +42,13 @@ const GoogleAnalytics = () => {
     }, 2000); // تأخير 2 ثانية
 
     return () => clearTimeout(timer);
-  }, []);
+  }, [gaId]);
 
   return (
     <>
       <Script
         strategy="lazyOnload"
-        src="https://www.googletagmanager.com/gtag/js?id=G-H1ZWPG12HP"
+        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
         onLoad={() => {
           if (process.env.NODE_ENV === 'development') {
             console.log('Google Analytics loaded successfully');

@@ -3,7 +3,6 @@
 import { useEffect } from 'react';
 import { generateBusinessSchema, generateMetaTags } from '../lib/seo';
 import { generateOrganizationSchema, generateSEOKeywords } from '../lib/seo-enhanced';
-import { initPerformanceOptimizations } from '../lib/performance-seo';
 
 interface SEOOptimizerProps {
   title?: string;
@@ -20,7 +19,7 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
   title = "🔥 أفضل نايت كلوب في مصر 2025 | احجز الآن",
   description = "🎉 استمتع بأفضل سهرة ليلية في مصر! حفلات فاخرة، خدمة VIP استثنائية، موسيقى عالمية، DJs مشاهير في القاهرة والجيزة. احجز الآن: 01286110562",
   keywords = ["نايت كلوب مصر", "ديسكو القاهرة", "حفلات ليلية", "سهرات VIP", "ملهى ليلي"],
-  image = "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+  image = "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
   url = "https://www.nightclubegypt.com",
   type = "website",
   location,
@@ -28,7 +27,7 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
 }) => {
   useEffect(() => {
     // Initialize performance optimizations
-    initPerformanceOptimizations();
+  
 
     // Generate enhanced SEO keywords
     const enhancedKeywords = generateSEOKeywords(keywords, location, eventType);

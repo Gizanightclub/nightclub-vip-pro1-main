@@ -1,408 +1,627 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { motion } from "framer-motion";
-import { Card, CardContent, CardHeader } from "../components/ui/card";
-import { Button } from "../components/ui/button";
-import { Badge } from "../components/ui/badge";
-import BookingForm from "./BookingForm";
-import { supabase, PricingPackage } from "@/lib/supabase";
+import { motion, AnimatePresence } from "framer-motion";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
 import {
   Crown,
-  Star,
-  Sparkles,
   Wine,
   UtensilsCrossed,
   Apple,
   Users,
   Check,
   Zap,
-  Gift
+  Gift,
+  X,
+  Calendar,
 } from "lucide-react";
-
-// Package info interface for BookingForm
-interface PackageInfo {
-  id: string;
-  title: string;
-  price: number;
-  originalPrice: number;
-  features: string[];
-}
-
-// Extended interface for display
-interface DisplayPackage extends PricingPackage {
-  originalPrice: number;
-  discount: number;
-  featuresList: Array<{
-    icon: React.ComponentType<{ className?: string }>;
-    text: string;
-    premium: boolean;
-  }>;
-  buttonText: string;
-  gradient: string;
-  glowColor: string;
-}
+import Image from "next/image";
 
 const Pricing = () => {
-  const [particles, setParticles] = useState<Array<{left: string, top: string, delay: string}>>([]);
-  const [isBookingOpen, setIsBookingOpen] = useState(false);
-  const [selectedPackage, setSelectedPackage] = useState<PackageInfo | null>(null);
-  const [packages, setPackages] = useState<DisplayPackage[]>([]);
-  const [loading, setLoading] = useState(true);
+  const [showBookingModal, setShowBookingModal] = useState(false);
+  const [selectedPackage, setSelectedPackage] = useState<string | null>(null);
+  const [guestCount, setGuestCount] = useState(1);
+  const [discountCode, setDiscountCode] = useState("");
+  const [appliedDiscount, setAppliedDiscount] = useState(0);
+  const [isValidCode, setIsValidCode] = useState(false);
+  const [invalidCodeMessage, setInvalidCodeMessage] = useState("");
+  const [particles, setParticles] = useState<
+    Array<{ left: string; top: string; delay: string }>
+  >([]);
+  const [isMobile, setIsMobile] = useState(false);
+  const [name, setName] = useState("");
+  const [phone, setPhone] = useState("");
+  const [date, setDate] = useState("");
 
-  // Generate particles
+  useEffect(() => {
+    const checkIfMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+
+    checkIfMobile();
+    window.addEventListener("resize", checkIfMobile);
+    return () => window.removeEventListener("resize", checkIfMobile);
+  }, []);
+
+  // أسعار الباقات
+  const packages = {
+    second: {
+      title: "الصف الثاني",
+      price: 1000,
+      originalPrice: 1500,
+      features: [
+        { icon: Wine, text: "مشروبين فاخرين (Free) من اختيارك" },
+        { icon: UtensilsCrossed, text: "طبق مازة متنوع (Free)" },
+        { icon: Apple, text: "طبق فواكه طازة (Free)" },
+        { icon: Users, text: "مقاعد مميزة في الصف الثاني" },
+        { icon: Users, text: "إمكانية الجلوس مع بنات (عند الطلب)" },
+      ],
+    },
+    first: {
+      title: "الصف الأول VIP",
+      price: 1500,
+      originalPrice: 2000,
+      features: [
+        { icon: Wine, text: "ثلاث مشروبات فاخرة (Free)" },
+        { icon: UtensilsCrossed, text: "طبق مازة مميزة (Free)" },
+        { icon: Apple, text: "طبق فواكه طازة مميزة (Free)" },
+        { icon: Crown, text: "مقاعد أمام الستيج مباشرة + خدمة VIP خاصة" },
+        { icon: Users, text: "إمكانية الجلوس مع بنات (أكثر تميزاً)" },
+      ],
+    },
+  };
+
   useEffect(() => {
     const newParticles = Array.from({ length: 15 }, (_, i) => ({
-      left: `${(i * 6.67) % 100}%`,
-      top: `${(i * 8.33) % 100}%`,
-      delay: `${(i * 0.2) % 3}s`,
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 2}s`,
     }));
     setParticles(newParticles);
   }, []);
 
-  // Fetch packages from Supabase
-  useEffect(() => {
-    const fetchPackages = async () => {
-      try {
-        const { data, error } = await supabase
-          .from('pricing_packages')
-          .select('*')
-          .eq('is_active', true)
-          .order('order_index', { ascending: true });
-
-        if (error) throw error;
-
-        if (data && data.length > 0) {
-          // Transform Supabase data to display format
-          const transformedPackages: DisplayPackage[] = data.map((pkg, index) => {
-            // Calculate original price (add 25% to current price as discount simulation)
-            const originalPrice = Math.round(pkg.price * 1.25);
-            const discount = originalPrice - pkg.price;
-
-            // Create feature list with icons
-            const featuresList = pkg.features.map((feature: string, featureIndex: number) => {
-              const icons = [Wine, UtensilsCrossed, Apple, Users, Crown, Star];
-              return {
-                icon: icons[featureIndex % icons.length],
-                text: feature,
-                premium: pkg.is_popular
-              };
-            });
-
-            return {
-              ...pkg,
-              originalPrice,
-              discount,
-              featuresList,
-              buttonText: pkg.is_popular ? "احجز VIP الآن" : "احجز الآن",
-              gradient: pkg.is_popular
-                ? "bg-gradient-to-br from-amber-500/20 to-amber-600/20"
-                : "bg-gradient-to-br from-purple-500/20 to-purple-700/20",
-              glowColor: pkg.is_popular
-                ? "shadow-amber-500/30"
-                : "shadow-purple-500/20"
-            };
-          });
-
-          setPackages(transformedPackages);
-        } else {
-          // Fallback data if no packages exist
-          setPackages([
-            {
-              id: "fallback-1",
-              name: "الصف الثاني",
-              price: 1000,
-              currency: "EGP",
-              features: [
-                "مشروبين فاخرين من اختيارك",
-                "طبق مازة شرقية متنوع يفتح النفس",
-                "طبق فواكه طازة ومختارة بعناية",
-                "مرافقة خاصة من اختيارك"
-              ],
-              is_popular: false,
-              is_active: true,
-              order_index: 1,
-              created_at: new Date().toISOString(),
-              updated_at: new Date().toISOString(),
-              originalPrice: 1500,
-              discount: 500,
-              featuresList: [
-                { icon: Wine, text: "مشروبين فاخرين من اختيارك", premium: false },
-                { icon: UtensilsCrossed, text: "طبق مازة شرقية متنوع يفتح النفس", premium: false },
-                { icon: Apple, text: "طبق فواكه طازة ومختارة بعناية", premium: false },
-                { icon: Users, text: "مرافقة خاصة من اختيارك", premium: false }
-              ],
-              buttonText: "احجز الآن",
-              gradient: "bg-gradient-to-br from-purple-500/20 to-purple-700/20",
-              glowColor: "shadow-purple-500/20"
-            },
-            {
-              id: "fallback-2",
-              name: "الصف الأول VIP",
-              price: 1500,
-              currency: "EGP",
-              features: [
-                "ثلاث مشروبات فاخرة من اختيارك",
-                "طبق مازة شرقية متنوع يفتح النفس",
-                "طبق فواكه طازة ومختارة بعناية",
-                "مرافقة خاصة + خدمة VIP مميزة"
-              ],
-              is_popular: true,
-              is_active: true,
-              order_index: 2,
-              created_at: new Date().toISOString(),
-              updated_at: new Date().toISOString(),
-              originalPrice: 2000,
-              discount: 500,
-              featuresList: [
-                { icon: Wine, text: "ثلاث مشروبات فاخرة من اختيارك", premium: true },
-                { icon: UtensilsCrossed, text: "طبق مازة شرقية متنوع يفتح النفس", premium: true },
-                { icon: Apple, text: "طبق فواكه طازة ومختارة بعناية", premium: true },
-                { icon: Crown, text: "مرافقة خاصة + خدمة VIP مميزة", premium: true }
-              ],
-              buttonText: "احجز VIP الآن",
-              gradient: "bg-gradient-to-br from-amber-500/20 to-amber-600/20",
-              glowColor: "shadow-amber-500/30"
-            }
-          ]);
-        }
-      } catch (error) {
-        console.error('Error fetching packages:', error);
-        // Use fallback data on error
-        setPackages([]);
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    fetchPackages();
-
-    // Subscribe to real-time changes
-    const subscription = supabase
-      .channel('pricing_packages_changes')
-      .on('postgres_changes',
-        { event: '*', schema: 'public', table: 'pricing_packages' },
-        () => {
-          fetchPackages();
-        }
-      )
-      .subscribe();
-
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, []);
-
-  const handleBookingClick = (pkg: DisplayPackage) => {
-    const packageInfo: PackageInfo = {
-      id: pkg.id,
-      title: pkg.name,
-      price: pkg.price,
-      originalPrice: pkg.originalPrice,
-      features: pkg.features
-    };
-    setSelectedPackage(packageInfo);
-    setIsBookingOpen(true);
+  // حساب السعر الأساسي
+  const calculateBasePrice = () => {
+    if (!selectedPackage) return 0;
+    return (
+      packages[selectedPackage as keyof typeof packages].price * guestCount
+    );
   };
 
-  if (loading) {
-    return (
-      <section id="packages" className="py-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-purple-600/10 via-purple-700/10 to-amber-500/10"></div>
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="text-center mb-16">
-            <div className="h-8 w-48 bg-gray-700 rounded-full mx-auto mb-6 animate-pulse"></div>
-            <div className="h-12 w-96 bg-gray-700 rounded mx-auto mb-6 animate-pulse"></div>
-            <div className="h-6 w-2/3 bg-gray-700 rounded mx-auto animate-pulse"></div>
-          </div>
-          <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-            {[...Array(2)].map((_, i) => (
-              <div key={i} className="h-96 bg-gray-700 rounded-lg animate-pulse"></div>
-            ))}
-          </div>
-        </div>
-      </section>
-    );
-  }
+  // حساب قيمة الخصم
+  const calculateDiscountAmount = () => {
+    return Math.floor(calculateBasePrice() * appliedDiscount);
+  };
+
+  // حساب السعر الإجمالي
+  const calculateTotal = () => {
+    return calculateBasePrice() - calculateDiscountAmount();
+  };
+
+  // التحقق من كود الخصم
+  const checkDiscountCode = () => {
+    const validCodes: Record<string, number> = {
+      VIP10: 0.1, // خصم 10%
+      NIGHT15: 0.15, // خصم 15%
+      CLUB20: 0.2, // خصم 20%
+      GOLD25: 0.25, // خصم 25%
+      DIAMOND30: 0.3, // خصم 30%
+      vip10: 0.1, // خصم 10%
+      night15: 0.15, // خصم 15%
+      club20: 0.2, // خصم 20%
+      gold25: 0.25, // خصم 25%
+      diamond30: 0.3, // خصم 30%
+    };
+
+    if (discountCode.trim() === "") {
+      setInvalidCodeMessage("يرجى إدخال كود الخصم");
+      setIsValidCode(false);
+      setAppliedDiscount(0);
+      return;
+    }
+
+    const discount = validCodes[discountCode] || 0;
+
+    if (discount > 0) {
+      setAppliedDiscount(discount);
+      setIsValidCode(true);
+      setInvalidCodeMessage("");
+    } else {
+      setInvalidCodeMessage("كود الخصم غير صحيح");
+      setIsValidCode(false);
+      setAppliedDiscount(0);
+    }
+  };
+
+  const openBookingModal = (pkgId: string) => {
+    setSelectedPackage(pkgId);
+    setShowBookingModal(true);
+    setDiscountCode("");
+    setAppliedDiscount(0);
+    setIsValidCode(false);
+    setInvalidCodeMessage("");
+    setName("");
+    setPhone("");
+    setDate("");
+  };
+
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!selectedPackage) return;
+
+    const packageDetails = packages[selectedPackage as keyof typeof packages];
+    const basePrice = packageDetails.price * guestCount;
+    const discountAmount = Math.floor(basePrice * appliedDiscount);
+    const totalPrice = basePrice - discountAmount;
+
+    // 🎯 رسالة واتساب موحدة التنسيق
+    const message = `
+🎉 *طلب حجز جديد*
+
+📌 *تفاصيل الحجز*
+👤 الاسم: ${name}
+📞 الهاتف: ${phone}
+📅 التاريخ: ${date}
+
+🎫 نوع الباقة: ${packageDetails.title}
+👥 عدد الأشخاص: ${guestCount}
+
+💰 السعر الأساسي: ${basePrice} جنيه
+${discountCode ? `🏷️ كود الخصم: ${discountCode}` : ""}
+${
+  discountAmount > 0
+    ? `💵 قيمة الخصم: ${discountAmount} جنيه (${appliedDiscount * 100}%)`
+    : ""
+}
+✅ *الإجمالي: ${totalPrice} جنيه*
+
+🙏 شكرًا لاختياركم، سيتم التواصل معكم قريبًا لتأكيد الحجز.`.trim();
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
+
+    window.open(whatsappUrl, "_blank");
+    setShowBookingModal(false);
+  };
 
   return (
-    <section id="packages" className="py-20 relative overflow-hidden">
-      {/* Background Elements */}
-      <div className="absolute inset-0 bg-gradient-to-b from-purple-00/0 via-purple-00/0 to-amber-00/0"></div>
-
-      {/* Animated Background Particles */}
-      <div className="absolute inset-0">
-        {particles.map((particle, i) => (
-          <div
-            key={i}
-            className="absolute w-3 h-3 bg-amber-00/0 rounded-full animate-sparkle"
-            style={{
-              left: particle.left,
-              top: particle.top,
-              animationDelay: particle.delay,
-            }}
-          />
-        ))}
+    <section
+      id="pricing"
+      className="relative min-h-screen py-20 flex items-center bg-black overflow-hidden"
+    >
+      {/* Animated Background */}
+      <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black">
+        {/* Floating Particles */}
+        <div className="absolute inset-0">
+          {particles.map((particle, i) => (
+            <div
+              key={i}
+              className="absolute w-1.5 h-1.5 bg-purple-500 rounded-full animate-sparkle"
+              style={{
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.delay,
+              }}
+            />
+          ))}
+        </div>
       </div>
 
+      {/* المحتوى الرئيسي */}
       <div className="container mx-auto px-4 relative z-10">
-        {/* Section Header */}
+        {/* العنوان الرئيسي */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
+          transition={{ duration: 0.5 }}
           className="text-center mb-16"
         >
-          <Badge className="glass-dark px-6 py-2 text-lg border-nightclub-purple/50 mb-6 animate-glow">
-            <Gift className="w-5 h-5 ml-2" />
-            عروض خاصة محدودة
+          <Badge className="bg-black/70 px-6 py-2.5 text-lg border border-purple-500/50 text-purple-300 mb-6 hover:bg-purple-900/30 transition-colors">
+            <Gift className="w-5 h-5 ml-2 text-yellow-400 animate-pulse" />
+            عروض حصرية
           </Badge>
-          <h2 className="text-5xl md:text-6xl font-bold mb-6">
-            اختر <span className="text-nightclub-gold animate-neon">باقتك المثالية</span>
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
+            <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
+                اقوه الخصومات و افضل الاسعار احجز دلوقتي  
+            </span>
           </h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto">
-            استمتع بتجربة فاخرة مع خصومات حصرية تصل إلى 500 جنيه
+          <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+           اختار التكيت الي ينسبك و احجز طولتك وفر 500ج
           </p>
         </motion.div>
 
-        {/* Packages Grid */}
-        <div className="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          {packages.map((pkg, index) => (
+        {/* بطاقات الباقات */}
+        <div
+          className={`grid ${
+            isMobile ? "grid-cols-1" : "md:grid-cols-2"
+          } gap-8 max-w-5xl mx-auto`}
+        >
+          {Object.entries(packages).map(([id, pkg], index) => (
             <motion.div
-              key={pkg.id}
-              initial={{ opacity: 0, y: 10, scale: 0.9 }}
-              whileInView={{ opacity: 1, y: 0, scale: 1 }}
-              transition={{ duration: 0.6, delay: index * 0.2 }}
-              whileHover={{ y: -10, scale: 1.02 }}
+              key={id}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               className="relative"
+              whileHover={{ y: isMobile ? 0 : -5 }}
             >
-              {/* Popular Badge */}
-              {pkg.is_popular && (
+              {/* تأثير الحدود المتحركة */}
+              <motion.div
+                className="absolute inset-0 rounded-xl overflow-hidden"
+                initial={{ opacity: 0 }}
+                whileHover={{ opacity: isMobile ? 0 : 1 }}
+              >
                 <motion.div
-                  initial={{ opacity: 0, scale: 0 }}
-                  animate={{ opacity: 1, scale: 1 }}
-                  transition={{ delay: 0.5 }}
-                  className="absolute -top-4 left-1/2 transform -translate-x-1/2 z-20"
-                >
-                  <Badge className="bg-gradient-gold text-black font-bold px-6 py-2 text-lg animate-pulse-purple">
-                    <Crown className="w-5 h-5 ml-2" />
-                    الأكثر شعبية
+                  className="absolute inset-0 bg-gradient-to-r from-yellow-400/20 via-transparent to-purple-500/20"
+                  animate={{
+                    x: [-100, 100],
+                  }}
+                  transition={{
+                    duration: 3,
+                    repeat: Infinity,
+                    ease: "linear",
+                  }}
+                />
+              </motion.div>
+
+              {/* علامة VIP */}
+              {id === "first" && (
+                <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
+                  <Badge className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold px-4 py-1 shadow-lg">
+                    <Crown className="w-4 h-4 mr-1" />
+                    VIP
                   </Badge>
-                </motion.div>
+                </div>
               )}
 
-              <Card className={`glass-dark border-2 ${pkg.is_popular ? 'border-nightclub-gold animate-glow' : 'border-nightclub-purple/30'} ${pkg.gradient} card-3d h-full relative overflow-hidden`}>
-                {/* Sparkle Effects */}
-                <div className="absolute top-4 right-4">
-                  <Sparkles className="w-8 h-8 text-nightclub-gold animate-sparkle" />
+              <Card
+                className={`bg-black/50 backdrop-blur-sm border ${
+                  id === "first"
+                    ? "border-yellow-400/50 hover:shadow-yellow-500/20"
+                    : "border-purple-500/30 hover:shadow-purple-500/20"
+                } h-full relative overflow-hidden transition-all ${
+                  isMobile ? "" : "hover:shadow-lg"
+                }`}
+              >
+                {/* تأثير خلفية البطاقة */}
+                <div className="absolute inset-0 opacity-20">
+                  <div className="absolute -right-10 -top-10 w-32 h-32 rounded-full bg-purple-500 blur-3xl"></div>
+                  <div className="absolute -left-10 -bottom-10 w-32 h-32 rounded-full bg-yellow-500 blur-3xl"></div>
                 </div>
 
-                <CardHeader className="text-center pb-4">
-                  <h3 className={`text-3xl font-bold mb-4 ${pkg.is_popular ? 'text-nightclub-gold' : 'text-white'}`}>
-                    {pkg.name}
-                  </h3>
-
-                  {/* Pricing */}
-                  <div className="mb-6">
-                    <div className="flex items-center justify-center gap-4 mb-3">
-                      <span className="text-5xl font-bold text-nightclub-gold">
-                        {pkg.price} {pkg.currency === 'EGP' ? 'ج' : pkg.currency}
+                <CardContent className="p-6 relative z-10">
+                  {/* العنوان والسعر */}
+                  <div className="text-center mb-6">
+                    <h3
+                      className={`text-2xl font-bold mb-2 ${
+                        id === "first" ? "text-yellow-400" : "text-white"
+                      }`}
+                    >
+                      {pkg.title}
+                    </h3>
+                    <div className="flex items-center justify-center gap-3 mb-2">
+                      <span className="text-3xl font-bold text-yellow-400">
+                        {pkg.price} ج
                       </span>
-                      <span className="text-2xl text-gray-400 line-through">
-                        {pkg.originalPrice} {pkg.currency === 'EGP' ? 'ج' : pkg.currency}
+                      <span className="text-xl text-gray-400 line-through">
+                        {pkg.originalPrice} ج
                       </span>
                     </div>
-                    <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white font-bold px-4 py-2 animate-bounce">
-                      <Zap className="w-4 h-4 ml-2" />
-                      وفر {pkg.discount} {pkg.currency === 'EGP' ? 'جنيه' : pkg.currency}!
+                    <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-md">
+                      وفر {pkg.originalPrice - pkg.price} جنيه
                     </Badge>
                   </div>
-                </CardHeader>
 
-                <CardContent className="px-6 pb-8">
-                  {/* Features List */}
-                  <div className="space-y-4 mb-8">
-                    <h4 className={`text-xl font-bold ${pkg.is_popular ? 'text-nightclub-gold' : 'text-nightclub-purple'} mb-4 flex items-center gap-2`}>
-                      {pkg.is_popular ? <Crown className="w-5 h-5" /> : <Star className="w-5 h-5" />}
-                      {pkg.is_popular ? "العرض الملكي يشمل:" : "العرض يشمل:"}
-                    </h4>
-
-                    {pkg.featuresList.map((feature, featureIndex) => (
+                  {/* المميزات */}
+                  <div className="space-y-3 mb-8">
+                    {pkg.features.map((feature, i) => (
                       <motion.div
-                        key={featureIndex}
-                        className="flex items-center gap-4 p-3 rounded-lg bg-black/20 backdrop-blur-sm"
+                        key={i}
+                        className="flex items-start gap-3 p-3 bg-black/30 rounded-lg backdrop-blur-sm"
+                        whileHover={{ x: isMobile ? 0 : 5 }}
+                        transition={{ type: "spring", stiffness: 300 }}
                       >
-                        <div className={`p-2 rounded-lg ${feature.premium ? 'bg-nightclub-gold/20' : 'bg-nightclub-purple/20'}`}>
-                          <feature.icon className={`w-5 h-5 ${feature.premium ? 'text-nightclub-gold' : 'text-nightclub-purple'}`} />
+                        <div
+                          className={`p-2 rounded-lg ${
+                            id === "first"
+                              ? "bg-yellow-400/20"
+                              : "bg-purple-500/20"
+                          }`}
+                        >
+                          <feature.icon
+                            className={`w-5 h-5 ${
+                              id === "first"
+                                ? "text-yellow-400"
+                                : "text-purple-400"
+                            }`}
+                          />
                         </div>
-                        <span className="text-gray-300 flex-1">{feature.text}</span>
-                        <Check className="w-5 h-5 text-green-400" />
+                        <span className="text-gray-300 flex-1">
+                          {feature.text}
+                        </span>
+                        <Check className="w-5 h-5 text-green-400 flex-shrink-0" />
                       </motion.div>
                     ))}
                   </div>
 
-                  {/* CTA Button */}
-                  <Button
-                    size="lg"
-                    onClick={() => handleBookingClick(pkg)}
-                    aria-label={`احجز الآن باقة ${pkg.name} بسعر ${pkg.price} جنيه - فتح نموذج الحجز`}
-                    className={`w-full text-lg font-bold py-6 rounded-xl transition-all duration-300 ${
-                      pkg.is_popular
-                        ? "bg-gradient-gold text-black hover:scale-105 animate-pulse-purple"
-                        : "bg-gradient-purple text-white hover:scale-105"
-                    }`}
+                  {/* زر الحجز */}
+                  <motion.div
+                    whileHover={{ scale: isMobile ? 1 : 1.02 }}
+                    whileTap={{ scale: 0.98 }}
                   >
-                    {pkg.buttonText}
-                  </Button>
-
-                  {/* Discount Message */}
-                  <motion.p
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
-                    transition={{ delay: 0.8 }}
-                    className="text-center text-nightclub-gold font-semibold mt-4 text-sm"
-                  >
-                    💫 احجز من الموقع واستمتع بأفضل الأسعار!
-                  </motion.p>
+                    <Button
+                      onClick={() => openBookingModal(id)}
+                      size="lg"
+                      className={`w-full text-lg font-bold py-5 relative overflow-hidden ${
+                        id === "first"
+                          ? "bg-gradient-to-r from-yellow-400 to-yellow-600 text-black"
+                          : "bg-gradient-to-r from-purple-500 to-purple-700 text-white"
+                      }`}
+                    >
+                      {/* تأثير الزر */}
+                      <motion.span
+                        className="absolute inset-0 bg-white/20"
+                        initial={{ x: -100, opacity: 0 }}
+                        whileHover={{ x: isMobile ? -100 : 100, opacity: 0.3 }}
+                        transition={{ duration: 0.8 }}
+                      />
+                      {id === "first" ? "احجز VIP الآن" : "احجز الآن"}
+                    </Button>
+                  </motion.div>
                 </CardContent>
               </Card>
             </motion.div>
           ))}
         </div>
-
-        {/* Bottom CTA */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.5 }}
-          className="text-center mt-16"
-        >
-          <Card className="glass-dark border-nightclub-purple/30 max-w-2xl mx-auto animate-glow">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold text-nightclub-gold mb-4">
-                🎉 عرض لفترة محدودة!
-              </h3>
-              <p className="text-gray-300 mb-6">
-                احجز الآن واستمتع بأفضل الأسعار والعروض المميزة - العرض ساري حتى نفاد الكمية
-              </p>
-              <Button
-                size="lg"
-                aria-label="اتصل الآن للحجز والاستفسار في Night Club Egypt"
-                className="bg-gradient-nightclub text-white font-bold px-8 py-3 rounded-full hover:scale-105 transition-all duration-300"
-              >
-                اتصل الآن للحجز والاستفسار
-              </Button>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
 
-      {/* Booking Form Dialog */}
-      <BookingForm
-        isOpen={isBookingOpen}
-        onClose={() => setIsBookingOpen(false)}
-        selectedPackage={selectedPackage}
-      />
+      {/* نموذج الحجز */}
+      <AnimatePresence>
+        {showBookingModal && selectedPackage && (
+          <div className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              className={`bg-gradient-to-b from-black to-purple-900/30 border border-purple-500/30 rounded-xl ${
+                isMobile ? "w-full max-w-md" : "w-full max-w-4xl"
+              } overflow-hidden ${
+                isMobile ? "max-h-[90vh] overflow-y-auto" : ""
+              }`}
+            >
+              <div
+                className={`flex ${isMobile ? "flex-col" : "flex-row"} h-full`}
+              >
+                {/* قسم الصورة */}
+                {!isMobile && (
+                  <div className="w-1/3 bg-black/20 relative">
+                    <Image
+                      src={
+                        selectedPackage === "first"
+                          ? "/نايت كلوب القاهره.jpg"
+                          : "/496297633_122132908394643264_7862667949279596569_n.jpg"
+                      }
+                      alt={
+                        packages[selectedPackage as keyof typeof packages].title
+                      }
+                      fill
+                      className="object-cover opacity-70"
+                    />
+                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/80 flex flex-col justify-end p-6">
+                      <h3 className="text-2xl font-bold text-yellow-400 mb-2">
+                        {
+                          packages[selectedPackage as keyof typeof packages]
+                            .title
+                        }
+                      </h3>
+                      <div className="flex items-center gap-3">
+                        <span className="text-xl font-bold text-white">
+                          {
+                            packages[selectedPackage as keyof typeof packages]
+                              .price
+                          }{" "}
+                          ج
+                        </span>
+                        <span className="text-gray-400 line-through">
+                          {
+                            packages[selectedPackage as keyof typeof packages]
+                              .originalPrice
+                          }{" "}
+                          ج
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
+                {/* قسم النموذج */}
+                <div className={`${isMobile ? "w-full" : "w-2/3"} p-6 md:p-8`}>
+                  <div className="flex justify-between items-center mb-6">
+                    <h3 className="text-xl font-bold text-yellow-400">
+                      <Crown className="inline-block w-5 h-5 mr-2" />
+                      حجز الباقة
+                    </h3>
+                    <motion.button
+                      onClick={() => setShowBookingModal(false)}
+                      className="text-gray-400 hover:text-white"
+                      whileHover={{ rotate: 90 }}
+                      whileTap={{ scale: 0.9 }}
+                    >
+                      <X className="w-6 h-6" />
+                    </motion.button>
+                  </div>
+
+                  <form className="space-y-6" onSubmit={handleSubmit}>
+                    {/* الاسم والهاتف */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-gray-300 mb-2 text-sm">
+                          الاسم
+                        </label>
+                        <input
+                          type="text"
+                          value={name}
+                          onChange={(e) => setName(e.target.value)}
+                          className="w-full bg-black/40 border border-purple-500/30 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
+                          required
+                        />
+                      </div>
+
+                      <div>
+                        <label className="block text-gray-300 mb-2 text-sm">
+                          الهاتف
+                        </label>
+                        <input
+                          type="tel"
+                          value={phone}
+                          onChange={(e) => setPhone(e.target.value)}
+                          className="w-full bg-black/40 border border-purple-500/30 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
+                          required
+                        />
+                      </div>
+                    </div>
+
+                    {/* التاريخ */}
+                    <div>
+                      <label className="block text-gray-300 mb-2 text-sm">
+                        التاريخ
+                      </label>
+                      <input
+                        type="date"
+                        value={date}
+                        onChange={(e) => setDate(e.target.value)}
+                        className="date-input w-full bg-black/40 border border-purple-500/30 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
+                        required
+                      />
+                    </div>
+
+                    {/* الأشخاص وكود الخصم */}
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      <div>
+                        <label className="block text-gray-300 mb-2 text-sm">
+                          عدد الأشخاص
+                        </label>
+                        <select
+                          className="w-full bg-black/40 border border-purple-500/30 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
+                          value={guestCount}
+                          onChange={(e) =>
+                            setGuestCount(Number(e.target.value))
+                          }
+                          required
+                        >
+                          {[1, 2, 3, 4, 5, 6, 7, 8, 9, 10].map((num) => (
+                            <option key={num} value={num}>
+                              {num} أشخاص
+                            </option>
+                          ))}
+                        </select>
+                      </div>
+
+                      <div>
+                        <label className="block text-gray-300 mb-2 text-sm">
+                          كود الخصم
+                        </label>
+                        <div className="flex gap-2">
+                          <input
+                            type="text"
+                            value={discountCode}
+                            onChange={(e) => {
+                              setDiscountCode(e.target.value);
+                              setInvalidCodeMessage("");
+                            }}
+                            className="flex-1 bg-black/40 border border-purple-500/30 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:ring-2 focus:ring-yellow-400/50"
+                            placeholder="أدخل كود الخصم"
+                          />
+                          <Button
+                            type="button"
+                            onClick={checkDiscountCode}
+                            size="sm"
+                            className="bg-purple-600 hover:bg-purple-700 px-4 py-4 rounded-lg text-sm font-medium"
+                          >
+                            تطبيق
+                          </Button>
+                        </div>
+                        {invalidCodeMessage && (
+                          <motion.p
+                            initial={{ opacity: 0, y: -10 }}
+                            animate={{ opacity: 1, y: 0 }}
+                            className="text-red-400 text-xs mt-2 text-right"
+                          >
+                            {invalidCodeMessage}
+                          </motion.p>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* السعر */}
+                    <motion.div
+                      key={`total-${guestCount}-${selectedPackage}-${appliedDiscount}`}
+                      initial={{ opacity: 0, scale: 0.95 }}
+                      animate={{ opacity: 1, scale: 1 }}
+                      className="bg-black/40 p-6 rounded-lg border border-yellow-400/30 space-y-3"
+                    >
+                      <div className="flex justify-between">
+                        <span className="text-gray-300">السعر الأساسي:</span>
+                        <span className="text-white font-medium">
+                          {calculateBasePrice()} جنيه
+                        </span>
+                      </div>
+
+                      {isValidCode && (
+                        <>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">نسبة الخصم:</span>
+                            <span className="text-green-400 font-medium">
+                              {appliedDiscount * 100}%
+                            </span>
+                          </div>
+                          <div className="flex justify-between">
+                            <span className="text-gray-300">قيمة الخصم:</span>
+                            <span className="text-green-400 font-medium">
+                              -{calculateDiscountAmount()} جنيه
+                            </span>
+                          </div>
+                        </>
+                      )}
+
+                      <div className="flex justify-between pt-3 border-t border-yellow-400/20 mt-3">
+                        <span className="text-gray-300 font-bold text-lg">
+                          السعر الإجمالي:
+                        </span>
+                        <span className="text-yellow-400 text-xl font-bold">
+                          {calculateTotal()} جنيه
+                        </span>
+                      </div>
+                    </motion.div>
+
+                    {/* زر الحجز */}
+                    <motion.div
+                      whileHover={{ scale: 1.02 }}
+                      whileTap={{ scale: 0.98 }}
+                    >
+                      <Button
+                        type="submit"
+                        className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-3 rounded-lg mt-4 relative overflow-hidden"
+                      >
+                        <motion.span
+                          className="absolute inset-0 bg-white/20"
+                          initial={{ x: -100, opacity: 0 }}
+                          whileHover={{ x: 100, opacity: 0.3 }}
+                          transition={{ duration: 0.8 }}
+                        />
+                        تأكيد الحجز الآن
+                      </Button>
+                    </motion.div>
+                  </form>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        )}
+      </AnimatePresence>
     </section>
   );
 };
