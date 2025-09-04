@@ -19,7 +19,7 @@ export default function SeoHead({
   title,
   description,
   keywords = [],
-  image = "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+  image = "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
   url,
   type = 'website',
   location,

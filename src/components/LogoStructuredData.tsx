@@ -6,17 +6,17 @@ const LogoStructuredData = () => {
     "@type": "ImageObject",
     "name": "Night Club Egypt Logo",
     "description": "شعار Night Club Egypt - أفضل نايت كلوب في مصر",
-    "url": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+    "url": "https://nightclubegypt.com/images/logo-seo-1200x1200.webp",
     "width": 512,
     "height": 512,
     "caption": "Night Club Egypt Logo - شعار نايت كلوب مصر",
     "thumbnail": {
       "@type": "ImageObject",
-      "url": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "url": "https://nightclubegypt.com/images/logo-seo-1200x1200.webp",
       "width": 256,
       "height": 256
     },
-    "contentUrl": "https://nightclubegypt.com/images/nightclubegyptlogo.jpg",
+    "contentUrl": "https://nightclubegypt.com/images/nightclub8.jpeg",
     "encodingFormat": "image/jpeg",
     "uploadDate": "2024-01-01T00:00:00Z",
     "creator": {
@@ -46,17 +46,17 @@ const LogoStructuredData = () => {
     "@type": "ImageObject",
     "name": "Night Club Egypt High Quality Logo",
     "description": "شعار Night Club Egypt عالي الجودة - أفضل نايت كلوب في مصر",
-    "url": "https://nightclubegypt.com/images/logo-seo-1200x1200.png",
+    "url": "https://nightclubegypt.com/images/nightclubegypt.com (11).jpg",
     "width": 1200,
     "height": 1200,
     "caption": "Night Club Egypt High Quality Logo - شعار عالي الجودة",
     "thumbnail": {
       "@type": "ImageObject",
-      "url": "https://nightclubegypt.com/images/logo-seo-1200x1200.png",
+      "url": "https://nightclubegypt.com/images/nightclubegypt.com (10).jpg",
       "width": 600,
       "height": 600
     },
-    "contentUrl": "https://nightclubegypt.com/images/logo-seo-1200x1200.png",
+    "contentUrl": "https://nightclubegypt.com/images/nightclubegypt.com (3).jpg",
     "encodingFormat": "image/png",
     "uploadDate": "2024-01-01T00:00:00Z",
     "creator": {

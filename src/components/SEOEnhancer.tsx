@@ -13,10 +13,10 @@ const SEOEnhancer = () => {
       "alternateName": ["نايت كلوب مصر", "أفضل نايت كلوب في مصر"],
       "description": "أفضل نايت كلوب في مصر لعام 2025 - حفلات ليلية فاخرة مع خدمة VIP استثنائية في القاهرة والجيزة",
       "url": "https://www.nightclubegypt.com",
-      "logo": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "logo": "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
       "image": [
-        "https://www.nightclubegypt.com/images/nightclubegypt.com.jpg",
-        "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg"
+        "https://www.nightclubegypt.com/images/mmas.jpg",
+        "https://www.nightclubegypt.com/images/nightclub5.jpeg"
       ],
       "telephone": "+201286110562",
       "email": "info@nightclubegypt.com",
@@ -112,7 +112,7 @@ const SEOEnhancer = () => {
     // Meta tags محسنة
     addMetaTag('DC.title', 'Night Club Egypt - أفضل نايت كلوب في مصر');
     addMetaTag('DC.description', 'استمتع بأفضل سهرة ليلية في القاهرة والجيزة مع خدمة VIP فاخرة');
-    addMetaTag('DC.subject', 'نايت كلوب, ترفيه ليلي, القاهرة, الجيزة');
+    addMetaTag('DC.subject', 'نايت كلوب,nightclub, القاهرة, الجيزة');
     addMetaTag('DC.language', 'ar');
     addMetaTag('geo.region', 'EG-C');
     addMetaTag('geo.placename', 'Cairo, Egypt');

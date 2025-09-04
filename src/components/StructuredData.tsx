@@ -40,14 +40,14 @@ const StructuredData = ({
     "url": url,
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "url": "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
       "width": 512,
       "height": 512,
       "caption": "Night Club Egypt Logo"
     },
     "image": {
       "@type": "ImageObject",
-      "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "url": "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
       "width": 512,
       "height": 512,
       "caption": "Night Club Egypt Logo"

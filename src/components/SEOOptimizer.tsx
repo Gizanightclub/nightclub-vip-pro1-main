@@ -179,10 +179,10 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
           const fileName = img.src.split('/').pop()?.split('.')[0];
           const altTexts = [
             `Night Club Egypt - أفضل نايت كلوب في مصر`,
-            `حفلات ليلية فاخرة في نايت كلوب القاهرة`,
-            `سهرات VIP استثنائية في أرقى نايت كلوب بمصر`,
-            `أجواء رائعة وموسيقى عالمية في نايت كلوب مصر`,
-            `خدمة VIP مميزة في أفضل ملهى ليلي بالقاهرة`
+            `حفلات خليجي نايت كلوب القاهرة`,
+            `افضل سهرات وحفلا نايت كلوب بمصر`,
+            `Nightclub نايت كلوب `,
+            `ارخص نايت كلوب في مصر `
           ];
           img.setAttribute('alt', altTexts[index % altTexts.length] || `Night Club Egypt - ${fileName || 'صورة'}`);
         }
@@ -211,7 +211,7 @@ const SEOOptimizer: React.FC<SEOOptimizerProps> = ({
     // Add enhanced preload links for critical resources
     const addEnhancedPreloadLinks = () => {
       const preloadLinks = [
-        { href: '/images/nightclubegyptlogo.jpg', as: 'image', type: 'image/jpeg', priority: 'high' },
+        { href: '/images/logo-seo-1200x1200.webp', as: 'image', type: 'image/jpeg', priority: 'high' },
         { href: 'https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap', as: 'style' },
         { href: 'https://abnzriaextacbsoroyfr.supabase.co', as: 'fetch', crossorigin: 'anonymous' }
       ];

@@ -28,26 +28,26 @@ export const generatePageDescription = (
   const locationText = location ? ` في ${location}` : ''
   const keywordText = keywords ? ` | ${keywords.join(' | ')}` : ''
 
-  return `${baseDescription}${locationText}. خدمة VIP، حفلات فاخرة، موسيقى عالمية، أجواء رائعة${keywordText}. احجز الآن: 01286110562`
+  return `${baseDescription}${locationText}. خدمة VIP، حفلات وسهرات، DJ عالمي، أجواء رائعة${keywordText}. احجز الآن: 01286110562`
 }
 
 // 10 عناوين مختلفة للصفحة الرئيسية
 export const HOME_PAGE_TITLES = [
   "🔥 أفضل نايت كلوب في مصر 2025 | احجز الآن",
-  "نايت كلوب فاخر في القاهرة | حفلات VIP استثنائية",
-  "🎉 سهرات ليلية لا تُنسى | Night Club Egypt",
+  "nightclub | نايت كلوب",
+  "🎉اجمل سهرات | Night Club Egypt",
   "ملهى ليلي راقي في مصر | خدمة VIP مميزة",
-  "🔥 احجز نايت كلوب القاهرة | حفلات فاخرة 2025",
+  "🔥 احجز نايت كلوب  | حفلات خليجي 2025",
   "أجمل سهرة في مصر | نايت كلوب بمستوى عالمي",
   "حفلات ليلية فخمة | أفضل ديسكو في القاهرة",
   "🎵 موسيقى عالمية وأجواء رائعة | نايت كلوب مصر",
-  "سهرة VIP في أرقى نايت كلوب بالقاهرة",
-  "🔥 ترفيه ليلي استثنائي | Night Club Egypt"
+  "ارخص نايت كلوب في مصر احجز عبار موقعنا",
+  "🔥حجوزات نايت كلوب | Night Club Egypt"
 ]
 
 // 10 عناوين لصفحة نايت كلوب القاهرة
 export const CAIRO_PAGE_TITLES = [
-  "نايت كلوب القاهرة | أفضل ملهى ليلي في العاصمة",
+  "نايت كلوب القاهرة | أفضل نايت كلوب",
   "🔥 حفلات القاهرة الليلية | سهرات VIP فاخرة",
   "ديسكو القاهرة | ترفيه ليلي بمستوى عالمي",
   "نايت كلوب وسط القاهرة | أجواء استثنائية",
@@ -66,9 +66,9 @@ export const generateSEOKeywords = (
   eventType?: string
 ): string[] => {
   const baseKeywords = [
-    'نايت كلوب مصر 2025', 'أفضل نايت كلوب', 'حفلات ليلية فاخرة',
-    'سهرات VIP', 'ملهى ليلي راقي', 'ديسكو القاهرة',
-    'nightclub Egypt', 'Cairo nightlife', 'VIP nightclub'
+    'نايت كلوب مصر 2025', 'أفضل نايت كلوب', 'حفلات ليلية فاخرة',"ارخص نايت كلوب","نايت كلوب","نيت كلوب","نايت كلاب","حجز نايت كلوب","نايتات مصر","كلوبات مصر",
+    'سهرات VIP', 'ملهى ليلي راقي', 'ديسكو القاهرة',"كباريه","نايت كلوب مفتوح الان","كلوب مصر","نادي نايت ",
+    'nightclub Egypt', 'Cairo nightlife', 'VIP nightclub', "club night club","club", "night club","egypt club","the nightclub",
   ]
 
   const locationKeywords = location ? [
@@ -98,7 +98,7 @@ export const generateOrganizationSchema = () => ({
   "url": "https://www.nightclubegypt.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+    "url": "https://www.nightclubegypt.com/images/logo-seo-1200x1200.png",
     "width": 512,
     "height": 512,
     "caption": "Night Club Egypt Logo"
@@ -106,7 +106,7 @@ export const generateOrganizationSchema = () => ({
   "image": [
     {
       "@type": "ImageObject",
-      "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "url": "https://www.nightclubegypt.com/images/mmas.jpg",
       "width": 1200,
       "height": 630,
       "caption": "Night Club Egypt - أفضل نايت كلوب في مصر"
@@ -227,7 +227,7 @@ export const generateVideoSchema = (videoData: {
     "name": "Night Club Egypt",
     "logo": {
       "@type": "ImageObject",
-      "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg"
+      "url": "https://www.nightclubegypt.com/images/nightclubegypt.com (7).jpg"
     }
   }
 })
@@ -258,7 +258,7 @@ export const generateFAQSchema = () => ({
       "name": "ما هي أسعار الدخول لنايت كلوب مصر؟",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "تختلف أسعار الدخول حسب اليوم والفعالية. يبدأ سعر الدخول من 200 جنيه مصري. للحصول على أحدث الأسعار والعروض اتصل بنا على 01286110562."
+        "text": "تختلف أسعار الدخول حسب اليوم والفعالية. يبدأ سعر الدخول من 750 جنيه مصري. للحصول على أحدث الأسعار والعروض اتصل بنا على 01286110562."
       }
     }
   ]
@@ -307,7 +307,7 @@ export const generateMetaTags = (pageData: {
   image?: string;
   url?: string;
 }): Record<string, string> => {
-  const defaultImage = "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg";
+  const defaultImage = "https://www.nightclubegypt.com/images/logo-seo-1200x1200.png";
   const defaultUrl = "https://www.nightclubegypt.com";
 
   return {

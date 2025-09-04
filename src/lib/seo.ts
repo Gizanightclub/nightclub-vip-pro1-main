@@ -2,26 +2,44 @@
 export const SEO_CONFIG = {
   // الكلمات المفتاحية الأساسية
   primaryKeywords: [
-    "نايت كلوب مصر",
-    "ديسكو القاهرة", 
-    "حفلات ليلية مصر",
-    "سهرات خليجية",
-    "ملهى ليلي القاهرة",
-    "nightclub Egypt",
-    "Cairo disco",
-    "Egypt nightlife"
+     'نايت كلوب مصر 2025', 'أفضل نايت كلوب', 'حفلات ليلية فاخرة',"ارخص نايت كلوب","نايت كلوب","نيت كلوب","نايت كلاب","حجز نايت كلوب","نايتات مصر","كلوبات مصر",
+      "نايت كلوب مصر", "أفضل نايت كلوب في مصر", " سهرات نايت كلوب", "اسعار نايت كلوب", "Night Club", "نايت كلوب", "ارخص نايت كلوب",
+       "سهرات خليجي", "نايت", "سهرات ديسكو", "كباريه", "ديسكو", "nightclub", "نايت كلوب القاهره", "نايت كلوب في الجيزه","نايت كلوب مصر 2025",
+        "أفضل نايت كلوب في مصر", "ملهى ليلي VIP", "نادي ليلي فاخر", "Night Club Egypt", "احجز نايت كلوب", "حفلات ليلية فاخرة", "سهرات مميزة مصر",
+    'سهرات VIP', 'ملهى ليلي راقي', 'ديسكو القاهرة',"كباريه","نايت كلوب مفتوح الان","كلوب مصر","نادي نايت ",
+    'nightclub Egypt', 'Cairo nightlife', 'VIP nightclub', "club night club","club", "night club","egypt club","the nightclub",
   ],
   
   // الكلمات المفتاحية الثانوية
   secondaryKeywords: [
-    "نايت كلوب الجيزة",
-    "نايت كلوب العجوزة", 
-    "نايت كلوب الشيخ زايد",
-    "نايت كلوب 6 أكتوبر",
-    "نايت كلوب التجمع الخامس",
-    "حفلات أعياد ميلاد",
-    "فعاليات شركات",
-    "خدمة VIP"
+    // المدن والمناطق المصرية - تحسين محلي
+    "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة", "نايت كلوب العجوزه", "نايت كلوب الشيخ زايد", "نايت كلوب الهرم", "نايت كلوب التجمع الخامس", "نايت كلوب 6 أكتوبر", "نايت كلوب المعادي", "نايت كلوب الزمالك", "نايت كلوب المهندسين", "نايت كلوب مدينة نصر", "نايت كلوب مصر الجديدة", "نايت كلوب القاهرة الجديدة", "نايت كلوب الدقي",
+
+    // كلمات بحث عربية تفصيلية
+    "افضل نايت كلوب في القاهرة", "ارخص نايت كلوب في مصر", "اشهر نايت كلوب", "اجمل نايت كلوب", "ارقى نايت كلوب", "نايت كلوب راقي مصر", "نايت كلوب فخم", "نايت كلوب حديث", "نايت كلوب عصري", "حجز نايت كلوب", "اسعار نايت كلوب", "عروض نايت كلوب", "باقات نايت كلوب", "خصومات نايت كلوب",
+
+    // English keywords for international visitors
+    "nightclub Cairo 2025", "best nightclub Egypt", "nightclub Cairo", "VIP nightclub Egypt", "Cairo nightlife", "nightclub Giza", "Egypt nightclub VIP", "Cairo night entertainment", "premium nightclub Egypt", "exclusive nightclub Cairo", "upscale nightclub Egypt",
+
+    // خدمات ومناسبات وفعاليات
+    "حفلات ليلية مصر", "سهرات القاهرة", "ترفيه ليلي VIP", "حفلات خاصة", "مناسبات خاصة", "حفلات رقص", "DJ nights Egypt", "live music Cairo", "party nights Egypt", "VIP tables Egypt", "nightclub booking Egypt",
+
+    // Social Media Presence
+    "نايت كلوب انستقرام", "نايت كلوب تيك توك", "نايت كلوب فيسبوك", "viral nightclub Egypt", "Instagram worthy nightclub",
+    "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة", "نايت كلوب العجوزه", "نايت كلوب الشيخ زايد", "نايت كلوب الهرم",
+    "نايت كلوب التجمع الخامس", "نايت كلوب 6 أكتوبر", "نايت كلوب المعادي", "نايت كلوب الزمالك", "نايت كلوب المهندسين",
+    "نايت كلوب مدينة نصر", "نايت كلوب هليوبوليس", "نايت كلوب مصر الجديدة", "نايت كلوب القاهرة الجديدة", "نايت كلوب الدقي",
+    "نايت كلوب جاردن سيتي", "نايت كلوب وسط البلد", "نايت كلوب كورنيش النيل", "نايت كلوب النيل",
+    // كلمات بحث عربية تفصيلية Long-tail Arabic SEO
+    "افضل نايت كلوب في القاهرة", "احسن نايت كلوب في مصر", "اشهر نايت كلوب", "اجمل نايت كلوب", "ارقى نايت كلوب",
+    "نايت كلوب راقي مصر", "نايت كلوب فخم", "نايت كلوب حديث", "نايت كلوب مودرن", "نايت كلوب عصري",
+    "حجز نايت كلوب مصر", "اسعار نايت كلوب", "عروض نايت كلوب", "باقات نايت كلوب", "خصومات نايت كلوب",
+    // English keywords for tourists and international visitors
+    "nightclub Egypt", "best nightclub Cairo", "luxury nightclub Egypt", "VIP nightclub Cairo", "Cairo nightlife",
+    "nightclub Giza", "nightclub Agouza", "nightclub Sheikh Zayed", "nightclub 6th October", "nightclub New Cairo",
+    "nightclub Maadi", "nightclub Zamalek", "nightclub Mohandessin", "nightclub Heliopolis", "nightclub Nasr City",
+    "Egypt nightclub VIP", "Cairo night entertainment", "Egypt nightlife scene", "premium nightclub Egypt",
+    "exclusive nightclub Cairo", "upscale nightclub Egypt", "trendy nightclub Cairo", "modern nightclub Egypt",
   ],
   
   // المدن والمناطق
@@ -42,7 +60,7 @@ export const generateBusinessSchema = () => ({
   "url": "https://www.nightclubegypt.com",
   "logo": {
     "@type": "ImageObject",
-    "url": "https://wwww.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+    "url": "https://wwww.nightclubegypt.com/images/logo-seo-1200x1200.png",
     "width": 512,
     "height": 512,
     "caption": "Night Club Egypt Logo - شعار نايت كلوب مصر"
@@ -50,14 +68,14 @@ export const generateBusinessSchema = () => ({
   "image": [
     {
       "@type": "ImageObject",
-      "url": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+      "url": "https://www.nightclubegypt.com/images/nightclub7.jpeg",
       "width": 512,
       "height": 512,
       "caption": "Night Club Egypt - أفضل نايت كلوب في مصر"
     },
     {
       "@type": "ImageObject", 
-      "url": "https://wwww.nightclubegypt.com/images/nightclubegypt.com.jpg",
+      "url": "https://wwww.nightclubegypt.com/images/nightclubegypt.com (11).jpg",
       "width": 1200,
       "height": 630,
       "caption": "حفلات ليلية فاخرة في أفضل نايت كلوب بمصر"
@@ -154,7 +172,7 @@ export const generateBusinessSchema = () => ({
   "brand": {
     "@type": "Brand",
     "name": "Night Club Egypt",
-    "logo": "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg",
+    "logo": "https://www.nightclubegypt.com/images/logo-seo-1200x1200.png",
     "description": "أفضل نايت كلوب في مصر - خدمة VIP استثنائية"
   },
   "aggregateRating": {
@@ -304,7 +322,7 @@ export const generateMetaTags = (pageData: {
   image?: string;
   url?: string;
 }): Record<string, string> => {
-  const defaultImage = "https://www.nightclubegypt.com/images/nightclubegyptlogo.jpg";
+  const defaultImage = "https://www.nightclubegypt.com/images/logo-seo-1200x1200.png";
   const defaultUrl = "https://www.nightclubegypt.com";
 
   return {
