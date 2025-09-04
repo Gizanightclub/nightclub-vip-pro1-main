@@ -292,6 +292,17 @@ export default function RootLayout({
             }
           `
         }} />
+        <script
+  dangerouslySetInnerHTML={{
+    __html: `
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-H1ZWPG12HP');
+    `,
+  }}
+/>
+
       </head>
       <body className="min-h-screen text-white font-cairo antialiased">
         {/* Structured Data محسن للوجو والمؤسسة لتحسين SEO */}
