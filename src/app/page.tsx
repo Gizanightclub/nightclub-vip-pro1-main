@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import VideoCarousel from "@/components/VideoCarousel";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ShareButtons from "@/components/ShareButtons";
-import HomeClient from "./HomeClient";
 
 // 👇 إنشاء Metadata محسن للصفحة الرئيسية مع كلمات مفتاحية ديناميكية
 export async function generateMetadata(): Promise<Metadata> {
@@ -177,7 +176,7 @@ export default function Home() {
         </div>
 
         {/* 👇 Client-side components للتفاعل */}
-        <HomeClient />
+      
 
         {/* 👇 Accessibility Enhancements */}
         <div

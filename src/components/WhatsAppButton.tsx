@@ -14,7 +14,7 @@ interface WhatsAppButtonProps {
 
 const WhatsAppButton = ({
   phoneNumber = "201286110562",
-  message = "مرحباً، أود معرفة تفاصيل الحجز والأسعار في نايت كلوب 🌟",
+  message = "مرحباً، أود معرفة تفاصيل الحجز والأسعار في نايت كلوب ?",
   position = "bottom-right",
   showTooltip = true,
   className = ""
@@ -87,7 +87,7 @@ const WhatsAppButton = ({
 
     // تنسيق رقم الهاتف
     const formattedPhone = phoneNumber.startsWith('+') ? phoneNumber.slice(1) : phoneNumber;
-    const message = "مرحباً، أود معرفة الأسعار والحجز والعروض المتاحة! 🎉";
+    const message = "مرحباً، عاوز معرفة الأسعار والحجز والعروض المتاحة! 🎉";
     const whatsappUrl = `https://wa.me/${formattedPhone}?text=${encodeURIComponent(message)}`;
 
     console.log('📱 رابط الواتساب:', whatsappUrl);
