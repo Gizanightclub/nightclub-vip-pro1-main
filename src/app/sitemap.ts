@@ -73,6 +73,19 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'daily' as const,
       priority: 0.9,
+    },
+    // 👇 إضافة روابط Sitemaps المتخصصة
+    {
+      url: `${baseUrl}/image-sitemap.xml`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
+    },
+    {
+      url: `${baseUrl}/video-sitemap.xml`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.6,
     }
   ]
 

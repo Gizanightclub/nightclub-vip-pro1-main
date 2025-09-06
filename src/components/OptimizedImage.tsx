@@ -1,8 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import Image from "next/image";
-import { cn } from "@/lib/utils";
+import Image from 'next/image';
+import { useState } from 'react';
 
 interface OptimizedImageProps {
   src: string;
@@ -10,54 +9,76 @@ interface OptimizedImageProps {
   width?: number;
   height?: number;
   className?: string;
-  priority?: boolean;
   quality?: number;
-  placeholder?: "blur" | "empty";
-  blurDataURL?: string;
-  sizes?: string;
+  priority?: boolean;
   fill?: boolean;
-  objectFit?: "contain" | "cover" | "fill" | "none" | "scale-down";
-  loading?: "lazy" | "eager";
+  sizes?: string;
+  title?: string;
+  caption?: string;
+  loading?: 'lazy' | 'eager';
+  // 👇 خصائص SEO إضافية
+  seoTitle?: string;
+  seoDescription?: string;
+  keywords?: string;
+  location?: string;
 }
 
+// 👇 مكون محسن للصور مع دعم WebP وتحسين SEO
 const OptimizedImage = ({
   src,
   alt,
   width,
   height,
-  className,
-  priority = false,
+  className = '',
   quality = 85,
-  placeholder = "empty",
-  blurDataURL,
-  sizes = "(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw",
+  priority = false,
   fill = false,
-  objectFit = "cover",
-  loading = "lazy"
+  sizes = '(max-width: 768px) 100vw, (max-width: 1200px) 80vw, 70vw',
+  title,
+  caption,
+  loading = 'lazy',
+  seoTitle,
+  seoDescription,
+  keywords = 'نايت كلوب مصر, سهرات, ترفيه ليلي',
+  location = 'القاهرة، مصر'
 }: OptimizedImageProps) => {
+  const [imageError, setImageError] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setHasError] = useState(false);
 
-  // تحسين مسار الصورة للحصول على WebP/AVIF إذا كان متاحاً
-  const getOptimizedSrc = (originalSrc: string, format?: string) => {
-    if (originalSrc.startsWith('/images/')) {
-      const pathWithoutExtension = originalSrc.replace(/\.[^/.]+$/, "");
-      if (format === 'webp') {
-        return `${pathWithoutExtension}.webp`;
-      }
-      if (format === 'avif') {
-        return `${pathWithoutExtension}.avif`;
-      }
+  // 👇 تحويل مسار الصورة إلى WebP إذا أمكن
+  const getOptimizedSrc = (originalSrc: string) => {
+    // إذا كانت الصورة تدعم WebP، استخدمها
+    if (originalSrc.endsWith('.jpg') || originalSrc.endsWith('.jpeg') || originalSrc.endsWith('.png')) {
+      const webpSrc = originalSrc.replace(/\.(jpg|jpeg|png)$/i, '.webp');
+      return webpSrc;
     }
     return originalSrc;
   };
 
-  // إنشاء srcSet للصور المتجاوبة
-  const createSrcSet = (baseSrc: string) => {
-    const sizes = [320, 640, 768, 1024, 1280, 1536];
-    return sizes
-      .map(size => `${baseSrc}?w=${size}&q=${quality} ${size}w`)
-      .join(', ');
+  // 👇 إنشاء ImageObject Schema للصورة
+  const imageSchema = {
+    "@context": "https://schema.org",
+    "@type": "ImageObject",
+    "url": `https://www.nightclubegypt.com${src}`,
+    "name": seoTitle || title || alt,
+    "description": seoDescription || caption || alt,
+    "caption": caption || alt,
+    "width": width,
+    "height": height,
+    "contentLocation": {
+      "@type": "Place",
+      "name": location
+    },
+    "creator": {
+      "@type": "Organization",
+      "name": "Night Club Egypt"
+    },
+    "copyrightHolder": {
+      "@type": "Organization",
+      "name": "Night Club Egypt"
+    },
+    "keywords": keywords,
+    "encodingFormat": src.includes('.webp') ? 'image/webp' : 'image/jpeg'
   };
 
   const handleLoad = () => {
@@ -65,60 +86,60 @@ const OptimizedImage = ({
   };
 
   const handleError = () => {
+    setImageError(true);
     setIsLoading(false);
-    setHasError(true);
   };
 
-  if (hasError) {
+  if (imageError) {
     return (
-      <div
-        className={cn(
-          "flex items-center justify-center bg-gray-200 text-gray-500",
-          className
-        )}
-        style={{ width, height }}
-      >
-        <span className="text-sm">فشل في تحميل الصورة</span>
+      <div className={`bg-gray-800 flex items-center justify-center ${className}`}>
+        <span className="text-gray-400 text-sm">فشل في تحميل الصورة</span>
       </div>
     );
   }
 
-  const imageProps = {
-    src,
-    alt,
-    quality,
-    priority,
-    placeholder,
-    blurDataURL,
-    sizes,
-    loading,
-    onLoad: handleLoad,
-    onError: handleError,
-    className: cn(
-      "transition-opacity duration-300",
-      isLoading ? "opacity-0" : "opacity-100",
-      className
-    ),
-    style: {
-      objectFit: fill ? undefined : objectFit
-    }
-  };
-
-  if (fill) {
-    return (
-      <Image
-        {...imageProps}
-        fill
-      />
-    );
-  }
-
   return (
-    <Image
-      {...imageProps}
-      width={width}
-      height={height}
-    />
+    <>
+      {/* 👇 إضافة Schema للصورة */}
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }}
+      />
+
+      <div className={`relative ${className}`}>
+        {/* 👇 إضافة placeholder أثناء التحميل */}
+        {isLoading && (
+          <div className="absolute inset-0 bg-gray-800 animate-pulse flex items-center justify-center">
+            <div className="w-8 h-8 border-2 border-yellow-400 border-t-transparent rounded-full animate-spin"></div>
+          </div>
+        )}
+
+        <Image
+          src={getOptimizedSrc(src)}
+          alt={alt}
+          width={width}
+          height={height}
+          fill={fill}
+          className={`transition-opacity duration-300 ${isLoading ? 'opacity-0' : 'opacity-100'}`}
+          quality={quality}
+          priority={priority}
+          sizes={sizes}
+          title={title || seoTitle}
+          loading={loading}
+          onLoad={handleLoad}
+          onError={handleError}
+          // 👇 fallback للصورة الأصلية في حالة فشل WebP
+          onLoadingComplete={() => setIsLoading(false)}
+        />
+
+        {/* 👇 إضافة caption إذا وُجد */}
+        {caption && (
+          <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/80 to-transparent p-2">
+            <p className="text-white text-sm text-center">{caption}</p>
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

@@ -24,9 +24,11 @@ export default function robots(): MetadataRoute.Robots {
           '/opening-hours/',
           '/reviews/',
           '/_next/static/',
-          '/images/',
-          '/videos/',
+          '/images/',     // 👈 السماح بفهرسة الصور
+          '/videos/',     // 👈 السماح بفهرسة الفيديوهات
           '/sitemap.xml',
+          '/image-sitemap.xml',  // 👈 إضافة image sitemap
+          '/video-sitemap.xml',  // 👈 إضافة video sitemap
           '/favicon.ico',
           '/robots.txt'
         ],
@@ -78,8 +80,8 @@ export default function robots(): MetadataRoute.Robots {
           '/cities/',
           '/performers/',
           '/packages/',
-          '/images/',
-          '/videos/'
+          '/images/*',        // 👈 السماح لـ Googlebot بفهرسة الصور
+          '/videos/*'         // 👈 السماح لـ Googlebot بفهرسة الفيديوهات
         ],
         disallow: [
           '/dashboard/*',
@@ -101,8 +103,8 @@ export default function robots(): MetadataRoute.Robots {
           '/pricing/',
           '/programs/',
           '/events/',
-          '/images/',
-          '/videos/'
+          '/images/*',        // 👈 السماح لـ Bingbot بفهرسة الصور
+          '/videos/*'         // 👈 السماح لـ Bingbot بفهرسة الفيديوهات
         ],
         disallow: [
           '/dashboard/*',
@@ -129,7 +131,12 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/']
       }
     ],
-    sitemap: 'https://www.nightclubegypt.com/sitemap.xml',
+    // 👇 إضافة جميع روابط السايتمابس
+    sitemap: [
+      'https://www.nightclubegypt.com/sitemap.xml',
+      'https://www.nightclubegypt.com/image-sitemap.xml',
+      'https://www.nightclubegypt.com/video-sitemap.xml'
+    ],
     host: 'https://www.nightclubegypt.com'
   }
 }
