@@ -160,7 +160,7 @@ export default function Footer() {
             </div>
           </div>
         </div>
-
+            
         {/* Copyright */}
         <motion.div className="footer-item pt-6 md:pt-8 border-t border-purple-500/20 text-center">
           <p className="text-white text-sm hover:text-yellow-400">

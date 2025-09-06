@@ -104,86 +104,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.7,
   }))
 
-  // 👇 صفحات الفنانين والراقصات للـ SEO
-  const performers = [
-    'rahma-mohsen', 'essam-sasa', 'islam-kabonja', 'reda-bahrawi', 'karim-ghazal',
-    'bossy-dancer', 'rooh-dancer', 'linda-dancer', 'badiaa-dancer', 'tofha-dancer', 'fairoz-dancer'
-  ]
 
-  const performerPages = performers.map(performer => ({
-    url: `${baseUrl}/performers/${performer}/`,
-    lastModified,
-    changeFrequency: 'monthly' as const,
-    priority: 0.6,
-  }))
-
-  // 👇 صفحات الباقات والعروض
-  const packages = [
-    'vip-table-1500', 'standard-entry-750', 'group-packages', 'special-offers',
-    'birthday-packages', 'corporate-events', 'weekend-specials'
-  ]
-
-  const packagePages = packages.map(pkg => ({
-    url: `${baseUrl}/packages/${pkg}/`,
-    lastModified,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }))
-
-  // 👇 صفحات الأحداث والحفلات
-  const eventTypes = [
-    'live-music-nights', 'dj-nights', 'dance-shows', 'special-events',
-    'weekend-parties', 'ladies-nights', 'couples-nights'
-  ]
-
-  const eventPages = eventTypes.map(event => ({
-    url: `${baseUrl}/events/${event}/`,
-    lastModified,
-    changeFrequency: 'weekly' as const,
-    priority: 0.6,
-  }))
-
-  // 👇 صفحات معلومات إضافية
-  const infoPages = [
-    {
-      url: `${baseUrl}/location/`,
-      lastModified,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/opening-hours/`,
-      lastModified,
-      changeFrequency: 'monthly' as const,
-      priority: 0.5,
-    },
-    {
-      url: `${baseUrl}/dress-code/`,
-      lastModified,
-      changeFrequency: 'monthly' as const,
-      priority: 0.4,
-    },
-    {
-      url: `${baseUrl}/age-policy/`,
-      lastModified,
-      changeFrequency: 'yearly' as const,
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/reviews/`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: 0.6,
-    }
-  ]
 
   // 👇 دمج جميع الصفحات
   return [
     ...staticPages,
     ...cityPages,
-    ...performerPages,
-    ...packagePages,
-    ...eventPages,
-    ...infoPages
   ]
 }

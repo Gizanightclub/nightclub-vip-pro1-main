@@ -14,7 +14,6 @@ export default function robots(): MetadataRoute.Robots {
           '/pricing/',
           '/programs/',
           '/events/',
-          '/vip-packages/',
           '/artists/',
           '/booking/',
           '/cities/',

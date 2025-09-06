@@ -1,89 +1,65 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-  siteUrl: process.env.SITE_URL || 'https://nightclubcairo.vercel.app',
+  siteUrl: process.env.SITE_URL || 'https://www.nightclubegypt.com',
   generateRobotsTxt: true,
   changefreq: 'weekly',
   priority: 0.8,
   sitemapSize: 5000,
   generateIndexSitemap: false,
 
-  // روابط إضافية
-  additionalPaths: async (config) => [
-    await config.transform(config, '/'),
-    await config.transform(config, '/#about'),
-    await config.transform(config, '/#gallery'),
-    await config.transform(config, '/#packages'),
-    await config.transform(config, '/#contact'),
-    await config.transform(config, '/#videos'),
-  ],
+  // روابط إضافية لجميع الصفحات، المدن، الفنانين، الباقات، الأحداث
+  additionalPaths: async (config) => {
+    const baseUrl = '';
+    const staticPages = ['/', '/about', '/services', '/gallery', '/pricing', '/programs', '/events', '/contact', '/vip-packages', '/artists', '/booking', '/videos', '/packages', '/location', '/opening-hours', '/reviews', '/dress-code', '/age-policy'];
+    const paths = [];
 
-  // robots.txt configuration
+    for (const page of staticPages) {
+      paths.push(await config.transform(config, page));
+    }
+
+    for (const city of cities) {
+      paths.push(await config.transform(config, `/cities/${city}`));
+    }
+
+    for (const performer of performers) {
+      paths.push(await config.transform(config, `/performers/${performer}`));
+    }
+
+    for (const pkg of packages) {
+      paths.push(await config.transform(config, `/packages/${pkg}`));
+    }
+
+    for (const event of events) {
+      paths.push(await config.transform(config, `/events/${event}`));
+    }
+
+    // روابط الصور والفيديوهات
+    paths.push(await config.transform(config, '/image-sitemap.xml'));
+    paths.push(await config.transform(config, '/video-sitemap.xml'));
+
+    return paths;
+  },
+
   robotsTxtOptions: {
     policies: [
-      {
-        userAgent: '*',
-        allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/']
-      },
-      {
-        userAgent: 'Googlebot',
-        allow: '/',
-        disallow: ['/api/', '/_next/', '/admin/']
-      }
+      { userAgent: '*', allow: '/', disallow: ['/api/', '/_next/', '/admin/'] },
+      { userAgent: 'Googlebot', allow: '/', disallow: ['/api/', '/_next/', '/admin/'] }
     ],
     additionalSitemaps: [
-      'https://nightclubcairo.vercel.app/sitemap.xml',
+      'https://www.nightclubegypt.com/sitemap.xml',
+      'https://www.nightclubegypt.com/image-sitemap.xml',
+      'https://www.nightclubegypt.com/video-sitemap.xml'
     ],
   },
 
-  // تخصيص metadata للصفحات
   transform: async (config, path) => {
-    const customPages = {
-      '/': {
-        changefreq: 'daily',
-        priority: 1.0,
-        lastmod: new Date().toISOString(),
-      },
-      '/#about': {
-        changefreq: 'weekly',
-        priority: 0.9,
-        lastmod: new Date().toISOString(),
-      },
-      '/#gallery': {
-        changefreq: 'weekly',
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
-      },
-      '/#packages': {
-        changefreq: 'weekly',
-        priority: 0.9,
-        lastmod: new Date().toISOString(),
-      },
-      '/#contact': {
-        changefreq: 'monthly',
-        priority: 0.7,
-        lastmod: new Date().toISOString(),
-      },
-      '/#videos': {
-        changefreq: 'weekly',
-        priority: 0.8,
-        lastmod: new Date().toISOString(),
-      }
-    };
-
     return {
       loc: path,
-      changefreq: customPages[path]?.changefreq || config.changefreq,
-      priority: customPages[path]?.priority || config.priority,
-      lastmod: customPages[path]?.lastmod || new Date().toISOString(),
+      changefreq: 'weekly',
+      priority: 0.8,
+      lastmod: new Date().toISOString(),
     };
   },
 
-  exclude: [
-    '/api/*',
-    '/admin/*',
-    '/_next/*',
-    '/404',
-    '/500'
-  ]
+  exclude: ['/api/*', '/admin/*', '/_next/*', '/404', '/500'],
 };
