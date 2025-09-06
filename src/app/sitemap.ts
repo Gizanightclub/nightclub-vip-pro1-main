@@ -55,19 +55,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'monthly' as const,
       priority: 0.6,
     },
-    // 👇 صفحات إضافية للـ SEO
-    {
-      url: `${baseUrl}/vip-packages/`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/artists/`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: 0.7,
-    },
     {
       url: `${baseUrl}/booking/`,
       lastModified,
@@ -89,26 +76,9 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ]
 
-  // 👇 صفحات المدن للSEO المحلي مع كلمات مفتاحية محسنة
-  const cities = [
-    'cairo', 'giza', 'agouza', 'sheikh-zayed', 'haram',
-    'new-cairo', '6th-october', 'maadi', 'zamalek', 'mohandessin',
-    'nasr-city', 'heliopolis', 'garden-city', 'downtown', 'dokki',
-    'tagamoa-khamis', 'qasr-nile', 'abbassiya', 'shoubra'
-  ]
-
-  const cityPages = cities.map(city => ({
-    url: `${baseUrl}/cities/${city}/`,
-    lastModified,
-    changeFrequency: 'weekly' as const,
-    priority: 0.7,
-  }))
-
-
 
   // 👇 دمج جميع الصفحات
   return [
     ...staticPages,
-    ...cityPages,
   ]
 }
