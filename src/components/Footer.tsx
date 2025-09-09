@@ -136,10 +136,10 @@ export default function Footer() {
               </motion.a>
               <motion.a
                 className="footer-item flex items-center gap-2 text-white hover:text-yellow-400"
-                href="mailto:reserve@nightclubvip.com"
+                href="mailto:nightclub2026@gmail.com"
               >
                 <Mail className="w-4 h-4" />
-                <span>reserve@nightclubvip.com</span>
+                <span>nightclub2026@gmail.com</span>
               </motion.a>
             </div>
           </div>

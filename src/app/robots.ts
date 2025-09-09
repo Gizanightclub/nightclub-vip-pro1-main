@@ -8,20 +8,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           '/',
           '/about/',
-          '/services/',
           '/gallery/',
           '/contact/',
-          '/pricing/',
           '/programs/',
-          '/events/',
-          '/artists/',
           '/booking/',
-          '/cities/',
-          '/performers/',
           '/packages/',
-          '/location/',
-          '/opening-hours/',
-          '/reviews/',
           '/_next/static/',
           '/images/',     // 👈 السماح بفهرسة الصور
           '/videos/',     // 👈 السماح بفهرسة الفيديوهات
@@ -67,17 +58,10 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           '/',
           '/about/',
-          '/services/',
           '/gallery/',
           '/contact/',
-          '/pricing/',
           '/programs/',
-          '/events/',
-          '/vip-packages/',
-          '/artists/',
           '/booking/',
-          '/cities/',
-          '/performers/',
           '/packages/',
           '/images/*',        // 👈 السماح لـ Googlebot بفهرسة الصور
           '/videos/*'         // 👈 السماح لـ Googlebot بفهرسة الفيديوهات
@@ -96,12 +80,11 @@ export default function robots(): MetadataRoute.Robots {
         allow: [
           '/',
           '/about/',
-          '/services/',
           '/gallery/',
           '/contact/',
-          '/pricing/',
           '/programs/',
-          '/events/',
+          '/booking/',
+          '/packages/',
           '/images/*',        // 👈 السماح لـ Bingbot بفهرسة الصور
           '/videos/*'         // 👈 السماح لـ Bingbot بفهرسة الفيديوهات
         ],

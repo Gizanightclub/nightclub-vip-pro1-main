@@ -4,8 +4,7 @@ import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
 import Script from "next/script";
 import LogoStructuredData from "../components/LogoStructuredData";
-import SEOOptimizer from "../components/SEOOptimizer";
-import SEOEnhancer from "../components/SEOEnhancer";
+import SEOUnified from "../components/SEOUnified";
 import StructuredData from "../components/StructuredData";
 import GoogleAnalytics from "../components/GoogleAnalytics";
 
@@ -34,7 +33,7 @@ export const viewport: Viewport = {
     { media: '(prefers-color-scheme: light)', color: '#8b5cf6' },
     { media: '(prefers-color-scheme: dark)', color: '#0a0a0f' }
   ],
-  colorScheme: 'dark light',
+  // colorScheme moved from metadata to viewport
 }
 
 // 👇 Metadata محسن شامل لـ SEO مع كلمات مفتاحية باللهجة المصرية
@@ -49,7 +48,7 @@ export const metadata: Metadata = {
   keywords: [
     // الكلمات الأساسية باللهجة المصرية
     "نايت كلوب مصر", "أفضل نايت كلوب في مصر", "نايت كلوب القاهرة", "ارخص نايت كلوب",
-    "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "نايت كلوب VIP", "نايت كلوب ","nightclub",'نايت كلوب مصر 2025', 'أفضل نايت كلوب', 
+    "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "نايت كلوب VIP", "نايت كلوب ","nightclub",'نايت كلوب مصر 2025', 'أفضل نايت كلوب',
     'حفلات ليلية فاخرة',"ارخص نايت كلوب","نايت كلوب","نيت كلوب","نايت كلاب","حجز نايت كلوب","نايتات مصر","كلوبات مصر",
     "نايت كلوب مصر", "أفضل نايت كلوب في مصر", " سهرات نايت كلوب", "اسعار نايت كلوب", "Night Club", "نايت كلوب", "ارخص نايت كلوب",
    "سهرات خليجي", "نايت", "سهرات ديسكو", "كباريه", "ديسكو", "nightclub", "نايت كلوب القاهره", "نايت كلوب في الجيزه","نايت كلوب مصر 2025",
@@ -85,7 +84,7 @@ export const metadata: Metadata = {
   applicationName: "Night Club Egypt",
   generator: "Next.js 14",
   referrer: "origin-when-cross-origin",
-  colorScheme: "dark",
+  // colorScheme moved to viewport
 
   // 👇 تحسين إعدادات محركات البحث
   robots: {
@@ -165,7 +164,7 @@ export const metadata: Metadata = {
         type: "video/mp4",
       }
     ],
-    emails: ["info@nightclubegypt.com", "nightclub2026@gmail.com"],
+    emails: ["nightclub2026@gmail.com"],
     phoneNumbers: ["+201286110562"],
     ttl: 604800, // 7 days
   },
@@ -173,12 +172,12 @@ export const metadata: Metadata = {
   // 👇 تحسين Twitter Cards للمشاركة على تويتر
   twitter: {
     card: "summary_large_image",
-    site: "@nightclubegypt",
-    creator: "@nightclubegypt",
+    site: "nightclub2026@gmail.com",
+    creator: "nightclub2026@gmail.com",
     title: "🔥 Night Club Egypt | أفضل نايت كلوب في مصر 2025 - احجز الآن!",
     description: "🎉 تجربة ليلية لا تُنسى! حفلات فاخرة مع أشهر النجوم، VIP خدمة، موسيقى عالمية في القاهرة والجيزة والعجوزة والشيخ زايد. أسعار من 750 جنيه. احجز: 01286110562 🔥",
     images: {
-      url: "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
+      url: "https://www.nightclubegypt.com/images/logo-seo-1200x1200.png",
       alt: "Night Club Egypt - أفضل نايت كلوب في مصر",
     },
   },
@@ -235,8 +234,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#8b5cf6" />
-        <meta name="msapplication-TileColor" content="#8b5cf6" />
+        <meta name="theme-color" content="#dfdee0ff" />
+        <meta name="msapplication-TileColor" content="#d2d2d3ff" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
 
         {/* 👇 Preload critical resources لتحسين Core Web Vitals */}
@@ -322,7 +321,7 @@ export default function RootLayout({
           }}
           contactPoint={{
             "telephone": "+201286110562",
-            "email": "info@nightclubegypt.com",
+            "email": "nightclub2026@gmail.com",
             "contactType": "customer service",
             "availableLanguage": ["Arabic", "English"]
           }}
@@ -339,9 +338,8 @@ export default function RootLayout({
         {/* 👇 Logo Structured Data */}
         <LogoStructuredData />
 
-        {/* 👇 SEO Components محسنة */}
-        <SEOOptimizer />
-        <SEOEnhancer />
+        {/* 👇 SEO Component موحد ومحسن */}
+        <SEOUnified pageType="home" />
 
         {children}
 

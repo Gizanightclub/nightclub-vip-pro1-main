@@ -5,7 +5,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 'https://www.nightclubegypt.com'
   const lastModified = new Date()
 
-  // 👇 الصفحات الأساسية مع أولوية عالية
+  // 👇 الصفحات الأساسية مع أولوية عالية - محدثة لتطابق الصفحات الموجودة فعلياً
   const staticPages = [
     {
       url: baseUrl,
@@ -20,19 +20,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/services/`,
+      url: `${baseUrl}/programs/`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/pricing/`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/programs/`,
+      url: `${baseUrl}/packages/`,
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.8,
@@ -42,12 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'weekly' as const,
       priority: 0.7,
-    },
-    {
-      url: `${baseUrl}/events/`,
-      lastModified,
-      changeFrequency: 'daily' as const,
-      priority: 0.8,
     },
     {
       url: `${baseUrl}/contact/`,
@@ -75,7 +63,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.6,
     }
   ]
-
 
   // 👇 دمج جميع الصفحات
   return [
