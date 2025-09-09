@@ -1,4 +1,3 @@
-// 🌟 مكتبة SEO موحدة ومحسنة لنايت كلوب مصر 2025
 // Unified SEO Library for Night Club Egypt - Complete Optimization
 
 import { Metadata } from 'next'
@@ -22,8 +21,13 @@ export const NIGHTCLUB_BASE_INFO = {
   }
 }
 
-// نسخة موحدة لنص Copyright عشان يتغير بسهولة لاحقًا
+// نسخة موحدة لنص Copyright وحقول الصورة
 export const COPYRIGHT_NOTICE = "© 2025 Night Club Egypt. All rights reserved."
+export const IMAGE_LICENSE = `${NIGHTCLUB_BASE_INFO.domain}/license`
+export const IMAGE_ACQUIRE_PAGE = `${NIGHTCLUB_BASE_INFO.domain}/contact`
+export const IMAGE_CREDIT = "Night Club Egypt"
+export const IMAGE_CREATOR_ORG = { "@type": "Organization", "name": NIGHTCLUB_BASE_INFO.name }
+export const IMAGE_COPYRIGHT_HOLDER = { "@type": "Organization", "name": NIGHTCLUB_BASE_INFO.name }
 
 // 🖼️ الصور المحسنة للـ SEO
 export const SEO_IMAGES = {
@@ -35,7 +39,6 @@ export const SEO_IMAGES = {
   packages: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub3.jpeg`,
   contact: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub4.jpeg`,
   booking: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub5.jpeg`,
-  // بعض صور إضافية اللي ظهرت في تقرير الزحف
   nightclub7: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub7.jpeg`,
   nightclub8: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub8.jpeg`,
   nightclub9: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub9.jpeg`,
@@ -44,7 +47,6 @@ export const SEO_IMAGES = {
 
 // 🎯 كلمات مفتاحية شاملة ومحسنة - منظمة بدون تكرار
 export const SEO_KEYWORDS = {
-  // كلمات أساسية باللهجة المصرية
   primary: [
     "نايت كلوب", "أفضل نايت كلوب في مصر", "ارخص نايت كلوب",
     "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "نايت كلوب VIP",
@@ -66,8 +68,6 @@ export const SEO_KEYWORDS = {
     "حفلات ليلية فاخرة", "سهرات مميزة مصر", "سهرات VIP",
     "ملهى ليلي راقي", "ديسكو القاهرة", "كلوب مصر", "نادي نايت"
   ],
-
-  // كلمات مناطق مصرية للـ Local SEO
   locations: [
     "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة",
     "نايت كلوب الشيخ زايد", "نايت كلوب الهرم", "نايت كلوب التجمع الخامس",
@@ -75,14 +75,10 @@ export const SEO_KEYWORDS = {
     "نايت كلوب المهندسين", "نايت كلوب مدينة نصر", "نايت كلوب مصر الجديدة",
     "نايت كلوب الدقي"
   ],
-
-  // أسماء المشاهير والفنانين
   performers: [
     "رحمة محسن", "عصام صاصا", "إسلام كبونجا", "رضا البحراوي", "كريم الغزال",
     "بوسي راقصة", "روح راقصة", "ليندا راقصة", "بديعة راقصة", "توفحة راقصة", "فيروز راقصة"
   ],
-
-  // كلمات إنجليزية للزوار الدوليين
   english: [
     "nightclub Egypt", "best nightclub Cairo", "nightclub Giza", "VIP nightclub Egypt","nightclub","deco","bar","night",
     "Cairo nightlife", "nightclub Agouza", "nightclub Sheikh Zayed", "premium nightclub Egypt"
@@ -99,100 +95,231 @@ export const generateUnifiedBusinessSchema = () => ({
   "url": NIGHTCLUB_BASE_INFO.domain,
   "logo": {
     "@type": "ImageObject",
-    "url": `${NIGHTCLUB_BASE_INFO.domain}/images/logo-seo-1200x1200.webp`,
+    "url": SEO_IMAGES.logo,
+    "name": "Night Club Egypt Logo - شعار نايت كلوب مصر",
+    "description": "شعار نايت كلوب مصر الرسمي للاستخدام في صفحات الموقع ووسائل التواصل",
+    "caption": "Night Club Egypt Logo - شعار نايت كلوب مصر",
     "width": 1200,
     "height": 1200,
-    "caption": "Night Club Egypt Logo - شعار نايت كلوب مصر",
-    "copyrightNotice": COPYRIGHT_NOTICE
+    "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+    "creator": IMAGE_CREATOR_ORG,
+    "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+    "creditText": IMAGE_CREDIT,
+    "license": IMAGE_LICENSE,
+    "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+    "copyrightNotice": COPYRIGHT_NOTICE,
+    "encodingFormat": "image/webp",
+    "keywords": "Night Club Egypt, logo, شعار"
   },
   "image": [
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub1.jpeg`,
+      "url": SEO_IMAGES.hero,
+      "name": "حفلة مميزة في نايت كلوب مصر - أجواء VIP فاخرة",
+      "description": "استمتع بأروع الأوقات في حفلاتنا المميزة مع أجواء VIP فاخرة وخدمة استثنائية في أفضل نايت كلوب بالقاهرة",
+      "caption": "استمتع بأروع الأوقات في حفلاتنا المميزة مع أجواء VIP فاخرة وخدمة استثنائية في أفضل نايت كلوب بالقاهرة",
       "width": 1200,
       "height": 630,
-      "caption": "Night Club Egypt - أفضل نايت كلوب في مصر مع أشهر النجوم",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "نايت كلوب مصر, حفلات, سهرات, ترفيه ليلي, القاهرة, صور 1",
+      "representativeOfPage": "http://schema.org/True"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub0.jpeg`,
+      "url": SEO_IMAGES.about,
+      "name": "سهرة راقصة مع أشهر النجوم في نايت كلوب إيجيبت",
+      "description": "احجز مكانك في أقوى السهرات مع أشهر النجوم والراقصات في أفضل ملهى ليلي بمصر",
+      "caption": "احجز مكانك في أقوى السهرات مع أشهر النجوم والراقصات في أفضل ملهى ليلي بمصر",
       "width": 1200,
       "height": 630,
-      "caption": "حفلات ليلية فاخرة مع رحمة محسن وعصام صاصا - نايت كلوب مصر",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "نايت كلوب مصر, حفلات, سهرات, ترفيه ليلي, القاهرة, صور 2",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub4.jpeg`,
+      "url": SEO_IMAGES.contact,
+      "name": "حفلات الويك إند المميزة - موسيقى حية و DJs عالميين",
+      "description": "عيش تجربة ليلية لا تُنسى مع أفضل DJs العالميين والموسيقى الحية في حفلات الويك إند الأسطورية",
+      "caption": "عيش تجربة ليلية لا تُنسى مع أفضل DJs العالميين والموسيقى الحية في حفلات الويك إند الأسطورية",
       "width": 1200,
       "height": 630,
-      "caption": "حفلات الويك إند المميزة - موسيقى حية و DJs عالميين",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "نايت كلوب مصر, حفلات, سهرات, ترفيه ليلي, القاهرة, صور 3",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub7.jpeg`,
+      "url": SEO_IMAGES.nightclub7,
+      "name": "رقص شرقي أصيل مع أمهر الراقصات في مصر",
+      "description": "استمتع بعروض الرقص الشرقي الأصيل مع أمهر الراقصات والفنانات في أجواء شرقية ساحرة",
+      "caption": "استمتع بعروض الرقص الشرقي الأصيل مع أمهر الراقصات والفنانات في أجواء شرقية ساحرة",
       "width": 1200,
       "height": 630,
-      "caption": "رقص شرقي أصيل مع أمهر الراقصات في مصر",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "نايت كلوب مصر, حفلات, سهرات, ترفيه ليلي, القاهرة, صور 4",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub8.jpeg`,
+      "url": SEO_IMAGES.nightclub8,
+      "name": "حفلات رقص شرقي كل يوم",
+      "description": "استمتع بأجواء ساحرة مع حفلات رقص شرقي كل يوم في نايت كلوب مصر",
+      "caption": "استمتع بأجواء ساحرة مع حفلات رقص شرقي كل يوم في نايت كلوب مصر",
       "width": 1200,
       "height": 630,
-      "caption": "حفلات رقص شرقي كل يوم",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "نايت كلوب مصر, حفلات, سهرات, ترفيه ليلي, القاهرة, صور 5",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub9.jpeg`,
+      "url": SEO_IMAGES.nightclub9,
+      "name": "حفلات المطربين والنجوم - أقوى الأمسيات الغنائية",
+      "description": "احضر أقوى الحفلات مع أشهر المطربين والنجوم في أمسيات غنائية استثنائية لا تُفوت",
+      "caption": "احضر أقوى الحفلات مع أشهر المطربين والنجوم في أمسيات غنائية استثنائية لا تُفوت",
       "width": 1200,
       "height": 630,
-      "caption": "حفلات المطربين والنجوم - أقوى الأمسيات الغنائية",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "نايت كلوب مصر, حفلات, سهرات, ترفيه ليلي, القاهرة, صور 6",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/mmas.jpg`,
+      "url": SEO_IMAGES.mmas,
+      "name": "عروض خاصة وحفلات استثنائية كل ليلة",
+      "description": "كل ليلة عندنا مختلفة! عروض خاصة وحفلات استثنائية مع برامج متنوعة تناسب جميع الأذواق",
+      "caption": "كل ليلة عندنا مختلفة! عروض خاصة وحفلات استثنائية مع برامج متنوعة تناسب جميع الأذواق",
       "width": 1200,
       "height": 630,
-      "caption": "عروض خاصة وحفلات استثنائية كل ليلة",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "نايت كلوب مصر, حفلات, سهرات, ترفيه ليلي, القاهرة, صور 7",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com10.jpg`,
-      "width": 1200,
-      "height": 630,
+      "url": SEO_IMAGES.gallery,
+      "name": "معرض صور نايت كلوب مصر",
+      "description": "معرض صور الحفلات والسهرات في نايت كلوب مصر - لحظات حصرية وأجواء VIP",
       "caption": "معرض صور نايت كلوب مصر",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "width": 1200,
+      "height": 630,
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "معرض صور، نايت كلوب مصر، حفلات",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub2.jpeg`,
-      "width": 1200,
-      "height": 630,
+      "url": SEO_IMAGES.programs,
+      "name": "برامج وعروض نايت كلوب مصر",
+      "description": "برامج الحفلات والعروض الأسبوعية مع نجوم وراقصات مميزين",
       "caption": "برامج وعروض نايت كلوب مصر",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "width": 1200,
+      "height": 630,
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "برامج، فعاليات، نايت كلوب مصر",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub3.jpeg`,
-      "width": 1200,
-      "height": 630,
+      "url": SEO_IMAGES.packages,
+      "name": "حزم وباقات خاصة للضيوف",
+      "description": "باقات الدخول وحجز الطاولات مع خدمات VIP ومشروبات مميزة",
       "caption": "حزم وباقات خاصة للضيوف",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "width": 1200,
+      "height": 630,
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "باقات، VIP، حجز طاولات",
+      "representativeOfPage": "http://schema.org/False"
     },
     {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub5.jpeg`,
+      "url": SEO_IMAGES.booking,
+      "name": "حجز وطاولات VIP",
+      "description": "خدمة الحجز الفوري للطاولات وطاولات VIP مع عروض خاصة",
+      "caption": "حجز وطاولات VIP",
       "width": 1200,
       "height": 630,
-      "caption": "حجز وطاولات VIP",
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/jpeg",
+      "keywords": "حجز، طاولات VIP",
+      "representativeOfPage": "http://schema.org/False"
     }
   ],
   "address": {
@@ -277,7 +404,7 @@ export const generateStructuredData = () => {
   return generateUnifiedBusinessSchema()
 }
 
-// 🌐 مولد WebSite Schema
+// 🌐 مولد WebSite Schema (مضبوط وبه logo كامل)
 export const generateWebsiteSchema = () => ({
   "@context": "https://schema.org",
   "@type": "WebSite",
@@ -299,8 +426,19 @@ export const generateWebsiteSchema = () => ({
     "name": NIGHTCLUB_BASE_INFO.name,
     "logo": {
       "@type": "ImageObject",
-      "url": `${NIGHTCLUB_BASE_INFO.domain}/images/logo-seo-1200x1200.webp`,
-      "copyrightNotice": COPYRIGHT_NOTICE
+      "url": SEO_IMAGES.logo,
+      "name": "Night Club Egypt Logo - شعار",
+      "description": "شعار نايت كلوب مصر الرسمي",
+      "width": 1200,
+      "height": 1200,
+      "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+      "creator": IMAGE_CREATOR_ORG,
+      "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+      "creditText": IMAGE_CREDIT,
+      "license": IMAGE_LICENSE,
+      "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+      "copyrightNotice": COPYRIGHT_NOTICE,
+      "encodingFormat": "image/webp"
     }
   }
 })
@@ -349,7 +487,55 @@ export const generateFAQSchema = () => ({
         "@type": "Answer",
         "text": "نعم، نوفر خدمة حجز طاولات VIP مع خدمة مميزة شاملة مشروبات ومأكولات. يمكنك الحجز عبر الاتصال على 01286110562 أو من خلال الواتساب."
       }
-    }
+    },
+    {
+      "@type": "Question",
+      "name": "ما هي مواعيد العمل في نايت كلوب مصر؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "يعمل نايت كلوب مصر يومياً من الساعة 8 مساءً حتى الساعة 4 فجراً."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "كيف يمكنني الحجز في نايت كلوب مصر؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "يمكنك الحجز عبر الواتساب على الرقم +201286110562 أو من خلال صفحة اتصل بنا على الموقع."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "ما هي أسعار الدخول والحفلات؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "الأسعار تبدأ من 750 جنيه مصري وتختلف حسب نوع الحفل والباقات."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل يوجد باركينج متاح للعملاء؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم، يتوفر باركينج خاص وآمن للعملاء بالقرب من النادي."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل يقبل الدفع ببطاقات الائتمان؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "نعم، نقبل الدفع النقدي وبطاقات الائتمان الرئيسية."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "هل يوجد غرف أو خدمات خاصة داخل نايت كلوب مصر؟",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "لا، نايت كلوب مصر لا يوفر أي غرف أو خدمات غير قانونية أو غير شرعية. خدماتنا تقتصر فقط على الترفيه الليلي المصرح به والعروض الفنية."
+      }
+       }
   ]
 })
 
