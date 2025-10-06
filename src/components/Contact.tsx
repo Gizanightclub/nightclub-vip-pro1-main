@@ -181,7 +181,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       icon: Phone,
       title: "اتصل بنا",
-      description: "01286110562-01055599706",
+      description: "01286110562",
       color: "text-yellow-400",
       bg: "bg-yellow-400/10",
     },
