@@ -181,7 +181,7 @@ ${
 🙏 شكرًا لاختياركم، سيتم التواصل معكم قريبًا لتأكيد الحجز.`.trim();
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/201221675028?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
     setShowBookingModal(false);
