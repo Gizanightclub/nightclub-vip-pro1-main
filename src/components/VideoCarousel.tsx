@@ -75,14 +75,15 @@ const VideoSchema = ({ video, baseUrl }: { video: VideoData; baseUrl: string }) 
 
 const defaultVideos: VideoData[] = [
   {
-    id: "3",
-    src: "/videos/sasa2.mp4",
+    id: "2",
+    src: "/videos/Savetik_1764254796.mp4",
     poster: "images/bestnightclb.jpg",
     title: "أفضل السهرات في نايت كلوب مصر",
-    description: "استمتع بأجمل الأوقات مع عصام صاصا في أفضل نايت كلوب بمصر. سهرات مميزة وأجواء فاخرة مع أشهر النجوم والراقصات.",
+    description: "استمتع بأجمل سهرات مميزة وأجواء فاخرة مع أشهر النجوم والراقصات.",
     duration: "25"
   }
 ];
+
 
 const VideoCarousel = ({
   videos = defaultVideos,

@@ -81,10 +81,13 @@ const nextConfig = {
             key: 'X-XSS-Protection',
             value: '1; mode=block'
           },
-          // Preconnect to critical external domains
           {
             key: 'Link',
-            value: '<https://abnzriaextacbsoroyfr.supabase.co>; rel=preconnect; crossorigin, <https://fonts.googleapis.com>; rel=preconnect; crossorigin, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://www.googletagmanager.com>; rel=preconnect; crossorigin'
+            value:
+              '<https://abnzriaextacbsoroyfr.supabase.co>; rel=preconnect; crossorigin, ' +
+              '<https://fonts.googleapis.com>; rel=preconnect; crossorigin, ' +
+              '<https://fonts.gstatic.com>; rel=preconnect; crossorigin, ' +
+              '<https://www.googletagmanager.com>; rel=preconnect; crossorigin'
           }
         ]
       },
@@ -121,104 +124,38 @@ const nextConfig = {
   // إعادة التوجيه للأقسام (Redirects) - تحسين SEO
   async redirects() {
     return [
-      // إعادة توجيه الصفحات المنفصلة إلى أقسام SPA مع الحفاظ على فهرسة محركات البحث
-      {
-        source: '/home',
-        destination: '/#home',
-        permanent: false,
-      },
-      {
-        source: '/about',
-        destination: '/#about',
-        permanent: false,
-      },
-      {
-        source: '/gallery',
-        destination: '/#gallery',
-        permanent: false,
-      },
-      {
-        source: '/packages',
-        destination: '/#packages',
-        permanent: false,
-      },
-      {
-        source: '/contact',
-        destination: '/#contact',
-        permanent: false,
-      },
-      {
-        source: '/booking',
-        destination: '/#contact',
-        permanent: false,
-      },
-      // إعادة توجيه الصفحات البديلة لتحسين تجربة المستخدم
-      {
-        source: '/services',
-        destination: '/#about',
-        permanent: false,
-      },
-      {
-        source: '/pricing',
-        destination: '/#packages',
-        permanent: false,
-      },
-      {
-        source: '/photos',
-        destination: '/#gallery',
-        permanent: false,
-      },
-      {
-        source: '/videos',
-        destination: '/#videos',
-        permanent: false,
-      },
-      {
-        source: '/reserve',
-        destination: '/#contact',
-        permanent: false,
-      },
-      {
-        source: '/reservation',
-        destination: '/#contact',
-        permanent: false,
-      },
-      // إعادة توجيه المسارات القديمة
-      {
-        source: '/nightclub',
-        destination: '/',
-        permanent: true,
-      },
-      {
-        source: '/club',
-        destination: '/',
-        permanent: true,
-      }
+      { source: '/home', destination: '/#home', permanent: false },
+      { source: '/about', destination: '/#about', permanent: false },
+      { source: '/gallery', destination: '/#gallery', permanent: false },
+      { source: '/packages', destination: '/#packages', permanent: false },
+      { source: '/contact', destination: '/#contact', permanent: false },
+      { source: '/booking', destination: '/#contact', permanent: false },
+      { source: '/services', destination: '/#about', permanent: false },
+      { source: '/pricing', destination: '/#packages', permanent: false },
+      { source: '/photos', destination: '/#gallery', permanent: false },
+      { source: '/videos', destination: '/#videos', permanent: false },
+      { source: '/reserve', destination: '/#contact', permanent: false },
+      { source: '/reservation', destination: '/#contact', permanent: false },
+      { source: '/nightclub', destination: '/', permanent: true },
+      { source: '/club', destination: '/', permanent: true }
     ];
   },
 
   eslint: {
     ignoreDuringBuilds: true,
   },
+
   typescript: {
     ignoreBuildErrors: true,
   },
+
   allowedDevOrigins: ["*.preview.same-app.com"],
 
   serverExternalPackages: ['@supabase/supabase-js'],
 
-  // Turbopack configuration
-  turbopack: {
-    rules: {
-      '*.svg': {
-        loaders: ['@svgr/webpack'],
-        as: '*.js',
-      },
-    },
-  },
-
-  // تحسين Bundle والأداء
+  // 🚫 تعطيل Turbopack بالكامل (مهم جداً)
   experimental: {
+    turbo: false,
     optimizePackageImports: [
       'lucide-react',
       'framer-motion',
@@ -233,17 +170,10 @@ const nextConfig = {
       'zod'
     ],
     webVitalsAttribution: ['CLS', 'LCP', 'FCP', 'FID', 'TTFB', 'INP'],
-    // typedRoutes is not supported by Turbopack yet
-    // typedRoutes: true,
-    // تحسين الأداء
-    // optimizeCss: true, // تعطيل مؤقتاً بسبب مشكلة critters
-    // تمكين SWC بدلاً من Babel (enabled by default in Next.js 13+)
-    // تمكين ميزات تحسين الأداء الإضافية
   },
 
-  // webpack تحسينات إضافية
-  webpack: (config, { buildId, dev, isServer, defaultLoaders, webpack }) => {
-    // تحسين bundle splitting
+  // Webpack تحسينات إضافية
+  webpack: (config, { dev, webpack }) => {
     config.optimization.splitChunks = {
       chunks: 'all',
       cacheGroups: {

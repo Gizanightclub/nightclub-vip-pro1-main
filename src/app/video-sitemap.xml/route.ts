@@ -23,7 +23,7 @@ export async function GET() {
     // يمكن إضافة المزيد من الفيديوهات هنا
     {
       url: `${baseUrl}/videos/nightclub-promo.mp4`,
-      thumbnailUrl: `${baseUrl}/images/nightclub0.jpeg`,
+      thumbnailUrl: `${baseUrl}/images/nightclubeg3.jpg`,
       title: 'نايت كلوب مصر - فيديو ترويجي للحفلات والسهرات',
       description: 'تعرف على أفضل نايت كلوب في مصر من خلال هذا الفيديو الترويجي. اكتشف أجواءنا الفاخرة، خدماتنا المميزة، وأشهر النجوم الذين يحيون الحفلات عندنا. أسعار مميزة تبدأ من 750 جنيه.',
       duration: 30,

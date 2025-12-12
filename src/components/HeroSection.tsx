@@ -29,14 +29,14 @@ const HeroSection = () => {
   };
 
   const handleCall = () => {
-    window.location.href = "tel:+201286110562";
+    window.location.href = "tel:+201275821053";
   };
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
       "مرحباً، أود معرفة تفاصيل الحجز والأسعار في أفضل نايت كلوب مصر 🌟"
     );
-    window.location.href = `https://wa.me/201286110562?text=${message}`;
+    window.location.href = `https://wa.me/201275821053?text=${message}`;
   };
 
   return (
@@ -101,10 +101,10 @@ const HeroSection = () => {
               حفلات خليجي • برنامج كل يوم • خصومات كل يوم
               <br />
               <a
-                href="tel:+201286110562"
+                href="tel:+201221675028"
                 className="text-yellow-400 hover:text-yellow-300 transition-colors"
               >
-                01286110562
+                01221675028
               </a>
             </motion.p>
 

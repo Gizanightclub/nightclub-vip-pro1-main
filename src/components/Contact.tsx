@@ -150,7 +150,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
 🙏 شكرًا لاختياركم، سيتم التواصل معكم قريبًا لتأكيد الحجز.`.trim();
 
   const encodedMessage = encodeURIComponent(whatsappMessage);
-  const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/201221675028?text=${encodedMessage}`;
   window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 };
 
@@ -159,7 +159,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       name: "WhatsApp",
       icon: MessageCircle,
-      url: "https://wa.me/201286110562",
+      url: "https://wa.me/201221675028",
       color: "bg-green-500 hover:bg-green-600",
     },
     {
@@ -181,7 +181,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       icon: Phone,
       title: "اتصل بنا",
-      description: "01286110562-01055599706",
+      description: "-01221675028",
       color: "text-yellow-400",
       bg: "bg-yellow-400/10",
     },

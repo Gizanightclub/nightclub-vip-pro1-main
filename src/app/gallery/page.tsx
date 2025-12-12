@@ -14,7 +14,7 @@ export default function GalleryPage() {
           "صور عصام صاصا حفلات", "معرض صور بوسي راقصة", "فيديوهات روح راقصة",
           "صور VIP نايت كلوب", "معرض حفلات الجيزة", "صور ديسكو مصر", "فيديوهات ليلية فاخرة"
         ]}
-        customImage="https://www.nightclubegypt.com/images/nightclub0.jpeg"
+        customImage="https://www.nightclubegypt.com/images/nightclubegypt.com6.jpg"
       />
 
       {/* Redirect to home */}
