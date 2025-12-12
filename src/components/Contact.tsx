@@ -181,7 +181,11 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       icon: Phone,
       title: "اتصل بنا",
+<<<<<<< HEAD
       description: "-01221675028",
+=======
+      description: "01221675028",
+>>>>>>> c2ef636ac4ef8b1d8023f7a3190e92a955ce3a85
       color: "text-yellow-400",
       bg: "bg-yellow-400/10",
     },
