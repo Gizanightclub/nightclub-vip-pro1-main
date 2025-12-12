@@ -6,18 +6,10 @@ const nextConfig: NextConfig = {
   allowedDevOrigins: ["*.preview.same-app.com"],
 
   // تحسينات الأداء
-experimental: {
-  optimizePackageImports: ["lucide-react", "framer-motion", "react-icons"],
-  turbo: {
-    rules: {
-      "*.svg": {
-        loaders: ["@svgr/webpack"],
-        as: "*.js",
-      },
-    },
+  experimental: {
+    optimizePackageImports: ["lucide-react", "framer-motion", "react-icons"],
+    // تم إزالة خاصية `turbo`
   },
-},
-
 
   // تحسين الصور
   images: {
