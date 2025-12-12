@@ -51,23 +51,6 @@ const nextConfig = {
     ],
   },
 
-  // إعادة التوجيه للنسخة الأساسية www
-  async redirects() {
-    return [
-      {
-        source: '/:path*',
-        has: [
-          {
-            type: 'host',
-            value: 'nightclubegypt.com',
-          },
-        ],
-        destination: 'https://www.nightclubegypt.com/:path*',
-        permanent: true,
-      },
-    ];
-  },
-
   // Headers للأمان والأداء والSEO
   async headers() {
     return [
@@ -133,6 +116,85 @@ const nextConfig = {
         ]
       }
     ]
+  },
+
+  // إعادة التوجيه للأقسام (Redirects) - تحسين SEO
+  async redirects() {
+    return [
+      // إعادة توجيه الصفحات المنفصلة إلى أقسام SPA مع الحفاظ على فهرسة محركات البحث
+      {
+        source: '/home',
+        destination: '/#home',
+        permanent: false,
+      },
+      {
+        source: '/about',
+        destination: '/#about',
+        permanent: false,
+      },
+      {
+        source: '/gallery',
+        destination: '/#gallery',
+        permanent: false,
+      },
+      {
+        source: '/packages',
+        destination: '/#packages',
+        permanent: false,
+      },
+      {
+        source: '/contact',
+        destination: '/#contact',
+        permanent: false,
+      },
+      {
+        source: '/booking',
+        destination: '/#contact',
+        permanent: false,
+      },
+      // إعادة توجيه الصفحات البديلة لتحسين تجربة المستخدم
+      {
+        source: '/services',
+        destination: '/#about',
+        permanent: false,
+      },
+      {
+        source: '/pricing',
+        destination: '/#packages',
+        permanent: false,
+      },
+      {
+        source: '/photos',
+        destination: '/#gallery',
+        permanent: false,
+      },
+      {
+        source: '/videos',
+        destination: '/#videos',
+        permanent: false,
+      },
+      {
+        source: '/reserve',
+        destination: '/#contact',
+        permanent: false,
+      },
+      {
+        source: '/reservation',
+        destination: '/#contact',
+        permanent: false,
+      },
+      // إعادة توجيه المسارات القديمة
+      {
+        source: '/nightclub',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/club',
+        destination: '/',
+        permanent: true,
+      }
+    ];
   },
 
   eslint: {

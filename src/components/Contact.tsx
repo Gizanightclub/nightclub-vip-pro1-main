@@ -159,7 +159,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       name: "WhatsApp",
       icon: MessageCircle,
-      url: "https://wa.me/201221675028",
+      url: "https://wa.me/201275821053",
       color: "bg-green-500 hover:bg-green-600",
     },
     {
@@ -181,7 +181,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       icon: Phone,
       title: "اتصل بنا",
-      description: "01221675028",
+      description: "01275821053",
       color: "text-yellow-400",
       bg: "bg-yellow-400/10",
     },
