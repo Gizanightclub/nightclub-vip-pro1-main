@@ -75,19 +75,11 @@ const VideoSchema = ({ video, baseUrl }: { video: VideoData; baseUrl: string }) 
 
 const defaultVideos: VideoData[] = [
   {
-    id: "2",
-    src: "/videos/Savetik_1764254796.mp4",
-    poster: "images/nightclubeg3.jpg",
-    title: "أفضل السهرات في نايت كلوب مصر",
-    description: "استمتع بأجمل سهرات مميزة وأجواء فاخرة مع أشهر النجوم والراقصات.",
-    duration: "25"
-  },
-   {
     id: "3",
-    src: "/videos/Savetik_1765351085.mp4",
-    poster: "images/1000799787.jpg",
-    title: "افضل الرقصات الرقص الشرقي",
-    description: "استمتع بأجمل سهرات مميزة وأجواء فاخرة مع أشهر النجوم والراقصات.",
+    src: "/videos/sasa2.mp4",
+    poster: "images/bestnightclb.jpg",
+    title: "أفضل السهرات في نايت كلوب مصر",
+    description: "استمتع بأجمل الأوقات مع عصام صاصا في أفضل نايت كلوب بمصر. سهرات مميزة وأجواء فاخرة مع أشهر النجوم والراقصات.",
     duration: "25"
   }
 ];
@@ -232,10 +224,6 @@ const VideoCarousel = ({
               pauseOnMouseEnter: true
             } : false}
             onSlideChange={handleSlideChange}
-            navigation={{
-              prevEl: ".swiper-button-prev",
-              nextEl: ".swiper-button-next"
-            }}
             className="video-swiper"
           >
             {videos.map((video) => (
@@ -296,14 +284,6 @@ const VideoCarousel = ({
               </SwiperSlide>
             ))}
           </Swiper>
-
-          {/* الأسهم لانتقال بين الفيديوهات */}
-          <div className="absolute top-1/2 left-4 transform -translate-y-1/2 swiper-button-prev">
-            <ChevronLeft className="w-8 h-8 text-white bg-black/40 rounded-full p-2 cursor-pointer hover:bg-black/60" />
-          </div>
-          <div className="absolute top-1/2 right-4 transform -translate-y-1/2 swiper-button-next">
-            <ChevronRight className="w-8 h-8 text-white bg-black/40 rounded-full p-2 cursor-pointer hover:bg-black/60" />
-          </div>
         </motion.div>
       </div>
     </section>

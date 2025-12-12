@@ -22,19 +22,19 @@ export async function GET() {
 
     // صور المعرض والحفلات
     {
-      url: `${baseUrl}/images/nightclubeg3.jpg`,
+      url: `${baseUrl}/images/nightclub0.jpeg`,
       caption: 'حفلة مميزة في نايت كلوب مصر مع أجواء VIP فاخرة',
       location: 'القاهرة، مصر',
       title: 'حفلة نايت كلوب مصر'
     },
     {
-      url: `${baseUrl}/images/nightclubeg2.jpg`,
+      url: `${baseUrl}/images/nightclub1.jpeg`,
       caption: 'سهرة راقصة في أفضل نايت كلوب بالقاهرة',
       location: 'القاهرة، مصر',
       title: 'سهرة نايت كلوب'
     },
     {
-      url: `${baseUrl}/images/nightclubeg.jpg`,
+      url: `${baseUrl}/images/nightclub3.jpeg`,
       caption: 'أجواء ديسكو وموسيقى حية في نايت كلوب إيجيبت',
       location: 'القاهرة، مصر',
       title: 'ديسكو نايت كلوب'
@@ -46,7 +46,7 @@ export async function GET() {
       title: 'حفلة النجوم نايت كلوب'
     },
     {
-      url: `${baseUrl}/images/1000799787.jpg`,
+      url: `${baseUrl}/images/nightclub5.jpeg`,
       caption: 'أجواء VIP مع خدمة فاخرة في نايت كلوب مصر',
       location: 'القاهرة، مصر',
       title: 'VIP نايت كلوب مصر'
@@ -58,7 +58,7 @@ export async function GET() {
       title: 'ويك إند نايت كلوب'
     },
     {
-      url: `${baseUrl}/images/1000799788.jpg`,
+      url: `${baseUrl}/images/nightclub7.jpeg`,
       caption: 'رقص شرقي مع أمهر الراقصات في مصر',
       location: 'القاهرة، مصر',
       title: 'رقص شرقي نايت كلوب'
