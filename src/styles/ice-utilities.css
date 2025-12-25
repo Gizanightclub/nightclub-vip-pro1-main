@@ -1,0 +1,24 @@
+:root {
+  /* تأكد أن هذه المتغيرات موجودة في globals.css؛ إن لم تكن موجودة عيّن ألوان مباشرة هنا */
+  --color-ice: #7fd3ff;
+  --color-ice-2: #4db8ff;
+}
+
+/* نص / ألوان */
+.brand-text, .text-ice { color: var(--color-ice) !important; }
+.text-ice-weak { color: rgba(127,211,255,0.9) !important; }
+
+/* خلفيات وحدود */
+.bg-ice { background-color: var(--color-ice) !important; }
+.bg-ice-10 { background-color: rgba(127,211,255,0.08) !important; }
+.border-ice { border-color: var(--color-ice) !important; }
+
+/* تدرّج (tailwind-like helpers) */
+.from-ice { --tw-gradient-from: var(--color-ice) !important; }
+.to-ice-2 { --tw-gradient-to: var(--color-ice-2) !important; }
+
+/* احتياطي لقيود سلاسل تحتوي على "/" */
+.bg-ice\/10 { background-color: rgba(127,211,255,0.08) !important; }
+
+/* تأكد من وضوح النص على الخلفية الفاتحة */
+.high-contrast { color: #0b1724 !important; background: #ffffff !important; }

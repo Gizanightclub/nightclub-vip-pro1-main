@@ -34,8 +34,18 @@
     --nightclub-purple: #8a2be2;
     --nightclub-gold: #ffd700;
     --nightclub-blue: #667eea;
-    --nightclub-dark: #0a0a0a;
+    --nightclub-dark: hsl(0, 0%, 4%);
     --nightclub-accent: #ff6b35;
+
+    /* Palette 2026 (Midnight Violet + Neon Amber) */
+    --color-primary: #7c3aed;    /* violet */
+    --color-accent:  #ffb020;    /* neon amber */
+    --color-accent-2:#ff8a00;    /* amber dark */
+    --color-secondary:#06b6d4;   /* cyan accent */
+    --color-bg:      #030312;    /* deep background */
+    --color-surface: #0b0a10;
+    --color-text:    #e6e7ea;
+    --color-muted:   #9aa0a6;
   }
 
   .dark {
@@ -569,3 +579,59 @@
     border: 1px solid black !important;
   }
 }
+
+/* Snow Palette (2026 Snow / Icy theme) */
+:root {
+  /* Snow / Ice palette */
+  --color-snow: #ffffff;         /* pure snow */
+  --color-bg: #f6fbff;           /* very light icy background */
+  --color-surface: #ffffff;      /* surface / cards */
+  --color-ice: #7fd3ff;          /* main icy accent */
+  --color-ice-2: #4db8ff;        /* stronger icy accent */
+  --color-text: #0b1724;         /* dark navy text for contrast */
+  --color-muted: #6b7a86;        /* muted text */
+  --color-border: #e6f3fb;       /* subtle borders */
+}
+
+/* Base page */
+html, body {
+  background: var(--color-bg) !important;
+  color: var(--color-text) !important;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Quick class remapping for existing Tailwind-like utilities used across the project
+   This lets components keep using their current utility classes while adopting the Snow palette. */
+
+/* Yellow (used previously for accents) -> Ice accent */
+.text-yellow-400 { color: var(--color-ice) !important; }
+.text-yellow-300 { color: rgba(127,211,255,0.9) !important; }
+.bg-yellow-400 { background-color: var(--color-ice) !important; }
+.bg-yellow-400\/10 { background-color: rgba(127,211,255,0.08) !important; }
+.border-yellow-400 { border-color: var(--color-ice) !important; }
+.from-yellow-400 { --tw-gradient-from: var(--color-ice) !important; }
+.to-yellow-600 { --tw-gradient-to: var(--color-ice-2) !important; }
+
+/* Purple (used previously for deep accents) -> Snow surface / pale ice */
+.bg-purple-500 { background-color: var(--color-surface) !important; }
+.bg-purple-500\/10 { background-color: rgba(255,255,255,0.9) !important; }
+.text-purple-300 { color: rgba(77,184,255,0.95) !important; }
+.via-purple-900\/20 {
+  /* best-effort mapping for existing gradient classes */
+  --tw-gradient-stops: var(--tw-gradient-from), rgba(11,23,36,0.06), var(--tw-gradient-to) !important;
+}
+
+/* Small helper utilities you can use in components (recommended for new code) */
+.brand-bg { background: linear-gradient(90deg, var(--color-ice), var(--color-ice-2)) !important; }
+.brand-text { color: var(--color-ice) !important; }
+.brand-border { border-color: var(--color-border) !important; }
+.surface { background: var(--color-surface) !important; color: var(--color-text) !important; }
+
+/* Links / buttons readable on light backgrounds */
+a, button { color: inherit; }
+
+/* Accessibility helpers */
+.high-contrast { color: var(--color-text) !important; background: var(--color-surface) !important; border-color: var(--color-border) !important; }
+
+/* Keep existing custom animations & utilities if present */

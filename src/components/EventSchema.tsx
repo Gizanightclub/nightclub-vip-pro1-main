@@ -171,7 +171,7 @@ export default function EventSchema({ events, showUpcoming = false }: EventSchem
         "@type": "Organization",
         "name": "Night Club Egypt",
         "url": "https://www.nightclubegypt.com",
-        "telephone": "+201286110562"
+        "telephone": "+2"
       },
       "audience": {
         "@type": "Audience",

@@ -234,8 +234,8 @@ export default function RootLayout({
         <link rel="icon" href="/favicon-32x32.png" type="image/png" sizes="32x32" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="manifest" href="/site.webmanifest" />
-        <meta name="theme-color" content="#dfdee0ff" />
-        <meta name="msapplication-TileColor" content="#d2d2d3ff" />
+        <meta name="theme-color" content="#7fd3ff" />
+        <meta name="msapplication-TileColor" content="#7fd3ff" />
         <meta name="msapplication-config" content="/browserconfig.xml" />
 
         {/* 👇 Preload critical resources لتحسين Core Web Vitals */}
@@ -262,7 +262,7 @@ export default function RootLayout({
                 "https://www.facebook.com/profile.php?id=61560900837183",
                 "https://www.instagram.com/night_club_5star",
                 "https://www.tiktok.com/@night.club993?_t=ZS-8yvVCVK9A5R&_r=1",
-                "https://wa.me/201286110562"
+                "https://wa.me/201221675028",
               ]
             }),
           }}

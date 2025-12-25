@@ -70,7 +70,7 @@ const StructuredData = ({
       "https://www.facebook.com/profile.php?id=61560900837183",
       "https://www.instagram.com/night_club_5star",
       "https://www.tiktok.com/@night.club993?_t=ZS-8yvVCVK9A5R&_r=1",
-      "https://wa.me/201286110562?countryCode=20&countryName=EG&phoneNumber=1286110562",
+      "https://wa.me/2?countryCode=20&countryName=EG&phoneNumber=1286110562",
       "https://maps.app.goo.gl/E5R8oXS1WQfgZ5W66"
     ],
     // بيانات خاصة بالنايت كلوب
