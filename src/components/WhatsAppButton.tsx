@@ -138,7 +138,7 @@ const WhatsAppButton = ({
                 <div className="flex items-center justify-end gap-3 mb-4">
                   <div>
                     <h4 className="font-bold text-white text-lg">أهلاً وسهلاً! 👋</h4>
-                    <p className="text-green-100 text-sm">نايت كلوب - متاح الآن</p>
+                    <p className="text-green-100 text-sm">🎉 نايت كلوب – مفتوح الآن احتفالاً بـ New Year 2026! 🎉</p>
                   </div>
                   <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
                     <svg className="w-7 h-7 text-green-500" fill="currentColor" viewBox="0 0 24 24">

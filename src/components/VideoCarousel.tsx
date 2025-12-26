@@ -192,8 +192,10 @@ const VideoCarousel = ({
 
   return (
     <section
-      className={`video-carousel py-16 bg-gradient-to-b from-black via-purple-900/10 to-black ${className}`}
+      className={`video-carousel py-16 ${className}`}
       aria-label="معرض فيديوهات النايت كلوب"
+      // force white bg and black text to override global styles
+      style={{ backgroundColor: "#000000ff", color: "#000000" }}
     >
       {videos.map(video => (
         <VideoSchema key={`schema-${video.id}`} video={video} baseUrl={baseUrl} />
@@ -240,7 +242,7 @@ const VideoCarousel = ({
           >
             {videos.map((video) => (
               <SwiperSlide key={video.id} className="relative">
-                <div className="relative w-full h-[40vh] bg-black rounded-2xl overflow-hidden group cursor-pointer shadow-lg border border-gray-800 transition-all duration-500">
+                <div className="relative w-full h-[40vh] bg-white rounded-2xl overflow-hidden group cursor-pointer shadow-sm border border-gray-100 transition-all duration-500">
                   <video
                     ref={(el) => setVideoRef(video.id, el)}
                     className="w-full h-full object-cover"
@@ -261,12 +263,13 @@ const VideoCarousel = ({
                     <Button
                       onClick={() => togglePlayPause(video.id)}
                       size="lg"
-                      className="w-20 h-20 rounded-full bg-black/40 hover:bg-black/60 text-white backdrop-blur-md transition-all duration-300"
+                      className="w-20 h-20 rounded-full bg-white shadow-md hover:scale-105 text-black transition-all duration-200 flex items-center justify-center"
+                      style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
                     >
                       {activeVideo === video.id ? (
-                        <Pause className="w-8 h-8" />
+                        <Pause className="w-8 h-8 text-black" />
                       ) : (
-                        <Play className="w-8 h-8" />
+                        <Play className="w-8 h-8 text-black" />
                       )}
                     </Button>
                   </div>
@@ -277,7 +280,7 @@ const VideoCarousel = ({
                       onClick={() => toggleMute(video.id)}
                       size="sm"
                       variant="ghost"
-                      className="text-white hover:text-yellow-400 bg-black/40 backdrop-blur-sm"
+                      className="text-black hover:text-yellow-400 bg-white/40 backdrop-blur-sm"
                     >
                       {mutedVideos.has(video.id) ? (
                         <VolumeX className="w-5 h-5" />
@@ -289,8 +292,8 @@ const VideoCarousel = ({
 
                   {/* عنوان + وصف */}
                   <div className="absolute bottom-4 right-4 text-right max-w-md">
-                    <h3 className="text-xl font-bold text-yellow-300 mb-1">{video.title}</h3>
-                    <p className="text-gray-100 text-sm">{video.description}</p>
+                    <h3 className="text-xl font-bold text-black mb-1">{video.title}</h3>
+                    <p className="text-gray-800 text-sm">{video.description}</p>
                   </div>
                 </div>
               </SwiperSlide>
@@ -299,10 +302,10 @@ const VideoCarousel = ({
 
           {/* الأسهم لانتقال بين الفيديوهات */}
           <div className="absolute top-1/2 left-4 transform -translate-y-1/2 swiper-button-prev">
-            <ChevronLeft className="w-8 h-8 text-white bg-black/40 rounded-full p-2 cursor-pointer hover:bg-black/60" />
+            <ChevronLeft className="w-8 h-8 text-black bg-white/70 rounded-full p-2 cursor-pointer hover:bg-white" />
           </div>
           <div className="absolute top-1/2 right-4 transform -translate-y-1/2 swiper-button-next">
-            <ChevronRight className="w-8 h-8 text-white bg-black/40 rounded-full p-2 cursor-pointer hover:bg-black/60" />
+            <ChevronRight className="w-8 h-8 text-black bg-white/70 rounded-full p-2 cursor-pointer hover:bg-white" />
           </div>
         </motion.div>
       </div>

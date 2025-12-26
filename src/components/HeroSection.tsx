@@ -181,11 +181,17 @@ const HeroSection = () => {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
-              className="text-lg mb-6 text-gray-300 leading-relaxed"
+              className="text-lg mb-15 text-gray-300 leading-relaxed"
             >
-              عاوز تسهر في أفضل السهرات الخليجي في مستوى مصر؟ مستني إيه احجز دلوقتي
+                 أفضل شركة حجز في مصر! 🔥
+                 <br />
+                  نحن نوفّر لك أفضل السهرات 🎉
               <br />
-              حفلات خليجي • برنامج كل يوم • خصومات كل يوم
+               الحفلات، والفعاليات بكل سهولة وأمان.
+              <br />
+             احجز الآن واستمتع بعروضنا الخاصة لعام 2026!✨
+              <br />
+             تواصل معنا عبر واتساب واحجز مكانك فورًا 📲
               <br />
               <a
                 href="tel:+201221675028"
@@ -242,17 +248,17 @@ const HeroSection = () => {
               className="grid grid-cols-2 gap-4"
             >
               {[
-                { icon: Music, text: "موسيقى حية", bg: "bg-purple-500/10" },
-                { icon: Users, text: "5000+ عميل", bg: "bg-yellow-400/10" },
-                { icon: Sparkles, text: "أجواء فاخرة", bg: "bg-purple-500/10" },
-                { icon: Crown, text: "طاولات VIP", bg: "bg-yellow-400/10" },
+                { icon: Music, text: "بروجرام", bg: "bg-black/30" },
+                { icon: Users, text: "5000+ عميل", bg: "bg-black/30" },
+                { icon: Sparkles, text: "سهرات جليجي", bg: "bg-black/30" },
+                { icon: Crown, text: "طاولات VIP", bg: "bg-black/30" },
               ].map((feature, i) => (
                 <motion.div
                   key={i}
                   whileHover={{ scale: 1.05 }}
-                  className={`flex flex-col items-center justify-center p-4 rounded-xl ${feature.bg} border border-purple-500/30 h-full`}
+                  className={`flex flex-col items-center justify-center p-4 rounded-xl ${feature.bg} border border-gray-800/60`}
                 >
-                  <feature.icon className="w-8 h-8 mb-2 text-yellow-400" />
+                  <feature.icon className="w-8 h-8 mb-2 text-white" />
                   <span className="text-white text-sm md:text-base text-center">
                     {feature.text}
                   </span>

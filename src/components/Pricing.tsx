@@ -50,7 +50,7 @@ const Pricing = () => {
     second: {
       title: "الصف الثاني",
       price: 1000,
-      originalPrice: 1500,
+      originalPrice: 2000,
       features: [
         { icon: Wine, text: "مشروبين فاخرين (Free) من اختيارك" },
         { icon: UtensilsCrossed, text: "طبق مازة متنوع (Free)" },
@@ -62,7 +62,7 @@ const Pricing = () => {
     first: {
       title: "الصف الأول VIP",
       price: 1500,
-      originalPrice: 2000,
+      originalPrice: 2500,
       features: [
         { icon: Wine, text: "ثلاث مشروبات فاخرة (Free)" },
         { icon: UtensilsCrossed, text: "طبق مازة مميزة (Free)" },
@@ -159,7 +159,7 @@ const Pricing = () => {
 
     // 🎯 رسالة واتساب موحدة التنسيق
     const message = `
-🎉 *طلب حجز جديد*
+🎊*طلب حجز جديد – Happy New Year 2026!*🎊
 
 📌 *تفاصيل الحجز*
 👤 الاسم: ${name}
@@ -178,7 +178,8 @@ ${
 }
 ✅ *الإجمالي: ${totalPrice} جنيه*
 
-🙏 شكرًا لاختياركم، سيتم التواصل معكم قريبًا لتأكيد الحجز.`.trim();
+✨ شكرًا لاختياركم شركه تانجو، نتمنى لكم سنة جديدة مليئة بالفرح والاحتفالات!
+`.trim();
 
     const encodedMessage = encodeURIComponent(message);
     const whatsappUrl = `https://wa.me/201221675028?text=${encodedMessage}`;
@@ -221,11 +222,11 @@ ${
         >
           <Badge className="bg-black/70 px-6 py-2.5 text-lg border border-purple-500/50 text-purple-300 mb-6 hover:bg-purple-900/30 transition-colors">
             <Gift className="w-5 h-5 ml-2 text-yellow-400 animate-pulse" />
-            عروض حصرية
+            🔥 2026 عروض حصرية 🔥
           </Badge>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
             <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
-                اقوه الخصومات و افضل الاسعار احجز دلوقتي  
+              اقوه الخصومات للسنه الجديده 2026 🔥  
             </span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -311,7 +312,7 @@ ${
                       </span>
                     </div>
                     <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-md">
-                      وفر {pkg.originalPrice - pkg.price} جنيه
+                      وفر {pkg.originalPrice - pkg.price} جنيه 🔥
                     </Badge>
                   </div>
 
@@ -487,7 +488,7 @@ ${
                     {/* التاريخ */}
                     <div>
                       <label className="block text-gray-300 mb-2 text-sm">
-                        التاريخ
+                        تاريخ الحضور
                       </label>
                       <input
                         type="date"

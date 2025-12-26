@@ -86,7 +86,7 @@
     font-family: var(--font-cairo), 'Tahoma', 'Arial', sans-serif;
     scroll-behavior: smooth;
     background-color: #000000;
-    color: #ffffff;
+    color: #131212;
   }
 
   /* تحسينات الـ Accessibility */
@@ -590,7 +590,7 @@
   --color-ice-2: #4db8ff;        /* stronger icy accent */
   --color-text: #0b1724;         /* dark navy text for contrast */
   --color-muted: #6b7a86;        /* muted text */
-  --color-border: #e6f3fb;       /* subtle borders */
+  --color-border: #0a0b0c;       /* subtle borders */
 }
 
 /* Base page */
@@ -615,7 +615,7 @@ html, body {
 
 /* Purple (used previously for deep accents) -> Snow surface / pale ice */
 .bg-purple-500 { background-color: var(--color-surface) !important; }
-.bg-purple-500\/10 { background-color: rgba(255,255,255,0.9) !important; }
+.bg-purple-500\/10 { background-color: rgba(0, 0, 0, 0.9) !important; }
 .text-purple-300 { color: rgba(77,184,255,0.95) !important; }
 .via-purple-900\/20 {
   /* best-effort mapping for existing gradient classes */
