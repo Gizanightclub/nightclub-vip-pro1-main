@@ -151,7 +151,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
 `.trim();
 
   const encodedMessage = encodeURIComponent(whatsappMessage);
-  const whatsappUrl = `https://wa.me/201221675028?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/201055599706?text=${encodedMessage}`;
   window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 };
 
@@ -160,7 +160,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       name: "WhatsApp",
       icon: MessageCircle,
-      url: "https://wa.me/201221675028",
+      url: "https://wa.me/201055599706",
       color: "bg-green-500 hover:bg-green-600",
     },
     {
@@ -182,7 +182,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       icon: Phone,
       title: "اتصل بنا",
-      description: "01221675028",
+      description: "01055599706",
       color: "text-yellow-400",
       bg: "bg-yellow-400/10",
     },
