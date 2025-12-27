@@ -153,28 +153,28 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.35 }}
               className="mb-4"
             >
-              <div className="inline-block bg-sky-400/10 border border-sky-400/30 text-sky-200 rounded-xl px-6 py-4 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
-                <div className="text-sm">سنة جديدة سعيدة {upcomingYear} 🎉</div>
-                <div className="mt-2 flex gap-2 justify-center">
-                  {[
-                    { label: "أيام", value: timeLeft.days },
-                    { label: "ساعات", value: timeLeft.hours },
-                    { label: "دقائق", value: timeLeft.minutes },
-                    { label: "ثواني", value: timeLeft.seconds },
-                  ].map((item, i) => (
-                    <motion.div
-                      key={i}
-                      whileHover={{ scale: 1.08 }}
-                      className="min-w-[70px] rounded-xl bg-black/40 border border-sky-400/30 px-3 py-2 text-center shadow-md"
-                    >
-                      <div className="text-3xl font-extrabold text-sky-300 drop-shadow-md">
-                        {item.value}
-                      </div>
-                      <div className="text-xs text-sky-100 mt-1">{item.label}</div>
-                    </motion.div>
-                  ))}
+              <div className="inline-block bg-sky-400/10 border border-sky-400/30 text-sky-200 rounded-xl px-4 py-2 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
+    <div className="text-xs text-right">سنة جديدة سعيدة {upcomingYear} 🎉</div>
+    <div className="mt-2 flex gap-2 justify-end">
+        {[
+            { label: "أيام", value: timeLeft.days },
+            { label: "ساعات", value: timeLeft.hours },
+            { label: "دقائق", value: timeLeft.minutes },
+            { label: "ثواني", value: timeLeft.seconds },
+        ].map((item, i) => (
+            <motion.div
+                key={i}
+                whileHover={{ scale: 1.08 }}
+                className="min-w-[50px] rounded-xl bg-black/40 border border-sky-400/30 px-2 py-1 text-center shadow-md"
+            >
+                <div className="text-lg font-extrabold text-sky-300 drop-shadow-md">
+                    {item.value}
                 </div>
-              </div>
+                <div className="text-xs text-sky-100 mt-1">{item.label}</div>
+            </motion.div>
+        ))}
+    </div>
+</div>
             </motion.div>
 
             <motion.p
