@@ -13,7 +13,7 @@ interface WhatsAppButtonProps {
 }
 
 const WhatsAppButton = ({
-  phoneNumber = "201221675028",
+  phoneNumber = "201055599706",
   message = "مرحباً، أود معرفة تفاصيل الحجز والأسعار في نايت كلوب ?",
   position = "bottom-right",
   showTooltip = true,
