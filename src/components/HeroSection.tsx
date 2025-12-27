@@ -83,14 +83,14 @@ const HeroSection = () => {
   };
 
   const handleCall = () => {
-    window.location.href = "tel:+201221675028";
+    window.location.href = "tel:+201055599706";
   };
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
       "مرحباً، أود معرفة تفاصيل الحجز والأسعار في أفضل نايت كلوب مصر 🌟"
     );
-    window.location.href = `https://wa.me/201221675028?text=${message}`;
+    window.location.href = `https://wa.me/201055599706?text=${message}`;
   };
 
   const upcomingYear = new Date().getFullYear() + 1;
@@ -194,10 +194,10 @@ const HeroSection = () => {
              تواصل معنا عبر واتساب واحجز مكانك فورًا 📲
               <br />
               <a
-                href="tel:+201221675028"
+                href="tel:+201286110562"
                 className="text-yellow-400 hover:text-yellow-300 transition-colors"
               >
-                012221675028
+                01286110562
               </a>
             </motion.p>
 
