@@ -1,17 +1,10 @@
-const packages = [
-  {
-    name: 'صحاب',
-    price: '2000ج',
-    features: [
-      'ميزة الصف الثاني',
-      '2 مشروب لكل فرد',
-      'طبق مازة (Free)',
-      'طبق فاكهة (Free)',
-      'بنات بتقعد معاكم على الطاولة'
-    ],
-    limitations: 'Minimum group size of 3 or 4 people to book.'
-  },
-  // ... other packages
-];
-
-export default packages;
+export default function Pricing() {
+  return (
+    <div>
+      {/* This content reflects the state from commit 4b93cede8344c996f335cbec101e1834c5b31703 */}
+      <h1>Our Pricing</h1>
+      <p>Choose the perfect package for you!</p>
+      {/* Add Pricing Table Here */}
+    </div>
+  );
+}
