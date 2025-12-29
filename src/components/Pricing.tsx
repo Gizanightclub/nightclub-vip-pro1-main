@@ -48,9 +48,9 @@ const Pricing = () => {
   // أسعار الباقات
   const packages = {
     second: {
-      title: "الصف الثاني",
-      price: 1000,
-      originalPrice: 2000,
+      title: "تيكت صف تاني في راس سنه فقط 🎟️🎉",
+      price: 2500,
+      originalPrice: 3000,
       features: [
         { icon: Wine, text: "مشروبين فاخرين (Free) من اختيارك" },
         { icon: UtensilsCrossed, text: "طبق مازة متنوع (Free)" },
@@ -60,9 +60,9 @@ const Pricing = () => {
       ],
     },
     first: {
-      title: "الصف الأول VIP",
-      price: 1500,
-      originalPrice: 2500,
+      title: "الصف الأول VIPفي راس السنه فقط 🎟️🎉",
+      price: 2999,
+      originalPrice: 3499,
       features: [
         { icon: Wine, text: "ثلاث مشروبات فاخرة (Free)" },
         { icon: UtensilsCrossed, text: "طبق مازة مميزة (Free)" },
@@ -71,6 +71,16 @@ const Pricing = () => {
         { icon: Users, text: "إمكانية الجلوس مع بنات (أكثر تميزاً)" },
       ],
     },
+    first: {
+      title: "تيكت الصحاب اقل 25‎%‎ 🎟️🎉",
+      price: 2000,
+      originalPrice: 3000,
+      features: [
+        { icon: Wine, text: "ثلاث مشروبات فاخرة (Free)" },
+        { icon: UtensilsCrossed, text: "طبق مازة مميزة (Free)" },
+        { icon: Apple, text: "طبق فواكه طازة مميزة (Free)" },
+        { icon: Crown, text: "مقاعد أمام الستيج مباشرة + خدمة VIP خاصة" },
+        { icon: Users, text: "إمكانية الجلوس مع بنات (أكثر تميزاً)" },
   };
 
   useEffect(() => {
@@ -182,7 +192,7 @@ ${
 `.trim();
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/201055599706?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
     setShowBookingModal(false);
@@ -230,7 +240,7 @@ ${
             </span>
           </h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-           اختار التكيت الي ينسبك و احجز طولتك وفر 500ج
+      اختار التكيت الي ينسبك و احجز طولتك وفر اكثر من 1000ج🎉🔥
           </p>
         </motion.div>
 
@@ -273,7 +283,7 @@ ${
                 <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 z-10">
                   <Badge className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold px-4 py-1 shadow-lg">
                     <Crown className="w-4 h-4 mr-1" />
-                    VIP
+                       عروض 2026 🎉🔥
                   </Badge>
                 </div>
               )}
