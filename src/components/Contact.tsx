@@ -53,11 +53,11 @@ const Contact = () => {
   const packages = {
     standard: {
       name: "الباقة العادية",
-      price: 1000,
+      price: 2500,
     },
     vip: {
       name: "باقة VIP",
-      price: 1500,
+      price: 3000,
     },
   };
 
@@ -151,7 +151,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
 `.trim();
 
   const encodedMessage = encodeURIComponent(whatsappMessage);
-  const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/201055599706?text=${encodedMessage}`;
   window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 };
 
