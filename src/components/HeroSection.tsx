@@ -90,7 +90,7 @@ const HeroSection = () => {
     const message = encodeURIComponent(
       "مرحباً، أود معرفة تفاصيل الحجز والأسعار في أفضل نايت كلوب مصر 🌟"
     );
-    window.location.href = `https://wa.me/201286110562?text=${message}`;
+    window.location.href = `https://wa.me/201055599706?text=${message}`;
   };
 
   const upcomingYear = new Date().getFullYear() + 1;
