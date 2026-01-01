@@ -72,7 +72,7 @@ const packages = {
         ],
     },
     friends: { // باقة الصحاب
-        title: "تيكت الشاله 👫🏻",
+        title: "تيكت الشلة 👫🏻",
         price: 5000,
         originalPrice: 6000,
         features: [
