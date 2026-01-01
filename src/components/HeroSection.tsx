@@ -12,15 +12,6 @@ const HeroSection = () => {
     Array<{ left: string; top: string; delay: string }>
   >([]);
 
-  // عداد تنازلي
-  const [timeLeft, setTimeLeft] = useState({
-    days: "00",
-    hours: "00",
-    minutes: "00",
-    seconds: "00",
-    total: Infinity,
-  });
-
   useEffect(() => {
     const newParticles = Array.from({ length: 15 }, () => ({
       left: `${Math.random() * 100}%`,
@@ -28,51 +19,6 @@ const HeroSection = () => {
       delay: `${Math.random() * 2}s`,
     }));
     setParticles(newParticles);
-  }, []);
-
-  useEffect(() => {
-    const getNextYear = () => {
-      const now = new Date();
-      const nextYear = now.getFullYear() + 1;
-      return new Date(nextYear, 0, 1, 0, 0, 0); // Jan 1 nextYear 00:00:00
-    };
-
-    const target = getNextYear();
-
-    const update = () => {
-      const now = new Date().getTime();
-      const diff = target.getTime() - now;
-
-      if (diff <= 0) {
-        setTimeLeft({
-          days: "00",
-          hours: "00",
-          minutes: "00",
-          seconds: "00",
-          total: 0,
-        });
-        return;
-      }
-
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff / (1000 * 60 * 60)) % 24);
-      const minutes = Math.floor((diff / (1000 * 60)) % 60);
-      const seconds = Math.floor((diff / 1000) % 60);
-
-      const pad = (n: number) => String(n).padStart(2, "0");
-
-      setTimeLeft({
-        days: pad(days),
-        hours: pad(hours),
-        minutes: pad(minutes),
-        seconds: pad(seconds),
-        total: diff,
-      });
-    };
-
-    update();
-    const id = setInterval(update, 1000);
-    return () => clearInterval(id);
   }, []);
 
   const scrollToContact = () => {
@@ -92,8 +38,6 @@ const HeroSection = () => {
     );
     window.location.href = `https://wa.me/201286110562?text=${message}`;
   };
-
-  const upcomingYear = new Date().getFullYear() + 1;
 
   return (
     <section
@@ -146,35 +90,28 @@ const HeroSection = () => {
               <span className="text-yellow-400">VIP</span>
             </motion.h1>
 
-            {/* تهنئة السنة الجديدة + عد تنازلي */}
+            {/* 2026 بدل العد التنازلي */}
             <motion.div
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.7, delay: 0.35 }}
               className="mb-4"
             >
-              <div className="inline-block bg-sky-400/10 border border-sky-400/30 text-sky-200 rounded-xl px-4 py-2 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)]">
-    <div className="text-xs text-right">سنة جديدة سعيدة {upcomingYear} 🎉</div>
-    <div className="mt-2 flex gap-2 justify-end">
-        {[
-            { label: "أيام", value: timeLeft.days },
-            { label: "ساعات", value: timeLeft.hours },
-            { label: "دقائق", value: timeLeft.minutes },
-            { label: "ثواني", value: timeLeft.seconds },
-        ].map((item, i) => (
-            <motion.div
-                key={i}
-                whileHover={{ scale: 1.08 }}
-                className="min-w-[50px] rounded-xl bg-black/40 border border-sky-400/30 px-2 py-1 text-center shadow-md"
-            >
-                <div className="text-lg font-extrabold text-sky-300 drop-shadow-md">
-                    {item.value}
-                </div>
-                <div className="text-xs text-sky-100 mt-1">{item.label}</div>
-            </motion.div>
-        ))}
-    </div>
-</div>
+              <div className="inline-block bg-sky-400/10 border border-sky-400/30 text-sky-200 rounded-xl px-6 py-4 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)] text-center">
+                <span
+                  className="
+                    text-6xl font-extrabold
+                    text-transparent bg-clip-text
+                    bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600
+                    drop-shadow-[0_0_12px_rgba(255,215,0,0.9)]
+                    tracking-widest
+                  "
+                  style={{ WebkitTextStroke: "1.5px #FFD700" }}
+                >
+                  2026
+                </span>
+                <div className="text-xs mt-2">سنة جديدة سعيدة 🎉</div>
+              </div>
             </motion.div>
 
             <motion.p
@@ -183,15 +120,15 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg mb-15 text-gray-300 leading-relaxed"
             >
-                 أفضل شركة حجز في مصر! 🔥
-                 <br />
-                  نحن نوفّر لك أفضل السهرات 🎉
+              أفضل شركة حجز في مصر! 🔥
               <br />
-               الحفلات، والفعاليات بكل سهولة وأمان.
+              نحن نوفّر لك أفضل السهرات 🎉
               <br />
-             احجز الآن واستمتع بعروضنا الخاصة لعام 2026!✨
+              الحفلات، والفعاليات بكل سهولة وأمان.
               <br />
-             تواصل معنا عبر واتساب واحجز مكانك فورًا 📲
+              احجز الآن واستمتع بعروضنا الخاصة لعام 2026!✨
+              <br />
+              تواصل معنا عبر واتساب واحجز مكانك فورًا 📲
               <br />
               <a
                 href="tel:+201286110562"
@@ -222,7 +159,6 @@ const HeroSection = () => {
                   size="lg"
                   className="bg-gradient-to-r from-blue-500 to-blue-600 text-white font-bold text-lg px-6 py-5 rounded-full hover:scale-105 transition-all duration-300 shadow-lg"
                 >
-                
                   <Phone className="w-5 h-5 ml-2" />
                   اتصل الآن
                 </Button>
@@ -239,7 +175,7 @@ const HeroSection = () => {
             </motion.div>
           </div>
 
-          {/* قسم المميزات (ظاهر في الموبايل والكمبيوتر) */}
+          {/* المميزات */}
           <div className="space-y-8 mt-10">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
