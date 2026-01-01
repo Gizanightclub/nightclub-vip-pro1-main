@@ -52,12 +52,12 @@ const Contact = () => {
 
   const packages = {
     standard: {
-      name: "الباقة العادية",
-      price: 2500,
+      name: "تيكت صف تاني 🎫",
+      price: 1500,
     },
     vip: {
-      name: "باقة VIP",
-      price: 3000,
+      name: "تيكت صف اول VIP 🎟️",
+      price: 2000,
     },
   };
 
