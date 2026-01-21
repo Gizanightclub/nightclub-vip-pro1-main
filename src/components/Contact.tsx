@@ -53,11 +53,11 @@ const Contact = () => {
   const packages = {
     standard: {
       name: "تيكت صف تاني 🎫",
-      price: 1500,
+      price: 1000,
     },
     vip: {
       name: "تيكت صف اول VIP 🎟️",
-      price: 2000,
+      price: 1500,
     },
   };
 
