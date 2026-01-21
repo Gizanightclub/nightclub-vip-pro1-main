@@ -194,7 +194,7 @@ Happy New Year 2026! 🥂
 استمتعوا بأجمل الأوقات والذكريات معنا 💃 .`.trim();
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/201055599706?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
 
         window.open(whatsappUrl, "_blank");
         setShowBookingModal(false);
