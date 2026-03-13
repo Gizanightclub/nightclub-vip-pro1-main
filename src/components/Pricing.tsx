@@ -167,7 +167,7 @@ const packages = {
         // 🎯 رسالة واتساب موحدة التنسيق
         const message = `
 
-🎉*!Happy New Year 2026 - طلب حجز*🎉
+🎉*!Happy EiD  2026 - طلب حجز*🎉
 
 📌 *تفاصيل الحجز*
 👤 الاسم: ${name}
@@ -190,7 +190,7 @@ ${
 ----------------------
      🎉 شكراً لاختياركم “تانجو” – اجمل السهرات! 🎉
 نتمنى لكم ليلة مليئة بالفرح والبهجة ✨
-Happy New Year 2026! 🥂
+Happy EID 2026! 🥂
 استمتعوا بأجمل الأوقات والذكريات معنا 💃 .`.trim();
 
         const encodedMessage = encodeURIComponent(message);
