@@ -49,8 +49,8 @@ const Pricing = () => {
 const packages = {
     second: {
         title: "تيكت صف تاني 🎫",
-        price: 1000,
-        originalPrice:2000,
+        price: 2000,
+        originalPrice:2500,
         features: [
             { icon: Wine, text: "مشروبين فاخرين (Free) من اختيارك" },
             { icon: UtensilsCrossed, text: "طبق مازة متنوع (Free)" },
@@ -61,8 +61,8 @@ const packages = {
     },
     first: {
         title: "تيكت صف اول VIP 🎫🔥",
-        price: 1500,
-        originalPrice: 3000,
+        price: 3000,
+        originalPrice: 3500,
         features: [
             { icon: Wine, text: "ثلاث مشروبات فاخرة (Free)" },
             { icon: UtensilsCrossed, text: "طبق مازة مميزة (Free)" },
@@ -73,8 +73,8 @@ const packages = {
     },
     friends: { // باقة الصحاب
         title: "تيكت الشلة 👫🏻",
-        price: 5000,
-        originalPrice: 6000,
+        price: 7000,
+        originalPrice: 8000,
         features: [
             { icon: Users, text: "الحجز متاح لي 4 افراد فقط 👥 " },
             { icon: Wine, text: "مشروبين فاخرين (Free) من اختيارك" },
