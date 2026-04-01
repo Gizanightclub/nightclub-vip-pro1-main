@@ -1,0 +1,112 @@
+"use client";
+
+import { motion } from "framer-motion";
+import Link from "next/link";
+import Image from "next/image";
+import { places } from "@/lib/places";
+import SEOUnified from "@/components/SEOUnified";
+import { MapPin, Star } from "lucide-react";
+
+export default function PlacesPage() {
+  return (
+    <>
+      <SEOUnified
+        pageType="places"
+        customTitle="جميع الملاهي الليلية والنوادي الفاخرة في مصر - Night Club Egypt"
+        customDescription="استكشف أفضل الملاهي الليلية والنوادي الفاخرة في مصر. احجز الآن وتمتع بأفضل سهرة مع خصومات حتى 25%"
+      />
+
+      <main id="main-content" className="bg-black text-white min-h-screen pb-20 pt-32">
+        <div className="container mx-auto px-4">
+          {/* Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <div className="flex items-center justify-center gap-3 mb-4">
+              <MapPin className="w-8 h-8 text-yellow-400" />
+              <Star className="w-8 h-8 text-purple-400" />
+              <MapPin className="w-8 h-8 text-yellow-400" />
+            </div>
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
+              جميع الملاهي الليلية في مصر
+            </h1>
+            <p className="text-xl text-gray-300 max-w-3xl mx-auto">
+              استكشف أفضل أماكن السهر الفاخرة في جميع أنحاء مصر. اختر المكان المثالي لسهرتك المميزة.
+            </p>
+          </motion.div>
+
+          {/* Places Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {places.map((place, index) => (
+              <motion.div
+                key={place.slug}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="relative overflow-hidden rounded-2xl border border-purple-500/30 bg-black/50 backdrop-blur-md shadow-2xl hover:shadow-2xl hover:border-yellow-400/40 transition-all"
+              >
+                <div className="relative aspect-video w-full">
+                  <Image
+                    src={place.image}
+                    alt={place.name}
+                    fill
+                    className="object-cover opacity-95"
+                    sizes="(max-width: 768px) 100vw, 50vw"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
+                  <div className="absolute inset-0 p-4 flex flex-col justify-between">
+                    <div>
+                      <span className="inline-block text-xs font-semibold uppercase tracking-wider text-sky-300 bg-sky-900/40 px-2 py-1 rounded-md">
+                        {place.location}
+                      </span>
+                      <h2 className="mt-2 text-2xl font-extrabold text-white">{place.name}</h2>
+                      <p className="mt-1 text-sm text-gray-200 max-w-md">{place.description}</p>
+                    </div>
+                    <div className="mt-4 flex items-center justify-between gap-3">
+                      <div>
+                        <p className="text-sm text-gray-300">السعر من</p>
+                        <h3 className="text-2xl font-bold text-yellow-400">{place.price} ج</h3>
+                      </div>
+                      <div className="flex flex-col gap-2">
+                        <Link
+                          href={`/places/${place.slug}`}
+                          className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold px-4 py-2 rounded-lg text-sm hover:scale-105 transition"
+                        >
+                          التفاصيل
+                        </Link>
+                        <Link
+                          href={`/places/${place.slug}/book`}
+                          className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold px-4 py-2 rounded-lg text-sm hover:scale-105 transition"
+                        >
+                          احجز الآن
+                        </Link>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Back to Home */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
+            className="mt-16 text-center"
+          >
+            <Link
+              href="/"
+              className="inline-block bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold px-8 py-3 rounded-lg hover:scale-105 transition"
+            >
+              العودة إلى الصفحة الرئيسية
+            </Link>
+          </motion.div>
+        </div>
+      </main>
+    </>
+  );
+}
