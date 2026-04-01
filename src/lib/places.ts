@@ -67,7 +67,7 @@ export const places: Place[] = [
     slug: "royal-lounge",
     name: "FOX CLUB - فوكس كلوب",
     location: "الجيزة - العجوزه",
-    description: "مطل على النيل مع أجواء فخمة وصوتيات عالمية. حجزك شامل خدمات مطلقة.",
+    description: "مطل على النيل مع أجواء فخمة وصوتيات عالمية. حجزك شامل خدمات .",
     price: 2500,
     originalPrice: 3000,
     features: [
