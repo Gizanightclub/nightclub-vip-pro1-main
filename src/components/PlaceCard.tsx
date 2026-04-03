@@ -15,6 +15,20 @@ const PlaceCard = ({ place }: { place: Place }) => {
       transition={{ duration: 0.5 }}
       className="relative overflow-hidden rounded-2xl border border-purple-500/30 bg-black/50 backdrop-blur-md shadow-2xl hover:shadow-2xl hover:border-yellow-400/40 transition-all"
     >
+      {place.gulfOnly && (
+        <div className="absolute top-0 left-0 z-20 overflow-visible">
+          <div className="absolute -top-3 -left-6 transform -rotate-45 bg-gradient-to-r from-cyan-500 via-blue-500 to-indigo-600 px-6 py-2 rounded-br-lg rounded-tl-lg text-white font-bold text-xs uppercase tracking-wider shadow-[0_3px_12px_rgba(59,130,246,0.55)] border border-white/20">
+            خليجي فقط
+          </div>
+        </div>
+      )}
+      {place.couplesOnly && (
+        <div className="absolute top-0 left-0 z-20 overflow-visible">
+          <div className="absolute top-10 -left-6 transform -rotate-45 bg-gradient-to-r from-red-500 via-violet-500 to-purple-700 px-6 py-2 rounded-br-lg rounded-tl-lg text-white font-bold text-xs uppercase tracking-wider shadow-[0_3px_12px_rgba(240,46,170,0.55)] border border-white/20">
+            كبلز فقط
+          </div>
+        </div>
+      )}
       <div className="relative aspect-[4/5] w-full">
         <Image
           src={place.image}

@@ -18,13 +18,15 @@ export type Place = {
   video?: string;
   packages: Package[];
   available?: boolean;
+  couplesOnly?: boolean;
+  gulfOnly?: boolean;
 };
 
 export const places: Place[] = [
   {
-    slug: "city-vibes",
-    name: " TANGO CLUB - تانجو كلوب",
-    location: " الجيزه شارع البحر الاعظم",
+    slug: "tango-club",
+    name: "TANGO CLUB - تانجو كلوب",
+    location: "الجيزه شارع البحر الاعظم",
     description: "سهرة VIP مع DJs عالميين وأجواء ساحرة. احجز تجربة لا تُنسى.",
     price: 1000,
     originalPrice: 1500,
@@ -66,7 +68,85 @@ export const places: Place[] = [
     ],
   },
   {
-    slug: "royal-lounge",
+    slug: "vieena-club",
+    name: "VIEENA CLUB",
+    location: " العجوزه - كورنيش النيل",
+    description: "تجربة راقية بأجواء إيكونومية ودي جي مثالي.",
+    price: 1500,
+    originalPrice: 2000,
+    features: ["بار كوكتيل", "مشروب ترحيبي", "رسم وجه", "سيشن تصوير"],
+    image: "/images/2025-04-19.webp",
+    video: "/videos/veinaa.mp4",
+    packages: [
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 1500, 
+        originalPrice: 2000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 2500, 
+        originalPrice: 3000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+    ],
+  },
+  {
+    slug: "aowtar-club",
+    name: "AOWTAR CLUB - أوتار كلوب",
+    location: " العجوزه فندقي فور سيزونز",
+    description: "موسيقى عربية وغربية مع تشكيلة واسعة من الضيفات.",
+    price: 1500,
+    originalPrice: 2500,
+    features: ["دي جي مباشر", "مدخل سريع", "جلسات خاصة", "مشروبات مجانية"],
+    image: "/images/2026-03-31.webp",
+    video: "/videos/اوتار.mp4",
+    packages: [
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 1500, 
+        originalPrice: 2000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3100, 
+        originalPrice: 3600, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+    ],
+  },
+  {
+    slug: "fox-club",
     name: "FOX CLUB - فوكس كلوب",
     location: "الجيزة - العجوزه",
     description: "مطل على النيل مع أجواء فخمة وصوتيات عالمية. حجزك شامل خدمات .",
@@ -110,7 +190,7 @@ export const places: Place[] = [
     ],
   },
   {
-    slug: "neon-paradise",
+    slug: "maluonaerr-club",
     name: "EL MALUONAERR CLUB - المليونير كلوب ",
     location: "القاهرة - الزمالك",
     description: "أضواء نيون، رقص شرقي وغربي، وVIP exclusive experience.",
@@ -182,84 +262,6 @@ export const places: Place[] = [
         name: "تيكت صف اول VIP 🎫🔥", 
         price: 3800, 
         originalPrice: 4500, 
-        features: [
-          "مشروبين فاخرين (Free) من اختيارك",
-          "طبق مازة متنوع (Free)",
-          "طبق فواكه طازة (Free)",
-          "مقاعد مميزة في الصف الأول",
-          "إمكانية الجلوس مع بنات (عند الطلب)"
-        ] 
-      },
-    ],
-  },
-  {
-    slug: "vieena-club",
-    name: "VIEENA CLUB",
-    location: " العجوزه - كورنيش النيل",
-    description: "تجربة راقية بأجواء إيكونومية ودي جي مثالي.",
-    price: 1500,
-    originalPrice: 2000,
-    features: ["بار كوكتيل", "مشروب ترحيبي", "رسم وجه", "سيشن تصوير"],
-    image: "/images/2025-04-19.webp",
-    video: "/videos/veinaa.mp4",
-    packages: [
-      { 
-        id: "standard", 
-        name: "تيكت صف تاني 🎫", 
-        price: 1500, 
-        originalPrice: 2000, 
-        features: [
-          "مشروبين فاخرين (Free) من اختيارك",
-          "طبق مازة متنوع (Free)",
-          "طبق فواكه طازة (Free)",
-          "مقاعد مميزة في الصف الثاني",
-          "إمكانية الجلوس مع بنات (عند الطلب)"
-        ] 
-      },
-      { 
-        id: "vip", 
-        name: "تيكت صف اول VIP 🎫🔥", 
-        price: 2500, 
-        originalPrice: 3000, 
-        features: [
-          "مشروبين فاخرين (Free) من اختيارك",
-          "طبق مازة متنوع (Free)",
-          "طبق فواكه طازة (Free)",
-          "مقاعد مميزة في الصف الأول",
-          "إمكانية الجلوس مع بنات (عند الطلب)"
-        ] 
-      },
-    ],
-  },
-  {
-    slug: "roty-club",
-    name: "AOWTAR CLUB - أوتار كلوب",
-    location: " العجوزه فندق روتي ",
-    description: "موسيقى عربية وغربية مع تشكيلة واسعة من الضيفات.",
-    price: 2000,
-    originalPrice: 2500,
-    features: ["دي جي مباشر", "مدخل سريع", "جلسات خاصة", "مشروبات مجانية"],
-    image: "/images/2026-03-31.webp",
-    video: "/videos/اوتار.mp4",
-    packages: [
-      { 
-        id: "standard", 
-        name: "تيكت صف تاني 🎫", 
-        price: 1500, 
-        originalPrice: 2000, 
-        features: [
-          "مشروبين فاخرين (Free) من اختيارك",
-          "طبق مازة متنوع (Free)",
-          "طبق فواكه طازة (Free)",
-          "مقاعد مميزة في الصف الثاني",
-          "إمكانية الجلوس مع بنات (عند الطلب)"
-        ] 
-      },
-      { 
-        id: "vip", 
-        name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3100, 
-        originalPrice: 3600, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -356,6 +358,7 @@ export const places: Place[] = [
     price: 2500,
     originalPrice: 3500,
     features: ["دي جي لايف", "كوكتيل خاص", "جدران LED", "خدمة سريعة"],
+    couplesOnly: true,
     image: "/images/Omni Club Cairo 1.jpg",
     video: "/videos/Omni Club Cairo.mp4",
     packages: [
@@ -398,31 +401,31 @@ export const places: Place[] = [
     image: "/images/echo-club.jpg",
     video: "/videos/Echo Club.mp4",
     packages: [
-      { 
-        id: "standard", 
-        name: "تيكت صف تاني 🎫", 
-        price: 2400, 
-        originalPrice: 3000, 
+      {
+        id: "standard",
+        name: "تيكت صف تاني 🎫",
+        price: 2400,
+        originalPrice: 3000,
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
           "طبق فواكه طازة (Free)",
           "مقاعد مميزة في الصف الثاني",
           "إمكانية الجلوس مع بنات (عند الطلب)"
-        ] 
+        ]
       },
-      { 
-        id: "vip", 
-        name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3400, 
-        originalPrice: 4300, 
+      {
+        id: "vip",
+        name: "تيكت صف اول VIP 🎫🔥",
+        price: 3400,
+        originalPrice: 4300,
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
           "طبق فواكه طازة (Free)",
           "مقاعد مميزة في الصف الأول",
           "إمكانية الجلوس مع بنات (عند الطلب)"
-        ] 
+        ]
       },
     ],
   },
@@ -473,6 +476,7 @@ export const places: Place[] = [
     price: 5000,
     originalPrice: 6000,
     features: ["دي جي عالمي", "لوبي راقي", "كوكتيل خاص", "سياسة أقصى راحة"],
+    couplesOnly: true,
     image: "/images/cosmoclub.egy_14050114_004447329.jpg",
     video: "/videos/Cosmo Lounge & Club.mp4",
     packages: [
@@ -512,6 +516,8 @@ export const places: Place[] = [
     price: 4000,
     originalPrice: 5000,
     features: ["دي جي شهير", "أضواء LED", "منطقة رقص", "باقة أصدقاء"],
+    gulfOnly: true,
+    couplesOnly: true,
     image: "/images/unnamed.webp",
     video: "/videos/OVID Club.mp4",
     packages: [
@@ -551,6 +557,7 @@ export const places: Place[] = [
     price: 1500,
     originalPrice: 2500,
     features: ["جولات Shots", "دي جي إلكتروني", "عروض راقصة", "مساحات VIP"],
+    couplesOnly: true,
     image: "/images/SHOTS.jpg",
     video: "/videos/Shots Club.mp4",
     packages: [
@@ -590,6 +597,7 @@ export const places: Place[] = [
     price: 2500,
     originalPrice: 3000,
     features: ["ديسكو لايت", "دي جي عالمي", "بار مفتوح", "خدمة VIP"],
+    couplesOnly: true,
     image: "/images/ROVI Club صور.jpg",
     video: "/videos/ROVI Club.mp4",
     packages: [
@@ -855,7 +863,7 @@ export const places: Place[] = [
       },
     ],
   },
-].sort((a, b) => a.price - b.price);
+];
 
 export const getPlaceBySlug = (slug: string) =>
   places.find((place) => place.slug === slug);

@@ -95,6 +95,16 @@ export default function PlacesPage() {
                     className="object-cover opacity-95"
                     sizes="(max-width: 768px) 100vw, 50vw"
                   />
+                  {place.couplesOnly && (
+                    <div className="absolute left-3 top-3 z-50 rounded-lg bg-red-600 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-red-900/50">
+                      كبلز فقط
+                    </div>
+                  )}
+                  {place.gulfOnly && (
+                    <div className="absolute left-3 top-3 z-50 rounded-lg bg-cyan-500 px-3 py-1 text-xs font-bold uppercase tracking-wider text-white shadow-lg shadow-cyan-900/50">
+                      خليجي فقط
+                    </div>
+                  )}
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
                   <div className="absolute inset-0 p-4 flex flex-col justify-between">
                     <div>
