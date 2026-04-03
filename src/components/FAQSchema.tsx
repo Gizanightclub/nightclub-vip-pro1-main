@@ -99,8 +99,11 @@ export default function FAQSchema({ showVisibleFAQ = false, customFAQs }: FAQSch
               className="text-center mb-12"
             >
               <h2 id="faq-title" className="text-3xl md:text-4xl font-bold text-yellow-400 mb-4">
-                ❓ الأسئلة الشائعة
+                أسئلة شائعة عن نايت كلوب مصر
               </h2>
+              <h3 className="text-lg md:text-xl font-semibold text-gray-300 mb-8">
+                الإجابات على أكثر الأسئلة شيوعاً
+              </h3>
               <p className="text-gray-300 text-lg max-w-2xl mx-auto">
                 كل ما تريد معرفته عن أفضل نايت كلوب في مصر
               </p>

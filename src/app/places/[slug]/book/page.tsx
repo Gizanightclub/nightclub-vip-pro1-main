@@ -48,13 +48,18 @@ export default function PlaceBookingPage({ params: paramsPromise }: PageProps) {
         customTitle={`حجز ${place?.name} في ${place?.location} | ${place?.name} Booking - Night Club Egypt`}
         customDescription={`ارخص حجز ${place?.name} في ${place?.location} القاهرة، باقات VIP وخصومات 15٪+، اتصل 01286110562 أو واتساب للحجز الفوري.`}
         customKeywords={[
+          ...(place?.keywords || []),
           "حجز نايت كلوب",
           "حجز مكان VIP",
           "book nightclub",
           "offline booking",
           place?.name || "",
           place?.location || "",
-          "01286110562"
+          "01286110562",
+          "حجز فوري",
+          "احجز الآن",
+          "أسعار مميزة",
+          "خصم 15%"
         ]}
       />
 

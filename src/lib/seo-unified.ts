@@ -22,27 +22,30 @@ export const NIGHTCLUB_BASE_INFO = {
 }
 
 // نسخة موحدة لنص Copyright وحقول الصورة
-export const COPYRIGHT_NOTICE = "© 2025 Night Club Egypt. All rights reserved."
+export const COPYRIGHT_NOTICE = "© 2026 Night Club Egypt. All rights reserved."
 export const IMAGE_LICENSE = `${NIGHTCLUB_BASE_INFO.domain}/license`
 export const IMAGE_ACQUIRE_PAGE = `${NIGHTCLUB_BASE_INFO.domain}/contact`
 export const IMAGE_CREDIT = "Night Club Egypt"
 export const IMAGE_CREATOR_ORG = { "@type": "Organization", "name": NIGHTCLUB_BASE_INFO.name }
 export const IMAGE_COPYRIGHT_HOLDER = { "@type": "Organization", "name": NIGHTCLUB_BASE_INFO.name }
 
-// 🖼️ الصور المحسنة للـ SEO
+// 🖼️ الصور المحسنة للـ SEO - صور مختلفة من معرض الصور الكبير
 export const SEO_IMAGES = {
   logo: `${NIGHTCLUB_BASE_INFO.domain}/images/logo-seo-1200x1200.webp`,
-  hero: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub1.jpeg`,
-  about: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub0.jpeg`,
-  gallery: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com10.jpg`,
-  programs: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub2.jpeg`,
-  packages: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub3.jpeg`,
-  contact: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub4.jpeg`,
-  booking: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub5.jpeg`,
-  nightclub7: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub7.jpeg`,
-  nightclub8: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub8.jpeg`,
-  nightclub9: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclub9.jpeg`,
-  mmas: `${NIGHTCLUB_BASE_INFO.domain}/images/mmas.jpg`
+  hero: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com (10).jpg`,
+  about: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com (11).jpg`,
+  gallery: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com (6).jpg`,
+  programs: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com (5).jpg`,
+  packages: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com (7).jpg`,
+  contact: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com (8).jpg`,
+  booking: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com (3).jpg`,
+  nightclub7: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com9.jpg`,
+  nightclub8: `${NIGHTCLUB_BASE_INFO.domain}/images/Omni Club Cairo 1.jpg`,
+  nightclub9: `${NIGHTCLUB_BASE_INFO.domain}/images/Echo-club.jpg`,
+  mmas: `${NIGHTCLUB_BASE_INFO.domain}/images/Stage Cairo Club.jpg`,
+  vip: `${NIGHTCLUB_BASE_INFO.domain}/images/Volt Lounge.jpg`,
+  places: `${NIGHTCLUB_BASE_INFO.domain}/images/ROVI Club1.png`,
+  blog: `${NIGHTCLUB_BASE_INFO.domain}/images/nightclubegypt.com15.jpg`
 }
 
 // 🎯 كلمات مفتاحية شاملة ومحسنة - منظمة بدون تكرار
@@ -52,10 +55,10 @@ export const SEO_KEYWORDS = {
     "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "نايت كلوب VIP",
      "نيت كلوب", "نايت كلاب", "نايتات مصر", "كلوبات مصر",
     "Night Club", "Night Club Egypt", "nightclub","نايت كلوب مصر", "أفضل نايت كلوب في مصر", "نايت كلوب القاهرة", "ارخص نايت كلوب",
-    "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "نايت كلوب VIP", "نايت كلوب ","nightclub",'نايت كلوب مصر 2025', 'أفضل نايت كلوب',
+    "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "نايت كلوب VIP", "نايت كلوب ","nightclub",'نايت كلوب مصر 2026', 'أفضل نايت كلوب',
     'حفلات ليلية فاخرة',"ارخص نايت كلوب","نيت كلوب","نايت كلاب","حجز نايت كلوب","نايتات مصر","كلوبات مصر",
     "نايت كلوب مصر", "أفضل نايت كلوب في مصر", " سهرات نايت كلوب", "اسعار نايت كلوب", "Night Club",
-   "سهرات خليجي", "نايت", "سهرات ديسكو", "كباريه", "ديسكو", "nightclub", "نايت كلوب القاهره", "نايت كلوب في الجيزه","نايت كلوب مصر 2025",
+   "سهرات خليجي", "نايت", "سهرات ديسكو", "كباريه", "ديسكو", "nightclub", "نايت كلوب القاهره", "نايت كلوب في الجيزه","نايت كلوب مصر 2026",
     "ملهى ليلي VIP", "نادي ليلي فاخر", "Night Club Egypt", "احجز نايت كلوب", "حفلات ليلية فاخرة", "سهرات مميزة مصر",
     'سهرات VIP', 'ملهى ليلي راقي', 'ديسكو القاهرة',"كباريه","نايت كلوب مفتوح الان","كلوب مصر","نادي نايت ",
     'nightclub Egypt', 'Cairo nightlife', 'VIP nightclub', "club night club","club", "night club","egypt club","the nightclub",
@@ -66,14 +69,41 @@ export const SEO_KEYWORDS = {
     "نايت كلوب العجوزة", "نايت كلوب الشيخ زايد", "نايت كلوب الزمالك",
     "ملهى ليلي VIP", "نادي ليلي فاخر", "احجز نايت كلوب",
     "حفلات ليلية فاخرة", "سهرات مميزة مصر", "سهرات VIP",
-    "ملهى ليلي راقي", "ديسكو القاهرة", "كلوب مصر", "نادي نايت"
+    "ملهى ليلي راقي", "ديسكو القاهرة", "كلوب مصر", "نادي نايت",
+    // كلمات موسمية للسياح الخليجيين الصيف
+    "سهرات صيف الخليج", "نايت كلوب للسعوديين", "نايت كلوب للخليجيين", "سهرات سياح",
+    "سياحة مصر الخليج", "أماكن للخليجيين في مصر", "سهرات صيفية مصر", "نايت كلوب الصيف",
+    "سهرات الخليج في مصر", "رحلات سياحية مصر", "ليالي صيفية مصر", "حفلات صيفية جديدة",
+    "nightclub for tourists", "summer nightclub Egypt", "Gulf tourists Egypt", "Saudi visitors Egypt",
+    "أماكن ترفيهية سعودية", "نوادي ليلية الإمارات", "كويتي في مصر", "عماني يسهر"
   ],
   locations: [
     "نايت كلوب القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة",
     "نايت كلوب الشيخ زايد", "نايت كلوب الهرم", "نايت كلوب التجمع الخامس",
     "نايت كلوب 6 أكتوبر", "نايت كلوب المعادي", "نايت كلوب الزمالك",
     "نايت كلوب المهندسين", "نايت كلوب مدينة نصر", "نايت كلوب مصر الجديدة",
-    "نايت كلوب الدقي"
+    "نايت كلوب الدقي", "نايت كلوب وسط البلد",
+    
+    // 🎧 أماكن الجيزة
+    "ديسكو كاش كايرو", "Disco Cash Cairo", "ديسكو خليجي", "Disco Khalijy", "إكس أو كلوب", "XO Club Cairo",
+    "أيكون كلوب", "ICON Club Cairo", "ون أوك كلوب", "1OK Club Cairo", "كلوب 707", "Club 707",
+    "دايس كلوب", "Dice Club", "ذهبية كلوب", "Dahabia Club", "إيكو كلوب", "Echo Club",
+    "الريجينا كلوب", "El Regina Club", "كروزة كلوب", "Karwaza Club",
+    
+    // 🎧 أماكن الزمالك ووسط البلد
+    "أومني كلوب", "OMNI Club Cairo", "سباين كايرو", "SPINE Cairo", "نوكس", "Nox Club",
+    "ماما نايت كلوب", "Mama Night Club", "مون ديك", "Moon Deck",
+    
+    // 🎧 أماكن مصر الجديدة
+    "هيرا كلوب", "Hera Club Cairo", "لو روا ديسكو", "Le Roi Disco", "جيفنشي نايت كلوب", "Givenchy Night Club",
+    "سبيد لاونج", "Spade Lounge", "أسرم هوم", "Asserm Home Club",
+    
+    // 🎧 أماكن التجمع الخامس
+    "كلوب آفا", "Club AVA Cairo", "ذا تاب", "The Tap Cairo", "Cairo Jazz Club 610", "Kanji Club",
+    
+    // 🎧 أماكن إضافية
+    "كلوب أرينا", "Club Arena Cairo", "دارك روك", "Dark Rock Club", "ليفيل كلوب", "Level Club",
+    "راي كلوب", "Rai Club Cairo", "تمبو كلوب", "Tempo Club", "فينوم خليجي", "Venom Khaliji Club"
   ],
   performers: [
     "رحمة محسن", "عصام صاصا", "إسلام كبونجا", "رضا البحراوي", "كريم الغزال",
@@ -91,7 +121,7 @@ export const generateUnifiedBusinessSchema = () => ({
   "@type": ["NightClub", "EntertainmentBusiness", "LocalBusiness"],
   "name": NIGHTCLUB_BASE_INFO.name,
   "alternateName": [NIGHTCLUB_BASE_INFO.arabicName, "Night Club Cairo", "أفضل نايت كلوب في مصر"],
-  "description": "أفضل نايت كلوب في مصر لعام 2025 - حفلات ليلية فاخرة مع أشهر النجوم: رحمة محسن، عصام صاصا، بوسي، روح، ليندا. خدمة VIP استثنائية وأسعار تبدأ من 750 جنيه في القاهرة والجيزة والعجوزة والشيخ زايد.",
+  "description": "أفضل نايت كلوب في مصر لعام 2026 - حفلات ليلية فاخرة مع أشهر النجوم: رحمة محسن، عصام صاصا، بوسي، روح، ليندا. خدمة VIP استثنائية وأسعار تبدأ من 750 جنيه في القاهرة والجيزة والعجوزة والشيخ زايد.",
   "url": NIGHTCLUB_BASE_INFO.domain,
   "logo": {
     "@type": "ImageObject",

@@ -65,6 +65,7 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
         customTitle={`حجز ${place?.name} في ${place?.location} | ${place?.name} Booking Cairo | Night Club Egypt`}
         customDescription={`احجز ${place?.name} في ${place?.location} (Cairo, Egypt). أفضل عروض VIP، خدمة InstaPay، ديسكو، وكوكتيل. اتصل الآن 01286110562 أو واتساب للسرعة.`}
         customKeywords={[
+          ...(place?.keywords || []),
           "حجز نايت كلوب",
           "Night Club Booking",
           "سهرات القاهرة",
@@ -72,7 +73,10 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
           place?.name || "",
           place?.location || "",
           "nightclub Cairo",
-          "best nightclub Cairo"
+          "best nightclub Cairo",
+          "احجز الآن",
+          "01286110562",
+          "واتساب حجز"
         ]}
       />
       <Script

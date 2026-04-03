@@ -77,8 +77,8 @@ const About = () => {
             مرحباً بك في افضل نايت كلوب
           </Badge>
           <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
-            <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">NIGHT CLUB</span> 
-            <span className="block text-yellow-400">ارخص نايت كلوب</span>
+            <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">عن أفضل نايت كلوب</span> 
+            <span className="block text-yellow-400">خدمات VIP وأسعار مميزة 2026</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-300 leading-relaxed">
            نقدم لكم افضل السهرات و افضل البروجرام يومي و افضل النجوم الطرب الشعبي و افضل الرقصات مع اجواء سحره
@@ -101,7 +101,7 @@ const About = () => {
                   <div className="inline-flex p-4 rounded-2xl bg-gradient-to-br from-purple-900/50 to-yellow-600/20 mb-6 text-yellow-400">
                     <feature.icon className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-bold mb-4 text-yellow-400">
+                  <h3 className="text-lg md:text-xl font-bold mb-4 text-yellow-400">
                     {feature.title}
                   </h3>
                   <p className="text-gray-300">

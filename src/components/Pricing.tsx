@@ -181,8 +181,9 @@ const Pricing = () => {
                     </Badge>
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 text-white">
                         <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
-                            أسعار التيكت مع عروض 2026🔥
+                            باقات وأسعار نايت كلوب
                         </span>
+                        <span className="block text-lg md:text-2xl mt-2">من 750 جنيه - VIP 1500 جنيه</span>
                     </h2>
                     <p className="text-lg text-gray-300 max-w-2xl mx-auto">
                         اختر التيكت التي تناسبك واستمتع بتجربة لا تُنسى
@@ -252,12 +253,15 @@ const Pricing = () => {
                                     {/* Title and Price */}
                                     <div className="text-center mb-6">
                                         <h3
-                                            className={`text-2xl font-bold mb-2 ${
+                                            className={`text-xl md:text-2xl font-bold mb-2 ${
                                                 id === "first" ? "text-yellow-400" : "text-white"
                                             }`}
                                         >
                                             {pkg.title}
                                         </h3>
+                                        <h4 className="text-3xl md:text-4xl font-bold text-yellow-400 mb-3">
+                                            {pkg.price}
+                                        </h4>
                                         <div className="flex items-center justify-center gap-3 mb-2">
                                             <span className="text-3xl font-bold text-yellow-400">
                                                 {pkg.price} EGP

@@ -173,11 +173,11 @@ const Gallery = () => {
             id="gallery-title"
             className="text-3xl md:text-6xl font-bold mb-4 md:mb-6 text-white"
           >
-            <span className="text-white sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-white sm:to-gray-300">
-              معرض
+            <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
+              معرض الصور والفيديوهات
             </span>
-            <span className="block text-white text-2xl md:text-4xl mt-2">
-              الفعاليات والحفلات
+            <span className="block text-yellow-400 text-2xl md:text-4xl mt-2">
+              أفضل لحظات الحفلات والسهرات المميزة
             </span>
           </h2>
         </motion.div>

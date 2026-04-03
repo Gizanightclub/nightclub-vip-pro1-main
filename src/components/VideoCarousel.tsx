@@ -293,7 +293,7 @@ const VideoCarousel = ({
 
                   {/* عنوان + وصف */}
                   <div className="absolute bottom-4 right-4 text-right max-w-md">
-                    <h3 className="text-xl font-bold text-black mb-1">{video.title}</h3>
+                    <h3 className="text-base md:text-lg font-bold text-black mb-1">{video.title}</h3>
                     <p className="text-gray-800 text-sm">{video.description}</p>
                   </div>
                 </div>

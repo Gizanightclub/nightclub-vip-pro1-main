@@ -25,6 +25,7 @@ const Programs = () => {
       description: "عروض حية مع أشهر المطربين والفنانين في أجواء استثنائية",
       iconColor: "text-yellow-400",
       bgColor: "bg-gradient-to-br from-yellow-600/20 to-yellow-800/10",
+      day: "الأحد",
     },
     {
       icon: Music,
@@ -32,6 +33,7 @@ const Programs = () => {
       description: "أمسيات طربية أصيلة مع أجمل الأغاني الشعبية والتراثية",
       iconColor: "text-purple-400",
       bgColor: "bg-gradient-to-br from-purple-600/20 to-purple-800/10",
+      day: "الاثنين",
     },
     {
       icon: Flame,
@@ -39,6 +41,7 @@ const Programs = () => {
       description: "أقوى العروض الغنائية والاستعراضية مع فرق عالمية",
       iconColor: "text-red-400",
       bgColor: "bg-gradient-to-br from-red-600/20 to-red-800/10",
+      day: "الثلاثاء",
     },
     {
       icon: Heart,
@@ -46,6 +49,7 @@ const Programs = () => {
       description: "أجمل الأغاني الرومانسية التي تلامس القلب",
       iconColor: "text-pink-400",
       bgColor: "bg-gradient-to-br from-pink-600/20 to-pink-800/10",
+      day: "الخميس",
     },
   ];
 
@@ -185,9 +189,12 @@ const Programs = () => {
                       />
                     </div>
                     <div>
-                      <h3 className="text-2xl font-bold text-white mb-3">
+                      <h3 className="text-xl md:text-2xl font-bold text-white mb-3">
                         {program.title}
                       </h3>
+                      <h4 className="text-sm md:text-base font-semibold text-yellow-300 mb-2">
+                        {program.day} - برنامج يومي
+                      </h4>
                       <p className="text-gray-300 leading-relaxed">
                         {program.description}
                       </p>

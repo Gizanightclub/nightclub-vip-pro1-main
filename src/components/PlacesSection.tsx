@@ -42,7 +42,9 @@ const PlacesSection = () => {
             <MapPin className="w-8 h-8 text-yellow-400" />
           </div>
           <h2 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            جميع الملاهي الليلية في مصر
+            أماكن السهر
+            <span className="text-yellow-400"> VIP الفاخرة </span>
+            <span className="block text-lg md:text-2xl mt-2">احجز الآن عبر الواتس أو InstaPay</span>
           </h2>
           <p className="text-xl text-gray-300 max-w-3xl mx-auto">
             استكشف أفضل أماكن السهر الفاخرة في جميع أنحاء مصر. اختر المكان المثالي لسهرتك المميزة.
@@ -85,7 +87,7 @@ const PlacesSection = () => {
                       </span>
                     </div>
                     <div>
-                      <h3 className="mt-2 text-xl font-extrabold text-white">{place.name}</h3>
+                      <h3 className="mt-2 text-lg md:text-xl font-extrabold text-white">{place.name}</h3>
                       <p className="mt-1 text-sm text-gray-200 line-clamp-2">{place.description}</p>
                     </div>
                   </div>
@@ -97,7 +99,7 @@ const PlacesSection = () => {
                         <div className="flex flex-col items-start gap-1">
                           <p className="text-2xl text-gray-400 line-through font-semibold">{place.originalPrice} EGP</p>
                           <div className="flex items-center gap-2">
-                            <h4 className="text-4xl font-black text-yellow-400">{place.price}</h4>
+                            <h4 className="text-3xl font-black text-yellow-400">{place.price}</h4>
                             <span className="text-xl text-gray-300">EGP</span>
                           </div>
                           <span className="inline-block text-sm font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 px-2 py-0.5 rounded-md">خصم {Math.round(((place.originalPrice - place.price) / place.originalPrice) * 100)}%</span>

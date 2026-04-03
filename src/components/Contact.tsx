@@ -248,8 +248,9 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
             className="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-5 md:mb-8 text-white"
           >
             <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
-              تواصل مع فريقنا
+              احجز الآن في أفضل نايت كلوب 2026
             </span>
+            <span className="block text-lg md:text-2xl mt-2">01286110562 - واتس - InstaPay</span>
           </h2>
           <p className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             فريقنا متاح على مدار الساعة لمساعدتك في الحجز والإجابة على
