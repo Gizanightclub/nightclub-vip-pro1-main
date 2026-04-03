@@ -26,7 +26,7 @@ export default function ElGounaPage() {
           <p className="text-gray-300 mb-8">حجز حفلات الجونة والساحل الشمالي مع عروض VIP وديسكو عالية الجودة.</p>
 
           {elGounaPlaces.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
               {elGounaPlaces.map((place) => (
                 <PlaceCard key={place.slug} place={place} />
               ))}

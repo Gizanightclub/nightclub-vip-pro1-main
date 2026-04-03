@@ -30,7 +30,7 @@ export default function CairoPlacesPage() {
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">أفضل نايت كلوب في القاهرة</h1>
           <p className="text-gray-300 mb-8">تصفّح أفضل الأماكن لعشّاق السهر: خدمات VIP، دي جي مباشر، وإطلالات ساحرة.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {cairoPlaces.map((place) => (
               <PlaceCard key={place.slug} place={place} />
             ))}

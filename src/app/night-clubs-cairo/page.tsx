@@ -33,7 +33,7 @@ export default function NightClubsCairoPage() {
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">Night Clubs Cairo</h1>
           <p className="text-gray-300 mb-8">كل النوادي الآن في مكان واحد مع عروض، حجز VIP، وخدمة سيارات ذهاب وعودة.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {cCairo.map((place) => (
               <PlaceCard key={place.slug} place={place} />
             ))}

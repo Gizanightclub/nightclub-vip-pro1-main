@@ -30,7 +30,7 @@ export default function AlexandriaPlacesPage() {
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">أفضل نايت كلوب في الإسكندرية</h1>
           <p className="text-gray-300 mb-8">أفضل تجارب السهر عند البحر الأبيض المتوسط مع عروض VIP.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {alexPlaces.map((place) => (
               <PlaceCard key={place.slug} place={place} />
             ))}

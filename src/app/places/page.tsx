@@ -5,7 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { places } from "@/lib/places";
 import SEOUnified from "@/components/SEOUnified";
-import { MapPin, Star } from "lucide-react";
+import { MapPin, Star, Info, CalendarDays } from "lucide-react";
 
 export default function PlacesPage() {
   return (
@@ -78,7 +78,7 @@ export default function PlacesPage() {
           </div>
 
           {/* Places Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
             {places.map((place, index) => (
               <motion.div
                 key={place.slug}
@@ -87,7 +87,7 @@ export default function PlacesPage() {
                 transition={{ duration: 0.5, delay: index * 0.1 }}
                 className="relative overflow-hidden rounded-2xl border border-purple-500/30 bg-black/50 backdrop-blur-md shadow-2xl hover:shadow-2xl hover:border-yellow-400/40 transition-all"
               >
-                <div className="relative aspect-video w-full">
+                <div className="relative aspect-[4/5] w-full">
                   <Image
                     src={place.image}
                     alt={place.name}
@@ -101,32 +101,36 @@ export default function PlacesPage() {
                       <span className="inline-block text-xs font-semibold uppercase tracking-wider text-sky-300 bg-sky-900/40 px-2 py-1 rounded-md">
                         {place.location}
                       </span>
-                      <h2 className="mt-2 text-2xl font-extrabold text-white">{place.name}</h2>
-                      <p className="mt-1 text-sm text-gray-200 max-w-md">{place.description}</p>
+                      <h2 className="mt-2 text-lg font-extrabold text-white">{place.name}</h2>
+                      <p className="mt-1 text-xs text-gray-200 max-w-md">{place.description}</p>
                     </div>
-                    <div className="mt-4 flex items-center justify-between gap-3">
+                    <div className="flex items-center justify-between gap-3">
                       <div className="flex-1">
-                        <p className="text-sm text-gray-300 mb-2">السعر</p>
+                        <p className="text-xs text-gray-300 mb-2">السعر</p>
                         <div className="flex flex-col items-start gap-1">
-                          <p className="text-2xl text-gray-400 line-through font-semibold">{place.originalPrice} EGP</p>
+                          <p className="text-xl text-gray-400 line-through font-semibold">{place.originalPrice} EGP</p>
                           <div className="flex items-center gap-2">
-                            <h3 className="text-4xl font-black text-yellow-400">{place.price}</h3>
-                            <span className="text-xl text-gray-300">EGP</span>
+                            <h4 className="text-3xl font-black text-yellow-400">{place.price}</h4>
+                            <span className="text-lg text-gray-300">EGP</span>
                           </div>
-                          <span className="inline-block text-sm font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 px-2 py-0.5 rounded-md">خصم {Math.round(((place.originalPrice - place.price) / place.originalPrice) * 100)}%</span>
+                          <span className="inline-block text-xs font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 px-2 py-0.5 rounded-md">خصم {Math.round(((place.originalPrice - place.price) / place.originalPrice) * 100)}%</span>
                         </div>
                       </div>
                       <div className="flex flex-col gap-2">
                         <Link
                           href={`/places/${place.slug}`}
-                          className="bg-gradient-to-r from-cyan-500 to-blue-500 text-white font-bold px-4 py-2 rounded-lg text-sm hover:scale-105 transition"
+                          className="inline-flex items-center gap-2 rounded-lg border border-white/10 bg-white/10 px-4 py-3 text-sm font-semibold text-white hover:bg-white/20 transition-all hover:scale-105"
+                          aria-label={`تفاصيل ${place.name}`}
                         >
-                          التفاصيل
+                          <Info className="w-5 h-5" />
+                          تفاصيل
                         </Link>
                         <Link
                           href={`/places/${place.slug}/book`}
-                          className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold px-4 py-2 rounded-lg text-sm hover:scale-105 transition"
+                          className="inline-flex items-center gap-2 rounded-lg bg-gradient-to-r from-cyan-500 to-blue-500 px-4 py-3 text-sm font-bold text-white shadow-lg shadow-cyan-500/30 hover:scale-105 transition-all"
+                          aria-label={`احجز الآن ${place.name}`}
                         >
+                          <CalendarDays className="w-5 h-5" />
                           احجز الآن
                         </Link>
                       </div>

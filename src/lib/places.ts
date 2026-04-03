@@ -56,11 +56,11 @@ export const places: Place[] = [
         price: 2000,
         originalPrice: 3300,
         features: [
-          "ثلاث مشروبات فاخرة (Free)",
-          "طبق مازة مميزة (Free)",
-          "طبق فواكه طازة مميزة (Free)",
-          "مقاعد أمام الستيج مباشرة + خدمة VIP خاصة",
-          "إمكانية الجلوس مع بنات (أكثر تميزً)",
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)",
         ],
       },
     ],
@@ -100,11 +100,11 @@ export const places: Place[] = [
         price: 3000,
         originalPrice: 3500,
         features: [
-          "ثلاث مشروبات فاخرة (Free)",
-          "طبق مازة مميزة (Free)",
-          "طبق فواكه طازة مميزة (Free)",
-          "مقاعد أمام الستيج مباشرة + خدمة VIP خاصة",
-          "إمكانية الجلوس مع بنات (أكثر تميزاً)",
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)",
         ],
       },
     ],
@@ -144,7 +144,7 @@ export const places: Place[] = [
         price: 3500,
         originalPrice: 4000,
         features: [
-          "ثلاث مشروبات فاخرة (Free)",
+          "اثنين مشروبات فاخرة (Free)",
           "طبق مازة مميزة (Free)",
           "طبق فواكه طازة مميزة (Free)",
           "مقاعد أمام الستيج مباشرة + خدمة VIP خاصة",
@@ -164,8 +164,32 @@ export const places: Place[] = [
     image: "/images/nox club 01286110562.jpg",
     video: "/videos/Disco NoX Club.mp4",
     packages: [
-      { id: "standard", name: "تيكت صف تاني 🎫", price: 2800, originalPrice: 3500, features: ["مشروب ترحيب", "طاولة مشتركة"] },
-      { id: "vip", name: "تيكت VIP 🎫🔥", price: 3800, originalPrice: 4500, features: ["طاولة VIP", "مشروب لا محدود"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2800, 
+        originalPrice: 3500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3800, 
+        originalPrice: 4500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -179,8 +203,32 @@ export const places: Place[] = [
     image: "/images/2025-04-19.webp",
     video: "/videos/veinaa.mp4",
     packages: [
-      { id: "standard", name: "تيكت صف تاني 🎫", price: 1500, originalPrice: 2000, features: ["مشروب ترحيب", "مازة خفيفة"] },
-      { id: "vip", name: "تيكت VIP 🎫🔥", price: 2500, originalPrice: 3000, features: ["طاولة VIP", "بار خاص"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 1500, 
+        originalPrice: 2000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 2500, 
+        originalPrice: 3000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -194,8 +242,32 @@ export const places: Place[] = [
     image: "/images/2026-03-31.webp",
     video: "/videos/اوتار.mp4",
     packages: [
-      { id: "standard", name: "تيكت صف تاني 🎫", price: 1500, originalPrice: 2000, features: ["مشروب ترحيب", "مازة خفيفة"] },
-      { id: "vip", name: "تيكت VIP 🎫🔥", price: 3100, originalPrice: 3600, features: ["طاولة VIP", "بار خاص"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 1500, 
+        originalPrice: 2000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3100, 
+        originalPrice: 3600, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -209,8 +281,32 @@ export const places: Place[] = [
     image: "/images/Stage Cairo Club.jpg",
     video: "/videos/حجزات لاونج وديسكو وسياحه مصر.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 3500, originalPrice: 4500, features: ["مقعد عادي", "مشروب ترحيبي"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 4500, originalPrice: 5200, features: ["طاولة VIP", "مشروبات مجانية", "مواصلات VIP"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 3500, 
+        originalPrice: 4500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 4500, 
+        originalPrice: 5200, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -224,8 +320,32 @@ export const places: Place[] = [
     image: "/images/unnamed.jpg",
     video: "/videos/Cash Cairo.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2500, originalPrice: 3900, features: ["مشروب ترحيبي", "شواء خفيف"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3000, originalPrice: 3600, features: ["طاولة خاصة", "دعم موسيقى خاص"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2500, 
+        originalPrice: 3900, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3000, 
+        originalPrice: 3600, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -239,8 +359,32 @@ export const places: Place[] = [
     image: "/images/Omni Club Cairo 1.jpg",
     video: "/videos/Omni Club Cairo.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2500, originalPrice: 3500, features: ["مشروب ترحيبي", "مقاعد مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3200, originalPrice: 4000, features: ["جلسة VIP", "موظف شخصي"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2500, 
+        originalPrice: 3500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3200, 
+        originalPrice: 4000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -254,8 +398,32 @@ export const places: Place[] = [
     image: "/images/echo-club.jpg",
     video: "/videos/Echo Club.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2400, originalPrice: 3000, features: ["مشروبات مجانية", "مقاعد عادية"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3400, originalPrice: 4300, features: ["طاولة VIP", "مدخل خاص"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2400, 
+        originalPrice: 3000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3400, 
+        originalPrice: 4300, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -269,8 +437,32 @@ export const places: Place[] = [
     image: "/images/2026-03-31.webp",
     video: "/videos/King Club.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2400, originalPrice: 3000, features: ["مشروب ترحيبي", "مقاعد مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3600, originalPrice: 4500, features: ["طاولة خاصة", "مشروبات خاصة"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2400, 
+        originalPrice: 3000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3600, 
+        originalPrice: 4500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -284,8 +476,32 @@ export const places: Place[] = [
     image: "/images/cosmoclub.egy_14050114_004447329.jpg",
     video: "/videos/Cosmo Lounge & Club.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 5000, originalPrice: 6000, features: ["مشروب ترحيبي", "جلسة عادية"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 6000, originalPrice: 7000, features: ["طاولة VIP", "بار خاص"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 5000, 
+        originalPrice: 6000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 6000, 
+        originalPrice: 7000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -299,8 +515,32 @@ export const places: Place[] = [
     image: "/images/unnamed.webp",
     video: "/videos/OVID Club.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 4000, originalPrice: 5000, features: ["مشروب ترحيبي", "طاولة مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 5000, originalPrice: 6000, features: ["طاولة خاصة", "دعم موسيقي خاص"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 4000, 
+        originalPrice: 5000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 5000, 
+        originalPrice: 6000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -314,8 +554,32 @@ export const places: Place[] = [
     image: "/images/SHOTS.jpg",
     video: "/videos/Shots Club.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 1500, originalPrice: 2500, features: ["مشروب ترحيبي", "طاولة مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3100, originalPrice: 3900, features: ["طاولة خاصة", "بار خاص"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 1500, 
+        originalPrice: 2500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3100, 
+        originalPrice: 3900, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -329,8 +593,32 @@ export const places: Place[] = [
     image: "/images/ROVI Club صور.jpg",
     video: "/videos/ROVI Club.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2500, originalPrice: 3000, features: ["مشروب ترحيبي", "مقاعد مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3300, originalPrice: 4200, features: ["طاولة خاصة", "خدمة شخصية"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2500, 
+        originalPrice: 3000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3300, 
+        originalPrice: 4200, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -344,8 +632,32 @@ export const places: Place[] = [
     image: "/images/Rai Club Nile Dragon Boat.jpg",
     video: "/videos/Savetik_1764254796.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2200, originalPrice: 2800, features: ["بوفيه مشروبات", "منطقة مفتوحة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3000, originalPrice: 4900, features: ["طاولة خاصة", "مدخل سريع"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2200, 
+        originalPrice: 2800, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3000, 
+        originalPrice: 4900, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -359,8 +671,32 @@ export const places: Place[] = [
     image: "/images/Volt Lounge.jpg",
     video: "/videos/Volt Lounge.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 3000, originalPrice: 4000, features: ["مشروب ترحيبي", "طاولة مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3500, originalPrice: 4000, features: ["طاولة خاصة", "خدمة مشروبات لا محدودة"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 3000, 
+        originalPrice: 4000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3500, 
+        originalPrice: 4000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -374,8 +710,32 @@ export const places: Place[] = [
     image: "/images/سانسي كلوب.png",
     video: "/videos/سانسي كلوب.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2700, originalPrice: 3500, features: ["مشروب ترحيبي", "مقاعد مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3400, originalPrice: 4500, features: ["طاولة VIP", "بوفيه خاص"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2700, 
+        originalPrice: 3500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3400, 
+        originalPrice: 4500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -389,8 +749,32 @@ export const places: Place[] = [
     image: "/images/nox club 01286110562.jpg",
     video: "/videos/Disco NoX Club.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 3500, originalPrice: 4000, features: ["مشروب ترحيبي", "جلسة مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 4300, originalPrice: 4900, features: ["طاولة خاصة", "خدمة سريعة"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 3500, 
+        originalPrice: 4000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 4300, 
+        originalPrice: 4900, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -404,8 +788,32 @@ export const places: Place[] = [
     image: "/images/FB_IMG_1775170510794.jpg",
     video: "/videos/صهله.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2000, originalPrice: 2900, features: ["مشروب ترحيبي", "مقاعد مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3500, originalPrice: 4300, features: ["طاولة خاصة", "مشروبات خاصة"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2000, 
+        originalPrice: 2900, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3500, 
+        originalPrice: 4300, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
   {
@@ -419,8 +827,32 @@ export const places: Place[] = [
     image: "/images/Kalije Night Club.jpg",
     video: "/videos/Kalije Night Club.mp4",
     packages: [
-      { id: "standard", name: "Standard 🎫", price: 2700, originalPrice: 3500, features: ["مشروب ترحيبي", "طاولة مشتركة"] },
-      { id: "vip", name: "VIP 🎫🔥", price: 3200, originalPrice: 4000, features: ["طاولة خاصة", "خدمة متكاملة"] },
+      { 
+        id: "standard", 
+        name: "تيكت صف تاني 🎫", 
+        price: 2700, 
+        originalPrice: 3500, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الثاني",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
+      { 
+        id: "vip", 
+        name: "تيكت صف اول VIP 🎫🔥", 
+        price: 3200, 
+        originalPrice: 4000, 
+        features: [
+          "مشروبين فاخرين (Free) من اختيارك",
+          "طبق مازة متنوع (Free)",
+          "طبق فواكه طازة (Free)",
+          "مقاعد مميزة في الصف الأول",
+          "إمكانية الجلوس مع بنات (عند الطلب)"
+        ] 
+      },
     ],
   },
 ].sort((a, b) => a.price - b.price);

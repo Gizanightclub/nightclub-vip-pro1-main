@@ -34,7 +34,7 @@ export default function NorthCoastPage() {
           <p className="text-gray-300 mb-8">نحن نوفر حجز VIP بسيارة ذهاب وعودة وأرخص سعر في الساحل الشمالي.</p>
 
           {northCoastPlaces.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
               {northCoastPlaces.map((place) => (
                 <PlaceCard key={place.slug} place={place} />
               ))}

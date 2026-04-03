@@ -70,7 +70,7 @@ export default function NightclubImagesPage() {
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">صور نايت كلوب في مصر</h1>
           <p className="text-gray-300 mb-8">مجموعة صور عالية الجودة لأفضل النوادي، مع تفاصيل الأسعار وتجارب حقيقية.</p>
 
-          <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <section className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {galleryImages.map((img) => (
               <article key={img.slug} className="rounded-2xl overflow-hidden border border-purple-500/30 bg-black/40">
                 <div className="relative aspect-video w-full">

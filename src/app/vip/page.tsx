@@ -25,7 +25,7 @@ export default function VIPTypePage() {
           <p className="text-gray-300 mb-8">أفضل باقات VIP لأرقى النوادي في مصر، مع توصيل VIP وخدمة شاملة.</p>
 
           {vipPlaces.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
               {vipPlaces.map((place) => (
                 <PlaceCard key={place.slug} place={place} />
               ))}

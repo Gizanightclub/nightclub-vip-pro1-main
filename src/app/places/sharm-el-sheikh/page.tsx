@@ -26,7 +26,7 @@ export default function SharmElSheikhPage() {
           <p className="text-gray-300 mb-8">أفضل سهرات البحر الأحمر مع حفلات ديسكو وVIP في شرم الشيخ.</p>
 
           {sharmPlaces.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
               {sharmPlaces.map((place) => (
                 <PlaceCard key={place.slug} place={place} />
               ))}

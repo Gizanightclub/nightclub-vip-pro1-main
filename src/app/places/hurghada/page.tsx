@@ -94,7 +94,7 @@ export default function HurghadaPlacesPage() {
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">أفضل نايت كلوب في الغردقة</h1>
           <p className="text-gray-300 mb-8">سهرات ساحرة عند البحر الأحمر مع أغاني الـ DJ الحماسية.</p>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {hurghadaPlaces.map((place) => (
               <PlaceCard key={place.slug} place={place} />
             ))}

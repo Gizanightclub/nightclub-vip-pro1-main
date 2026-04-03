@@ -26,7 +26,7 @@ export default function DiscoTypePage() {
           <p className="text-gray-300 mb-8">سهرات ديسكو مع DJs ونظام صوت قوي وخيارات VIP.</p>
 
           {discoPlaces.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
               {discoPlaces.map((place) => (
                 <PlaceCard key={place.slug} place={place} />
               ))}
