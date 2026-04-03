@@ -2,7 +2,6 @@ import type { Metadata, Viewport } from "next";
 import { Cairo, Inter } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "@/components/ui/sonner";
-import Script from "next/script";
 import LogoStructuredData from "../components/LogoStructuredData";
 import SEOUnified from "../components/SEOUnified";
 import StructuredData from "../components/StructuredData";
@@ -294,16 +293,7 @@ export default function RootLayout({
         }} />
 
         {/* 👇 Google Analytics محسن */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'G-H1ZWPG12HP');
-            `,
-          }}
-        />
+        {/* removed inline dataLayer script, handled by GoogleAnalytics component */}
       </head>
 
       <body className="min-h-screen text-white font-cairo antialiased">

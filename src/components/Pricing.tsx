@@ -260,14 +260,14 @@ const Pricing = () => {
                                         </h3>
                                         <div className="flex items-center justify-center gap-3 mb-2">
                                             <span className="text-3xl font-bold text-yellow-400">
-                                                {pkg.price} ج
+                                                {pkg.price} EGP
                                             </span>
                                             <span className="text-xl text-gray-400 line-through">
-                                                {pkg.originalPrice} ج
+                                                {pkg.originalPrice} EGP
                                             </span>
                                         </div>
                                         <Badge className="bg-gradient-to-r from-red-500 to-orange-500 text-white shadow-md">
-                                            وفر {pkg.originalPrice - pkg.price} جنيه
+                                            وفر {pkg.originalPrice - pkg.price} EGP
                                         </Badge>
                                     </div>
 

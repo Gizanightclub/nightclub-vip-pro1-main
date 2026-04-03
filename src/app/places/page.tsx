@@ -38,6 +38,45 @@ export default function PlacesPage() {
             </p>
           </motion.div>
 
+          {/* Cities Quick Links */}
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 max-w-4xl mx-auto mb-12">
+            <Link
+              href="/places/cairo"
+              className="text-center rounded-xl border border-purple-500/30 bg-white/10 px-4 py-4 text-white hover:bg-white/20 transition"
+            >
+              <h3 className="font-bold text-lg">نايت كلوب القاهرة</h3>
+              <p className="text-sm text-gray-300">أفضل السهرات في القاهرة والجيزة</p>
+            </Link>
+            <Link
+              href="/places/alexandria"
+              className="text-center rounded-xl border border-purple-500/30 bg-white/10 px-4 py-4 text-white hover:bg-white/20 transition"
+            >
+              <h3 className="font-bold text-lg">نايت كلوب الإسكندرية</h3>
+              <p className="text-sm text-gray-300">سهرات بحرية على الساحل</p>
+            </Link>
+            <Link
+              href="/places/hurghada"
+              className="text-center rounded-xl border border-purple-500/30 bg-white/10 px-4 py-4 text-white hover:bg-white/20 transition"
+            >
+              <h3 className="font-bold text-lg">نايت كلوب الغردقة</h3>
+              <p className="text-sm text-gray-300">سهرات البحر الأحمر وVIP</p>
+            </Link>
+            <Link
+              href="/places/nightclub-images"
+              className="text-center rounded-xl border border-purple-500/30 bg-white/10 px-4 py-4 text-white hover:bg-white/20 transition"
+            >
+              <h3 className="font-bold text-lg">معرض الصور والدليل</h3>
+              <p className="text-sm text-gray-300">صور نايت كلوب في مصر + أسعار وتجارب حقيقية</p>
+            </Link>
+            <Link
+              href="/places/nightclub-videos"
+              className="text-center rounded-xl border border-purple-500/30 bg-white/10 px-4 py-4 text-white hover:bg-white/20 transition"
+            >
+              <h3 className="font-bold text-lg">فيديوهات السهرات</h3>
+              <p className="text-sm text-gray-300">فيديوهات VIP وتجارب حقيقية مع CTA حجز مباشر</p>
+            </Link>
+          </div>
+
           {/* Places Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {places.map((place, index) => (
@@ -66,9 +105,16 @@ export default function PlacesPage() {
                       <p className="mt-1 text-sm text-gray-200 max-w-md">{place.description}</p>
                     </div>
                     <div className="mt-4 flex items-center justify-between gap-3">
-                      <div>
-                        <p className="text-sm text-gray-300">السعر من</p>
-                        <h3 className="text-2xl font-bold text-yellow-400">{place.price} ج</h3>
+                      <div className="flex-1">
+                        <p className="text-sm text-gray-300 mb-2">السعر</p>
+                        <div className="flex flex-col items-start gap-1">
+                          <p className="text-2xl text-gray-400 line-through font-semibold">{place.originalPrice} EGP</p>
+                          <div className="flex items-center gap-2">
+                            <h3 className="text-4xl font-black text-yellow-400">{place.price}</h3>
+                            <span className="text-xl text-gray-300">EGP</span>
+                          </div>
+                          <span className="inline-block text-sm font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 px-2 py-0.5 rounded-md">خصم {Math.round(((place.originalPrice - place.price) / place.originalPrice) * 100)}%</span>
+                        </div>
                       </div>
                       <div className="flex flex-col gap-2">
                         <Link
@@ -90,6 +136,26 @@ export default function PlacesPage() {
               </motion.div>
             ))}
           </div>
+
+          {/* Links for AI and internal SEO */}
+          <section className="mt-12 grid grid-cols-1 md:grid-cols-2 gap-4">
+            <Link href="/places/cairo" className="rounded-xl border border-purple-500/30 bg-white/10 p-4 hover:bg-white/20 transition">
+              <h3 className="text-lg font-bold text-white">نايت كلوب القاهرة</h3>
+              <p className="text-gray-300">أشهر النوادي مع VIP وأسعار أرخص.</p>
+            </Link>
+            <Link href="/places/north-coast" className="rounded-xl border border-purple-500/30 bg-white/10 p-4 hover:bg-white/20 transition">
+              <h3 className="text-lg font-bold text-white">الساحل الشمالي</h3>
+              <p className="text-gray-300">سهرات البحر الأحمر وأسعار تنافسية.</p>
+            </Link>
+            <Link href="/places/sharm-el-sheikh" className="rounded-xl border border-purple-500/30 bg-white/10 p-4 hover:bg-white/20 transition">
+              <h3 className="text-lg font-bold text-white">شرم الشيخ</h3>
+              <p className="text-gray-300">مناسبات شرم DJ وديسكو VIP.</p>
+            </Link>
+            <Link href="/places/el-gouna" className="rounded-xl border border-purple-500/30 bg-white/10 p-4 hover:bg-white/20 transition">
+              <h3 className="text-lg font-bold text-white">الجونة</h3>
+              <p className="text-gray-300">سهرات الجونة بأسعار خاصة.</p>
+            </Link>
+          </section>
 
           {/* Back to Home */}
           <motion.div

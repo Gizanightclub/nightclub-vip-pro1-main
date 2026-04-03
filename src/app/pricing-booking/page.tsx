@@ -160,11 +160,11 @@ const PricingBookingPage = () => {
 💼 نوع الباقة: ${selectedPackageData.title}
 👥 عدد الأشخاص: ${guestCount}
 
-💰 السعر الأساسي: ${basePrice} جنيه
+💰 السعر الأساسي: ${basePrice} EGP
 ${discountCode ? `🏷️ كود الخصم: ${discountCode}` : ""}
-${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${appliedDiscount * 100}%)` : ""}
+${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appliedDiscount * 100}%)` : ""}
 
-✅ *الإجمالي: ${totalPrice} جنيه*
+✅ *الإجمالي: ${totalPrice} EGP*
 
 ----------------------
 شكراً لاختياركم Night Club Egypt 🎉
@@ -257,19 +257,19 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
                             <div className="space-y-2 text-sm">
                                 <div className="flex justify-between">
                                     <span className="text-gray-300">السعر الأساسي:</span>
-                                    <span className="text-white font-medium">{calculateBasePrice()} ج</span>
+                                    <span className="text-white font-medium">{calculateBasePrice()} EGP</span>
                                 </div>
                                 {isValidCode && calculateDiscountAmount() > 0 && (
                                     <>
                                         <div className="flex justify-between">
                                             <span className="text-gray-300">الخصم:</span>
-                                            <span className="text-green-400 font-medium">-{calculateDiscountAmount()} ج</span>
+                                            <span className="text-green-400 font-medium">-{calculateDiscountAmount()} EGP</span>
                                         </div>
                                     </>
                                 )}
                                 <div className="flex justify-between pt-3 border-t border-yellow-400/20 font-bold">
                                     <span className="text-gray-300">الإجمالي:</span>
-                                    <span className="text-yellow-400 text-lg">{calculateTotal()} ج</span>
+                                    <span className="text-yellow-400 text-lg">{calculateTotal()} EGP</span>
                                 </div>
                             </div>
                         </motion.div>
@@ -381,7 +381,7 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
                                     <div className="flex gap-2">
                                         <input
                                             type="text"
-                                            placeholder="VIP10"
+                                            placeholder="أدخل كود الخصم"
                                             className="flex-1 rounded-lg p-3 bg-white/5 border border-purple-500/30 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
                                             value={discountCode}
                                             onChange={(e) => {

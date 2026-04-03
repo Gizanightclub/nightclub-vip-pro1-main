@@ -34,9 +34,16 @@ const PlaceCard = ({ place }: { place: Place }) => {
             <p className="mt-2 text-xs text-green-300 font-semibold">سعة حتى 120 ضيف (القائمة تشمل باقات VIP و Standard)</p>
           </div>
           <div className="mt-4 flex items-center justify-between gap-3">
-            <div>
-              <p className="text-sm text-gray-300">السعر من</p>
-              <h4 className="text-2xl font-bold text-yellow-400">{place.price} ج</h4>
+            <div className="flex-1">
+              <p className="text-sm text-gray-300 mb-2">السعر</p>
+              <div className="flex flex-col items-start gap-1">
+                <p className="text-2xl text-gray-400 line-through font-semibold">{place.originalPrice} EGP</p>
+                <div className="flex items-center gap-2">
+                  <h4 className="text-4xl font-black text-yellow-400">{place.price}</h4>
+                  <span className="text-xl text-gray-300">EGP</span>
+                </div>
+                <span className="inline-block text-sm font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 px-2 py-0.5 rounded-md">خصم {Math.round(((place.originalPrice - place.price) / place.originalPrice) * 100)}%</span>
+              </div>
             </div>
             <div className="flex flex-col gap-2">
               <Link

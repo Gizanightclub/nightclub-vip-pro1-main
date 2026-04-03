@@ -87,11 +87,11 @@ const PlaceBookingForm = ({ place }: { place: Place }) => {
 💼 *تفاصيل الحجز*
 🎫 الباقة: ${selectedPkg?.name}
 👥 عدد الأشخاص: ${guestCount}
-💰 السعر الأساسي: ${basePrice} جنيه
+💰 السعر الأساسي: ${basePrice} EGP
 ${discountCode ? `🏷️ كود الخصم: ${discountCode}` : ""}
-${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${appliedDiscount * 100}%)` : ""}
+${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appliedDiscount * 100}%)` : ""}
 
-✅ *الإجمالي: ${total} جنيه*
+✅ *الإجمالي: ${total} EGP*
 
 💳 طريقة الدفع: ${useInstaPay === "instaPay" ? "InstaPay" : "حجز بدون دفع"}
 📊 حالة الدفع: ${status}
@@ -101,8 +101,18 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
 استمتعوا بأجمل الأوقات والذكريات معنا ✨
 `);
 
+    // فتح WhatsApp
     window.open(`https://wa.me/201286110562?text=${whatsappText}`, "_blank");
-    setMessage("✅ تم إرسال طلب الحجز بنجاح! سيتم التواصل معك قريباً عبر واتساب.");
+
+    // إذا اختار InstaPay، افتح الرابط الآمن للدفع
+    if (useInstaPay === "instaPay") {
+      setTimeout(() => {
+        window.open("https://ipn.eg/S/sabersry/instapay/2B3xKM", "_blank");
+      }, 1000);
+      setMessage("✅ تم إرسال طلب الحجز! سيتم فتح صفحة الدفع عبر InstaPay...");
+    } else {
+      setMessage("✅ تم إرسال طلب الحجز بنجاح! سيتم التواصل معك قريباً عبر واتساب.");
+    }
     
     // Reset form بعد ثانيتين
     setTimeout(() => {
@@ -159,19 +169,19 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
               <div className="space-y-2 text-sm">
                 <div className="flex justify-between">
                   <span className="text-gray-300">السعر الأساسي:</span>
-                  <span className="text-white font-medium">{basePrice} ج</span>
+                  <span className="text-white font-medium">{basePrice} EGP</span>
                 </div>
                 {isValidCode && discountAmount > 0 && (
                   <>
                     <div className="flex justify-between">
                       <span className="text-gray-300">الخصم:</span>
-                      <span className="text-green-400 font-medium">-{discountAmount} ج</span>
+                      <span className="text-green-400 font-medium">-{discountAmount} EGP</span>
                     </div>
                   </>
                 )}
                 <div className="flex justify-between pt-2 border-t border-yellow-400/20 font-bold">
                   <span className="text-gray-300">الإجمالي:</span>
-                  <span className="text-yellow-400 text-lg">{total} ج</span>
+                  <span className="text-yellow-400 text-lg">{total} EGP</span>
                 </div>
               </div>
             </motion.div>
@@ -291,7 +301,7 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
                   <div className="flex gap-2">
                     <input
                       type="text"
-                      placeholder="VIP10"
+                      placeholder="أدخل كود الخصم"
                       className="flex-1 rounded-lg p-3 bg-white/5 border border-purple-500/30 text-white focus:outline-none focus:ring-2 focus:ring-yellow-400"
                       value={discountCode}
                       onChange={(e) => {
@@ -329,7 +339,10 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
                 <div className="flex flex-wrap gap-3 mt-2">
                   <button
                     type="button"
-                    onClick={() => setUseInstaPay("instaPay")}
+                    onClick={() => {
+                      setUseInstaPay("instaPay");
+                      setMessage("✅ اخترت InstaPay، يمكنك الآن إكمال الحجز.");
+                    }}
                     className={`rounded-lg px-4 py-2 font-bold text-sm transition ${
                       useInstaPay === "instaPay"
                         ? "bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white shadow-lg shadow-pink-500/40"
@@ -349,6 +362,14 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
                   >
                     حجز بدون دفع
                   </button>
+                  <a
+                    href="https://ipn.eg/S/sabersry/instapay/2B3xKM"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="rounded-lg px-4 py-2 font-bold text-sm transition bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:shadow-lg hover:shadow-green-500/40"
+                  >
+                    💳 ادفع الآن مباشرة
+                  </a>
                 </div>
               </fieldset>
 

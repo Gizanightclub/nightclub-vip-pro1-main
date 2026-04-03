@@ -73,9 +73,6 @@ const PlacesSection = () => {
                       <span className="inline-block text-xs font-semibold uppercase tracking-wider text-sky-300 bg-sky-900/40 px-2 py-1 rounded-md">
                         {place.location}
                       </span>
-                      <div className="bg-gradient-to-r from-red-500 to-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full shadow-lg">
-                        خصم 25%
-                      </div>
                     </div>
                     <div>
                       <h3 className="mt-2 text-xl font-extrabold text-white">{place.name}</h3>
@@ -85,9 +82,16 @@ const PlacesSection = () => {
                 </div>
                 <div className="p-4 bg-black/80">
                   <div className="flex items-center justify-between gap-3">
-                    <div>
-                      <p className="text-sm text-gray-300">السعر من</p>
-                      <h4 className="text-2xl font-bold text-yellow-400">{place.price} ج</h4>
+                      <div className="flex-1">
+                        <p className="text-sm text-gray-300 mb-2">السعر</p>
+                        <div className="flex flex-col items-start gap-1">
+                          <p className="text-2xl text-gray-400 line-through font-semibold">{place.originalPrice} EGP</p>
+                          <div className="flex items-center gap-2">
+                            <h4 className="text-4xl font-black text-yellow-400">{place.price}</h4>
+                            <span className="text-xl text-gray-300">EGP</span>
+                          </div>
+                          <span className="inline-block text-sm font-bold text-white bg-gradient-to-r from-red-500 to-orange-500 px-2 py-0.5 rounded-md">خصم {Math.round(((place.originalPrice - place.price) / place.originalPrice) * 100)}%</span>
+                        </div>
                     </div>
                     <div className="flex flex-col gap-2">
                       <Link
@@ -112,6 +116,15 @@ const PlacesSection = () => {
               </div>
             </motion.div>
           ))}
+        </div>
+
+        <div className="mt-12 text-center">
+          <Link
+            href="/places"
+            className="inline-block bg-gradient-to-r from-yellow-400 to-orange-500 text-black font-bold px-8 py-3 rounded-lg hover:scale-105 transition"
+          >
+            أظهر المزيد من الأماكن
+          </Link>
         </div>
       </div>
     </section>

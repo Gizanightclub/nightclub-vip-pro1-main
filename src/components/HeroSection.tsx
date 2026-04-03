@@ -6,6 +6,7 @@ import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
 import { FaWhatsapp } from "react-icons/fa";
 import { Sparkles, Music, Users, Crown, Phone } from "lucide-react";
+import Link from "next/link";
 
 const HeroSection = () => {
   const [particles, setParticles] = useState<
@@ -20,13 +21,6 @@ const HeroSection = () => {
     }));
     setParticles(newParticles);
   }, []);
-
-  const scrollToContact = () => {
-    const contactSection = document.querySelector("#contact");
-    if (contactSection) {
-      contactSection.scrollIntoView({ behavior: "smooth" });
-    }
-  };
 
   const handleCall = () => {
     window.location.href = "tel:+201286110562";
@@ -126,7 +120,9 @@ const HeroSection = () => {
               <br />
               الحفلات، والفعاليات بكل سهولة وأمان.
               <br />
-              احجز الآن واستمتع بعروضنا العيد  🎈2026!✨
+              <span>يرجى العلم أننا مكتب سياحي لسهرات</span>
+              <br />
+              <span>ليس نشاط غير قانوني أو احتيالي. وله لنا فروع أخرى ❤️</span>
               <br />
               تواصل معنا عبر واتساب واحجز مكانك فورًا 📲
               <br />
@@ -145,13 +141,12 @@ const HeroSection = () => {
               transition={{ duration: 0.6, delay: 0.6 }}
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
-              <Button
-                onClick={scrollToContact}
-                size="lg"
-                className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold text-lg px-6 py-5 rounded-full hover:scale-105 transition-all duration-300"
+              <Link
+                href="/places"
+                className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold text-sm px-4 py-2 rounded-full hover:scale-105 transition-all duration-300 inline-flex items-center justify-center"
               >
                 احجز الآن مع خصومات تبدأ من 25%
-              </Button>
+              </Link>
 
               <div className="flex gap-4 justify-center w-full sm:w-auto">
                 <Button

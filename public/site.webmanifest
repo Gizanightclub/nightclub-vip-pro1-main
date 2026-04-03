@@ -1,16 +1,31 @@
 {
   "name": "Night Club Egypt - أفضل نايت كلوب في مصر",
   "short_name": "Night Club Egypt",
-  "description": "أفضل نايت كلوب في مصر - حفلات ليلية فاخرة في القاهرة، الجيزة، العجوزة، الشيخ زايد",
+  "description": "استمتع بأفضل سهرات ليلية مع أشهر النجوم والراقصات",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#000000",
-  "theme_color": "#000000",
+  "theme_color": "#FFD700",
   "orientation": "portrait-primary",
   "scope": "/",
   "lang": "ar",
   "dir": "rtl",
   "icons": [
+    {
+      "src": "/favicon-16x16.png",
+      "sizes": "16x16",
+      "type": "image/png"
+    },
+    {
+      "src": "/favicon-32x32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
     {
       "src": "/android-chrome-192x192.png",
       "sizes": "192x192",
@@ -24,12 +39,18 @@
       "purpose": "any maskable"
     }
   ],
-  "categories": ["entertainment", "lifestyle", "tourism"],
+  "categories": ["entertainment", "lifestyle", "social"],
   "screenshots": [
     {
-      "src": "/images/logo-seo-1200x1200.webp",
-      "sizes": "1200x630",
-      "type": "image/jpeg",
+      "src": "/images/screenshot-mobile.png",
+      "sizes": "390x844",
+      "type": "image/png",
+      "form_factor": "narrow"
+    },
+    {
+      "src": "/images/screenshot-desktop.png",
+      "sizes": "1280x720",
+      "type": "image/png",
       "form_factor": "wide"
     }
   ]

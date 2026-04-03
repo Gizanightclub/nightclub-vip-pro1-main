@@ -104,6 +104,17 @@ const SEOUnified: React.FC<SEOUnifiedProps> = ({
       heroImg.src = customImage || SEO_IMAGES.logo
       heroImg.loading = 'eager'
 
+      // Preload critical font
+      if (!document.querySelector('link[rel="preload"][as="font"]')) {
+        const fontLink = document.createElement('link')
+        fontLink.rel = 'preload'
+        fontLink.as = 'font'
+        fontLink.type = 'font/woff2'
+        fontLink.crossOrigin = 'anonymous'
+        fontLink.href = '/fonts/cairo-variable.woff2'
+        document.head.appendChild(fontLink)
+      }
+
       // Preconnect to external domains
       const preconnectDomains = [
         'https://www.googletagmanager.com',

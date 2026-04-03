@@ -1,4 +1,5 @@
 import { MetadataRoute } from 'next'
+import { places } from '@/lib/places'
 
 // 👇 إنشاء Sitemap محسن شامل لجميع الصفحات والمدن لتحسين Local SEO
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -49,6 +50,108 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'daily' as const,
       priority: 0.9,
     },
+    {
+      url: `${baseUrl}/places/`,
+      lastModified,
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/pricing-booking/`,
+      lastModified,
+      changeFrequency: 'daily' as const,
+      priority: 0.9,
+    },
+    {
+      url: `${baseUrl}/places/cairo/`,
+      lastModified,
+      changeFrequency: 'daily' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/places/alexandria/`,
+      lastModified,
+      changeFrequency: 'daily' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/places/hurghada/`,
+      lastModified,
+      changeFrequency: 'daily' as const,
+      priority: 0.85,
+    },
+    {
+      url: `${baseUrl}/places/north-coast/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/places/sharm-el-sheikh/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/places/el-gouna/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/night-club/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/disco/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/vip/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/parties/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
+    },
+    {
+      url: `${baseUrl}/blog/best-nightclubs-egypt-2026/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/cheapest-clubs-cairo/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/blog/booking-guide-egypt/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/places/nightclub-images/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/places/nightclub-videos/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.7,
+    },
     // 👇 إضافة روابط Sitemaps المتخصصة
     {
       url: `${baseUrl}/image-sitemap.xml`,
@@ -64,8 +167,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }
   ]
 
+  // 👇 إضافة صفحات الأماكن الديناميكية
+  const placePages = places.map((place) => ({
+    url: `${baseUrl}/places/${place.slug}/`,
+    lastModified,
+    changeFrequency: 'weekly' as const,
+    priority: 0.8,
+  }))
+
+  // 👇 إضافة صفحات حجز الأماكن
+  const bookingPages = places.map((place) => ({
+    url: `${baseUrl}/places/${place.slug}/book/`,
+    lastModified,
+    changeFrequency: 'weekly' as const,
+    priority: 0.7,
+  }))
+
   // 👇 دمج جميع الصفحات
   return [
     ...staticPages,
+    ...placePages,
+    ...bookingPages,
   ]
 }

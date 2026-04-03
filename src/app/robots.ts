@@ -1,6 +1,8 @@
 import { MetadataRoute } from 'next'
 
 export default function robots(): MetadataRoute.Robots {
+  const baseUrl = 'https://www.nightclubegypt.com'
+
   return {
     rules: [
       {
@@ -13,14 +15,19 @@ export default function robots(): MetadataRoute.Robots {
           '/programs/',
           '/booking/',
           '/packages/',
+          '/places/',
+          '/places/*/book/',
+          '/pricing-booking/',
           '/_next/static/',
-          '/images/',     // 👈 السماح بفهرسة الصور
-          '/videos/',     // 👈 السماح بفهرسة الفيديوهات
+          '/images/',
+          '/videos/',
           '/sitemap.xml',
-          '/image-sitemap.xml',  // 👈 إضافة image sitemap
-          '/video-sitemap.xml',  // 👈 إضافة video sitemap
+          '/image-sitemap.xml',
+          '/video-sitemap.xml',
           '/favicon.ico',
-          '/robots.txt'
+          '/robots.txt',
+          '/site.webmanifest',
+          '/manifest.json'
         ],
         disallow: [
           '/dashboard/*',
@@ -48,6 +55,17 @@ export default function robots(): MetadataRoute.Robots {
           '/500/',
           '/error/',
           '/*?*',
+          '/*&*',
+          '/*utm_*',
+          '/*fbclid*',
+          '/*gclid*',
+          '/wp-admin/',
+          '/wp-content/',
+          '/wp-includes/',
+          '/wp-json/',
+          '/xmlrpc.php',
+          '/readme.html',
+          '/license.txt',
           '/test/*',
           '/dev/*',
           '/staging/*'
@@ -63,8 +81,8 @@ export default function robots(): MetadataRoute.Robots {
           '/programs/',
           '/booking/',
           '/packages/',
-          '/images/*',        // 👈 السماح لـ Googlebot بفهرسة الصور
-          '/videos/*'         // 👈 السماح لـ Googlebot بفهرسة الفيديوهات
+          '/images/*',
+          '/videos/*'
         ],
         disallow: [
           '/dashboard/*',
@@ -85,8 +103,8 @@ export default function robots(): MetadataRoute.Robots {
           '/programs/',
           '/booking/',
           '/packages/',
-          '/images/*',        // 👈 السماح لـ Bingbot بفهرسة الصور
-          '/videos/*'         // 👈 السماح لـ Bingbot بفهرسة الفيديوهات
+          '/images/*',
+          '/videos/*'
         ],
         disallow: [
           '/dashboard/*',
@@ -113,12 +131,11 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ['/']
       }
     ],
-    // 👇 إضافة جميع روابط السايتمابس
     sitemap: [
-      'https://www.nightclubegypt.com/sitemap.xml',
-      'https://www.nightclubegypt.com/image-sitemap.xml',
-      'https://www.nightclubegypt.com/video-sitemap.xml'
+      `${baseUrl}/sitemap.xml`,
+      `${baseUrl}/image-sitemap.xml`,
+      `${baseUrl}/video-sitemap.xml`
     ],
-    host: 'https://www.nightclubegypt.com'
+    host: baseUrl
   }
 }

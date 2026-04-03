@@ -139,11 +139,11 @@ const handleSubmit = (e: React.FormEvent) => {
 👥 عدد الأشخاص: ${formData.guests}
 💼 الباقة: ${packageDetails.name}
 
-💰 السعر الأساسي: ${basePrice} جنيه
+💰 السعر الأساسي: ${basePrice} EGP
 ${isValidCode ? `🏷️ كود الخصم: ${discountCode}` : ""}
-${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${appliedDiscount * 100}%)` : ""}
+${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appliedDiscount * 100}%)` : ""}
 
-✅ *الإجمالي: ${totalPrice} جنيه*
+✅ *الإجمالي: ${totalPrice} EGP*
 
 ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
 
@@ -548,7 +548,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                                   id={`package-${id}-description`}
                                   className="text-xs md:text-sm text-gray-300"
                                 >
-                                  {pkg.price} جنيه للشخص الواحد
+                                  {pkg.price} EGP للشخص الواحد
                                 </p>
                               </div>
                             </div>
@@ -572,7 +572,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                         value={discountCode}
                         onChange={(e) => setDiscountCode(e.target.value)}
                         className="flex-1 bg-gray-800 border border-gray-700 rounded-lg px-3 py-2 md:px-4 md:py-3 text-sm md:text-base text-white focus:outline-none focus:ring-2 focus:ring-yellow-400/50 focus:border-yellow-400/30"
-                        placeholder="مثال: VIP10 أو NIGHT15"
+                        placeholder="أدخل كود الخصم"
                         aria-describedby="discount-help"
                         autoComplete="off"
                       />
@@ -635,7 +635,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                           السعر الأساسي:
                         </span>
                         <span className="text-sm md:text-base text-white font-medium">
-                          {calculateBasePrice()} جنيه
+                          {calculateBasePrice()} EGP
                         </span>
                       </div>
 
@@ -654,7 +654,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                               قيمة الخصم:
                             </span>
                             <span className="text-sm md:text-base text-green-400 font-medium">
-                              -{calculateDiscountAmount()} جنيه
+                              -{calculateDiscountAmount()} EGP
                             </span>
                           </div>
                         </>
@@ -665,7 +665,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                           السعر الإجمالي:
                         </span>
                         <span className="text-base md:text-lg text-yellow-400 font-bold">
-                          {calculateTotal()} جنيه
+                          {calculateTotal()} EGP
                         </span>
                       </div>
                     </div>

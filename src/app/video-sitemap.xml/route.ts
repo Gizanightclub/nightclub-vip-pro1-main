@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server'
+import { places } from '@/lib/places'
 
 export async function GET() {
   const baseUrl = 'https://www.nightclubegypt.com'
   const lastmod = new Date().toISOString()
 
-  // 👇 بيانات الفيديوهات مع معلومات محسنة للفهرسة
-  const videos = [
+  // 👇 بيانات الفيديوهات الأساسية
+  const staticVideos = [
     {
       url: `${baseUrl}/videos/sasa2.mp4`,
       thumbnailUrl: `${baseUrl}/images/bestnightclb.jpg`,
@@ -20,7 +21,6 @@ export async function GET() {
       requiresSubscription: false,
       live: false
     },
-    // يمكن إضافة المزيد من الفيديوهات هنا
     {
       url: `${baseUrl}/videos/nightclub-promo.mp4`,
       thumbnailUrl: `${baseUrl}/images/nightclub0.jpeg`,
@@ -36,6 +36,27 @@ export async function GET() {
       live: false
     }
   ]
+
+  // 👇 إضافة فيديوهات الأماكن الديناميكية
+  const placeVideos = places
+    .filter(place => place.video) // فقط الأماكن التي لها فيديو
+    .map((place) => ({
+      url: `${baseUrl}${place.video}`,
+      thumbnailUrl: `${baseUrl}${place.image}`,
+      title: `${place.name} - ${place.description}`,
+      description: `استمتع بأفضل السهرات في ${place.name} ب${place.location}. ${place.description} مع أجواء VIP فاخرة وخدمة مميزة. احجز الآن واستمتع بتجربة ليلية لا تُنسى.`,
+      duration: 30,
+      uploadDate: '2025-01-01T00:00:00+00:00',
+      location: place.location,
+      category: 'Entertainment',
+      tags: ['نايت كلوب', place.name, place.location, 'سهرات', 'ترفيه ليلي', 'VIP', 'حجز'],
+      familyFriendly: false,
+      requiresSubscription: false,
+      live: false
+    }))
+
+  // 👇 دمج جميع الفيديوهات
+  const videos = [...staticVideos, ...placeVideos]
 
   // 👇 إنشاء XML للفيديوهات مع البيانات الهيكلية المطلوبة
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

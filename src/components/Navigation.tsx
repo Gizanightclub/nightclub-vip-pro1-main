@@ -43,6 +43,7 @@ const Navigation = () => {
     { name: "الفيديوهات", href: "#videos", icon: Video, seo: "فيديوهات نايت كلوب طرب شعبي" },
     { name: "المعرض", href: "#gallery", icon: Camera, seo: "صور نايت كلوب بار" },
     { name: "الأماكن", href: "#places", icon: Music, seo: "أماكن السهر VIP في مصر" },
+    { name: "نوادي القاهرة", href: "/night-clubs-cairo", icon: Star, seo: "نايت كلوب القاهرة حجز" },
     { name: "التواصل", href: "#contact", icon: Phone, seo: "حجز نايت كلوب اتصال" },
   ];
 

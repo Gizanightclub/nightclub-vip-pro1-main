@@ -1,11 +1,12 @@
 import { NextResponse } from 'next/server'
+import { places } from '@/lib/places'
 
 export async function GET() {
   const baseUrl = 'https://www.nightclubegypt.com'
   const lastmod = new Date().toISOString()
 
-  // 👇 قائمة الصور مع البيانات الوصفية المحسنة لـ SEO
-  const images = [
+  // 👇 قائمة الصور الأساسية
+  const staticImages = [
     // صور اللوجو
     {
       url: `${baseUrl}/images/logo-seo-1200x1200.webp`,
@@ -134,6 +135,17 @@ export async function GET() {
       title: 'عروض نايت كلوب'
     }
   ]
+
+  // 👇 إضافة صور الأماكن الديناميكية
+  const placeImages = places.map((place) => ({
+    url: `${baseUrl}${place.image}`,
+    caption: `${place.name} - ${place.description}`,
+    location: place.location,
+    title: `${place.name} - نايت كلوب ${place.location}`
+  }))
+
+  // 👇 دمج جميع الصور
+  const images = [...staticImages, ...placeImages]
 
   // 👇 إنشاء XML للصور مع هيكل محسن
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

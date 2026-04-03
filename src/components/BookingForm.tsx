@@ -243,8 +243,8 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
                     </h4>
 
                     <div className="flex items-center gap-2 mb-3">
-                      <span className="text-2xl font-bold text-yellow-400">{pkg.price} ج</span>
-                      <span className="text-sm text-gray-400 line-through">{pkg.originalPrice} ج</span>
+                      <span className="text-2xl font-bold text-yellow-400">{pkg.price} EGP</span>
+                      <span className="text-xl text-gray-400 line-through">{pkg.originalPrice} EGP</span>
                     </div>
 
                     <div className="space-y-2">
