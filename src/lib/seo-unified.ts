@@ -769,12 +769,79 @@ export const generateEventSchema = (eventData: {
   }
 })
 
+// � مولد Schema للتقييم الإجمالي
+export const generateAggregateRatingSchema = (ratingValue: number = 4.8, reviewCount: number = 258) => ({
+  "@context": "https://schema.org",
+  "@type": "AggregateRating",
+  "ratingValue": ratingValue,
+  "reviewCount": reviewCount,
+  "bestRating": 5,
+  "worstRating": 1
+})
+// 📋 مولد Schema لكيفية القيام بشيء
+export const generateHowToSchema = (steps: any[] = []) => ({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "كيف تحجز نايت كلوب في مصر",
+  "description": "دليل خطوة بخطوة لحجز نايت كلوب في مصر",
+  "step": steps
+})
+// 🖼️ مولد Schema للصور
+export const generateImageSchema = (imageUrl: string, name: string, description: string) => ({
+  "@context": "https://schema.org",
+  "@type": "ImageObject",
+  "url": imageUrl,
+  "name": name,
+  "description": description,
+  "width": 1200,
+  "height": 630,
+  "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+  "creator": IMAGE_CREATOR_ORG,
+  "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+  "creditText": IMAGE_CREDIT,
+  "license": IMAGE_LICENSE,
+  "acquireLicensePage": IMAGE_ACQUIRE_PAGE,
+  "copyrightNotice": COPYRIGHT_NOTICE
+})
+// 🎥 مولد Schema للفيديوهات
+export const generateVideoSchema = (videoUrl: string, name: string, description: string) => ({
+  "@context": "https://schema.org",
+  "@type": "VideoObject",
+  "url": videoUrl,
+  "name": name,
+  "description": description,
+  "thumbnailUrl": videoUrl.replace(/\.[^/.]+$/, ".jpg"),
+  "uploadDate": new Date().toISOString().split("T")[0],
+  "duration": "PT3M",
+  "contentLocation": { "@type": "Place", "name": "Cairo, Egypt" },
+  "creator": IMAGE_CREATOR_ORG,
+  "copyrightHolder": IMAGE_COPYRIGHT_HOLDER,
+  "license": IMAGE_LICENSE
+})
+// ⭐ مولد Schema للمراجعات
+export const generateReviewSchema = (reviewText: string, authorName: string, rating: number = 5) => ({
+  "@context": "https://schema.org",
+  "@type": "Review",
+  "author": {
+    "@type": "Person",
+    "name": authorName
+  },
+  "reviewRating": {
+    "@type": "Rating",
+    "ratingValue": rating,
+    "bestRating": 5
+  },
+  "reviewBody": reviewText,
+  "datePublished": new Date().toISOString().split("T")[0]
+})
 // 📄 مولد metadata خاص لكل نوع صفحة
 export const generatePageMetadataByType = (
-  pageType: 'home' | 'about' | 'programs' | 'packages' | 'gallery' | 'contact' | 'booking' | 'places' | 'place',
+  pageType: 'home' | 'about' | 'programs' | 'packages' | 'gallery' | 'contact' | 'faq' | 'booking' | 'places' | 'place',
   customTitle?: string,
   customDescription?: string,
-  customKeywords?: string[]
+  customKeywords?: string[],
+  customImage?: string,
+  customUrl?: string
 ) => {
   const pageInfo = {
     home: {
@@ -840,6 +907,13 @@ export const generatePageMetadataByType = (
       image: SEO_IMAGES.contact,
       keywords: ["حجز نايت كلوب مصر", "رقم تليفون نايت كلوب", "01286110562 نايت كلوب"]
     },
+    faq: {
+      title: "الأسئلة الشائعة - نايت كلوب مصر | إجابات شاملة",
+      description: "إجابات على أكثر الأسئلة شيوعاً حول نايت كلوب مصر. أسعار، مواعيد، حجز، فنانين وكل ما تحتاجه لتجربة لا تُنسى.",
+      path: "/faq",
+      image: SEO_IMAGES.packages,
+      keywords: ["أسئلة شائعة نايت كلوب", "FAQ نايت كلوب مصر", "أسعار نايت كلوب", "حجز نايت كلوب"]
+    },
     booking: {
       title: "احجز الآن في أفضل نايت كلوب مصر - حجز فوري | خصومات 25%",
       description: "احجز مكانك الآن في أفضل نايت كلوب بمصر! حجز فوري وسريع، خصومات تصل 25% للحجز المبكر.",
@@ -853,12 +927,14 @@ export const generatePageMetadataByType = (
   const finalTitle = customTitle || page.title
   const finalDescription = customDescription || page.description
   const finalKeywords = [...page.keywords, ...(customKeywords || [])]
+  const finalImage = customImage || page.image
+  const finalUrl = customUrl || generateCanonicalUrl(page.path)
 
   return generatePageMetadata({
     title: finalTitle,
     description: finalDescription,
     keywords: finalKeywords,
-    image: page.image,
-    url: generateCanonicalUrl(page.path)
+    image: finalImage,
+    url: finalUrl
   })
 }

@@ -3,8 +3,13 @@ import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
 import PlaceCard from "@/components/PlaceCard";
 import { places } from "@/lib/places";
+import { getPageSEOImage } from "@/lib/seo-images";
+import Script from "next/script";
+import Image from "next/image";
 
 export default function NightClubTypePage() {
+  const seoImage = getPageSEOImage("night-club");
+
   return (
     <>
       <SEOUnified
@@ -12,10 +17,93 @@ export default function NightClubTypePage() {
         customTitle="نايت كلوب في مصر | حجز مباشر VIP - Night Club Egypt"
         customDescription="أفضل نوادي نايت كلوب في مصر محدثة 2026. اختر النادي، احجز VIP، واستخدم 01286110562 للحصول على عرض فوري."
         customKeywords={["نايت كلوب", "Night Club", "Nightclub Egypt", "حجز نايت كلوب"]}
+        customImage={`https://www.nightclubegypt.com${seoImage}`}
+      />
+
+      {/* Schema Article for Night Club Page */}
+      <Script
+        id="nightclub-article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "دليل نايت كلوب مصر - أفضل الأماكن للحجز VIP 2026",
+            "description": "أفضل نوادي نايت كلوب في مصر محدثة 2026. اختر النادي، احجز VIP، واستخدم 01286110562 للحصول على عرض فوري.",
+            "image": {
+              "@type": "ImageObject",
+              "url": `https://www.nightclubegypt.com${seoImage}`,
+              "width": 1200,
+              "height": 630,
+              "caption": "صورة لأفضل نايت كلوب في مصر",
+              "name": "نايت كلوب مصر",
+              "description": "صورة احترافية لأفضل نوادي نايت كلوب في القاهرة والجيزة",
+              "contentLocation": {
+                "@type": "Place",
+                "name": "القاهرة، مصر"
+              },
+              "creator": {
+                "@type": "Organization",
+                "name": "Night Club Egypt"
+              },
+              "copyrightHolder": {
+                "@type": "Organization",
+                "name": "Night Club Egypt"
+              },
+              "license": "https://www.nightclubegypt.com/license",
+              "acquireLicensePage": "https://www.nightclubegypt.com/contact",
+              "creditText": "Night Club Egypt",
+              "copyrightNotice": "© 2026 Night Club Egypt. All rights reserved."
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "Night Club Egypt",
+              "url": "https://www.nightclubegypt.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Night Club Egypt",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
+                "width": 1200,
+                "height": 1200
+              }
+            },
+            "datePublished": "2024-01-01",
+            "dateModified": new Date().toISOString().split("T")[0],
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.nightclubegypt.com/night-club"
+            },
+            "keywords": "نايت كلوب, Night Club, Nightclub Egypt, حجز نايت كلوب, أفضل نايت كلوب في مصر",
+            "articleSection": "Night Clubs Guide",
+            "about": {
+              "@type": "NightClub",
+              "name": "Night Club Egypt",
+              "address": "القاهرة، مصر"
+            }
+          }, null, 2)
+        }}
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
+          {/* SEO Optimized Hero Image */}
+          <div className="mb-8">
+            <Image
+              src={seoImage}
+              alt="دليل نايت كلوب مصر - أفضل الأماكن للحجز VIP 2026. نايت كلوب, Night Club, Nightclub Egypt, حجز نايت كلوب"
+              width={1200}
+              height={600}
+              priority={true}
+              className="w-full h-auto rounded-xl border border-purple-500/30 shadow-lg"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjWjBqO6O2mhP//Z"
+            />
+          </div>
+
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">دليل نايت كلوب مصر</h1>
           <p className="text-gray-300 mb-8">كل النوادي الأكثر شهرة للحجز السريع والروتين الأمن.</p>
 

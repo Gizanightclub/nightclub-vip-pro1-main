@@ -138,6 +138,7 @@ export async function GET() {
 
   // 👇 إضافة صور الأماكن الديناميكية
   const placeImages = places.map((place) => ({
+    slug: place.slug,
     url: `${baseUrl}${place.image}`,
     caption: `${place.name} - ${place.description}`,
     location: place.location,
@@ -147,7 +148,7 @@ export async function GET() {
   // 👇 دمج جميع الصور
   const images = [...staticImages, ...placeImages]
 
-  // 👇 إنشاء XML للصور مع هيكل محسن
+  // 👇 إنشاء XML للصور مع صفحات مركزة لكل مكان وصفحة رئيسية وصفحة معرض
   const xml = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -156,7 +157,7 @@ export async function GET() {
     <lastmod>${lastmod}</lastmod>
     <changefreq>daily</changefreq>
     <priority>1.0</priority>
-    ${images.map(image => `
+    ${staticImages.map(image => `
     <image:image>
       <image:loc>${image.url}</image:loc>
       <image:caption>${image.caption}</image:caption>
@@ -178,6 +179,20 @@ export async function GET() {
       <image:geo_location>${image.location}</image:geo_location>
     </image:image>`).join('')}
   </url>
+
+  ${placeImages.map(placeImage => `
+  <url>
+    <loc>${baseUrl}/places/${placeImage.slug}/</loc>
+    <lastmod>${lastmod}</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <image:image>
+      <image:loc>${placeImage.url}</image:loc>
+      <image:caption>${placeImage.caption}</image:caption>
+      <image:title>${placeImage.title}</image:title>
+      <image:geo_location>${placeImage.location}</image:geo_location>
+    </image:image>
+  </url>`).join('')}
 
   <url>
     <loc>${baseUrl}/about/</loc>

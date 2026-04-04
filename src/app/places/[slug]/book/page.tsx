@@ -4,6 +4,7 @@ import * as React from "react";
 import { useMemo } from "react";
 import { notFound } from "next/navigation";
 import { getPlaceBySlug } from "@/lib/places";
+import { NIGHTCLUB_BASE_INFO } from "@/lib/seo-unified";
 import PlaceBookingForm from "@/components/PlaceBookingForm";
 import SEOUnified from "@/components/SEOUnified";
 import Navigation from "@/components/Navigation";
@@ -45,8 +46,18 @@ export default function PlaceBookingPage({ params: paramsPromise }: PageProps) {
     <>
       <SEOUnified
         pageType="booking"
-        customTitle={`احجز ${place?.name} - Night Club Egypt`}
-        customDescription={`املأ بيانات الحجز لمكان ${place?.name} في ${place?.location}. خدمة InstaPay متاحة، وتواصل مبدئي عبر واتساب.`}
+        customTitle={`حجز ${place?.name} في ${place?.location} - Night Club Egypt`}
+        customDescription={`املأ بيانات الحجز لمكان ${place?.name} في ${place?.location}. خدمة InstaPay وواتساب متاحة للحجز السريع.`}
+        customKeywords={[
+          ...(place?.keywords || []),
+          "حجز فوري",
+          "InstaPay",
+          "حجز نايت كلوب VIP",
+          place?.name || "",
+          place?.location || ""
+        ]}
+        customImage={`${NIGHTCLUB_BASE_INFO.domain}${place?.image}`}
+        customUrl={`${NIGHTCLUB_BASE_INFO.domain}/places/${place?.slug}/book`}
       />
 
       <Navigation />

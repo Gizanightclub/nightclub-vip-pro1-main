@@ -12,7 +12,21 @@ module.exports = {
     "/test/*"
   ],
   additionalPaths: async (config) => {
+    const placeSlugs = [
+      'tango-club', 'vieena-club', 'aowtar-club', 'fox-club', 'maluonaerr-club',
+      'nox-club', 'stage-cairo-club', 'cash-cairo', 'omni-club-cairo', 'echo-club',
+      'king-club', 'cosmo-lounge-and-club', 'ovid-club', 'shots-club', 'rovi-club',
+      'rai-club-nile-dragon-boat', 'volt-lounge', 'sansee-club', 'disco-nox-club', 'sahalal-club'
+    ];
+
+    const placePaths = [];
+    for (const slug of placeSlugs) {
+      placePaths.push(await config.transform(config, `/places/${slug}`));
+      placePaths.push(await config.transform(config, `/places/${slug}/book`));
+    }
+
     return [
+      ...placePaths,
       await config.transform(config, "/image-sitemap.xml"),
       await config.transform(config, "/video-sitemap.xml"),
     ];

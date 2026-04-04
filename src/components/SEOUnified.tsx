@@ -13,11 +13,12 @@ import {
 } from '../lib/seo-unified'
 
 interface SEOUnifiedProps {
-  pageType?: 'home' | 'about' | 'programs' | 'packages' | 'gallery' | 'contact' | 'booking' | 'places' | 'place'
+  pageType?: 'home' | 'about' | 'programs' | 'packages' | 'gallery' | 'contact' | 'faq' | 'booking' | 'places' | 'place'
   customTitle?: string
   customDescription?: string
   customKeywords?: string[]
   customImage?: string
+  customUrl?: string
 }
 
 const SEOUnified: React.FC<SEOUnifiedProps> = ({
@@ -25,11 +26,12 @@ const SEOUnified: React.FC<SEOUnifiedProps> = ({
   customTitle,
   customDescription,
   customKeywords = [],
-  customImage
+  customImage,
+  customUrl
 }) => {
 
   // 📊 إنشاء metadata للصفحة الحالية
-  const pageMetadata = generatePageMetadataByType(pageType, customTitle, customDescription, customKeywords)
+  const pageMetadata = generatePageMetadataByType(pageType, customTitle, customDescription, customKeywords, customImage, customUrl)
 
   useEffect(() => {
     // 🔧 تحديث document title
@@ -61,7 +63,7 @@ const SEOUnified: React.FC<SEOUnifiedProps> = ({
         let meta = document.querySelector(`meta[property="${property}"]`)
         if (!meta) {
           meta = document.createElement('meta')
-          meta.setAttribute('property', property)
+          meta.setAttribute('فproperty', property)
           document.head.appendChild(meta)
         }
         meta.setAttribute('content', String(content))

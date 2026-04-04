@@ -890,7 +890,7 @@ export const places: Place[] = [
     ],
   },
   {
-    slug: "millennium-club",
+    slug: "sahalal-club",
     name: "SAHALAL CLUB - صهله كلوب",
     location: "الجيزه - شارع الهرم",
     description: "أجواء مليئة بالطاقة وصوتيات احترافية وحفلات يومية.",

@@ -3,12 +3,17 @@ import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
 import PlaceCard from "@/components/PlaceCard";
 import { places } from "@/lib/places";
+import { getPageSEOImage } from "@/lib/seo-images";
+import Script from "next/script";
+import Image from "next/image";
 
 export default function VIPTypePage() {
   const vipPlaces = places.filter((place) =>
     place.packages.some((p) => p.name.toLowerCase().includes("vip")) ||
     place.features.some((f) => f.toLowerCase().includes("vip"))
   );
+
+  const seoImage = getPageSEOImage("vip");
 
   return (
     <>
@@ -17,10 +22,93 @@ export default function VIPTypePage() {
         customTitle="VIP نايت كلوب مصر | حجز طاولات VIP أسرع - Night Club Egypt"
         customDescription="أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر 01286110562 مع ضمان أقل سعر."
         customKeywords={["VIP نايت كلوب", "حجز VIP", "طاولات VIP", "Night Club Egypt"]}
+        customImage={`https://www.nightclubegypt.com${seoImage}`}
+      />
+
+      {/* Schema Article for VIP Page */}
+      <Script
+        id="vip-article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": "دليل VIP نايت كلوب مصر - أفضل باقات VIP 2026",
+            "description": "أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر 01286110562 مع ضمان أقل سعر.",
+            "image": {
+              "@type": "ImageObject",
+              "url": `https://www.nightclubegypt.com${seoImage}`,
+              "width": 1200,
+              "height": 630,
+              "caption": "صورة لباقات VIP في نايت كلوب مصر",
+              "name": "VIP نايت كلوب مصر",
+              "description": "صورة احترافية لباقات VIP في أفضل نوادي نايت كلوب في مصر",
+              "contentLocation": {
+                "@type": "Place",
+                "name": "القاهرة، مصر"
+              },
+              "creator": {
+                "@type": "Organization",
+                "name": "Night Club Egypt"
+              },
+              "copyrightHolder": {
+                "@type": "Organization",
+                "name": "Night Club Egypt"
+              },
+              "license": "https://www.nightclubegypt.com/license",
+              "acquireLicensePage": "https://www.nightclubegypt.com/contact",
+              "creditText": "Night Club Egypt",
+              "copyrightNotice": "© 2026 Night Club Egypt. All rights reserved."
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "Night Club Egypt",
+              "url": "https://www.nightclubegypt.com"
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Night Club Egypt",
+              "logo": {
+                "@type": "ImageObject",
+                "url": "https://www.nightclubegypt.com/images/logo-seo-1200x1200.webp",
+                "width": 1200,
+                "height": 1200
+              }
+            },
+            "datePublished": "2024-01-01",
+            "dateModified": new Date().toISOString().split("T")[0],
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": "https://www.nightclubegypt.com/vip"
+            },
+            "keywords": "VIP نايت كلوب, حجز VIP, طاولات VIP, Night Club Egypt, باقات VIP",
+            "articleSection": "VIP Night Clubs",
+            "about": {
+              "@type": "NightClub",
+              "name": "Night Club Egypt VIP",
+              "address": "القاهرة، مصر"
+            }
+          }, null, 2)
+        }}
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
+          {/* SEO Optimized Hero Image */}
+          <div className="mb-8">
+            <Image
+              src={seoImage}
+              alt="دليل VIP نايت كلوب مصر - أفضل باقات VIP 2026. VIP نايت كلوب, حجز VIP, طاولات VIP, Night Club Egypt"
+              width={1200}
+              height={600}
+              priority={true}
+              className="w-full h-auto rounded-xl border border-purple-500/30 shadow-lg"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 1200px"
+              placeholder="blur"
+              blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjWjBqO6O2mhP//Z"
+            />
+          </div>
+
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">دليل VIP نايت كلوب</h1>
           <p className="text-gray-300 mb-8">أفضل باقات VIP لأرقى النوادي في مصر، مع توصيل VIP وخدمة شاملة.</p>
 

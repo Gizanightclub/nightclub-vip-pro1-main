@@ -6,8 +6,10 @@ import Link from "next/link";
 import Script from "next/script";
 import { notFound } from "next/navigation";
 import { getPlaceBySlug, places, Place } from "@/lib/places";
+import { NIGHTCLUB_BASE_INFO } from "@/lib/seo-unified";
 import SEOUnified from "@/components/SEOUnified";
 import Image from "next/image";
+import { getPlaceSEOImage } from "@/lib/seo-images";
 
 type PageProps = {
   params: Promise<{
@@ -58,20 +60,24 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
     }
   };
 
+  const seoImage = getPlaceSEOImage(params.slug);
+
   return (
     <>
       <SEOUnified
         pageType="place"
-        customTitle={`${place?.name} حجز القاهرة أرخص سعر | Night Club Egypt`}
-        customDescription={`احجز ${place?.name} بأفضل سعر في القاهرة مع خدمة VIP وسيارات ذهاب وعودة. اتصل الآن على ${phone} أو واتساب.`}
+        customTitle={`${place?.name} - حجز VIP في ${place?.location} | Night Club Egypt`}
+        customDescription={`احجز ${place?.name} في ${place?.location} الآن بأفضل سعر وباقات VIP. تواصل عبر واتساب أو اتصال على ${phone} للحجز الفوري.`}
         customKeywords={[
-          "night club cairo",
-          "nightlife egypt",
+          ...(place?.keywords || []),
           "حجز نايت كلوب",
-          "أماكن سهر في القاهرة",
+          "حجز VIP",
+          "حجز فوكس كلوب",
           place?.name || "",
           place?.location || ""
         ]}
+        customImage={`${NIGHTCLUB_BASE_INFO.domain}${seoImage}`}
+        customUrl={`${NIGHTCLUB_BASE_INFO.domain}/places/${place?.slug}`}
       />
       <Script
         id="place-structured-data"
@@ -91,7 +97,7 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
             telephone: phone,
             url: `https://www.nightclubegypt.com/places/${place?.slug}`,
             description: place?.description,
-            image: place?.image,
+            image: `${NIGHTCLUB_BASE_INFO.domain}${seoImage}`,
             priceRange: `${place?.price} EGP`,
             openingHours: "Mo-Su 20:00-04:00",
             geo: {
@@ -129,6 +135,73 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
                   "الخدمة ممتازة في اینيچ. حجز VIP وسفر ذهاب وعودة من خلال 01286110562 بسرعة وسهولة."
               }
             ]
+          }, null, 2)
+        }}
+      />
+
+      {/* Schema Article for SEO */}
+      <Script
+        id="place-article-schema"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Article",
+            "headline": `${place?.name} - أفضل نايت كلوب في ${place?.location}`,
+            "description": place?.description,
+            "image": {
+              "@type": "ImageObject",
+              "url": `${NIGHTCLUB_BASE_INFO.domain}${seoImage}`,
+              "width": 1200,
+              "height": 630,
+              "caption": `صورة لـ ${place?.name} في ${place?.location}`,
+              "name": `صورة ${place?.name}`,
+              "description": `صورة احترافية لـ ${place?.name} - نايت كلوب فاخر في ${place?.location}`,
+              "contentLocation": {
+                "@type": "Place",
+                "name": place?.location
+              },
+              "creator": {
+                "@type": "Organization",
+                "name": "Night Club Egypt"
+              },
+              "copyrightHolder": {
+                "@type": "Organization",
+                "name": "Night Club Egypt"
+              },
+              "license": `${NIGHTCLUB_BASE_INFO.domain}/license`,
+              "acquireLicensePage": `${NIGHTCLUB_BASE_INFO.domain}/contact`,
+              "creditText": "Night Club Egypt",
+              "copyrightNotice": "© 2026 Night Club Egypt. All rights reserved."
+            },
+            "author": {
+              "@type": "Organization",
+              "name": "Night Club Egypt",
+              "url": NIGHTCLUB_BASE_INFO.domain
+            },
+            "publisher": {
+              "@type": "Organization",
+              "name": "Night Club Egypt",
+              "logo": {
+                "@type": "ImageObject",
+                "url": `${NIGHTCLUB_BASE_INFO.domain}/images/logo-seo-1200x1200.webp`,
+                "width": 1200,
+                "height": 1200
+              }
+            },
+            "datePublished": "2024-01-01",
+            "dateModified": new Date().toISOString().split("T")[0],
+            "mainEntityOfPage": {
+              "@type": "WebPage",
+              "@id": `${NIGHTCLUB_BASE_INFO.domain}/places/${place?.slug}`
+            },
+            "keywords": place?.keywords?.join(", "),
+            "articleSection": "Night Clubs",
+            "about": {
+              "@type": "NightClub",
+              "name": place?.name,
+              "address": place?.location
+            }
           }, null, 2)
         }}
       />
@@ -178,6 +251,22 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
                 <div className="rounded-3xl border border-purple-500/30 bg-black/50 p-5" role="region" aria-label="متطلبات الحجز">
                   <h2 className="text-2xl font-bold text-yellow-400 mb-3">تفاصيل المكان</h2>
                   <p className="text-gray-300 mb-4">{place!.description}</p>
+
+                  {/* SEO Optimized Image */}
+                  <div className="mb-4">
+                    <Image
+                      src={seoImage}
+                      alt={`${place!.name} - نايت كلوب فاخر في ${place!.location}. ${place!.keywords?.slice(0, 5).join(', ')}`}
+                      width={800}
+                      height={600}
+                      priority={true}
+                      className="w-full h-auto rounded-xl border border-purple-500/30 shadow-lg"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
+                      placeholder="blur"
+                      blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjWjBqO6O2mhP//Z"
+                    />
+                  </div>
+
                   <ul className="space-y-2">
                     {place!.features.map((item: string) => (
                       <li key={item} className="text-gray-200">• {item}</li>
