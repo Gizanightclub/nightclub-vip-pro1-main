@@ -6,6 +6,7 @@ import Image from "next/image";
 import { places } from "@/lib/places";
 import SEOUnified from "@/components/SEOUnified";
 import { MapPin, Star, Info, CalendarDays } from "lucide-react";
+import StarRating from "@/components/StarRating";
 
 export default function PlacesPage() {
   return (
@@ -112,6 +113,11 @@ export default function PlacesPage() {
                         {place.location}
                       </span>
                       <h2 className="mt-2 text-lg font-extrabold text-white">{place.name}</h2>
+                      {place.rating && (
+                        <div className="mt-1">
+                          <StarRating rating={place.rating} size={14} />
+                        </div>
+                      )}
                       <p className="mt-1 text-xs text-gray-200 max-w-md">{place.description}</p>
                     </div>
                     <div className="flex items-center justify-between gap-3">

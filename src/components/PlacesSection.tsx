@@ -5,6 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { places } from "@/lib/places";
 import { MapPin, Star, Info, CalendarDays } from "lucide-react";
+import StarRating from "./StarRating";
 
 const PlacesSection = () => {
   return (
@@ -88,6 +89,11 @@ const PlacesSection = () => {
                     </div>
                     <div>
                       <h3 className="mt-2 text-lg md:text-xl font-extrabold text-white">{place.name}</h3>
+                      {place.rating && (
+                        <div className="mt-1">
+                          <StarRating rating={place.rating} size={14} />
+                        </div>
+                      )}
                       <p className="mt-1 text-sm text-gray-200 line-clamp-2">{place.description}</p>
                     </div>
                   </div>

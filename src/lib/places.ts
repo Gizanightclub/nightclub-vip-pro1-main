@@ -21,6 +21,7 @@ export type Place = {
   couplesOnly?: boolean;
   gulfOnly?: boolean;
   keywords?: string[]; // كلمات مفتاحية خاصة بكل مكان
+  rating?: number; // تقييم المكان من 1-5 نجوم
 };
 
 export const places: Place[] = [
@@ -33,12 +34,13 @@ export const places: Place[] = [
     originalPrice: 1500,
     features: [
       "طاولة VIP خاصة",
-      "3 مشروبات مجانية",
+      "2 مشروبات مجانية",
       "مدخل سريع بدون انتظار",
       "دي جي مباشر لموسيقى مميزة",
     ],
     image: "/images/night.jpg",
     video: "/videos/Savetik_1765351085.mp4",
+    rating: 4.8,
     keywords: [
       "تانجو كلوب", "Tango Club", "حجز تانجو", "Tango nightclub", "تانجو الجيزة",
       "تانجو كورنيش النيل", "سهرات تانجو", "أسعار تانجو كلوب", "Tango booking",
@@ -82,9 +84,10 @@ export const places: Place[] = [
     description: "تجربة راقية بأجواء إيكونومية ودي جي مثالي.",
     price: 1500,
     originalPrice: 2000,
-    features: ["بار كوكتيل", "مشروب ترحيبي", "رسم وجه", "سيشن تصوير"],
+    features: ["بار كوكتيل", "مشروب ترحيبي", "رقص شرقي ", "بروجرام يومي  "],
     image: "/images/2025-04-19.webp",
     video: "/videos/veinaa.mp4",
+    rating: 4.6,
     keywords: [
       "فيينا كلوب", "Vienna Club", "حجز فيينا", "Vienna nightclub", "فيينا العجوزة",
       "فيينا كورنيش النيل", "سهرات فيينا", "أسعار فيينا كلوب", "Vienna booking",
@@ -132,6 +135,7 @@ export const places: Place[] = [
     features: ["دي جي مباشر", "مدخل سريع", "جلسات خاصة", "مشروبات مجانية"],
     image: "/images/2026-03-31.webp",
     video: "/videos/اوتار.mp4",
+    rating: 4.7,
     keywords: [
       "أوتار كلوب", "AOWTAR Club", "حجز أوتار", "AOWTAR booking", "أوتار العجوزة",
       "أوتار فور سيزونز", "سهرات أوتار", "أسعار أوتار كلوب", "AOWTAR night",
@@ -175,13 +179,14 @@ export const places: Place[] = [
     price: 2500,
     originalPrice: 3000,
     features: [
-      "قائمة طعام راقية",
-      "مشروبات فاخرة غير محدودة",
-      "جلسة تصوير VIP",
+      "قائمة مشروبات  راقية",
+      " بروجرام يومي مميز",
+      "جلسة VIP",
       "خدمة استقبال شخصية",
     ],
     image: "/images/2026-03-29.webp",
     video: "/videos/vedo2.mp4",
+    rating: 4.9,
     keywords: [
       "فوكس كلوب", "FOX Club", "حجز فوكس", "FOX booking", "فوكس العجوزة",
       "فوكس الجيزة", "سهرات فوكس", "أسعار فوكس كلوب", "FOX nightclub",
@@ -226,11 +231,12 @@ export const places: Place[] = [
     originalPrice: 3500,
     features: [
       "عرض راقصات على أعلى مستوى",
-      "تخفيضات خاصة للأطفال",
+      "تخفيضات 20% على المشروبات",
       "مواقف سيارات VIP",
     ],
     image: "/images/naloner.jpg",
     video: "/videos/mlyoner.mp4",
+    rating: 4.5,
     keywords: [
       "مليونير كلوب", "Millionaire Club", "حجز مليونير", "Millionaire booking", "مليونير الزمالك",
       "مليونير القاهرة", "سهرات مليونير", "أسعار مليونير", "EL MALUONAERR night",
@@ -276,6 +282,7 @@ export const places: Place[] = [
     features: ["إضاءة ليزر", "دي جي عالمي", "VIP Lounge", "بار خاص"],
     image: "/images/nox club 01286110562.jpg",
     video: "/videos/Disco NoX Club.mp4",
+    rating: 4.4,
     keywords: [
       "نوكس كلوب", "NOX Club", "حجز نوكس", "NOX booking", "نوكس العجوزة",
       "نوكس ديسكو", "سهرات نوكس", "أسعار نوكس كلوب", "NOX nightclub",
@@ -321,6 +328,7 @@ export const places: Place[] = [
     features: ["DJ عالمي", "VIP Lounge", "عرض ليزر", "بوفيه مشروبات"],
     image: "/images/Stage Cairo Club.jpg",
     video: "/videos/حجزات لاونج وديسكو وسياحه مصر.mp4",
+    rating: 4.3,
     keywords: [
       "ستيج كايرو", "Stage Cairo", "حجز ستيج", "Stage booking", "ستيج النادي الأهلي",
       "ستيج مسرح", "سهرات ستيج", "أسعار ستيج كلوب", "Stage nightclub",
@@ -366,12 +374,13 @@ export const places: Place[] = [
       "دي جي كاش", "موسيقى إلكترونية", "نيون كاش", "کاش VIP",
       "نايت كلوب المهندسين", "nightclub Engineers", "Cash 2026"
     ],
-    description: "مكان عصري بإضاءة نيون وموسيقى إلكترونية مع طراز VIP مميز.",
+    description: "مكان عصري بإضاءة نيون وموسيقى  VIP مميز.",
     price: 2500,
     originalPrice: 3900,
-    features: ["دي جي إلكتروني", "مشروبات مختارة", "طاولة مشتركة", "باقات احتفالية"],
+    features: ["دي جي خليجي", "مشروبات مختارة", "طاولة مشتركة", "باقات احتفالية"],
     image: "/images/unnamed.jpg",
     video: "/videos/Cash Cairo.mp4",
+    rating: 4.2,
     packages: [
       { 
         id: "standard", 
@@ -408,10 +417,11 @@ export const places: Place[] = [
     description: "أمسيات موسيقية متنوعة و دي جي لايف ودار أجواء حماسية.",
     price: 2500,
     originalPrice: 3500,
-    features: ["دي جي لايف", "كوكتيل خاص", "جدران LED", "خدمة سريعة"],
+    features: ["دي جي لايف", "مشاريب  خاص", "جدران LED", "خدمة سريعة"],
     couplesOnly: true,
     image: "/images/Omni Club Cairo 1.jpg",
     video: "/videos/Omni Club Cairo.mp4",
+    rating: 4.1,
     keywords: [
       "أومني كلوب", "Omni Club", "حجز أومني", "Omni booking", "أومني الجزيرة",
       "أومني القاهرة", "سهرات أومني", "أسعار أومني كلوب", "Omni nightclub",
@@ -463,6 +473,7 @@ export const places: Place[] = [
     features: ["فرقة حية", "دي جي عالمي", "بار مفتوح", "مواقف سيارات"],
     image: "/images/echo-club.jpg",
     video: "/videos/Echo Club.mp4",
+    rating: 4.9,
     packages: [
       {
         id: "standard",
@@ -502,6 +513,7 @@ export const places: Place[] = [
     features: ["عروض دي جي حصرية", "كرسي VIP", "قائمة كوكتيل مميزة", "مدخل سريع"],
     image: "/images/2026-03-31.webp",
     video: "/videos/King Club.mp4",
+    rating: 4.3,
     keywords: [
       "كينج كلوب", "King Club", "حجز كينج", "King booking", "كينج الجيزة",
       "كينج البحر الأعظم", "سهرات كينج", "أسعار كينج كلوب", "King nightclub",
@@ -548,6 +560,7 @@ export const places: Place[] = [
     couplesOnly: true,
     image: "/images/cosmoclub.egy_14050114_004447329.jpg",
     video: "/videos/Cosmo Lounge & Club.mp4",
+    rating: 5.0,
     keywords: [
       "كوزمو كلوب", "Cosmo Club", "حجز كوزمو", "Cosmo booking", "كوزمو الزمالك",
       "كوزمو لاونج", "سهرات كوزمو", "أسعار كوزمو", "Cosmo nightclub",
@@ -595,6 +608,7 @@ export const places: Place[] = [
     couplesOnly: true,
     image: "/images/unnamed.webp",
     video: "/videos/OVID Club.mp4",
+    rating: 5.0,
     keywords: [
       "أوفيد كلوب", "OVID Club", "حجز أوفيد", "OVID booking", "أوفيد أهل مصر",
       "أوفيد النيل", "سهرات أوفيد", "أسعار أوفيد كلوب", "OVID nightclub",
@@ -641,6 +655,7 @@ export const places: Place[] = [
     couplesOnly: true,
     image: "/images/SHOTS.jpg",
     video: "/videos/Shots Club.mp4",
+    rating: 4.8,
     keywords: [
       "شوتس كلوب", "Shots Club", "حجز شوتس", "Shots nightclub", "شوتس المعادي",
       "جولات shots", "سهرات شوتس", "أسعار شوتس كلوب", "Shots booking",
@@ -689,6 +704,7 @@ export const places: Place[] = [
     couplesOnly: true,
     image: "/images/ROVI Club صور.jpg",
     video: "/videos/ROVI Club.mp4",
+    rating: 4.4,
     keywords: [
       "روفي كلوب", "ROVI Club", "حجز روفي", "ROVI booking", "روفي المعادي",
       "روفي كورنيش", "سهرات روفي", "أسعار روفي كلوب", "ROVI nightclub",
@@ -740,6 +756,7 @@ export const places: Place[] = [
     features: ["موسيقى راي", "منظر النيل", "أضواء ليلية", "أجواء رومانسية"],
     image: "/images/Rai Club Nile Dragon Boat.jpg",
     video: "/videos/Savetik_1764254796.mp4",
+    rating: 4.6,
     packages: [
       { 
         id: "standard", 
@@ -779,6 +796,7 @@ export const places: Place[] = [
     features: ["دي جي متجدد", "مجموعة مشروبات راقية", "قسم VIP", "مشاهدة ليلية"],
     image: "/images/Volt Lounge.jpg",
     video: "/videos/Volt Lounge.mp4",
+    rating: 4.3,
     keywords: ["فولت لاونج", "Volt Lounge", "حجز فولت", "فولت كلوب", "nightclub Giza", "نايت كلوب الجيزة", "Dj Giza", "موسيقى فولت", "فولت VIP", "حفلات فولت", "سهرات الدقي", "سهرات العجوزة", "نايت كلوب الدقي", "nightclub booking Giza", "أفضل حفلات الدقي", "حفلات VIP القاهرة", "موسيقى حية عالمية", "Volt lounge reservation", "تذاكر حفلات"],
     packages: [
       { 
@@ -819,6 +837,7 @@ export const places: Place[] = [
     features: ["دي جي مقيم", "بوفيه مشروبات", "عرض راقصات", "ممر VIP"],
     image: "/images/سانسي كلوب.png",
     video: "/videos/سانسي كلوب.mp4",
+    rating: 5.0,
     keywords: ["سانسي كلوب", "Sansee Club", "حجز سانسي", "نايت كلوب المهندسين", "nightclub engineers", "موسيقى عربية وغربية", "سانسي VIP", "سهرات المهندسين", "عروض راقصات", "برامج حصرية", "حفلات جيزة", "nightclub booking engineers", "سهرات ممتعة", "موسيقى مباشرة", "أفضل حفلات المهندسين", "راقصات محترفات", "Sansee reservation", "تذاكر سانسي", "حفلات يومية", "عروض مسائية"],
     packages: [
       { 
@@ -859,6 +878,7 @@ export const places: Place[] = [
     features: ["دي جي رقص", "نور ديجيتال", "VIP", "نظام صوتي 360"],
     image: "/images/nox club 01286110562.jpg",
     video: "/videos/Disco NoX Club.mp4",
+    rating: 4.2,
     keywords: ["ديسكو نوكس", "Disco NoX Club", "حجز نوكس", "نوكس كلوب", "عروض رقص", "نايت كلوب العجوزة", "nightclub Alzawiya", "Dj مصر", "موسيقى رقص", "نوكس VIP", "حفلات العجوزة", "سهرات مصرية", "نظام صوتي متقدم", "إضاءة ديجيتال", "Disco booking Giza", "تذاكر ديسكو", "حفلات راقصة", "عروض فنية متميزة", "حفلات يومية", "أفضل ديسكو القاهرة"],
     packages: [
       { 
@@ -939,6 +959,7 @@ export const places: Place[] = [
     features: ["DJ حي", "منطقة للزوار", "برامج خاصة", "خدمة VIP"],
     image: "/images/Kalije Night Club.jpg",
     video: "/videos/Kalije Night Club.mp4",
+    rating: 4.0,
     keywords: ["كاليجيه كلوب", "Kalije Night Club", "حجز كاليجيه", "نايت كلوب الدقي", "nightclub Doqqi", "موسيقى وايت", "Dj مقيم", "كاليجيه VIP", "حفلات الدقي", "سهرات حديثة", "برامج خاصة", "محطات VIP حصرية", "Kalije booking", "تذاكر كاليجيه", "نايت كلوب مصرية", "حفلات يومية مميزة", "موسيقى حية عالمية", "منطقة زوار فاخرة", "أفضل الحفلات الدقي", "nightclub Kalije Egypt"],
     packages: [
       { 

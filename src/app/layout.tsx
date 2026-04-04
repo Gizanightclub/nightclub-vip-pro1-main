@@ -275,7 +275,7 @@ export default function RootLayout({
         <meta name="msapplication-config" content="/browserconfig.xml" />
 
         {/* 👇 Preload critical resources لتحسين Core Web Vitals */}
-        <link rel="preload" href="images/logo.png" as="image" type="image/png" />
+        <link rel="preload" href="/images/logo.png" as="image" type="image/png" />
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />

@@ -191,6 +191,22 @@ const nextConfig = {
         source: '/club',
         destination: '/',
         permanent: true,
+      },
+      // إعادة توجيه الأماكن المعاد تسميتها (slug changes for SEO)
+      {
+        source: '/places/city-vibes/',
+        destination: '/places/tango-club/',
+        permanent: true,
+      },
+      {
+        source: '/places/royal-lounge/',
+        destination: '/places/fox-club/',
+        permanent: true,
+      },
+      {
+        source: '/places/neon-paradise/',
+        destination: '/places/maluonaerr-club/',
+        permanent: true,
       }
     ];
   },

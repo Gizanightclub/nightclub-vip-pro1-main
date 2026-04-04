@@ -7,6 +7,7 @@ import { useRouter } from "next/navigation";
 import { Place } from "@/lib/places";
 import { Check } from "lucide-react";
 import Image from "next/image";
+import StarRating from "./StarRating";
 
 type PaymentOption = "instaPay" | "noPayment";
 
@@ -153,6 +154,11 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end">
                 <div className="p-4">
                   <h2 className="text-2xl font-bold text-white">{place.name}</h2>
+                  {place.rating && (
+                    <div className="mt-1">
+                      <StarRating rating={place.rating} size={16} />
+                    </div>
+                  )}
                   <p className="text-sm text-gray-300 mt-1">{place.location}</p>
                 </div>
               </div>
@@ -196,6 +202,11 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
               className="mb-6"
             >
               <h2 className="text-3xl font-extrabold text-white mb-2">احجز {place.name}</h2>
+              {place.rating && (
+                <div className="mb-2">
+                  <StarRating rating={place.rating} size={18} />
+                </div>
+              )}
               <p className="text-sm text-gray-400">{place.description}</p>
             </motion.div>
 

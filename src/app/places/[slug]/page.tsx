@@ -10,6 +10,7 @@ import { NIGHTCLUB_BASE_INFO } from "@/lib/seo-unified";
 import SEOUnified from "@/components/SEOUnified";
 import Image from "next/image";
 import { getPlaceSEOImage } from "@/lib/seo-images";
+import StarRating from "@/components/StarRating";
 
 type PageProps = {
   params: Promise<{
@@ -243,6 +244,11 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
                     <div className="absolute bottom-4 left-4 p-4 rounded-lg bg-black/40 backdrop-blur-sm">
                       <h1 className="text-3xl font-extrabold text-white">{place!.name}</h1>
+                      {place!.rating && (
+                        <div className="mt-1">
+                          <StarRating rating={place!.rating} size={18} />
+                        </div>
+                      )}
                       <p className="text-sm text-gray-300 mt-1">{place!.location}</p>
                     </div>
                   </div>
