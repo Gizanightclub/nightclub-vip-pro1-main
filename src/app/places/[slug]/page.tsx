@@ -62,21 +62,15 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
     <>
       <SEOUnified
         pageType="place"
-        customTitle={`حجز ${place?.name} في ${place?.location} | ${place?.name} Booking Cairo | Night Club Egypt`}
-        customDescription={`احجز ${place?.name} في ${place?.location} (Cairo, Egypt). أفضل عروض VIP، خدمة InstaPay، ديسكو، وكوكتيل. اتصل الآن 01286110562 أو واتساب للسرعة.`}
+        customTitle={`${place?.name} حجز القاهرة أرخص سعر | Night Club Egypt`}
+        customDescription={`احجز ${place?.name} بأفضل سعر في القاهرة مع خدمة VIP وسيارات ذهاب وعودة. اتصل الآن على ${phone} أو واتساب.`}
         customKeywords={[
-          ...(place?.keywords || []),
+          "night club cairo",
+          "nightlife egypt",
           "حجز نايت كلوب",
-          "Night Club Booking",
-          "سهرات القاهرة",
-          "VIP Nightclub",
+          "أماكن سهر في القاهرة",
           place?.name || "",
-          place?.location || "",
-          "nightclub Cairo",
-          "best nightclub Cairo",
-          "احجز الآن",
-          "01286110562",
-          "واتساب حجز"
+          place?.location || ""
         ]}
       />
       <Script
