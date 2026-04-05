@@ -27,12 +27,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${baseUrl}/packages/`,
-      lastModified,
-      changeFrequency: 'weekly' as const,
-      priority: 0.8,
-    },
-    {
       url: `${baseUrl}/gallery/`,
       lastModified,
       changeFrequency: 'weekly' as const,
@@ -43,12 +37,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: 'monthly' as const,
       priority: 0.6,
-    },
-    {
-      url: `${baseUrl}/booking/`,
-      lastModified,
-      changeFrequency: 'daily' as const,
-      priority: 0.9,
     },
     {
       url: `${baseUrl}/places/`,

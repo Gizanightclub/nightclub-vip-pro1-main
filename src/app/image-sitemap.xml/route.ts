@@ -1,6 +1,15 @@
 import { NextResponse } from 'next/server'
 import { places } from '@/lib/places'
 
+function escapeXml(value: string) {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
 export async function GET() {
   const baseUrl = 'https://www.nightclubegypt.com'
   const lastmod = new Date().toISOString()
@@ -159,10 +168,10 @@ export async function GET() {
     <priority>1.0</priority>
     ${staticImages.map(image => `
     <image:image>
-      <image:loc>${image.url}</image:loc>
-      <image:caption>${image.caption}</image:caption>
-      <image:title>${image.title}</image:title>
-      <image:geo_location>${image.location}</image:geo_location>
+      <image:loc>${escapeXml(image.url)}</image:loc>
+      <image:caption>${escapeXml(image.caption)}</image:caption>
+      <image:title>${escapeXml(image.title)}</image:title>
+      <image:geo_location>${escapeXml(image.location)}</image:geo_location>
     </image:image>`).join('')}
   </url>
 
@@ -173,10 +182,10 @@ export async function GET() {
     <priority>0.8</priority>
     ${images.filter(img => img.url.includes('nightclub')).map(image => `
     <image:image>
-      <image:loc>${image.url}</image:loc>
-      <image:caption>${image.caption}</image:caption>
-      <image:title>${image.title}</image:title>
-      <image:geo_location>${image.location}</image:geo_location>
+      <image:loc>${escapeXml(image.url)}</image:loc>
+      <image:caption>${escapeXml(image.caption)}</image:caption>
+      <image:title>${escapeXml(image.title)}</image:title>
+      <image:geo_location>${escapeXml(image.location)}</image:geo_location>
     </image:image>`).join('')}
   </url>
 
@@ -187,10 +196,10 @@ export async function GET() {
     <changefreq>weekly</changefreq>
     <priority>0.85</priority>
     <image:image>
-      <image:loc>${placeImage.url}</image:loc>
-      <image:caption>${placeImage.caption}</image:caption>
-      <image:title>${placeImage.title}</image:title>
-      <image:geo_location>${placeImage.location}</image:geo_location>
+      <image:loc>${escapeXml(placeImage.url)}</image:loc>
+      <image:caption>${escapeXml(placeImage.caption)}</image:caption>
+      <image:title>${escapeXml(placeImage.title)}</image:title>
+      <image:geo_location>${escapeXml(placeImage.location)}</image:geo_location>
     </image:image>
   </url>`).join('')}
 
@@ -201,10 +210,10 @@ export async function GET() {
     <priority>0.7</priority>
     ${images.filter(img => img.url.includes('logo')).map(image => `
     <image:image>
-      <image:loc>${image.url}</image:loc>
-      <image:caption>${image.caption}</image:caption>
-      <image:title>${image.title}</image:title>
-      <image:geo_location>${image.location}</image:geo_location>
+      <image:loc>${escapeXml(image.url)}</image:loc>
+      <image:caption>${escapeXml(image.caption)}</image:caption>
+      <image:title>${escapeXml(image.title)}</image:title>
+      <image:geo_location>${escapeXml(image.location)}</image:geo_location>
     </image:image>`).join('')}
   </url>
 </urlset>`

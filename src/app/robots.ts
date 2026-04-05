@@ -13,8 +13,6 @@ export default function robots(): MetadataRoute.Robots {
           '/gallery/',
           '/contact/',
           '/programs/',
-          '/booking/',
-          '/packages/',
           '/places/',
           '/places/*/book/',
           '/pricing-booking/',
@@ -79,8 +77,6 @@ export default function robots(): MetadataRoute.Robots {
           '/gallery/',
           '/contact/',
           '/programs/',
-          '/booking/',
-          '/packages/',
           '/images/*',
           '/videos/*'
         ],
@@ -101,8 +97,6 @@ export default function robots(): MetadataRoute.Robots {
           '/gallery/',
           '/contact/',
           '/programs/',
-          '/booking/',
-          '/packages/',
           '/images/*',
           '/videos/*'
         ],

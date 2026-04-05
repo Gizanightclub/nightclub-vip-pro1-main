@@ -1,6 +1,21 @@
 import { NextResponse } from 'next/server'
 import { places } from '@/lib/places'
 
+// دالة لحماية النصوص من أحرف XML الخاصة
+function escapeXml(str: string): string {
+  if (!str) return ''
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&apos;')
+}
+
+function wrapCdata(value: string): string {
+  return `<![CDATA[${value.replace(/]]>/g, ']]]]><![CDATA[>')}]]>`
+}
+
 export async function GET() {
   const baseUrl = 'https://www.nightclubegypt.com'
   const lastmod = new Date().toISOString()
@@ -70,10 +85,10 @@ export async function GET() {
     <priority>1.0</priority>
     ${videos.map(video => `
     <video:video>
-      <video:thumbnail_loc>${video.thumbnailUrl}</video:thumbnail_loc>
-      <video:title><![CDATA[${video.title}]]></video:title>
-      <video:description><![CDATA[${video.description}]]></video:description>
-      <video:content_loc>${video.url}</video:content_loc>
+      <video:thumbnail_loc>${escapeXml(video.thumbnailUrl)}</video:thumbnail_loc>
+      <video:title>${wrapCdata(video.title)}</video:title>
+      <video:description>${wrapCdata(video.description)}</video:description>
+      <video:content_loc>${escapeXml(video.url)}</video:content_loc>
       <video:duration>${video.duration}</video:duration>
       <video:publication_date>${video.uploadDate}</video:publication_date>
       <video:family_friendly>${video.familyFriendly ? 'yes' : 'no'}</video:family_friendly>
@@ -81,8 +96,8 @@ export async function GET() {
       <video:live>${video.live ? 'yes' : 'no'}</video:live>
       <video:platform relationship="allow">web</video:platform>
       <video:restriction relationship="allow">EG</video:restriction>
-      ${video.tags.map(tag => `<video:tag>${tag}</video:tag>`).join('')}
-      <video:category>${video.category}</video:category>
+      ${video.tags.map(tag => `<video:tag>${wrapCdata(tag)}</video:tag>`).join('')}
+      <video:category>${escapeXml(video.category)}</video:category>
     </video:video>`).join('')}
   </url>
 
@@ -93,10 +108,10 @@ export async function GET() {
     <priority>0.8</priority>
     ${videos.map(video => `
     <video:video>
-      <video:thumbnail_loc>${video.thumbnailUrl}</video:thumbnail_loc>
-      <video:title><![CDATA[${video.title}]]></video:title>
-      <video:description><![CDATA[${video.description}]]></video:description>
-      <video:content_loc>${video.url}</video:content_loc>
+      <video:thumbnail_loc>${escapeXml(video.thumbnailUrl)}</video:thumbnail_loc>
+      <video:title>${wrapCdata(video.title)}</video:title>
+      <video:description>${wrapCdata(video.description)}</video:description>
+      <video:content_loc>${escapeXml(video.url)}</video:content_loc>
       <video:duration>${video.duration}</video:duration>
       <video:publication_date>${video.uploadDate}</video:publication_date>
       <video:family_friendly>${video.familyFriendly ? 'yes' : 'no'}</video:family_friendly>
@@ -104,8 +119,8 @@ export async function GET() {
       <video:live>${video.live ? 'yes' : 'no'}</video:live>
       <video:platform relationship="allow">web</video:platform>
       <video:restriction relationship="allow">EG</video:restriction>
-      ${video.tags.map(tag => `<video:tag>${tag}</video:tag>`).join('')}
-      <video:category>${video.category}</video:category>
+      ${video.tags.map(tag => `<video:tag>${wrapCdata(tag)}</video:tag>`).join('')}
+      <video:category>${escapeXml(video.category)}</video:category>
     </video:video>`).join('')}
   </url>
 

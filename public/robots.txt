@@ -1,9 +1,0 @@
-# *
-User-agent: *
-Allow: /
-
-# Host
-Host: https://www.nightclubegypt.com
-
-# Sitemaps
-Sitemap: https://www.nightclubegypt.com/sitemap.xml
