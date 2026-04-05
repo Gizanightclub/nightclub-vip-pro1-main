@@ -57,7 +57,7 @@ export default function PlaceBookingPage({ params: paramsPromise }: PageProps) {
           place?.location || ""
         ]}
         customImage={`${NIGHTCLUB_BASE_INFO.domain}${place?.image}`}
-        customUrl={`${NIGHTCLUB_BASE_INFO.domain}/places/${place?.slug}/book`}
+        customUrl={`${NIGHTCLUB_BASE_INFO.domain}/places/${place?.slug}/book/`}
       />
 
       <Navigation />

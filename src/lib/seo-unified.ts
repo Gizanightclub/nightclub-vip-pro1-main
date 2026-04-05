@@ -667,9 +667,16 @@ export const generatePageMetadata = ({
 
 // 🌐 مولد Canonical URL
 export const generateCanonicalUrl = (path: string = "") => {
-  return path.startsWith('/') ?
-    `${NIGHTCLUB_BASE_INFO.domain}${path}` :
-    `${NIGHTCLUB_BASE_INFO.domain}/${path}`
+  const normalizedPath = path.startsWith('/') ? path : `/${path}`
+  const pathSegment = normalizedPath.split('/').pop() || ''
+  const hasExtension = pathSegment.includes('.')
+  const canonicalPath = normalizedPath === '/'
+    ? normalizedPath
+    : normalizedPath.endsWith('/') || hasExtension
+      ? normalizedPath
+      : `${normalizedPath}/`
+
+  return `${NIGHTCLUB_BASE_INFO.domain}${canonicalPath}`
 }
 
 // 📊 مولد Sitemap URLs محسن

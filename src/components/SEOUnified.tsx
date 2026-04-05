@@ -63,7 +63,7 @@ const SEOUnified: React.FC<SEOUnifiedProps> = ({
         let meta = document.querySelector(`meta[property="${property}"]`)
         if (!meta) {
           meta = document.createElement('meta')
-          meta.setAttribute('فproperty', property)
+          meta.setAttribute('property', property)
           document.head.appendChild(meta)
         }
         meta.setAttribute('content', String(content))

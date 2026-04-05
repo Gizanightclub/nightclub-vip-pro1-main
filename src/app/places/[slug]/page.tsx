@@ -78,7 +78,7 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
           place?.location || ""
         ]}
         customImage={`${NIGHTCLUB_BASE_INFO.domain}${seoImage}`}
-        customUrl={`${NIGHTCLUB_BASE_INFO.domain}/places/${place?.slug}`}
+        customUrl={`${NIGHTCLUB_BASE_INFO.domain}/places/${place?.slug}/`}
       />
       <Script
         id="place-structured-data"
