@@ -105,6 +105,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.75,
     },
     {
+      url: `${baseUrl}/night-clubs-cairo/`,
+      lastModified,
+      changeFrequency: 'weekly' as const,
+      priority: 0.75,
+    },
+    {
       url: `${baseUrl}/parties/`,
       lastModified,
       changeFrequency: 'weekly' as const,

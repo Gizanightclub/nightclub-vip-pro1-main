@@ -21,6 +21,7 @@ import {
   Info,
 } from "lucide-react";
 import { useEffect, useState } from "react";
+import { FaWhatsapp, FaTiktok } from "react-icons/fa";
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -161,20 +162,25 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
       name: "WhatsApp",
       icon: MessageCircle,
       url: "https://wa.me/201286110562",
-      color: "bg-green-500 hover:bg-green-600",
+      color: "bg-green-600 hover:bg-green-700",
     },
     {
       name: "Facebook",
       icon: Facebook,
-      url: "https://www.facebook.com/profile.php?id=100076355247481",
+      url: "https://www.facebook.com/p/%D9%83%D8%A8%D8%A7%D8%B1%D9%8A%D9%87-%D8%A7%D9%84%D8%B9%D8%AC%D9%88%D8%B2%D9%87-Night-Club-61569297924042/?locale=ar_AR",
       color: "bg-blue-600 hover:bg-blue-700",
     },
     {
       name: "Instagram",
       icon: Instagram,
-      url: "https://www.instagram.com/night_club_5star",
-      color:
-        "bg-gradient-to-r from-pink-500 to-yellow-500 hover:from-pink-600 hover:to-yellow-600",
+      url: "https://www.instagram.com/night_club_5star/",
+      color: "bg-pink-600 hover:bg-pink-700",
+    },
+    {
+      name: "TikTok",
+      icon: FaTiktok,
+      url: "https://www.tiktok.com/@nightclubegypt",
+      color: "bg-black border-2 border-white hover:bg-gray-900",
     },
   ];
 
@@ -327,6 +333,24 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
                   </motion.div>
                 ))}
               </div>
+            </div>
+
+            <div className="space-y-3 md:space-y-4">
+              <h3 className="text-lg sm:text-xl md:text-2xl font-bold text-white flex items-center gap-2">
+                <Sparkles className="w-4 h-4 md:w-5 md:h-5 text-yellow-400" />
+                تابعنا على Snapchat
+              </h3>
+              <motion.a
+                href="https://www.snapchat.com/@nightclub2029"
+                target="_blank"
+                rel="noopener noreferrer"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                className="flex items-center justify-center gap-3 px-6 py-4 rounded-xl bg-yellow-500 hover:bg-yellow-600 text-white font-bold text-lg transition-all shadow-lg w-full"
+              >
+                <span className="text-2xl">👻</span>
+                <span>@nightclub2029</span>
+              </motion.a>
             </div>
 
             <div className="space-y-3 md:space-y-4">

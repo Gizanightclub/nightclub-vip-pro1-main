@@ -66,42 +66,46 @@ export default function Footer() {
             >
               <motion.a
                 whileHover={{ scale: 1.2 }}
-                className="text-white hover:text-yellow-400 transition-colors"
-                href="https://www.facebook.com/people/%D9%83%D8%A8%D8%A7%D8%B1%D9%8A%D9%87-%D8%A7%D9%84%D8%B9%D8%AC%D9%88%D8%B2%D9%87-Night-Club/61569297924042/"
+                className="text-white hover:text-blue-400 transition-colors"
+                href="https://www.facebook.com/p/%D9%83%D8%A8%D8%A7%D8%B1%D9%8A%D9%87-%D8%A7%D9%84%D8%B9%D8%AC%D9%88%D8%B2%D9%87-Night-Club-61569297924042/?locale=ar_AR"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="كباريه العجوزة - Night Club على Facebook"
               >
                 <Facebook className="w-5 h-5" />
               </motion.a>
 
               <motion.a
                 whileHover={{ scale: 1.2 }}
-                className="text-white hover:text-yellow-400 transition-colors"
-                href="https://www.instagram.com/night_club_5star"
+                className="text-white hover:text-pink-400 transition-colors"
+                href="https://www.instagram.com/night_club_5star/"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Night Club 5 Star على Instagram"
               >
                 <Instagram className="w-5 h-5" />
               </motion.a>
 
               <motion.a
                 whileHover={{ scale: 1.2 }}
-                className="text-white hover:text-yellow-400 transition-colors"
-                href="https://www.facebook.com/profile.php?id=61560900837183"
+                className="text-white hover:text-purple-400 transition-colors"
+                href="https://www.tiktok.com/@nightclubegypt"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Night Club Egypt على TikTok"
               >
-                <Twitter className="w-5 h-5" />
+                <FaTiktok className="w-5 h-5" />
               </motion.a>
 
               <motion.a
                 whileHover={{ scale: 1.2 }}
-                className="text-white hover:text-pink-400 transition-colors"
-                href="https://www.tiktok.com/@night.club993?_t=ZS-8yvVCVK9A5R&_r=1"
+                className="text-white hover:text-gray-400 transition-colors"
+                href="https://www.snapchat.com/@nightclub2029"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="Night Club على Snapchat"
               >
-                <FaTiktok className="w-5 h-5" />
+                <span className="relative w-5 h-5 flex items-center justify-center font-bold text-xs">👻</span>
               </motion.a>
 
               {/* واتساب */}
@@ -111,8 +115,21 @@ export default function Footer() {
                 href="https://wa.me/201286110562"
                 target="_blank"
                 rel="noopener noreferrer"
+                title="احجز الآن عبر WhatsApp"
               >
                 <FaWhatsapp className="w-5 h-5" />
+              </motion.a>
+
+              {/* Facebook 2 */}
+              <motion.a
+                whileHover={{ scale: 1.2 }}
+                className="text-white hover:text-blue-500 transition-colors"
+                href="https://www.facebook.com/nightclubegypt/?locale=ar_AR"
+                target="_blank"
+                rel="noopener noreferrer"
+                title="Night Club Egypt على Facebook"
+              >
+                <Facebook className="w-5 h-5" />
               </motion.a>
             </motion.div>
           </div>
