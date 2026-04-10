@@ -12,13 +12,15 @@ declare global {
 }
 
 interface GoogleAnalyticsProps {
-  gaId: string;
+  gaIds: string[];
 }
 
-const GoogleAnalytics = ({ gaId }: GoogleAnalyticsProps) => {
+const GoogleAnalytics = ({ gaIds }: GoogleAnalyticsProps) => {
+  const primaryId = gaIds[0];
+
   // تحميل محسن ومنفصل للـ Analytics
   useEffect(() => {
-    if (!gaId) return;
+    if (!primaryId) return;
 
     // تأخير تحميل Analytics حتى بعد تحميل الصفحة بالكامل
     const timer = setTimeout(() => {
@@ -29,26 +31,28 @@ const GoogleAnalytics = ({ gaId }: GoogleAnalyticsProps) => {
           window.dataLayer?.push(args);
         };
         window.gtag('js', new Date());
-        window.gtag('config', gaId, {
-          // تحسينات الأداء
-          send_page_view: true,
-          cookie_flags: 'SameSite=None;Secure',
-          // تقليل البيانات المرسلة
-          anonymize_ip: true,
-          allow_google_signals: false,
-          allow_ad_personalization_signals: false
+        gaIds.forEach((id) => {
+          window.gtag('config', id, {
+            // تحسينات الأداء
+            send_page_view: true,
+            cookie_flags: 'SameSite=None;Secure',
+            // تقليل البيانات المرسلة
+            anonymize_ip: true,
+            allow_google_signals: false,
+            allow_ad_personalization_signals: false,
+          });
         });
       }
     }, 2000); // تأخير 2 ثانية
 
     return () => clearTimeout(timer);
-  }, [gaId]);
+  }, [gaIds, primaryId]);
 
   return (
     <>
       <Script
         strategy="lazyOnload"
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+        src={`https://www.googletagmanager.com/gtag/js?id=${primaryId}`}
         onLoad={() => {
           if (process.env.NODE_ENV === 'development') {
             console.log('Google Analytics loaded successfully');

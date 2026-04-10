@@ -258,6 +258,15 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const gaIds = (
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_IDS ||
+    process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID ||
+    "G-H1ZWPG12HP"
+  )
+    .split(",")
+    .map((id) => id.trim())
+    .filter(Boolean);
+
   return (
     <html lang="ar" dir="rtl" className={`${cairo.variable} ${inter.variable}`}>
       <head>
@@ -371,7 +380,7 @@ export default function RootLayout({
         {children}
 
         <Toaster position="top-center" />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID || "G-H1ZWPG12HP"} />
+        <GoogleAnalytics gaIds={gaIds} />
       </body>
     </html>
   );
