@@ -29,8 +29,35 @@ export const PLACE_SEO_IMAGES: Record<string, string> = {
   // ROVI Club
   "rovi-club": "/images/ROVI Club1.png",
 
+  // Fox Club
+  "fox-club": "/images/2026-03-29.webp",
+
+  // Aowtar Club
+  "aowtar-club": "/images/nightclub.jpg",
+
+  // Maluonaerr Club
+  "maluonaerr-club": "/images/naloner.jpg",
+
   // Nox Club
   "nox-club": "/images/nox club 01286110562.jpg",
+
+  // King Club
+  "king-club": "/images/nightclubeg.jpg",
+
+  // Cosmo Lounge & Club
+  "cosmo-lounge-and-club": "/images/Cosmo Lounge & Club.jpg",
+
+  // Ovid Club
+  "ovid-club": "/images/OVID Club.png",
+
+  // Rai Club Nile Dragon Boat
+  "rai-club-nile-dragon-boat": "/images/Rai Club Nile Dragon Boat.jpg",
+
+  // Sansee Club
+  "sansee-club": "/images/سانسي كلوب.png",
+
+  // Disco NoX Club
+  "disco-nox-club": "/images/nox club 01286110562.jpg",
 
   // Default fallback images for other places
   "default-nightclub": "/images/nightclub.jpg",
@@ -51,7 +78,7 @@ export const PAGE_SEO_IMAGES: Record<string, string> = {
   "programs": "/images/nightclubegypt.com (5).jpg",
   "pricing-booking": "/images/nightclubegypt.com (3).jpg",
   "contact": "/images/nightclubegypt.com (8).jpg",
-  "night-club": "/images/ROVI Club1.png",
+  "night-club": "/images/nightclubegypt.com (10).jpg",
   "night-clubs-cairo": "/images/Omni Club Cairo 1.jpg",
   "vip": "/images/Volt Lounge.jpg",
   "parties": "/images/nightclubegypt.com15.jpg",

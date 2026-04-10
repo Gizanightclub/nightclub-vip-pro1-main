@@ -16,8 +16,8 @@ export default function PartiesTypePage() {
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">حفلات وديسكو في مصر</h1>
-          <p className="text-gray-300 mb-8">من القاهرة إلى الساحل للحجز المباشر لـ 2026.</p>
+          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">حفلات نايت كلوب وديسكو مصر | احجز مباشرة</h1>
+          <p className="text-gray-300 mb-8">اكتشف أفضل حفلات ومناسبات نايت كلوب في مصر مع أرخص العروض وخدمة VIP وسيارات ذهاب وعودة. احتفالات خاصة، عيد ميلاد، زواج، حفلات شركات. اتصل: 01286110562.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {places.map((place) => (

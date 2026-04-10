@@ -104,8 +104,8 @@ export default function NightClubTypePage() {
             />
           </div>
 
-          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">دليل نايت كلوب مصر</h1>
-          <p className="text-gray-300 mb-8">كل النوادي الأكثر شهرة للحجز السريع والروتين الأمن.</p>
+          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">نايت كلوب في مصر | حجز مباشر VIP - Night Club Egypt</h1>
+          <p className="text-gray-300 mb-8">أفضل نوادي نايت كلوب في مصر محدثة 2026. اختر النادي، احجز VIP، واستخدم 01286110562 للحصول على عرض فوري. سيارات ذهاب وعودة، عروض خاصة، وأقل الأسعار مضمونة.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {places.map((place) => (

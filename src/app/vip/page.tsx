@@ -109,8 +109,8 @@ export default function VIPTypePage() {
             />
           </div>
 
-          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">دليل VIP نايت كلوب</h1>
-          <p className="text-gray-300 mb-8">أفضل باقات VIP لأرقى النوادي في مصر، مع توصيل VIP وخدمة شاملة.</p>
+          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">VIP نايت كلوب مصر | حجز طاولات VIP أسرع</h1>
+          <p className="text-gray-300 mb-8">أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر 01286110562 مع ضمان أقل سعر. طاولات VIP، خدمة خاصة، مشروبات مجانية، وتوصيل فاخر.</p>
 
           {vipPlaces.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">

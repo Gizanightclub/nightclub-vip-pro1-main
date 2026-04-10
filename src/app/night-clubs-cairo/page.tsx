@@ -30,8 +30,8 @@ export default function NightClubsCairoPage() {
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">Night Clubs Cairo</h1>
-          <p className="text-gray-300 mb-8">كل النوادي الآن في مكان واحد مع عروض، حجز VIP، وخدمة سيارات ذهاب وعودة.</p>
+          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">Night Clubs Cairo | حجز نايت كلوب القاهرة أرخص سعر</h1>
+          <p className="text-gray-300 mb-8">احجز الآن أفضل نوادي نايت كلوب في القاهرة والجيزة. عروض VIP، سيارات ذهاب وعودة، وخصم خاص عبر 01286110562. Stage Cairo Club، Cash Cairo، Omni Club Cairo، Echo Club، King Club، Cosmo Lounge & Club.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {cCairo.map((place) => (

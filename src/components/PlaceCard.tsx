@@ -33,10 +33,11 @@ const PlaceCard = ({ place }: { place: Place }) => {
       <div className="relative aspect-[4/5] w-full">
         <Image
           src={place.image}
-          alt={place.name}
+          alt={`${place.name} - نايت كلوب فاخر في ${place.location}. ${place.keywords?.slice(0, 5).join(', ')} | حجز VIP ${place.price} جنيه - Night Club Egypt`}
           fill
           className="object-cover opacity-95"
           sizes="(max-width: 768px) 100vw, 50vw"
+          title={`${place.name} - ${place.description}`}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         <div className="absolute inset-0 p-4 flex flex-col justify-between">

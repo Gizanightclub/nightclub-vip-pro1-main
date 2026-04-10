@@ -17,7 +17,7 @@ export default function ElGounaPage() {
         pageType="places"
         customTitle="نايت كلوب الجونة | حجز حفلات VIP في البحر الأحمر - Night Club Egypt"
         customDescription="احجز حفلة VIP في الجونة بأرخص سعر مع Night Club Egypt. سيارات ذهاب إياب وحجز فوري عبر 01286110562."
-        customKeywords={["نايت كلوب الجونة", "حجز الجونة", "VIP الجونة", "Nightclub El Gouna", "سهرات الغردقة"]}
+        customKeywords={["نايت كلوب الجونة", "حجز الجونة", "VIP الجونة", "Nightclub El Gouna", "سهرات الغردقة", "نايت كلوب البحر الأحمر", "حفلات الجونة", "ديسكو الجونة", "سهرات سياحية الجونة", "أرخص نايت كلوب الجونة", "الجونة السياحية", "مارينا الجونة", "رياضات مائية الجونة", "فنادق الجونة", "سهرات الجونة البحرية", "حجز سريع الجونة", "نايت كلوب مارينا", "سهرات الجونة 2024", "الجونة ديسكو", "مطاعم الجونة"]}
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">

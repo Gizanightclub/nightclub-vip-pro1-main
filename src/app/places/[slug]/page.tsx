@@ -155,9 +155,9 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
               "url": `${NIGHTCLUB_BASE_INFO.domain}${seoImage}`,
               "width": 1200,
               "height": 630,
-              "caption": `صورة لـ ${place?.name} في ${place?.location}`,
-              "name": `صورة ${place?.name}`,
-              "description": `صورة احترافية لـ ${place?.name} - نايت كلوب فاخر في ${place?.location}`,
+              "caption": `صورة احترافية لـ ${place?.name} - نايت كلوب فاخر في ${place?.location} مع ديسكو ورقص شرقي`,
+              "name": `صورة ${place?.name} - نايت كلوب ${place?.location}`,
+              "description": `صورة احترافية لـ ${place?.name} - أفضل نايت كلوب في ${place?.location} مع حجز VIP، ديسكو، رقص شرقي، DJs محترفين، موسيقى حية، وخدمات فاخرة. ${place?.keywords?.slice(0, 8).join(', ')}`,
               "contentLocation": {
                 "@type": "Place",
                 "name": place?.location
@@ -173,7 +173,15 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
               "license": `${NIGHTCLUB_BASE_INFO.domain}/license`,
               "acquireLicensePage": `${NIGHTCLUB_BASE_INFO.domain}/contact`,
               "creditText": "Night Club Egypt",
-              "copyrightNotice": "© 2026 Night Club Egypt. All rights reserved."
+              "copyrightNotice": "© 2026 Night Club Egypt. All rights reserved.",
+              "keywords": place?.keywords?.join(", "),
+              "contentUrl": `${NIGHTCLUB_BASE_INFO.domain}${seoImage}`,
+              "thumbnail": {
+                "@type": "ImageObject",
+                "url": `${NIGHTCLUB_BASE_INFO.domain}${seoImage}`,
+                "width": 400,
+                "height": 210
+              }
             },
             "author": {
               "@type": "Organization",
@@ -262,7 +270,7 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
                   <div className="mb-4">
                     <Image
                       src={seoImage}
-                      alt={`${place!.name} - نايت كلوب فاخر في ${place!.location}. ${place!.keywords?.slice(0, 5).join(', ')}`}
+                      alt={`${place!.name} - نايت كلوب فاخر في ${place!.location}. ${place!.keywords?.slice(0, 10).join(', ')} | حجز VIP ${place!.price} جنيه، ديسكو، رقص شرقي، DJs، موسيقى حية - Night Club Egypt 2026`}
                       width={800}
                       height={600}
                       priority={true}
@@ -270,6 +278,7 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
                       sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 800px"
                       placeholder="blur"
                       blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R+IRjWjBqO6O2mhP//Z"
+                      title={`${place!.name} - أفضل نايت كلوب في ${place!.location} مع حجز VIP وخدمات فاخرة، ديسكو، رقص شرقي، DJs محترفين`}
                     />
                   </div>
 

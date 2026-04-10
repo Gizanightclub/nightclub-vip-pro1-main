@@ -22,6 +22,25 @@ export default function CairoPlacesPage() {
           "سهرات القاهرة",
           "nightclub Cairo",
           "Cairo nightlife",
+          "Stage Cairo Club",
+          "Cash Cairo",
+          "Omni Club Cairo",
+          "Echo Club",
+          "King Club",
+          "Cosmo Lounge & Club",
+          "نايت كلوب الجيزة",
+          "حجز VIP القاهرة",
+          "أرخص نايت كلوب القاهرة",
+          "سهرات فاخرة القاهرة",
+          "وسط القاهرة",
+          "القاهرة السياحية",
+          "مطاعم القاهرة",
+          "فنادق القاهرة",
+          "سهرات القاهرة الليلية",
+          "حجز سريع القاهرة",
+          "نايت كلوب وسط البلد",
+          "سهرات القاهرة 2024",
+          "القاهرة ديسكو"
         ]}
       />
       <Navigation />

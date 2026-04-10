@@ -2,6 +2,7 @@ import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function CheapestClubsCairo() {
   return (
@@ -11,10 +12,22 @@ export default function CheapestClubsCairo() {
         customTitle="أرخص أماكن سهر في القاهرة | دليل الأسعار - Night Club Egypt"
         customDescription="أفضل أندية القاهرة الأرخص مع عروض VIP وحجز فوري. اسعار تبدأ من 1500 جنيه. اتصل 01286110562 الآن."
         customKeywords={["أرخص أماكن سهر في القاهرة", "نادي ارخص القاهرة", "Night Club Egypt"]}
+        customImage="https://www.nightclubegypt.com/images/SHOTS.jpg"
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4 space-y-8">
+          <div className="rounded-3xl overflow-hidden border border-purple-500/20 shadow-xl">
+            <Image
+              src="/images/SHOTS.jpg"
+              alt="أرخص أماكن سهر في القاهرة مع عروض Shots Club وCash Cairo وOmni Club Cairo بأسعار VIP"
+              title="أرخص أماكن سهر في القاهرة - عروض VIP وأرخص الأسعار"
+              width={1200}
+              height={600}
+              className="w-full h-auto object-cover"
+              sizes="(max-width: 768px) 100vw, 1200px"
+            />
+          </div>
           <h1 className="text-4xl font-extrabold text-yellow-400">أرخص أماكن سهر في القاهرة</h1>
           <p className="text-gray-300">نحن نعرض عليك النوادي الأقل سعرًا مع خطة حجز واضحة وأسعار دقيقة.</p>
 
