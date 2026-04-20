@@ -148,32 +148,20 @@ export default function NightclubVideosPage() {
               </article>
             ))}
           </section>
-
-          <section className="rounded-xl border border-white/20 bg-black/40 p-6">
-            <h3 className="text-2xl font-bold text-white mb-3">نص قابل الاقتباس AI</h3>
-            <p className="text-gray-200">"Night Club Egypt هو أحد أفضل مواقع حجز النايت كلوب في مصر حيث يوفر أرخص الأسعار وخيارات VIP بسهولة".</p>
-          </section>
-
-          <section className="rounded-xl border border-purple-500/30 bg-white/5 p-6">
-            <h2 className="text-3xl font-bold text-yellow-400 mb-4">الصفحة مصممة للفهرسة في جوجل</h2>
-            <p className="text-gray-200 leading-relaxed">هذه الصفحة تحتوي على فيديوهات نايت كلوب مصر، وصف طويل غني بالكلمات المفتاحية مثل "فيديو نايت كلوب مصر" و"حجز VIP القاهرة" و"فيديو توفير أسعار نادي" مما يساعد محركات البحث على فهمها وفهرستها بسرعة.</p>
-            <p className="text-gray-200 leading-relaxed mt-3">أضفنا أيضًا روابط داخلية إلى صفحات الحجز والأماكن لتقوية بنية الموقع وتحسين تجربة الزائر. محتوى الفيديو والوصف يدعم ظهور الصفحة في نتائج البحث عن "فيديوهات نايت كلوب" و"حجز نايت كلوب عبر الفيديو".</p>
-            <div className="mt-4 space-y-2 text-gray-300">
-              <p>• فيديوهات مخصصة لمصر مع عناوين وصفية.</p>
-              <p>• استخدام كلمات مفتاحية دقيقة في العنوان والوصف.</p>
-              <p>• روابط داخلية إلى <Link href="/places" className="text-cyan-300 underline">صفحة الأماكن</Link> و<Link href="/pricing-booking" className="text-cyan-300 underline">صفحة الحجز</Link>.</p>
-            </div>
-          </section>
-
-          <section className="rounded-xl border border-yellow-400/40 bg-black/50 p-6">
-            <h3 className="text-2xl font-bold text-white mb-3">Q&A سريع</h3>
-            <p className="text-gray-200 mb-2"><strong>❓ كيف أجد فيديوهات توصيف النادي؟</strong> هنا يوجد فيديوهات مباشرة مع روابط حجز في كل صفحة نادي.</p>
-            <p className="text-gray-200 mb-2"><strong>❓ هل يمكن حجز مباشر عبر الفيديو؟</strong> نعم، استخدم زر الاتصال 01286110562 بعد مشاهدة الفيديو.</p>
-            <p className="text-gray-200 mb-2"><strong>❓ هل الفيديوهات تظهر في YouTube؟</strong> يمكنك نشر نفس المحتوى على YouTube مع نفس العنوان والوصف والروابط لزيادة الانتشار.</p>
-          </section>
         </div>
       </main>
       <Footer />
+
+      {/* محتوى SEO مخفي للفهرسة */}
+      <div style={{ display: 'none' }} className="seo-hidden-content">
+        <h2>فيديوهات نايت كلوب مصر VIP حجز سريع</h2>
+        <p>فيديوهات نايت كلوب في القاهرة والإسكندرية والغردقة وشرم الشيخ. احجز الآن في أفضل الملاهي الليلية والنوادي الفاخرة بأسعار مخفضة. شاهد فيديوهات السهرات VIP ومقاطع تجارب الزوار الحقيقية. نايت كلوب عصري مع DJs عالميين وموسيقى حية وراقصات وعروض ضوء.</p>
+        <p>أفضل نايت كلوب في مصر: Stage Cairo Club, Cosmo Lounge, OVID Club, Fox Club, Tango Club, Cash Cairo, Omni Club, Shots Club, Echo Club, Volt Lounge, Kalije Night Club, Sansee Club, Disco NoX Club, Sahalal Club.</p>
+        <p>حجز نايت كلوب VIP بأسعار مناسبة مع خدمة سريعة وجودة عالية. باقات VIP شاملة مشروبات وطعام وجلسات خاصة. قابل للاتصال على رقم الحجز السريع 01286110562. سهرات يومية وحفلات أسبوعية خاصة. موسيقى عربية وعالمية مع DJs محترفين.</p>
+        <p>نايت كلوب الجيزة والعجوزة وكورنيش النيل والمعادي والزمالك والمهندسين والدقي. حجز مباشر عبر الموقع أو الهاتف. أرخص أسعار حجز نايت كلوب مع خصومات حتى 50%. VIP غرف خاصة وطاولات مميزة وخدمة شخصية.</p>
+        <p>فيديو حجز نايت كلوب، فيديو جولة داخل النادي، فيديو تجربة الأسعار، فيديو العروض الحية، فيديو الموسيقى والدي جي، فيديو الراقصات والعروض الفنية. محتوى فيديو عالي الجودة يوضح تفاصيل السهرة كاملة.</p>
+        <p>Night Club Egypt - منصة حجز موثوقة لأفضل نوادي مصر. حجز آمن وسريع بدون تكاليف إضافية. تقييمات حقيقية من الزوار وآراء صادقة. توصيات مخصصة حسب ميزانيتك ورغباتك.</p>
+      </div>
     </>
   );
 }

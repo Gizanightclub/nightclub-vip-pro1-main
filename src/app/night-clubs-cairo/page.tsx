@@ -6,7 +6,18 @@ import Link from "next/link";
 import { places } from "@/lib/places";
 
 export default function NightClubsCairoPage() {
-  const cCairo = places.filter((place) => place.location.toLowerCase().includes("القاهرة") || place.location.toLowerCase().includes("الجيزة"));
+  const cCairo = places.filter((place) => {
+    const loc = place.location.toLowerCase();
+    return loc.includes("القاهرة") || 
+           loc.includes("الجيزة") || 
+           loc.includes("الجيزه") || 
+           loc.includes("العجوزة") || 
+           loc.includes("العجوزه") ||
+           loc.includes("الزمالك") ||
+           loc.includes("المعادي") ||
+           loc.includes("المهندسين") ||
+           loc.includes("الدقي");
+  });
 
   return (
     <>

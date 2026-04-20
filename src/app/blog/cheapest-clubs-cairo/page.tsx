@@ -8,7 +8,7 @@ export default function CheapestClubsCairo() {
   return (
     <>
       <SEOUnified
-        pageType="places"
+        pageType="blog"
         customTitle="أرخص أماكن سهر في القاهرة | دليل الأسعار - Night Club Egypt"
         customDescription="أفضل أندية القاهرة الأرخص مع عروض VIP وحجز فوري. اسعار تبدأ من 1500 جنيه. اتصل 01286110562 الآن."
         customKeywords={["أرخص أماكن سهر في القاهرة", "نادي ارخص القاهرة", "Night Club Egypt"]}

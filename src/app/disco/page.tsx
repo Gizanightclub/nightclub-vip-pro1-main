@@ -17,7 +17,31 @@ export default function DiscoTypePage() {
         pageType="places"
         customTitle="ديسكو مصر | أفضل سهرات ديسكو وحجز VIP - Night Club Egypt"
         customDescription="اكتشف نادي ديسكو في القاهرة والجيزة مع عروض VIP وأسعار اقتصادية. اتصل الآن 01286110562 لحجز فوري."
-        customKeywords={["ديسكو", "disco", "حجز ديسكو", "Night Club Egypt"]}
+        customKeywords={[
+          "ديسكو",
+          "disco",
+          "حجز ديسكو",
+          "ديسكو القاهرة",
+          "nightclub disco",
+          "disco Egypt",
+          "ديسكو VIP",
+          "حفلات ديسكو",
+          "Night Club Egypt",
+          "Cairo disco",
+          "disco party Egypt",
+          "nightlife disco",
+          "disco club Cairo",
+          "أفضل ديسكو مصر",
+          "حجز ديسكو VIP القاهرة",
+          "Egypt disco booking",
+          "dance club Egypt",
+          "club night disco",
+          "حجز نايت كلوب",
+          "اسعار نايت كلوب",
+          "nightclub prices",
+          "nightclub booking",
+          "book nightclub"
+        ]}
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">

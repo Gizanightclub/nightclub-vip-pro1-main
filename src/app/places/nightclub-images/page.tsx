@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
+import FAQSchema from "@/components/FAQSchema";
 import { places } from "@/lib/places";
 import Image from "next/image";
 import Script from "next/script";
@@ -63,6 +64,26 @@ export default function NightclubImagesPage() {
 
       <Script id="image-gallery-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />
       <Script id="video-object-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(videoSchema) }} />
+      <FAQSchema
+        showVisibleFAQ={false}
+        customFAQs={[
+          {
+            question: "كيف أحجز أسرع؟",
+            answer: "اتصل 01286110562 أو افتح صفحة النادي واضغط حجز الآن عبر الواتساب.",
+            keywords: ["حجز سريع", "01286110562", "Night Club Egypt"]
+          },
+          {
+            question: "هل الصور واقعية؟",
+            answer: "نعم، الصور من تجارب حقيقية في النوادي التي نقدمها في Night Club Egypt.",
+            keywords: ["صور واقعية", "معرض صور نايت كلوب", "Night Club Egypt"]
+          },
+          {
+            question: "هل الأسعار شاملة VIP؟",
+            answer: "نعم، نعرض أسعار VIP والأسعار العادية مع ضمان أفضل صيغة للحجز.",
+            keywords: ["أسعار VIP", "صور نايت كلوب", "حجز نايت كلوب"]
+          }
+        ]}
+      />
 
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">

@@ -8,7 +8,7 @@ export default function BookingGuideEgypt() {
   return (
     <>
       <SEOUnified
-        pageType="places"
+        pageType="blog"
         customTitle="دليل حجز السهرات في مصر | كيف تحجز نايت كلوب - Night Club Egypt"
         customDescription="تعلم كيف تحجز نايت كلوب في مصر خطوة بخطوة: مقارنات أسعار، VIP، ديسكو، وسيلة النقل. اتصل 01286110562 الآن."
         customKeywords={["دليل حجز السهرات مصر", "كيف أحجز نايت كلوب", "booking guide Egypt"]}

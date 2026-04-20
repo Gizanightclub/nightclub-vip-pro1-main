@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
+import FAQSchema from "@/components/FAQSchema";
 import Link from "next/link";
 import Image from "next/image";
 
@@ -8,11 +9,41 @@ export default function BestNightclubs2026() {
   return (
     <>
       <SEOUnified
-        pageType="places"
+        pageType="blog"
         customTitle="أفضل نايت كلوب في مصر 2026 | Night Club Cairo Guide + أسعار وحجز VIP"
         customDescription="اكتشف أفضل نايت كلوب في القاهرة 2026 مع night club Cairo guide شامل. احجز الآن في تانجو وفيينا وفوكس كلوب. سهرات القاهرة premium مع أسعار من 750 جنيه. Nightlife Egypt الفاخر في متناول يدك!"
         customKeywords={["نايت كلوب", "night club Cairo", "نايت كلوب في مصر", "night club", "سهرات القاهرة", "nightlife Egypt", "حجز نايت كلوب", "نايت كلوب القاهرة", "أفضل نايت كلوب مصر 2026"]}
         customImage="https://www.nightclubegypt.com/images/nightclub.jpg"
+      />
+      <FAQSchema
+        showVisibleFAQ={false}
+        customFAQs={[
+          {
+            question: "ما هو أفضل وقت لحجز نايت كلوب في القاهرة؟",
+            answer: "أفضل الأيام لحجز نايت كلوب في القاهرة هي الجمعة والسبت. احجز قبل 2-3 أيام لضمان أفضل الطاولات والمقاعد.",
+            keywords: ["حجز نايت كلوب", "أوقات الحجز", "سهرات القاهرة"]
+          },
+          {
+            question: "كم تكون تكلفة VIP في نايت كلوب؟",
+            answer: "تكلفة VIP تبدأ عادةً من 2000 إلى 5000 جنيه حسب النادي وخدمات الطاولة. في عروضنا، تبدأ باقات VIP من 1500 جنيه.",
+            keywords: ["VIP نايت كلوب", "أسعار VIP", "حجز VIP"]
+          },
+          {
+            question: "هل يمكن حجز نايت كلوب للسياح الأجانب؟",
+            answer: "نعم، يمكن حجز نايت كلوب للسياح الأجانب. Night Club Egypt يدعم الحجز الدولي ويقدم خدمة عملاء بالإنجليزية.",
+            keywords: ["tourists", "نايت كلوب للسياح", "Nightlife Egypt"]
+          },
+          {
+            question: "ما هي سياسة الملابس في النوادي؟",
+            answer: "يُفضّل ارتداء أزياء أنيقة وكاجوال رسمي. اجتنب الملابس الرياضية الشديدة لضمان قبول الدخول في النوادي الفاخرة.",
+            keywords: ["سياسة الملابس", "dress code club", "نايت كلوب"]
+          },
+          {
+            question: "كيف أتواصل مع الفريق للحجز الفوري؟",
+            answer: "اتصل أو راسل واتساب على 01286110562 للحصول على حجز فوري وأفضل العروض.",
+            keywords: ["01286110562", "واتساب", "حجز فوري"]
+          }
+        ]}
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
@@ -28,6 +59,16 @@ export default function BestNightclubs2026() {
               sizes="(max-width: 768px) 100vw, 1200px"
             />
           </div>
+
+          <div className="grid gap-4 sm:grid-cols-2">
+            <Link href="/pricing-booking" className="inline-flex items-center justify-center rounded-2xl bg-gradient-to-r from-cyan-500 to-blue-500 px-6 py-3 font-semibold text-white hover:shadow-lg hover:shadow-cyan-500/30">
+              احجز الآن مع خصومات تبدأ من 25%
+            </Link>
+            <Link href="/" className="inline-flex items-center justify-center rounded-2xl bg-white/10 border border-white/20 px-6 py-3 font-semibold text-white hover:bg-white/15">
+              الصفحة الرئيسية
+            </Link>
+          </div>
+
           <h1 className="text-4xl font-extrabold text-yellow-400">أفضل نايت كلوب في مصر 2026 | Night Club Cairo Guide + أسعار وحجز VIP</h1>
           
           <section className="space-y-4 mb-6">

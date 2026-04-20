@@ -52,9 +52,9 @@ export const SEO_IMAGES = {
 export const SEO_KEYWORDS = {
   primary: [
     "نايت كلوب", "أفضل نايت كلوب في مصر", "ارخص نايت كلوب",
-    "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "نايت كلوب VIP",
+    "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "سعر نايت كلوب", "نايت كلوب حجز", "نايت كلوب أسعار", "نايت كلوب VIP",
      "نيت كلوب", "نايت كلاب", "نايتات مصر", "كلوبات مصر",
-    "Night Club", "Night Club Egypt", "nightclub","نايت كلوب مصر", "أفضل نايت كلوب في مصر", "نايت كلوب القاهرة", "ارخص نايت كلوب",
+    "Night Club", "Night Club Egypt", "nightclub","nightclub prices", "nightclub booking", "book nightclub", "night club prices", "night club booking", "Egypt nightclub booking", "Cairo nightclub prices", "نايت كلوب مصر", "أفضل نايت كلوب في مصر", "نايت كلوب القاهرة", "ارخص نايت كلوب",
     "حجز نايت كلوب", "سهرات نايت كلوب", "اسعار نايت كلوب", "نايت كلوب VIP", "نايت كلوب ","nightclub",'نايت كلوب مصر 2026', 'أفضل نايت كلوب',
     'حفلات ليلية فاخرة',"ارخص نايت كلوب","نيت كلوب","نايت كلاب","حجز نايت كلوب","نايتات مصر","كلوبات مصر",
     "نايت كلوب مصر", "أفضل نايت كلوب في مصر", " سهرات نايت كلوب", "اسعار نايت كلوب", "Night Club",
@@ -111,7 +111,8 @@ export const SEO_KEYWORDS = {
   ],
   english: [
     "nightclub Egypt", "best nightclub Cairo", "nightclub Giza", "VIP nightclub Egypt","nightclub","deco","bar","night",
-    "Cairo nightlife", "nightclub Agouza", "nightclub Sheikh Zayed", "premium nightclub Egypt"
+    "Cairo nightlife", "nightclub Agouza", "nightclub Sheikh Zayed", "premium nightclub Egypt",
+    "nightclub prices", "nightclub booking", "book nightclub", "night club prices", "night club booking", "Egypt nightclub prices", "Cairo nightclub booking"
   ]
 }
 
@@ -843,7 +844,7 @@ export const generateReviewSchema = (reviewText: string, authorName: string, rat
 })
 // 📄 مولد metadata خاص لكل نوع صفحة
 export const generatePageMetadataByType = (
-  pageType: 'home' | 'about' | 'programs' | 'packages' | 'gallery' | 'contact' | 'faq' | 'booking' | 'places' | 'place',
+  pageType: 'home' | 'about' | 'programs' | 'packages' | 'gallery' | 'contact' | 'faq' | 'booking' | 'places' | 'place' | 'blog',
   customTitle?: string,
   customDescription?: string,
   customKeywords?: string[],
@@ -920,6 +921,13 @@ export const generatePageMetadataByType = (
       path: "/faq",
       image: SEO_IMAGES.packages,
       keywords: ["أسئلة شائعة نايت كلوب", "FAQ نايت كلوب مصر", "أسعار نايت كلوب", "حجز نايت كلوب"]
+    },
+    blog: {
+      title: "مدونة Night Club Egypt - دليل السهرات في مصر",
+      description: "مقالات وأدلة عن أفضل النوادي، أسرار الحجز، وأحدث عروض السهرات في القاهرة والساحل وشرم الجونة.",
+      path: "/blog",
+      image: SEO_IMAGES.blog,
+      keywords: ["مدونة نايت كلوب", "دليل السهرات في مصر", "Night Club Egypt blog", "نصائح حجز النوادي"]
     },
     booking: {
       title: "احجز الآن في أفضل نايت كلوب مصر - حجز فوري | خصومات 25%",

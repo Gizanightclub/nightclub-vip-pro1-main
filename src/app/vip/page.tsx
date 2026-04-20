@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
+import FAQSchema from "@/components/FAQSchema";
 import PlaceCard from "@/components/PlaceCard";
 import { places } from "@/lib/places";
 import { getPageSEOImage } from "@/lib/seo-images";
@@ -21,8 +22,53 @@ export default function VIPTypePage() {
         pageType="places"
         customTitle="VIP نايت كلوب مصر | حجز طاولات VIP أسرع - Night Club Egypt"
         customDescription="أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر 01286110562 مع ضمان أقل سعر."
-        customKeywords={["VIP نايت كلوب", "حجز VIP", "طاولات VIP", "Night Club Egypt"]}
+        customKeywords={[
+          "VIP نايت كلوب",
+          "حجز VIP",
+          "طاولات VIP",
+          "VIP nightclub Egypt",
+          "VIP tables Cairo",
+          "حجز طاولة VIP",
+          "سهرات VIP",
+          "حفلات VIP القاهرة",
+          "نايت كلوب VIP",
+          "Night Club Egypt",
+          "VIP party Egypt",
+          "VIP club booking",
+          "حفلات VIP مصر",
+          "حجوزات VIP نايت كلوب",
+          "special VIP nightclub",
+          "Cairo VIP nightlife",
+          "VIP disco Cairo",
+          "Egypt VIP club",
+          "حجز نايت كلوب",
+          "اسعار نايت كلوب",
+          "nightclub prices",
+          "nightclub booking",
+          "book nightclub",
+          "Cairo nightclub prices"
+        ]}
         customImage={`https://www.nightclubegypt.com${seoImage}`}
+      />
+      <FAQSchema
+        showVisibleFAQ={false}
+        customFAQs={[
+          {
+            question: "هل يمكن حجز طاولة VIP الآن؟",
+            answer: "نعم، يمكن حجز طاولة VIP الآن عبر الهاتف أو واتساب على 01286110562.",
+            keywords: ["حجز VIP", "طاولة VIP", "نايت كلوب VIP"]
+          },
+          {
+            question: "هل يشمل VIP سيارة ذهاب وعودة؟",
+            answer: "معظم باقات VIP تشمل خدمة نقل ذهاب وعودة، تأكد من التفاصيل عند الحجز.",
+            keywords: ["سيارة ذهاب وعودة", "VIP نايت كلوب", "خدمة نقل"]
+          },
+          {
+            question: "ما هو أرخص VIP؟",
+            answer: "تبدأ باقات VIP من 2000 جنيه في العروض الخاصة وتصل حسب نوع النادي والخدمات.",
+            keywords: ["أرخص VIP", "أسعار VIP", "باقة VIP"]
+          }
+        ]}
       />
 
       {/* Schema Article for VIP Page */}
@@ -92,6 +138,26 @@ export default function VIPTypePage() {
         }}
       />
       <Navigation />
+      <FAQSchema
+        showVisibleFAQ={false}
+        customFAQs={[
+          {
+            question: "هل يمكن حجز طاولة VIP الآن؟",
+            answer: "نعم، يمكن حجز طاولة VIP الآن عبر الهاتف أو واتساب على 01286110562.",
+            keywords: ["حجز VIP", "طاولة VIP", "نايت كلوب VIP"]
+          },
+          {
+            question: "هل يشمل VIP سيارة ذهاب وعودة؟",
+            answer: "معظم باقات VIP تشمل خدمة نقل ذهاب وعودة، تأكد من التفاصيل عند الحجز.",
+            keywords: ["سيارة ذهاب وعودة", "VIP نايت كلوب", "خدمة نقل"]
+          },
+          {
+            question: "ما هو أرخص VIP؟",
+            answer: "تبدأ باقات VIP من 2000 جنيه في العروض الخاصة وتصل حسب نوع النادي والخدمات.",
+            keywords: ["أرخص VIP", "أسعار VIP", "باقة VIP"]
+          }
+        ]}
+      />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
           {/* SEO Optimized Hero Image */}

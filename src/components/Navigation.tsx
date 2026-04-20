@@ -40,7 +40,7 @@ const Navigation = () => {
   const navItems = [
     { name: "الرئيسية", href: "#home", icon: Home, seo: "نايت كلوب أرخص أفضل مصر" },
     { name: "عن النادي", href: "#about", icon: Star, seo: "أفضل كاباريه ديسكو القاهرة" },
-    { name: "الفيديوهات", href: "#videos", icon: Video, seo: "فيديوهات نايت كلوب طرب شعبي" },
+    { name: "الفيديوهات", href: "/places/nightclub-videos", icon: Video, seo: "فيديوهات نايت كلوب طرب شعبي" },
     { name: "المعرض", href: "#gallery", icon: Camera, seo: "صور نايت كلوب بار" },
     { name: "الأماكن", href: "#places", icon: Music, seo: "أماكن السهر VIP في مصر" },
     { name: "دليل السهرات", href: "/blog/best-nightclubs-egypt-2026", icon: Crown, seo: "أفضل نايت كلوب في مصر 2026 دليل سهرات القاهرة" },
@@ -123,9 +123,15 @@ const Navigation = () => {
       return;
     }
 
-    const element = document.querySelector(href);
-    if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+    // إذا كان الرابط يبدأ بـ # (مرساة)
+    if (href.startsWith("#")) {
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: "smooth" });
+      } else {
+        // إذا لم نجد العنصر على الصفحة الحالية، نذهب للصفحة الرئيسية مع المرساة
+        router.push("/" + href);
+      }
     }
     setIsOpen(false);
   };

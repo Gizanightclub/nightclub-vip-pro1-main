@@ -15,6 +15,26 @@ export default function PlacesPage() {
         pageType="places"
         customTitle="جميع الملاهي الليلية والنوادي الفاخرة في مصر - Night Club Egypt"
         customDescription="استكشف أفضل الملاهي الليلية والنوادي الفاخرة في مصر. احجز الآن وتمتع بأفضل سهرة مع خصومات حتى 25%"
+        customKeywords={[
+          "نايت كلوب مصر",
+          "حجز نايت كلوب",
+          "سهرات نايت كلوب",
+          "ديسكو القاهرة",
+          "nightclub Egypt",
+          "Cairo nightlife",
+          "VIP nightclub Egypt",
+          "حفلات ليلية",
+          "ملاهي ليلية",
+          "club night Egypt",
+          "best nightclub Egypt",
+          "Egypt nightclub booking",
+          "disco party Cairo",
+          "nightclub party",
+          "Egypt nightlife",
+          "سهرات VIP مصر",
+          "حجز ديسكو",
+          "night club booking Egypt"
+        ]}
       />
 
       <main id="main-content" className="bg-black text-white min-h-screen pb-20 pt-32">
@@ -47,20 +67,6 @@ export default function PlacesPage() {
             >
               <h3 className="font-bold text-lg">نايت كلوب القاهرة</h3>
               <p className="text-sm text-gray-300">أفضل السهرات في القاهرة والجيزة</p>
-            </Link>
-            <Link
-              href="/places/alexandria"
-              className="text-center rounded-xl border border-purple-500/30 bg-white/10 px-4 py-4 text-white hover:bg-white/20 transition"
-            >
-              <h3 className="font-bold text-lg">نايت كلوب الإسكندرية</h3>
-              <p className="text-sm text-gray-300">سهرات بحرية على الساحل</p>
-            </Link>
-            <Link
-              href="/places/hurghada"
-              className="text-center rounded-xl border border-purple-500/30 bg-white/10 px-4 py-4 text-white hover:bg-white/20 transition"
-            >
-              <h3 className="font-bold text-lg">نايت كلوب الغردقة</h3>
-              <p className="text-sm text-gray-300">سهرات البحر الأحمر وVIP</p>
             </Link>
             <Link
               href="/places/nightclub-images"

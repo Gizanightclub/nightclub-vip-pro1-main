@@ -44,6 +44,7 @@ export default function Home() {
     // English keywords for international visitors
     "nightclub Egypt", "best nightclub Cairo", "nightclub Giza", "VIP nightclub Egypt", "Cairo nightlife",
     "nightclub Agouza", "nightclub Sheikh Zayed", "premium nightclub Egypt", "nightclub",
+    "nightclub prices", "nightclub booking", "book nightclub", "night club prices", "night club booking",
 
     // خدمات ومناسبات
     "حفلات ليلية مصر", "سهرات القاهرة", "ترفيه ليلي VIP", "حفلات خاصة", "مناسبات خاصة",

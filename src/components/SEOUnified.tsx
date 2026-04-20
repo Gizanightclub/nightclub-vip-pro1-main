@@ -13,7 +13,7 @@ import {
 } from '../lib/seo-unified'
 
 interface SEOUnifiedProps {
-  pageType?: 'home' | 'about' | 'programs' | 'packages' | 'gallery' | 'contact' | 'faq' | 'booking' | 'places' | 'place'
+  pageType?: 'home' | 'about' | 'programs' | 'packages' | 'gallery' | 'contact' | 'faq' | 'booking' | 'places' | 'place' | 'blog'
   customTitle?: string
   customDescription?: string
   customKeywords?: string[]

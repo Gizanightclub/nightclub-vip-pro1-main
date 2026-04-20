@@ -59,6 +59,12 @@ export const PLACE_SEO_IMAGES: Record<string, string> = {
   // Disco NoX Club
   "disco-nox-club": "/images/nox club 01286110562.jpg",
 
+  // Kalije Night Club
+  "kalije-night-club": "/images/Kalije Night Club.jpg",
+
+  // Sahalal Club (fallback to a strong nightclub image)
+  "sahalal-club": "/images/nightclubeg1.jpg",
+
   // Default fallback images for other places
   "default-nightclub": "/images/nightclub.jpg",
   "default-club": "/images/nightclubeg.jpg",

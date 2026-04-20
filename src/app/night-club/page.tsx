@@ -1,6 +1,7 @@
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
+import FAQSchema from "@/components/FAQSchema";
 import PlaceCard from "@/components/PlaceCard";
 import { places } from "@/lib/places";
 import { getPageSEOImage } from "@/lib/seo-images";
@@ -18,6 +19,31 @@ export default function NightClubTypePage() {
         customDescription="أفضل نوادي نايت كلوب في مصر محدثة 2026. اختر النادي، احجز VIP، واستخدم 01286110562 للحصول على عرض فوري."
         customKeywords={["نايت كلوب", "Night Club", "Nightclub Egypt", "حجز نايت كلوب"]}
         customImage={`https://www.nightclubegypt.com${seoImage}`}
+      />
+      <FAQSchema
+        showVisibleFAQ={false}
+        customFAQs={[
+          {
+            question: "إزاي أحجز نايت كلوب في مصر؟",
+            answer: "اضغط النادي واختر الحجز عبر واتساب أو الاتصال على 01286110562.",
+            keywords: ["كيفية الحجز", "نايت كلوب مصر", "01286110562"]
+          },
+          {
+            question: "هل أقدر أحجز VIP؟",
+            answer: "نعم، تعرض Night Club Egypt باقات VIP لكل النوادي المتاحة.",
+            keywords: ["حجز VIP", "باقة VIP", "Night Club Egypt"]
+          },
+          {
+            question: "هل يمكنني التوصيل بسيارة ذهاب وعودة؟",
+            answer: "نعم، خدمة التوصيل متاحة مع معظم العروض الخاصة بنا.",
+            keywords: ["سيارة ذهاب وعودة", "نقل VIP", "حجز نايت كلوب"]
+          },
+          {
+            question: "أين أجد أرخص خيارات؟",
+            answer: "نقترح نوادي مثل Stage Cairo وCash Cairo وOmni Club Cairo لأسعار أقل دون التخلي عن الجودة.",
+            keywords: ["أرخص نوادي", "أرخص سهرات", "Night Club Egypt"]
+          }
+        ]}
       />
 
       {/* Schema Article for Night Club Page */}
@@ -87,6 +113,31 @@ export default function NightClubTypePage() {
         }}
       />
       <Navigation />
+      <FAQSchema
+        showVisibleFAQ={false}
+        customFAQs={[
+          {
+            question: "إزاي أحجز نايت كلوب في مصر؟",
+            answer: "اضغط النادي واختر الحجز عبر واتساب أو الاتصال على 01286110562.",
+            keywords: ["كيفية الحجز", "نايت كلوب مصر", "01286110562"]
+          },
+          {
+            question: "هل أقدر أحجز VIP؟",
+            answer: "نعم، تعرض Night Club Egypt باقات VIP لكل النوادي المتاحة.",
+            keywords: ["حجز VIP", "باقة VIP", "Night Club Egypt"]
+          },
+          {
+            question: "هل يمكنني التوصيل بسيارة ذهاب وعودة؟",
+            answer: "نعم، خدمة التوصيل متاحة مع معظم العروض الخاصة بنا.",
+            keywords: ["سيارة ذهاب وعودة", "نقل VIP", "حجز نايت كلوب"]
+          },
+          {
+            question: "أين أجد أرخص خيارات؟",
+            answer: "نقترح نوادي مثل Stage Cairo وCash Cairo وOmni Club Cairo لأسعار أقل دون التخلي عن الجودة.",
+            keywords: ["أرخص نوادي", "أرخص سهرات", "Night Club Egypt"]
+          }
+        ]}
+      />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
           {/* SEO Optimized Hero Image */}
