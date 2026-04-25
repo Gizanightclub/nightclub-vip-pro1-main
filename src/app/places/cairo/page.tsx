@@ -6,23 +6,30 @@ import { places } from "@/lib/places";
 
 const city = "القاهرة";
 
-const cairoPlaces = places.filter((place) => place.location.toLowerCase().includes("القاهرة") || place.location.toLowerCase().includes("الجيزة"));
+const cairoPlaces = places.filter((place) => 
+  place.location.toLowerCase().includes("القاهرة") || 
+  place.location.toLowerCase().includes("الجيزة") ||
+  place.location.toLowerCase().includes("الجيزه") ||
+  place.location.toLowerCase().includes("العجوزة") ||
+  place.location.toLowerCase().includes("العجوزه")
+);
 
 export default function CairoPlacesPage() {
   return (
     <>
       <SEOUnified
         pageType="places"
-        customTitle="نايت كلوب القاهرة | أفضل أماكن السهر VIP في القاهرة - Night Club Egypt"
-        customDescription="اكتشف أفضل نايت كلوب في القاهرة والجيزة، احجز باقات VIP وInstaPay، واستمتع بأفضل السهرات في قلب المدينة."
+        customTitle="🏙️ نايت كلوب القاهرة 2026 | أحسن سهرات VIP في القاهرة والجيزة | أسعار تبدأ من 750 جنيه"
+        customDescription="🏙️ شوف أحسن نوادي السهر في القاهرة والجيزة 2026! احجز VIP بسرعة واستمتع بجو فاخر وخدمة VIP على أعلى مستوى."
         customKeywords={[
-          "نايت كلوب القاهرة",
-          "أفضل نايت كلوب في القاهرة",
-          "حجز نايت كلوب في القاهرة",
-          "سهرات القاهرة",
-          "nightclub Cairo",
-          "Cairo nightlife",
-          "Stage Cairo Club",
+          "نايت كلوب القاهرة", "أفضل نايت كلوب في القاهرة", "حجز نايت كلوب في القاهرة",
+          "سهرات القاهرة", "نايت كلوب الجيزة", "نايت كلوب العجوزة", "نايت كلوب الزمالك",
+          "nightclub Cairo", "Cairo nightlife", "VIP nightclub Cairo", "حجز VIP القاهرة",
+          "أرخص نايت كلوب القاهرة", "سهرات فاخرة القاهرة", "وسط القاهرة", "القاهرة السياحية",
+          "مطاعم القاهرة", "سهرات القاهرة الليلية", "حجز سريع القاهرة", "نايت كلوب وسط البلد",
+          "سهرات القاهرة 2026", "القاهرة ديسكو", "كباريه القاهرة", "ديسكو القاهرة",
+          "حفلات ليلية القاهرة", "ترفيه ليلي القاهرة", "نوادي ليلية القاهرة",
+           "Stage Cairo Club",
           "Cash Cairo",
           "Omni Club Cairo",
           "Echo Club",
@@ -40,14 +47,18 @@ export default function CairoPlacesPage() {
           "حجز سريع القاهرة",
           "نايت كلوب وسط البلد",
           "سهرات القاهرة 2024",
-          "القاهرة ديسكو"
+          "القاهرة ديسكو",
+          "كباريه القاهرة",
+          "ديسكو القاهرة",
+          "أماكن ترفيهية القاهرة", "سهرات مميزة القاهرة", "VIP القاهرة"
         ]}
+      
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">أفضل نايت كلوب في القاهرة</h1>
-          <p className="text-gray-300 mb-8">تصفّح أفضل الأماكن لعشّاق السهر: خدمات VIP، دي جي مباشر، وإطلالات ساحرة.</p>
+          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">أحسن نايت كلوب في القاهرة</h1>
+          <p className="text-gray-300 mb-8">تصفح أروع الأماكن لعشّاق السهر: VIP، دي جي مباشر، وجو رهيب.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {cairoPlaces.map((place) => (

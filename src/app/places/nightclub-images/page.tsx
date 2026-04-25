@@ -10,10 +10,10 @@ export default function NightclubImagesPage() {
   const phone = "01286110562";
   const galleryImages = places.map((place) => ({
     url: place.image,
-    alt: `${place.name} nightclub c cairo vip egypt`,
-    caption: `${place.name} في ${place.location} - VIP وسهرات مذهلة`, 
+    alt: `صور ${place.name} في ${place.location} - نايت كلوب VIP في القاهرة والجيزة والعجوزة`,
+    caption: `${place.name} في ${place.location} - تجربة VIP فاخرة وصور عالية الجودة`,
     price: place.price,
-    vipTitle: `${place.name} VIP Ticket`,
+    vipTitle: `تجربة VIP ${place.name}`,
     slug: place.slug,
   }));
 
@@ -21,7 +21,7 @@ export default function NightclubImagesPage() {
     "@context": "https://schema.org",
     "@type": "ImageGallery",
     name: "صور نايت كلوب في مصر مع أسعار وتجارب حقيقية",
-    description: "معرض صور دقيق لأفضل نوادي نايت كلوب في القاهرة والساحل وشرم والجونة - شامل VIP وأرخص سعر.",
+    description: "معرض صور دقيق لأفضل نوادي نايت كلوب في القاهرة والجيزة والعجوزة - شامل VIP، باقات فاخرة وأسعار حقيقية.",
     url: "https://www.nightclubegypt.com/places/nightclub-images",
     image: galleryImages.map((img) => ({
       "@type": "ImageObject",
@@ -57,9 +57,15 @@ export default function NightclubImagesPage() {
     <>
       <SEOUnified
         pageType="gallery"
-        customTitle="صور نايت كلوب في مصر + أسعار وتجارب حقيقية - Night Club Egypt"
-        customDescription="شاهد أجمل صور نايت كلوب في القاهرة والساحل وشرم والجونة مع باقات VIP وأسعار وتقييمات حقيقية. اتصل 01286110562 الآن للحجز."
-        customKeywords={["صور نايت كلوب", "Night Club Egypt images", "صور VIP نايت كلوب", "حجز نايت كلوب"]}
+        customTitle="📸 صور نوادي نايت كلوب القاهرة 2026 | سهرات VIP حقيقية | احجز بسرعة"
+        customDescription="📸 شوف صور النوادي والسهرات الحقيقية في القاهرة والجيزة والعجوزة. صور VIP وأجواء واقعية وأسعار حقيقية من Night Club Egypt."
+        customKeywords={[
+          "صور نوادي نايت كلوب", "صور نايت كلوب القاهرة", "صور VIP نايت كلوب",
+          "صور سهرات نايت كلوب", "صور نايت كلوب الجيزة", "صور نايت كلوب العجوزة",
+          "صور حفلات نايت كلوب", "معرض صور نايت كلوب", "صور ديسكو القاهرة",
+          "صور كباريه القاهرة", "صور نادي ليلي VIP", "صور سهرة نايت كلوب",
+          "صور نادي القاهرة", "صور نوادي ليلية"
+        ]}
       />
 
       <Script id="image-gallery-jsonld" type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(imageSchema) }} />

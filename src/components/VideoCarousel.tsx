@@ -33,13 +33,16 @@ interface VideoCarouselProps {
 }
 
 // 👇 VideoObject Schema للفيديوهات
-const VideoSchema = ({ video, baseUrl }: { video: VideoData; baseUrl: string }) => {
+const VideoSchema = ({ video }: { video: VideoData }) => {
+  // استخدام window.location.origin إذا كان متاحاً، وإلا استخدم URL ثابت
+  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.nightclubegypt.com';
+
   const videoSchema = {
     "@context": "https://schema.org",
     "@type": "VideoObject",
     "name": video.title,
     "description": video.description,
-    "thumbnailUrl": `${baseUrl}/${video.poster}`,
+    "thumbnailUrl": `${baseUrl}${video.poster}`,
     "contentUrl": `${baseUrl}${video.src}`,
     "uploadDate": new Date().toISOString(),
     "duration": `PT${video.duration || 25}S`,
@@ -106,8 +109,6 @@ const VideoCarousel = ({
   const [isVideoPlaying, setIsVideoPlaying] = useState(false);
   const videoRefs = useRef<Map<string, HTMLVideoElement>>(new Map());
   const swiperRef = useRef<{ swiper: SwiperType } | null>(null);
-
-  const baseUrl = 'https://www.nightclubegypt.com';
 
   const setVideoRef = (id: string, element: HTMLVideoElement | null) => {
     if (element) {
@@ -199,7 +200,7 @@ const VideoCarousel = ({
       style={{ backgroundColor: "#000000ff", color: "#000000" }}
     >
       {videos.map(video => (
-        <VideoSchema key={`schema-${video.id}`} video={video} baseUrl={baseUrl} />
+        <VideoSchema key={`schema-${video.id}`} video={video} />
       ))}
 
       <div className="container mx-auto px-4">

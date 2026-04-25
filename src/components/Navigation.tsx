@@ -29,47 +29,55 @@ const Navigation = () => {
 
   useEffect(() => {
     const checkIfMobile = () => {
-      setIsMobile(window.innerWidth <= 1024);
+      if (typeof window !== 'undefined') {
+        setIsMobile(window.innerWidth <= 1024);
+      }
     };
 
     checkIfMobile();
-    window.addEventListener("resize", checkIfMobile);
-    return () => window.removeEventListener("resize", checkIfMobile);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("resize", checkIfMobile);
+      return () => window.removeEventListener("resize", checkIfMobile);
+    }
   }, []);
 
   const navItems = [
-    { name: "الرئيسية", href: "#home", icon: Home, seo: "نايت كلوب أرخص أفضل مصر" },
-    { name: "عن النادي", href: "#about", icon: Star, seo: "أفضل كاباريه ديسكو القاهرة" },
+    { name: "الرئيسية", href: "/", icon: Home, seo: "نايت كلوب أرخص أفضل مصر" },
+    { name: "الأماكن", href: "/places", icon: Music, seo: "أماكن السهر VIP في مصر" },
+    { name: "الأسعار", href: "/prices/cairo", icon: DollarSign, seo: "أسعار نايت كلوب القاهرة 2026" },
+    { name: "التقييمات", href: "/reviews/cairo", icon: Star, seo: "تقييمات نايت كلوب القاهرة" },
+    { name: "دليل الحجز", href: "/guides/booking", icon: Crown, seo: "دليل حجز نايت كلوب مصر" },
     { name: "الفيديوهات", href: "/places/nightclub-videos", icon: Video, seo: "فيديوهات نايت كلوب طرب شعبي" },
-    { name: "المعرض", href: "#gallery", icon: Camera, seo: "صور نايت كلوب بار" },
-    { name: "الأماكن", href: "#places", icon: Music, seo: "أماكن السهر VIP في مصر" },
-    { name: "دليل السهرات", href: "/blog/best-nightclubs-egypt-2026", icon: Crown, seo: "أفضل نايت كلوب في مصر 2026 دليل سهرات القاهرة" },
-    { name: "نوادي القاهرة", href: "/night-clubs-cairo", icon: Star, seo: "نايت كلوب القاهرة حجز" },
+    { name: "المعرض", href: "/places/nightclub-images", icon: Camera, seo: "صور نايت كلوب بار" },
     { name: "التواصل", href: "#contact", icon: Phone, seo: "حجز نايت كلوب اتصال" },
   ];
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 50);
+      if (typeof window !== 'undefined') {
+        setScrolled(window.scrollY > 50);
 
-      // تحديد القسم النشط
-      const sections = navItems.map(item => item.href.substring(1));
-      const currentSection = sections.find(section => {
-        const element = document.getElementById(section);
-        if (element) {
-          const rect = element.getBoundingClientRect();
-          return rect.top <= 100 && rect.bottom >= 100;
+        // تحديد القسم النشط
+        const sections = navItems.map(item => item.href.substring(1));
+        const currentSection = sections.find(section => {
+          const element = document.getElementById(section);
+          if (element) {
+            const rect = element.getBoundingClientRect();
+            return rect.top <= 100 && rect.bottom >= 100;
+          }
+          return false;
+        });
+
+        if (currentSection) {
+          setActiveSection(currentSection);
         }
-        return false;
-      });
-
-      if (currentSection) {
-        setActiveSection(currentSection);
       }
     };
 
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    if (typeof window !== 'undefined') {
+      window.addEventListener("scroll", handleScroll);
+      return () => window.removeEventListener("scroll", handleScroll);
+    }
   }, []); // eslint-disable-line react-hooks/exhaustive-deps
 
   // إدارة التنقل بالكيبورد للقائمة المحمولة
@@ -106,8 +114,10 @@ const Navigation = () => {
       }
     };
 
-    document.addEventListener("keydown", handleKeyDown);
-    return () => document.removeEventListener("keydown", handleKeyDown);
+    if (typeof window !== 'undefined') {
+      document.addEventListener("keydown", handleKeyDown);
+      return () => document.removeEventListener("keydown", handleKeyDown);
+    }
   }, [isOpen]);
 
   const router = useRouter();
@@ -138,14 +148,6 @@ const Navigation = () => {
 
   return (
     <>
-      {/* Skip to main content link for screen readers */}
-      <a
-        href="#main-content"
-        className="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:right-4 focus:z-[60] bg-yellow-400 text-black px-4 py-2 rounded-lg font-bold focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2"
-      >
-        انتقل إلى المحتوى الرئيسي
-      </a>
-
       {/* Main Navigation */}
       <motion.nav
         initial={{ y: -100, opacity: 0 }}
@@ -219,10 +221,10 @@ const Navigation = () => {
                   ))}
                 </ul>
 
-                {/* CTA Button */}
-                <div className="hidden lg:block">
+                {/* CTA Buttons */}
+                <div className="hidden lg:flex items-center gap-3">
                   <Button
-                    onClick={() => scrollToSection("#contact")}
+                    onClick={() => router.push('/pricing-booking')}
                     className="bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold px-6 py-3 rounded-full hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black"
                     aria-label="احجز في أفضل نايت كلوب مصر الآن - خصومات حتى 25%"
                   >
@@ -265,13 +267,13 @@ const Navigation = () => {
             animate={{ opacity: 1, x: 0 }}
             exit={{ opacity: 0, x: "100%" }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 right-0 h-full w-80 bg-black/95 backdrop-blur-xl border-l border-purple-500/30 z-50 lg:hidden"
+            className="fixed top-0 right-0 h-full w-80 bg-black/95 backdrop-blur-xl border-l border-purple-500/30 z-50 lg:hidden overflow-y-auto"
             role="dialog"
             aria-modal="true"
             aria-label="القائمة الجانبية للتنقل"
             id="mobile-menu"
           >
-            <div className="p-6 h-full flex flex-col">
+            <div className="p-6 min-h-screen flex flex-col">
               {/* Mobile Menu Header */}
               <div className="flex items-center justify-between mb-8">
                 <div className="relative w-12 h-12 rounded-full border-2 border-fuchsia-500 bg-white/10 p-1 shadow-lg">
@@ -320,14 +322,14 @@ const Navigation = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
-                className="mt-auto pt-6 border-t border-purple-500/30"
+                className="mt-auto pt-6 border-t border-purple-500/30 space-y-3"
               >
                 <Button
                   onClick={() => {
-                    scrollToSection("#contact");
+                    router.push('/pricing-booking');
                     setIsOpen(false);
                   }}
-                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-4 rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black text-lg"
+                  className="w-full bg-gradient-to-r from-yellow-400 to-yellow-600 text-black font-bold py-3 rounded-lg hover:scale-105 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-yellow-400 focus:ring-offset-2 focus:ring-offset-black"
                   aria-label="احجز في أفضل نايت كلوب مصر - خصومات حتى 25%"
                 >
                   احجز الآن
