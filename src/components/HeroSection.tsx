@@ -97,9 +97,9 @@ const HeroSection = () => {
                   <Image
                     src="/images/Screenshot_2026-05-26_160432-removebg-preview.png"
                     alt="سهرات مستمرة"
-                    width={300}
-                    height={90}
-                    className="object-contain w-36 sm:w-56 h-auto drop-shadow-[0_0_12px_rgba(255,215,0,0.85)]"
+                    width={380}
+                    height={115}
+                    className="object-contain w-48 sm:w-64 h-auto drop-shadow-[0_0_12px_rgba(255,215,0,0.85)]"
                     priority
                   />
                 </div>
