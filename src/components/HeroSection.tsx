@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { motion } from "framer-motion";
+import Image from "next/image";
 import { FaWhatsapp } from "react-icons/fa";
 import { Sparkles, Music, Users, Crown, Phone } from "lucide-react";
 import Link from "next/link";
@@ -91,20 +92,18 @@ const HeroSection = () => {
               transition={{ duration: 0.7, delay: 0.35 }}
               className="mb-4"
             >
-              <div className="inline-block bg-sky-400/10 border border-sky-400/30 text-sky-200 rounded-xl px-6 py-4 backdrop-blur-md shadow-[0_0_30px_rgba(56,189,248,0.15)] text-center">
-                <span
-                  className="
-                    text-6xl font-extrabold
-                    text-transparent bg-clip-text
-                    bg-gradient-to-r from-yellow-300 via-yellow-400 to-yellow-600
-                    drop-shadow-[0_0_12px_rgba(255,215,0,0.9)]
-                    tracking-widest
-                  "
-                  style={{ WebkitTextStroke: "1.5px #FFD700" }}
-                >
-                  2026
-                </span>
-                <div className="text-xs mt-2">سهرات مستمرة بأجواء احترافية</div>
+              <div className="inline-block bg-transparent border border-transparent text-sky-200 rounded-xl px-4 py-2 text-center">
+                <div className="flex items-center justify-center sm:justify-start">
+                  <Image
+                    src="/images/Screenshot_2026-05-26_160432-removebg-preview.png"
+                    alt="سهرات مستمرة"
+                    width={300}
+                    height={90}
+                    className="object-contain w-36 sm:w-56 h-auto drop-shadow-[0_0_12px_rgba(255,215,0,0.85)]"
+                    priority
+                  />
+                </div>
+                <div className="text-xs mt-2">عيد اضحا مبارك عليكم كل عام وانتم ب  الف خير 🔥</div>
               </div>
             </motion.div>
 
