@@ -8,6 +8,7 @@ type Props = {
   poster?: string;
   muted?: boolean;
   loop?: boolean;
+  volume?: number;
   className?: string;
   showFullscreenButton?: boolean;
   onPlay?: () => void;
@@ -16,7 +17,7 @@ type Props = {
 };
 
 const VideoPlayer = forwardRef<HTMLVideoElement, Props>(
-  ({ src, poster, muted = false, loop = false, className = "", showFullscreenButton = true, onPlay, onPause, onEnded }, ref) => {
+  ({ src, poster, muted = false, loop = false, volume = 0.05, className = "", showFullscreenButton = true, onPlay, onPause, onEnded }, ref) => {
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [isFullscreen, setIsFullscreen] = useState(false);
@@ -37,6 +38,12 @@ const VideoPlayer = forwardRef<HTMLVideoElement, Props>(
       };
     }, []);
 
+    useEffect(() => {
+      const v = videoRef.current;
+      if (!v) return;
+      v.volume = volume;
+    }, [volume]);
+
     const togglePlay = async () => {
       const v = videoRef.current;
       if (!v) return;
@@ -56,11 +63,12 @@ const VideoPlayer = forwardRef<HTMLVideoElement, Props>(
     };
 
     const enterFullscreen = async () => {
-      const el = containerRef.current;
-      if (!el) return;
+      const v = videoRef.current;
+      if (!v) return;
       try {
-        if (el.requestFullscreen) await el.requestFullscreen();
-        else if ((el as any).webkitRequestFullscreen) await (el as any).webkitRequestFullscreen();
+        if (v.requestFullscreen) await v.requestFullscreen();
+        else if ((v as any).webkitEnterFullscreen) await (v as any).webkitEnterFullscreen();
+        else if ((v as any).webkitRequestFullscreen) await (v as any).webkitRequestFullscreen();
       } catch (e) {
         console.error(e);
       }

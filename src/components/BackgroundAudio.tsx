@@ -15,7 +15,7 @@ export default function BackgroundAudio({
   src,
   autoPlay = true,
   loop = true,
-  volume = 0.02,
+  volume = 0.01,
 }: BackgroundAudioProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { isVideoPlaying } = useVideoContext();
