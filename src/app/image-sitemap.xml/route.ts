@@ -30,6 +30,13 @@ export async function GET() {
       title: 'نايت كلوب مصر شعار'
     },
 
+    {
+      url: `${baseUrl}/images/nightparity2026.png`,
+      caption: 'Night Party 2026 - حفلات نايت كلوب مصر',
+      location: 'القاهرة، مصر',
+      title: 'Night Party 2026'
+    },
+
     // صور المعرض والحفلات
     {
       url: `${baseUrl}/images/nightclub0.jpeg`,

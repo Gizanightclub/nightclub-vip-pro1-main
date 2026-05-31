@@ -1,21 +1,20 @@
 # SEO Keywords Quick Reference Card
 
-## 1. AOWTAR CLUB (أوتار كلوب)
-**Location:** العجوزة - فندق فور سيزونز - الجيزة
+## 1. ROYAL KING (رويال كينج)
+**Location:** كورنيش النيل - العجوزة
 
 | English Keywords | Arabic Keywords |
 |--|--|
-| AOWTAR Club Cairo | أوتار كلوب القاهرة |
-| AOWTAR Nightclub Giza | احجز أوتار كلوب |
-| Book AOWTAR Club | أوتار كلوب الجيزة |
-| AOWTAR VIP Booking | أوتار كلوب vip |
-| AOWTAR Lounge Four Seasons | الرقص أوتار كلوب |
-| Dancing Cairo AOWTAR | موسيقى أوتار كلوب |
-| DJ Club AOWTAR Giza | فندقي فور سيزونز كلوب |
-| AOWTAR Club Prices | أسعار أوتار كلوب |
-| Fine Dining AOWTAR Club | حفلات أوتار كلوب |
-| AOWTAR Club Reservation | ديي أوتار كلوب |
-
+| Royal King | رويال كينج |
+| Royal King Nightclub | حجز رويال كينج |
+| Book Royal King | رويال كينج العجوزة |
+| Royal King VIP Booking | رويال كينج VIP |
+| Royal King Nile View | رويال كينج كورنيش النيل |
+| Royal King promo | حجز رويال كينج 2000 |
+| Royal King prices | أسعار رويال كينج |
+| Royal King VIP Tables | باقات رويال كينج |
+| Royal King booking online | حجز رويال كينج اونلاين |
+| Royal King events | حفلات رويال كينج |
 ---
 
 ## 2. FOX CLUB (فوكس كلوب)

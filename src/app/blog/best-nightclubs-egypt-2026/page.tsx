@@ -93,9 +93,9 @@ export default function BestNightclubs2026() {
             <p className="text-gray-200">في فيينا، ستجد فنانين يعزفون موسيقى حية كل ليلة. نايت كلوب بهذا المستوى من الفخامة يجعل **سهرات القاهرة** من أفضل التجارب في مصر. **احجز نايت كلوب** فيينا واستمتع بأجواء **night club** راقية على ضفاف النيل!</p>
             <p className="text-gray-200">الأسعار تبدأ من 1500 جنيه. جودة **نايت كلوب** وخدماته تجعله من **أفضل نايت كلوب** في **nightlife Egypt**.</p>
 
-            <h3 className="text-xl font-semibold text-cyan-300 mt-5 mb-3">🎵 AOWTAR CLUB – الموسيقى العربية والعالمية</h3>
-            <p className="text-gray-200 mb-2">**أوتار كلوب** في العجوزة يقدم مزيجاً فريداً من الموسيقى العربية والعالمية. إذا كنت تبحث عن **night club** يجمع بين تراثنا الموسيقي والحداثة، فأوتار هو الخيار الأمثل. هذا **نايت كلوب** مشهور بين الشباب والعائلات الراغبة في **nightlife Egypt** متوازنة.</p>
-            <p className="text-gray-200">نايت كلوب أوتار يتميز بـ DJs محترفين وراقصات محترفات وأجواء حية طول الليل. احجز **نايت كلوب** أوتار الآن وجرب **night club Cairo** الأصيل!</p>
+            <h3 className="text-xl font-semibold text-cyan-300 mt-5 mb-3">🎵 Royal King – الموسيقى العربية والعالمية</h3>
+            <p className="text-gray-200 mb-2">**رويال كينج** في العجوزة على كورنيش النيل يقدم مزيجاً فريداً من الموسيقى العربية والعالمية. إذا كنت تبحث عن **night club** يجمع بين التراث والحداثة، فـ Royal King خيار مميز يناسب العائلات والشباب على حد سواء.</p>
+            <p className="text-gray-200">يتميز Royal King بـ DJs محترفين وأجواء حية طوال الليل. احجز الآن واستمتع بتجربة **night club Cairo** مميزة على ضفاف النيل!</p>
 
             <h3 className="text-xl font-semibold text-cyan-300 mt-5 mb-3">🦊 FOX CLUB – المطل على النيل والرفاهية</h3>
             <p className="text-gray-200 mb-2">**فوكس كلوب** في العجوزة هو **نايت كلوب** فاخر يطل على النيل. إذا كنت تريد **night club** بأجواء لوكس، فوكس هو الوجهة الأولى. هذا **نايت كلوب** معروف بجودة موسيقاه وروعة ديكوره. **سهرات القاهرة** في فوكس تكون دائماً مميزة وفاخرة.</p>
@@ -109,7 +109,7 @@ export default function BestNightclubs2026() {
           <article className="bg-white/5 p-6 rounded-2xl border border-purple-500/30">
             <h2 className="text-2xl font-bold text-yellow-300 mb-4">💰 Best Night Club in Cairo for Tourists & International Visitors</h2>
             <p className="text-gray-200 mb-3">If you're visiting Cairo and looking for the best **night club Cairo** experience, you've found the right guide! Egypt's capital offers exceptional **nightlife Egypt** experiences that blend international standards with authentic Egyptian hospitality. Whether you're searching for a luxury **night club** or a vibrant party venue, Cairo has it all.</p>
-            <p className="text-gray-200 mb-3">Places like **Tango Club**, **Vienna Club**, **Aowtar Club**, and **Fox Club** welcome international guests with English-speaking staff and world-class DJs. Nightlife Egypt in Cairo is safe, exciting, and unforgettable. Book your **night club Cairo** now and experience the magic of **nightlife Egypt** like never before! 📱 Call us at <span className="text-green-400">01286110562</span> for instant bookings.</p>
+            <p className="text-gray-200 mb-3">Places like **Tango Club**, **Vienna Club**, **Royal King**, and **Fox Club** welcome international guests with English-speaking staff and world-class DJs. Nightlife Egypt in Cairo is safe, exciting, and unforgettable. Book your **night club Cairo** now and experience the magic of **nightlife Egypt** like never before! 📱 Call us at <span className="text-green-400">01286110562</span> for instant bookings.</p>
             <p className="text-gray-200">When you book a **night club Cairo**, you get premium drinks, exclusive tables, and access to some of the finest **nightlife Egypt** venues. Don't miss out on the best **night club** experience in Cairo – reserve your spot today!</p>
           </article>
 

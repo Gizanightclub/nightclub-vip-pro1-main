@@ -9,8 +9,10 @@ import { getPlaceBySlug, places, Place } from "@/lib/places";
 import { NIGHTCLUB_BASE_INFO } from "@/lib/seo-unified";
 import SEOUnified from "@/components/SEOUnified";
 import Image from "next/image";
+import VideoPlayer from "@/components/VideoPlayer";
 import { getPlaceSEOImage } from "@/lib/seo-images";
 import StarRating from "@/components/StarRating";
+import { useVideoContext } from "@/context/VideoContext";
 
 type PageProps = {
   params: Promise<{
@@ -21,6 +23,7 @@ type PageProps = {
 export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
   const params = React.use(paramsPromise);
   const place = useMemo(() => getPlaceBySlug(params.slug), [params.slug]);
+  const { setIsVideoPlaying } = useVideoContext();
 
   if (!place) {
     notFound();
@@ -44,22 +47,7 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
   const whatsappLink = `https://wa.me/201286110562?text=${encodeURIComponent(`مرحبا، أود حجز ${place?.name} في القاهرة. يرجى التواصل.`)}`;
   const mapQuery = encodeURIComponent(`${place?.name} ${place?.location} القاهرة`);
 
-  const [isVideoPlaying, setIsVideoPlaying] = React.useState(false);
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-
   const videoSrc = place?.video || "/videos/nightclub-promo.mp4";
-
-  const toggleVideo = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setIsVideoPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsVideoPlaying(false);
-      }
-    }
-  };
 
   const seoImage = getPlaceSEOImage(params.slug);
 
@@ -223,31 +211,14 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
               <section className="lg:col-span-2 space-y-5">
                 <div className="rounded-3xl overflow-hidden border border-purple-500/30 shadow-xl">
                   <div className="relative h-96 md:h-[40rem] bg-black">
-                    <video
-                      ref={videoRef}
+                    <VideoPlayer
                       src={videoSrc}
-                      className="w-full h-full object-cover"
-                      autoPlay={false}
-                      loop
-                      muted={false}
-                      controls={false}
                       poster={place!.image}
-                      preload="metadata"
-                      onError={(e) => {
-                        console.error('Video failed to load:', videoSrc, e);
-                      }}
-                      onLoadedData={() => {
-                        console.log('Video loaded successfully:', videoSrc);
-                      }}
+                      className="w-full h-full object-cover rounded-none"
+                      onPlay={() => setIsVideoPlaying(true)}
+                      onPause={() => setIsVideoPlaying(false)}
+                      onEnded={() => setIsVideoPlaying(false)}
                     />
-                    <button
-                      onClick={toggleVideo}
-                      className="absolute top-1/2 left-1/2 z-30 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border-8 border-white/70 bg-black/40 text-white text-2xl font-bold shadow-lg transition hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white"
-                      aria-label={isVideoPlaying ? 'إيقاف الفيديو' : 'تشغيل الفيديو'}
-                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'auto' }}
-                    >
-                      {isVideoPlaying ? '▌▌' : '▶'}
-                    </button>
 
                     <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent pointer-events-none" />
                     <div className="absolute bottom-4 left-4 p-4 rounded-lg bg-black/40 backdrop-blur-sm">

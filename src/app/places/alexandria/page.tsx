@@ -1,58 +1,51 @@
-import Navigation from "@/components/Navigation";
+﻿import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
-import PlaceCard from "@/components/PlaceCard";
-import { places } from "@/lib/places";
+import Link from "next/link";
+import { generatePageMetadataByType } from "@/lib/seo-unified";
 
-const city = "الإسكندرية";
-
-const alexPlaces = places.filter((place) => place.location.toLowerCase().includes("الإسكندرية") || place.location.toLowerCase().includes("الاسكندرية"));
+export const metadata = {
+  ...generatePageMetadataByType(
+    'places',
+    'الإسكندرية غير متاحة الآن - Night Club Egypt',
+    'لا يوجد حالياً نوادي في الإسكندرية. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين.',
+    ['الإسكندرية غير متاحة', 'noindex', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'الجيزة', 'المهندسين'],
+    'https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg',
+    'https://www.nightclubegypt.com/places/alexandria'
+  ),
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
+};
 
 export default function AlexandriaPlacesPage() {
   return (
     <>
       <SEOUnified
         pageType="places"
-        customTitle="نايت كلوب الإسكندرية | أفضل أماكن السهر في الإسكندرية - Night Club Egypt"
-        customDescription="اكتشف أفضل نايت كلوب في الإسكندرية، احجز باقات VIP وInstaPay، واستمتع بأفضل سهرات على الساحل الشمالي."
-        customKeywords={[
-          "نايت كلوب الإسكندرية",
-          "أفضل نايت كلوب في الإسكندرية",
-          "حجز نايت كلوب في الإسكندرية",
-          "سهرات الإسكندرية",
-          "nightclub Alexandria",
-          "Alexandria nightlife",
-          "نايت كلوب الساحل الشمالي",
-          "حجز VIP الإسكندرية",
-          "أرخص نايت كلوب الإسكندرية",
-          "سهرات بحرية الإسكندرية",
-          "الإسكندرية السياحية",
-          "ميناء الإسكندرية",
-          "شواطئ الإسكندرية",
-          "فنادق الإسكندرية",
-          "سهرات الإسكندرية البحرية",
-          "حجز سريع الإسكندرية",
-          "نايت كلوب ميناء",
-          "سهرات الإسكندرية 2024",
-          "الإسكندرية ديسكو",
-          "مطاعم الإسكندرية"
-        ]}
+        customTitle="الإسكندرية غير متاحة الآن - Night Club Egypt"
+        customDescription="لا يوجد حالياً نوادي في الإسكندرية. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين."
+        customKeywords={['الإسكندرية غير متاحة', 'لا يوجد أماكن', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين']}
+        customImage="https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg"
+        customUrl="https://www.nightclubegypt.com/places/alexandria"
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">أفضل نايت كلوب في الإسكندرية</h1>
-          <p className="text-gray-300 mb-8">أفضل تجارب السهر عند البحر الأبيض المتوسط مع عروض VIP.</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
-            {alexPlaces.map((place) => (
-              <PlaceCard key={place.slug} place={place} />
-            ))}
+          <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-10 text-center">
+            <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">الإسكندرية غير متاحة الآن</h1>
+            <p className="text-gray-300 mb-6">لا يوجد حالياً نوادي أو أماكن في الإسكندرية ضمن موقعنا.</p>
+            <p className="text-gray-300 mb-6">لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين.</p>
+            <div className="flex flex-col gap-4 sm:flex-row justify-center">
+              <Link href="/places/cairo" className="rounded-xl bg-cyan-500 px-6 py-3 text-white font-bold hover:bg-cyan-400 transition">عرض أماكن القاهرة</Link>
+              <a href="tel:01286110562" className="rounded-xl bg-amber-400 px-6 py-3 text-slate-950 font-bold hover:bg-amber-300 transition">اتصل الآن 01286110562</a>
+            </div>
           </div>
-
-          {alexPlaces.length === 0 && (
-            <div className="text-center text-gray-300 mt-10">قريباً: إضافة أفضل أماكن نايت كلوب في الإسكندرية.</div>
-          )}
         </div>
       </main>
       <Footer />

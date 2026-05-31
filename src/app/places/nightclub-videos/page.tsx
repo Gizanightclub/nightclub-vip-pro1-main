@@ -5,6 +5,7 @@ import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
 import Script from "next/script";
 import Link from "next/link";
+import VideoPlayer from "@/components/VideoPlayer";
 
 export default function NightclubVideosPage() {
   const phone = "01286110562";
@@ -135,19 +136,11 @@ export default function NightclubVideosPage() {
             {videos.map((video) => (
               <article key={video.title} className="rounded-2xl border border-purple-500/30 bg-black/50 p-4">
                 <h2 className="text-xl font-bold text-white mb-3">{video.title}</h2>
-                <video 
-                  controls 
-                  className="w-full rounded-xl" 
+                <VideoPlayer
+                  src={encodeVideoSrc(video.url)}
                   poster={video.thumbnail}
-                  preload="metadata"
-                  playsInline
-                  onError={(e) => {
-                    console.error(`Video failed to play: ${video.title}`, e);
-                  }}
-                >
-                  <source src={encodeVideoSrc(video.url)} type="video/mp4" />
-                  عذراً، المتصفح الخاص بك لا يدعم عرض الفيديو. يمكنك <a href={encodeVideoSrc(video.url)} className="text-blue-300 underline">تحميل الفيديو</a> مباشرة.
-                </video>
+                  className="w-full rounded-xl"
+                />
                 <p className="mt-3 text-gray-200 text-sm">{video.description}</p>
                 <p className="mt-3 text-yellow-300 font-bold">صنف فيديو: حجز VIP - أرخص أسعار</p>
                 <a href={`tel:${phone}`} className="inline-block mt-4 rounded-xl bg-green-500 px-6 py-2 font-bold text-white hover:bg-green-600">اتصل للحجز: {phone}</a>

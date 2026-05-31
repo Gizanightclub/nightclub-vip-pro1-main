@@ -1,126 +1,51 @@
-import Navigation from "@/components/Navigation";
+﻿import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
 import SEOUnified from "@/components/SEOUnified";
-import PlaceCard from "@/components/PlaceCard";
-import { places } from "@/lib/places";
 import Link from "next/link";
+import { generatePageMetadataByType } from "@/lib/seo-unified";
 
-export type Club = {
-  name: string;
-  slug: string;
-  location: string;
-  description: string;
-  vibe: string;
-  mapUrl: string;
-  startingPrice: number;
-  image: string;
-  keywords: string[];
+export const metadata = {
+  ...generatePageMetadataByType(
+    'places',
+    'الغردقة غير متاحة الآن - Night Club Egypt',
+    'لا يوجد حالياً نوادي في الغردقة أو البحر الأحمر. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين.',
+    ['الغردقة غير متاحة', 'noindex', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين'],
+    'https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg',
+    'https://www.nightclubegypt.com/places/hurghada'
+  ),
+  robots: {
+    index: false,
+    follow: true,
+    googleBot: {
+      index: false,
+      follow: true,
+    },
+  },
 };
-
-export const clubs: Club[] = [
-  {
-    name: "Stage Cairo Club",
-    slug: "stage-cairo-club",
-    location: "القاهرة",
-    description:
-      "Stage Cairo Club يعد من أهم نوادي القاهرة لليالي الـ DJ، ضوء ليزر، VIP فخم، وموسيقى إلكترونية وعربية.",
-    vibe: "DJ / حفلات / VIP",
-    mapUrl: "https://www.google.com/maps/place/Stage+Cairo+Club",
-    startingPrice: 1200,
-    image: "/images/clubs/stage-cairo.jpg",
-    keywords: ["stage cairo", "club cairo", "night club cairo", "حجز نايت كلوب"],
-  },
-  {
-    name: "Cash Cairo",
-    slug: "cash-cairo",
-    location: "القاهرة",
-    description:
-      "Cash Cairo نادي حديث، مناسب لجمهور الشباب، حفلات حماسية ودي جي عالمي، وخدمات VIP وجولة سيارة.",
-    vibe: "DJ / حفلات / VIP",
-    mapUrl: "https://www.google.com/maps/place/Cash+Cairo",
-    startingPrice: 1000,
-    image: "/images/clubs/cash-cairo.jpg",
-    keywords: ["cash cairo", "nightlife egypt", "حجز نايت كلوب"],
-  },
-  {
-    name: "Omni Club Cairo",
-    slug: "omni-club-cairo",
-    location: "القاهرة",
-    description:
-      "Omni Club Cairo يتميز بأفضل ديسكو وحفلات لايف، VIP بول وإضاءة احترافية.",
-    vibe: "DJ / حفلات / VIP",
-    mapUrl: "https://www.google.com/maps/place/Omni+Club+Cairo",
-    startingPrice: 1100,
-    image: "/images/clubs/omni-club.jpg",
-    keywords: ["omni club cairo", "club cairo", "سهر القاهرة"],
-  },
-  {
-    name: "Kalije Night Club",
-    slug: "kalije-night-club",
-    location: "القاهرة",
-    description:
-      "Kalije Night Club جو راقي وعروض مباشرة، كراسي VIP وحديقة خارجية لايف.",
-    vibe: "DJ / حفلات / VIP",
-    mapUrl: "https://www.google.com/maps/place/Kalije+Night+Club",
-    startingPrice: 1300,
-    image: "/images/clubs/kalije.jpg",
-    keywords: ["kalije night club", "night club cairo", "حفلات"],
-  },
-];
-
-const city = "الغردقة";
-
-const hurghadaPlaces = places.filter((place) => place.location.toLowerCase().includes("الغردقة"));
 
 export default function HurghadaPlacesPage() {
   return (
     <>
       <SEOUnified
         pageType="places"
-        customTitle="نايت كلوب الغردقة | أفضل أماكن السهر وVIP في الغردقة - Night Club Egypt"
-        customDescription="اكتشف أفضل نايت كلوب في الغردقة، حجز باقات VIP، تجربة سهر على البحر الأحمر، وعروض InstaPay مميزة."
-        customKeywords={[
-          "نايت كلوب الغردقة",
-          "أفضل نايت كلوب في الغردقة",
-          "حجز نايت كلوب في الغردقة",
-          "سهرات الغردقة",
-          "nightclub Hurghada",
-          "Hurghada nightlife",
-          "البحر الأحمر نايت كلوب",
-          "شواطئ الغردقة",
-          "غوص الغردقة",
-          "فنادق الغردقة",
-          "سهرات البحر الأحمر",
-          "حجز VIP الغردقة",
-          "أرخص نايت كلوب الغردقة",
-          "سهرات الغردقة البحرية",
-          "الغردقة ديسكو",
-          "مطاعم الغردقة",
-          "رياضات مائية الغردقة",
-          "حجز سريع الغردقة",
-          "نايت كلوب البحر الأحمر",
-          "سهرات الغردقة 2024"
-        ]}
+        customTitle="الغردقة غير متاحة الآن - Night Club Egypt"
+        customDescription="لا يوجد حالياً نوادي في الغردقة أو البحر الأحمر. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين."
+        customKeywords={['الغردقة غير متاحة', 'لا يوجد أماكن', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين']}
+        customImage="https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg"
+        customUrl="https://www.nightclubegypt.com/places/hurghada"
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
-          <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">أفضل نايت كلوب في الغردقة</h1>
-          <p className="text-gray-300 mb-8">سهرات ساحرة عند البحر الأحمر مع أغاني الـ DJ الحماسية.</p>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
-            {hurghadaPlaces.map((place) => (
-              <PlaceCard key={place.slug} place={place} />
-            ))}
+          <div className="rounded-[2rem] border border-white/10 bg-slate-900/80 p-10 text-center">
+            <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">الغردقة غير متاحة الآن</h1>
+            <p className="text-gray-300 mb-6">لا يوجد حالياً نوادي أو أماكن في الغردقة ضمن موقعنا.</p>
+            <p className="text-gray-300 mb-6">لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين.</p>
+            <div className="flex flex-col gap-4 sm:flex-row justify-center">
+              <Link href="/places/cairo" className="rounded-xl bg-cyan-500 px-6 py-3 text-white font-bold hover:bg-cyan-400 transition">عرض أماكن القاهرة</Link>
+              <a href="tel:01286110562" className="rounded-xl bg-amber-400 px-6 py-3 text-slate-950 font-bold hover:bg-amber-300 transition">اتصل الآن 01286110562</a>
+            </div>
           </div>
-
-          {hurghadaPlaces.length === 0 && (
-            <div className="text-center text-gray-300 mt-10">قريباً: إضافة أفضل أماكن نايت كلوب في الغردقة.</div>
-          )}
-
-          <Link href="/night-clubs-cairo" className="text-cyan-300 underline">
-            تصفح نوادي القاهرة الليلية الآن
-          </Link>
         </div>
       </main>
       <Footer />

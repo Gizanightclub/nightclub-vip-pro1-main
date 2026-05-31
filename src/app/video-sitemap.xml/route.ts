@@ -23,6 +23,20 @@ export async function GET() {
   // 👇 بيانات الفيديوهات الأساسية
   const staticVideos = [
     {
+      url: `${baseUrl}/videos/nightclubegypt2.mp4`,
+      thumbnailUrl: `${baseUrl}/images/nightclub1.jpeg`,
+      title: 'Night Club Egypt - حفلات وسهرات 2026 (Compilation)',
+      description: 'فيديو تجميعي لأفضل السهرات والحفلات في نوادي نايت كلوب مصر - VIP، ديسكو وسهرات حصرية.',
+      duration: 120,
+      uploadDate: lastmod,
+      location: 'القاهرة، مصر',
+      category: 'Entertainment',
+      tags: ['نايت كلوب مصر', 'سهرات', 'حفلات VIP', 'Night Club Egypt 2026'],
+      familyFriendly: false,
+      requiresSubscription: false,
+      live: false
+    },
+    {
       url: `${baseUrl}/videos/sasa2.mp4`,
       thumbnailUrl: `${baseUrl}/images/bestnightclb.jpg`,
       title: 'أفضل السهرات في نايت كلوب مصر - عصام صاصا',

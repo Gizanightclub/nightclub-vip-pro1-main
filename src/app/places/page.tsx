@@ -11,7 +11,7 @@ import { MapPin, Star, Info, CalendarDays } from "lucide-react";
 import StarRating from "@/components/StarRating";
 import InternalLinks from "@/components/InternalLinks";
 
-const cairoAreas = ["القاهرة", "الجيزة", "الجيزه", "العجوزه", "الزمالك"];
+const cairoAreas = ["القاهرة", "الجيزة", "الجيزه", "العجوزه", "العجوزة", "الزمالك"];
 const filteredPlaces = places.filter((place) =>
   cairoAreas.some((area) => place.location.includes(area))
 );

@@ -1,9 +1,24 @@
 # *
 User-agent: *
 Allow: /
+Disallow: /admin
+Disallow: /api
+Disallow: /dashboard
+Disallow: /private
+
+# Googlebot
+User-agent: Googlebot
+Allow: /
+
+# Bingbot
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
 
 # Host
 Host: https://www.nightclubegypt.com
 
 # Sitemaps
 Sitemap: https://www.nightclubegypt.com/sitemap.xml
+Sitemap: https://www.nightclubegypt.com/image-sitemap.xml
+Sitemap: https://www.nightclubegypt.com/video-sitemap.xml

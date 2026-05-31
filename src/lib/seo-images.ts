@@ -32,8 +32,8 @@ export const PLACE_SEO_IMAGES: Record<string, string> = {
   // Fox Club
   "fox-club": "/images/2026-03-29.webp",
 
-  // Aowtar Club
-  "aowtar-club": "/images/nightclub.jpg",
+  // Royal King (was Aowtar Club)
+  "royal-king": "/images/royal-king-promo.webp",
 
   // Maluonaerr Club
   "maluonaerr-club": "/images/naloner.jpg",

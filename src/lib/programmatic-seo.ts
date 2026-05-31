@@ -17,7 +17,7 @@ export async function generateCityPages() {
     slug: city.slug,
     metadata: {
       title: `نايت كلوب ${city.name} - أفضل النوادي الليلية في ${city.name} 2026`,
-      description: `اكتشف أفضل نايت كلوب في ${city.name}! أسعار من 750 جنيه، VIP من 1500 جنيه. احجز الآن!`,
+      description: `اكتشف أفضل نايت كلوب في ${city.name}! أسعار من 2000 جنيه، VIP من 4500 جنيه. احجز الآن!`,
       keywords: [`نايت كلوب ${city.name}`, `nightclub ${city.nameEn}`, `أسعار نايت كلوب ${city.name}`]
     } as Metadata
   }))
@@ -46,9 +46,9 @@ export async function generateClubPages() {
 // Dynamic price pages
 export async function generatePricePages() {
   const priceTypes = [
-    { slug: 'regular-entry', name: 'دخول عادي', price: '750 جنيه' },
-    { slug: 'vip-table', name: 'طاولة VIP', price: '1500 جنيه' },
-    { slug: 'couple-package', name: 'باقة زوجين', price: '1200 جنيه' },
+    { slug: 'regular-entry', name: 'دخول عادي', price: '2000 جنيه' },
+    { slug: 'vip-table', name: 'طاولة VIP', price: '4500+ جنيه' },
+    { slug: 'special-packages', name: 'باقات خاصة', price: '8,500+ جنيه' },
     { slug: 'group-package', name: 'باقة مجموعة', price: 'حسب العدد' }
   ]
 
@@ -67,7 +67,7 @@ export function generateProgrammaticSitemap() {
   const baseUrl = 'https://www.nightclubegypt.com'
   const cities = ['cairo', 'giza', 'alexandria', 'zamalek', 'tagamo3']
   const clubs = ['fox-club', 'rovi-club', 'nox-club', 'omni-club', 'echo-club']
-  const priceTypes = ['regular-entry', 'vip-table', 'couple-package', 'group-package']
+  const priceTypes = ['regular-entry', 'vip-table', 'special-packages', 'group-package']
 
   const sitemapEntries: Array<{
     url: string;

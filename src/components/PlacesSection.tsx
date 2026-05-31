@@ -3,11 +3,23 @@
 import Link from "next/link";
 import Image from "next/image";
 import { motion } from "framer-motion";
+import { useState, useEffect } from "react";
 import { places } from "@/lib/places";
 import { MapPin, Star, Info, CalendarDays } from "lucide-react";
 import StarRating from "./StarRating";
 
 const PlacesSection = () => {
+  const [sparkles, setSparkles] = useState<Array<{ left: string; top: string; delay: string }>>([]);
+
+  useEffect(() => {
+    const newSparkles = Array.from({ length: 15 }, () => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 2}s`,
+    }));
+    setSparkles(newSparkles);
+  }, []);
+
   return (
     <section
       id="places"
@@ -16,14 +28,14 @@ const PlacesSection = () => {
       {/* خلفية متحركة */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/10 to-black">
         <div className="absolute inset-0">
-          {Array.from({ length: 15 }, (_, i) => (
+          {sparkles.map((particle, i) => (
             <div
               key={i}
               className="absolute w-1.5 h-1.5 bg-purple-500 rounded-full animate-sparkle"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.delay,
               }}
             />
           ))}

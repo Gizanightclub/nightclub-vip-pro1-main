@@ -95,15 +95,15 @@ const HeroSection = () => {
               <div className="inline-block bg-transparent border border-transparent text-sky-200 rounded-xl px-4 py-2 text-center">
                 <div className="flex items-center justify-center sm:justify-start">
                   <Image
-                    src="/images/Screenshot_2026-05-26_160432-removebg-preview.png"
+                    src="/images/nightparity2026.png"
                     alt="سهرات مستمرة"
-                    width={380}
-                    height={115}
-                    className="object-contain w-48 sm:w-64 h-auto drop-shadow-[0_0_12px_rgba(255,215,0,0.85)]"
+                    width={500}
+                    height={150}
+                    className="object-contain w-64 sm:w-96 h-auto drop-shadow-[0_0_12px_rgba(255,215,0,0.85)]"
                     priority
                   />
                 </div>
-                <div className="text-xs mt-2">عيد اضحا مبارك عليكم كل عام وانتم ب  الف خير 🔥</div>
+                <div className="text-xs mt-2">افضل شركه حجز سهرات في مصر  🔥</div>
               </div>
             </motion.div>
 

@@ -137,55 +137,48 @@ export const places: Place[] = [
     ],
   },
   {
-    slug: "aowtar-club",
-    name: "AOWTAR CLUB - أوتار كلوب",
-    location: " العجوزه فندقي فور سيزونز",
-    description: "موسيقى عربية وغربية مع تشكيلة واسعة من الضيفات.",
-    price: 1500,
-    originalPrice: 2500,
-    features: ["دي جي مباشر", "مدخل سريع", "جلسات خاصة", "مشروبات مجانية"],
-    image: "/images/2026-03-31.webp",
-    video: "/videos/اوتار.mp4",
+    slug: "royal-king",
+    name: "Royal King - رويال كينج",
+    location: "كورنيش النيل العجوزة",
+    description: "نادي فخم على كورنيش النيل - تجربة VIP مميزة وباقات تبدأ من 2000 جنيه.",
+    price: 2000,
+    originalPrice: 3000,
+    features: ["طاولة VIP خاصة", "إطلالة على النيل", "باقات تبدأ من 2000 ج", "خدمة استقبال مميزة"],
+    image: "/images/royal-king-promo.webp",
+    video: "/videos/royal-king-promo.mp4",
     rating: 4.7,
     keywords: [
-      "أوتار كلوب", "AOWTAR Club", "حجز أوتار", "AOWTAR booking", "أوتار العجوزة",
-      "أوتار فور سيزونز", "سهرات أوتار", "أسعار أوتار كلوب", "AOWTAR nightclub",
-      "دي جي أوتار", "موسيقى أوتار", "جلسات خاصة أوتار", "أوتار VIP",
-      "نايت كلوب العجوزة", "nightclub Agouza", "Four Seasons nightclub",
-      "أوتار كلوب 2026", "حجز أوتار الآن", "أوتار كلوب الحجز", "أوتار كلوب vip",
-      "أوتار كلوب الرقص", "ديي أوتار كلوب", "أسعار أوتار كلوب", "حفلات أوتار كلوب",
-      "موسيقى أوتار كلوب", "أوتار كلوب الجيزة", "احجز أوتار كلوب", "أوتار كلوب العجوزة",
-      "AOWTAR Club Giza", "AOWTAR Nightclub Cairo", "Book AOWTAR Club Elgouza", "AOWTAR Club VIP Tables",
-      "Dancing AOWTAR Club Giza", "DJ AOWTAR Club Cairo", "AOWTAR Club Booking Online", "AOWTAR Club Prices",
-      "Live Entertainment AOWTAR", "Music AOWTAR Club Giza", "أوتار كلوب كورنيش", "أوتار كلوب النيل"
+      "Royal King", "رويال كينج", "حجز Royal King", "Royal King booking", "رويال كينج العجوزة",
+      "كورنيش النيل رويال", "حجز نايت كلوب رويال", "Royal King VIP", "حجز رويال كينج 2000",
+      "نايت كلوب العجوزة", "nightclub Agouza", "Royal King booking online", "Royal King prices",
+      "حجز رويال كينج", "باقات رويال كينج", "Royal King Nile view", "Royal King VIP Tables"
     ],
     packages: [
-      { 
-        id: "standard", 
-        name: "تيكت صف تاني 🎫", 
-        price: 1500, 
-        originalPrice: 2000, 
+      {
+        id: "standard",
+        name: "تيكت صف تاني 🎫",
+        price: 2000,
+        originalPrice: 2500,
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
           "طبق فواكه طازة (Free)",
           "مقاعد مميزة في الصف الثاني",
-          "إمكانية الجلوس مع بنات (عند الطلب)"
-        ] 
+        ]
       },
-      { 
-        id: "vip", 
-        name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3100, 
-        originalPrice: 3600, 
+      {
+        id: "vip",
+        name: "تيكت صف اول VIP 🎫🔥",
+        price: 3500,
+        originalPrice: 4500,
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
           "طبق فواكه طازة (Free)",
           "مقاعد مميزة في الصف الأول",
-          "إمكانية الجلوس مع بنات (عند الطلب)"
-        ] 
-      },
+          "خدمة استقبال VIP"
+        ]
+      }
     ],
   },
   {
@@ -246,38 +239,38 @@ export const places: Place[] = [
     ],
   },
   {
-    slug: "maluonaerr-club",
-    name: "EL MALUONAERR CLUB - المليونير كلوب ",
+    slug: "peacock-club",
+    name: "Peacock Club - بيكوك كلوب",
     location: "القاهرة - الزمالك",
-    description: "أجواء راقية وأنيقة مع خدمة فاخرة وحفلات مميزة.",
+    description: "أجواء فاخرة مع دي جي راقص، وكبائن VIP، ومشروبات مميزة.",
     price: 3000,
-    originalPrice: 3500,
+    originalPrice: 4000,
     features: [
-      "عرض راقصات على أعلى مستوى",
-      "تخفيضات 20% على المشروبات",
-      "مواقف سيارات VIP",
+      "دي جي مباشر وموسيقى راقصة",
+      "مشروبات راقية",
+      "أقسام VIP خاصة",
     ],
-    image: "/images/naloner.jpg",
-    video: "/videos/mlyoner.mp4",
+    image: "/images/Peacock club 01286110562.jpg",
+    video: "/videos/Peacock Club.mp4",
     rating: 4.5,
     keywords: [
-      "مليونير كلوب", "Millionaire Club", "حجز مليونير", "Millionaire booking", "مليونير الزمالك",
-      "مليونير القاهرة", "سهرات مليونير", "أسعار مليونير كلوب", "EL MALUONAERR nightclub",
-      "دي جي مليونير", "راقصات مليونير", "رقص شرقي مليونير", "مليونير VIP",
-      "نايت كلوب الزمالك", "Zamalek nightclub", "مليونير كلوب 2026",
-      "حجز مليونير الآن", "مليونير كلوب الحجز", "مليونير كلوب vip", "مليونير كلوب الرقص",
-      "ديي مليونير كلوب", "أسعار مليونير كلوب", "حفلات مليونير كلوب", "موسيقى مليونير كلوب",
-      "مليونير كلوب القاهرة", "احجز مليونير كلوب", "مليونير كلوب الزمالك",
-      "Millionaire Club Cairo", "Millionaire Nightclub Zamalek", "Book Millionaire Club Zamalek", "Millionaire Club VIP Tables",
-      "Dancing Millionaire Club Cairo", "DJ Millionaire Club Zamalek", "Millionaire Club Booking Online", "Millionaire Club Prices",
-      "Live Entertainment Millionaire", "Music Millionaire Club Cairo", "مليونير كلوب كورنيش", "مليونير كلوب النيل"
+      "بيكوك كلوب", "Peacock Club", "حجز بيكوك", "Peacock booking", "بيكوك الزمالك",
+      "بيكوك القاهرة", "سهرات بيكوك", "أسعار بيكوك كلوب", "Peacock nightclub",
+      "دي جي بيكوك", "راقصات بيكوك", "رقص شرقي بيكوك", "بيكوك VIP",
+      "نايت كلوب الزمالك", "Zamalek nightclub", "بيكوك كلوب 2026",
+      "حجز بيكوك الآن", "بيكوك كلوب الحجز", "بيكوك كلوب vip", "بيكوك كلوب الرقص",
+      "ديي بيكوك كلوب", "أسعار بيكوك كلوب", "حفلات بيكوك كلوب", "موسيقى بيكوك كلوب",
+      "بيكوك كلوب القاهرة", "احجز بيكوك كلوب", "بيكوك كلوب الزمالك",
+      "Peacock Club Cairo", "Peacock Nightclub Zamalek", "Book Peacock Club Zamalek", "Peacock Club VIP Tables",
+      "Dancing Peacock Club Cairo", "DJ Peacock Club Zamalek", "Peacock Club Booking Online", "Peacock Club Prices",
+      "Live Entertainment Peacock", "Music Peacock Club Cairo", "بيكوك كلوب كورنيش", "بيكوك كلوب النيل"
     ],
     packages: [
       {
         id: "standard",
         name: "تيكت صف تاني 🎫",
         price: 3000,
-        originalPrice: 3500,
+        originalPrice: 4000,
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -289,8 +282,8 @@ export const places: Place[] = [
       {
         id: "vip",
         name: "تيكت صف اول VIP 🎫🔥",
-        price: 3500,
-        originalPrice: 4000,
+        price: 4000,
+        originalPrice: 5000,
         features: [
           "اثنين مشروبات فاخرة (Free)",
           "طبق مازة مميزة (Free)",
@@ -306,8 +299,8 @@ export const places: Place[] = [
     name: "NOX CLUB",
     location: "القاهرة - العجوزه ",
     description: "نادي فخم مع أنظمة صوتية متقدمة وأجواء إلكترونية.",
-    price: 2800,
-    originalPrice: 3500,
+    price: 3000,
+    originalPrice: 4000,
     features: ["إضاءة ليزر", "دي جي عالمي", "VIP Lounge", "بار خاص"],
     image: "/images/nox club 01286110562.jpg",
     video: "/videos/Disco NoX Club.mp4",
@@ -328,8 +321,8 @@ export const places: Place[] = [
       { 
         id: "standard", 
         name: "تيكت صف تاني 🎫", 
-        price: 2800, 
-        originalPrice: 3500, 
+        price: 3000, 
+        originalPrice: 4000, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -341,7 +334,7 @@ export const places: Place[] = [
       { 
         id: "vip", 
         name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3800, 
+        price: 4000, 
         originalPrice: 4500, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
@@ -421,19 +414,19 @@ export const places: Place[] = [
       "Dancing Cash Club Cairo", "DJ Cash Club Engineers", "Cash Club Booking Online", "Cash Club Prices",
       "Live Entertainment Cash", "Music Cash Club Cairo", "كاش كلوب كورنيش", "كاش كلوب النيل"
     ],
-    description: "مكان عصري بإضاءة نيون وموسيقى  VIP مميز.",
-    price: 2500,
-    originalPrice: 3900,
-    features: ["دي جي خليجي", "مشروبات مختارة", "طاولة مشتركة", "باقات احتفالية"],
+    description: "مكان عصري بإضاءة نيون وموسيقى VIP مميز.",
+    price: 5000,
+    originalPrice: 7500,
+    features: ["دي جي خليجي", "مشروبات مختارة", "طاولة مشتركة", "باقات احتفالية", "كرسي على البار (محدود) - 3000 جنيه"],
     image: "/images/unnamed.jpg",
-    video: "/videos/Cash Cairo.mp4",
+    video: "/videos/Cash cairo 01286110562.mp4",
     rating: 4.2,
     packages: [
       { 
         id: "standard", 
         name: "تيكت صف تاني 🎫", 
-        price: 2500, 
-        originalPrice: 3900, 
+        price: 5000, 
+        originalPrice: 7500, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -445,8 +438,8 @@ export const places: Place[] = [
       { 
         id: "vip", 
         name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3000, 
-        originalPrice: 3600, 
+        price: 7500, 
+        originalPrice: 9000, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -462,8 +455,8 @@ export const places: Place[] = [
     name: "Omni Club Cairo",
     location: "طريق نادي الجزيرة، القاهرة",
     description: "أمسيات موسيقية متنوعة و دي جي لايف ودار أجواء حماسية.",
-    price: 2500,
-    originalPrice: 3500,
+    price: 4500,
+    originalPrice: 5500,
     features: ["دي جي لايف", "مشاريب  خاص", "جدران LED", "خدمة سريعة"],
     couplesOnly: true,
     image: "/images/Omni Club Cairo 1.jpg",
@@ -485,8 +478,8 @@ export const places: Place[] = [
       { 
         id: "standard", 
         name: "تيكت صف تاني 🎫", 
-        price: 2500, 
-        originalPrice: 3500, 
+        price: 4500, 
+        originalPrice: 5500, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -498,8 +491,8 @@ export const places: Place[] = [
       { 
         id: "vip", 
         name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3200, 
-        originalPrice: 4000, 
+        price: 5500, 
+        originalPrice: 7000, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -527,8 +520,8 @@ export const places: Place[] = [
       "Live Entertainment Echo", "Music Echo Club Cairo", "إيكو كلوب كورنيش", "إيكو كلوب النيل"
     ],
     description: "صوتيات مذهلة مع أضواء ليزر وعروض مع فرق موسيقية حية.",
-    price: 2400,
-    originalPrice: 3000,
+    price: 5000,
+    originalPrice: 6000,
     features: ["فرقة حية", "دي جي عالمي", "بار مفتوح", "مواقف سيارات"],
     image: "/images/echo-club.jpg",
     video: "/videos/Echo Club.mp4",
@@ -537,8 +530,8 @@ export const places: Place[] = [
       {
         id: "standard",
         name: "تيكت صف تاني 🎫",
-        price: 2400,
-        originalPrice: 3000,
+        price: 5000,
+        originalPrice: 6000,
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -550,8 +543,8 @@ export const places: Place[] = [
       {
         id: "vip",
         name: "تيكت صف اول VIP 🎫🔥",
-        price: 3400,
-        originalPrice: 4300,
+        price: 6000,
+        originalPrice: 7000,
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -570,7 +563,7 @@ export const places: Place[] = [
     price: 2400,
     originalPrice: 4000,
     features: ["عروض دي جي حصرية", "كرسي VIP", "قائمة كوكتيل مميزة", "مدخل سريع"],
-    image: "/images/2026-03-31.webp",
+    image: "/images/king.club.jpeg",
     video: "/videos/King Club.mp4",
     rating: 4.3,
     keywords: [
@@ -726,8 +719,8 @@ export const places: Place[] = [
     name: "Shots Club",
     location: "المعادي، القاهرة",
     description: "ليالي ملتهبة مع جولات Shots باقات VIP وتقنية عالية.",
-    price: 1500,
-    originalPrice: 2500,
+    price: 3000,
+    originalPrice: 4000,
     features: ["جولات Shots", "دي جي إلكتروني", "عروض راقصة", "مساحات VIP"],
     couplesOnly: true,
     image: "/images/SHOTS.jpg",
@@ -750,8 +743,8 @@ export const places: Place[] = [
       { 
         id: "standard", 
         name: "تيكت صف تاني 🎫", 
-        price: 1500, 
-        originalPrice: 2500, 
+        price: 3000, 
+        originalPrice: 4000, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -763,8 +756,8 @@ export const places: Place[] = [
       { 
         id: "vip", 
         name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3100, 
-        originalPrice: 3900, 
+        price: 4500, 
+        originalPrice: 5500, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -780,8 +773,8 @@ export const places: Place[] = [
     name: "ROVI Club",
     location: "كورنيش المعادي، القاهرة",
     description: "ركن حديث للموسيقى الراقصة والحفلات الليلية الكبيرة.",
-    price: 2500,
-    originalPrice: 3000,
+    price: 4000,
+    originalPrice: 5000,
     features: ["ديسكو لايت", "دي جي عالمي", "بار مفتوح", "خدمة VIP"],
     couplesOnly: true,
     image: "/images/ROVI Club صور.jpg",
@@ -803,8 +796,8 @@ export const places: Place[] = [
       { 
         id: "standard", 
         name: "تيكت صف تاني 🎫", 
-        price: 2500, 
-        originalPrice: 3000, 
+        price: 4000, 
+        originalPrice: 5000, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -816,8 +809,8 @@ export const places: Place[] = [
       { 
         id: "vip", 
         name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3300, 
-        originalPrice: 4200, 
+        price: 5000, 
+        originalPrice: 6000, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -885,8 +878,8 @@ export const places: Place[] = [
     name: "Volt Lounge",
     location: "الدقي / العجوزة، الجيزة",
     description: "أجواء نوادي عالمية مع دي جي وإضاءة ديناميكية وخدمة سريعة.",
-    price: 3000,
-    originalPrice: 4000,
+    price: 5500,
+    originalPrice: 6500,
     features: ["دي جي متجدد", "مجموعة مشروبات راقية", "قسم VIP", "مشاهدة ليلية"],
     image: "/images/Volt Lounge.jpg",
     video: "/videos/Volt Lounge.mp4",
@@ -907,8 +900,8 @@ export const places: Place[] = [
       { 
         id: "standard", 
         name: "تيكت صف تاني 🎫", 
-        price: 3000, 
-        originalPrice: 4000, 
+        price: 5500, 
+        originalPrice: 6500, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -920,8 +913,8 @@ export const places: Place[] = [
       { 
         id: "vip", 
         name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3500, 
-        originalPrice: 4000, 
+        price: 6500, 
+        originalPrice: 7500, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -937,8 +930,8 @@ export const places: Place[] = [
     name: "سانسي كلوب",
     location: "المهندسين، الجيزة",
     description: "موقع مميز لسهرة ممتعة مع موسيقى عربية وغربية وبرامج حصرية.",
-    price: 2700,
-    originalPrice: 3500,
+    price: 4000,
+    originalPrice: 5000,
     features: ["دي جي مقيم", "بوفيه مشروبات", "عرض راقصات", "ممر VIP"],
     image: "/images/سانسي كلوب.png",
     video: "/videos/سانسي كلوب.mp4",
@@ -959,8 +952,8 @@ export const places: Place[] = [
       { 
         id: "standard", 
         name: "تيكت صف تاني 🎫", 
-        price: 2700, 
-        originalPrice: 3500, 
+        price: 4000, 
+        originalPrice: 5000, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",
@@ -972,8 +965,8 @@ export const places: Place[] = [
       { 
         id: "vip", 
         name: "تيكت صف اول VIP 🎫🔥", 
-        price: 3400, 
-        originalPrice: 4500, 
+        price: 5000, 
+        originalPrice: 6500, 
         features: [
           "مشروبين فاخرين (Free) من اختيارك",
           "طبق مازة متنوع (Free)",

@@ -8,15 +8,25 @@ import { useState, useEffect } from "react";
 
 const About = () => {
   const [isMobile, setIsMobile] = useState(false);
+  const [sparkles, setSparkles] = useState<Array<{ left: string; top: string; delay: string }>>([]);
 
   useEffect(() => {
     const checkIfMobile = () => {
       setIsMobile(window.innerWidth <= 1024);
     };
-    
+
     checkIfMobile();
     window.addEventListener('resize', checkIfMobile);
     return () => window.removeEventListener('resize', checkIfMobile);
+  }, []);
+
+  useEffect(() => {
+    const newSparkles = Array.from({ length: 15 }, () => ({
+      left: `${Math.random() * 100}%`,
+      top: `${Math.random() * 100}%`,
+      delay: `${Math.random() * 2}s`,
+    }));
+    setSparkles(newSparkles);
   }, []);
 
   const features = [
@@ -49,14 +59,14 @@ const About = () => {
       {/* الخلفية المتحركة */}
       <div className="absolute inset-0 bg-gradient-to-b from-black via-purple-900/20 to-black">
         <div className="absolute inset-0">
-          {Array.from({ length: 15 }).map((_, i) => (
+          {sparkles.map((particle, i) => (
             <div
               key={i}
               className="absolute w-1.5 h-1.5 bg-purple-500 rounded-full animate-sparkle"
               style={{
-                left: `${Math.random() * 100}%`,
-                top: `${Math.random() * 100}%`,
-                animationDelay: `${Math.random() * 2}s`,
+                left: particle.left,
+                top: particle.top,
+                animationDelay: particle.delay,
               }}
             />
           ))}

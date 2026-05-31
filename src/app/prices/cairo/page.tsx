@@ -31,6 +31,7 @@ export default function CairoPrices() {
           <p className="text-xl text-gray-300 max-w-2xl mx-auto">
             تعرف على أحدث أسعار الدخول والحجز في أفضل الملاهي الليلية بالقاهرة
           </p>
+          <p className="text-sm text-yellow-300 mt-2">ملاحظة: السعر يختلف في المناسبات والأعياد.</p>
         </div>
 
         {/* Price Sections Grid */}
@@ -48,7 +49,7 @@ export default function CairoPrices() {
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">1000</div>
+              <div className="text-4xl font-bold text-white mb-2">+ 2000</div>
               <div className="text-lg text-gray-300 mb-4">جنيه مصري</div>
               <ul className="text-sm text-gray-300 space-y-2 text-right">
                 <li>• دخول مجاني للنادي</li>
@@ -71,7 +72,7 @@ export default function CairoPrices() {
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <div className="text-4xl font-bold text-white mb-2">1,500</div>
+              <div className="text-4xl font-bold text-white mb-2">4500 +</div>
               <div className="text-lg text-gray-300 mb-4">جنيه مصري</div>
               <ul className="text-sm text-gray-300 space-y-2 text-right">
                 <li>• طاولة خاصة مع جلوس</li>
@@ -91,15 +92,15 @@ export default function CairoPrices() {
                 باقات خاصة
               </CardTitle>
               <CardDescription className="text-gray-300">
-                لحفلات الزفاف والشركات والمناسبات
+                لحفلات اعيد الميلادو كبار الشخصيات والمناسبات
               </CardDescription>
             </CardHeader>
             <CardContent className="text-center">
-              <div className="text-2xl font-bold text-white mb-2">2,500+</div>
+              <div className="text-2xl font-bold text-white mb-2">8,500+</div>
               <div className="text-lg text-gray-300 mb-4">جنيه مصري</div>
               <ul className="text-sm text-gray-300 space-y-2 text-right">
-                <li>• باقات الزفاف والمناسبات</li>
-                <li>• حفلات الشركات</li>
+                <li>• لحفلات اعيد الميلادو كبار الشخصيات والمناسبات</li>
+                <li>•اماكن خاصه vip </li>
                 <li>• مناسبات خاصة حسب الطلب</li>
                 <li>• تخصيص كامل للاحتياجات</li>
               </ul>
@@ -115,7 +116,7 @@ export default function CairoPrices() {
           <CardContent className="space-y-6">
             <div>
               <h3 className="text-lg font-semibold text-white mb-2">كم سعر دخول نايت كلوب في القاهرة؟</h3>
-              <p className="text-gray-300">يبدأ سعر الدخول من 1000 جنيه مصري للدخول العادي، و1500 جنيه للطاولات VIP.</p>
+              <p className="text-gray-300">يبدأ سعر الدخول من 2000 جنيه مصري للدخول العادي، و4500 جنيه للطاولات VIP.</p>
             </div>
             <Separator className="bg-gray-600" />
             <div>

@@ -9,6 +9,7 @@ import PlaceBookingForm from "@/components/PlaceBookingForm";
 import SEOUnified from "@/components/SEOUnified";
 import Navigation from "@/components/Navigation";
 import Footer from "@/components/Footer";
+import VideoPlayer from "@/components/VideoPlayer";
 import Link from "next/link";
 
 type PageProps = {
@@ -25,22 +26,7 @@ export default function PlaceBookingPage({ params: paramsPromise }: PageProps) {
     notFound();
   }
 
-  const [isVideoPlaying, setIsVideoPlaying] = React.useState(false);
-  const videoRef = React.useRef<HTMLVideoElement>(null);
-
   const videoSrc = place?.video || "/videos/nightclub-promo.mp4";
-
-  const toggleVideo = () => {
-    if (videoRef.current) {
-      if (videoRef.current.paused) {
-        videoRef.current.play();
-        setIsVideoPlaying(true);
-      } else {
-        videoRef.current.pause();
-        setIsVideoPlaying(false);
-      }
-    }
-  };
 
   return (
     <>
@@ -68,23 +54,12 @@ export default function PlaceBookingPage({ params: paramsPromise }: PageProps) {
           <div className="relative container mx-auto px-4 py-16">
             <div className="rounded-3xl overflow-hidden border border-purple-500/30 shadow-xl mb-8">
               <div className="relative h-72 md:h-96 bg-black">
-                <video
-                  ref={videoRef}
+                <VideoPlayer
                   src={videoSrc}
-                  className="w-full h-full object-cover"
-                  loop
-                  muted={false}
-                  controls={false}
                   poster={place.image}
+                  loop
+                  className="w-full h-full object-cover"
                 />
-                <button
-                  onClick={toggleVideo}
-                  className="absolute top-1/2 left-1/2 z-30 h-20 w-20 -translate-x-1/2 -translate-y-1/2 rounded-full border-8 border-white/70 bg-black/40 text-white text-2xl font-bold shadow-lg transition hover:scale-110"
-                  aria-label={isVideoPlaying ? 'إيقاف الفيديو' : 'تشغيل الفيديو'}
-                  style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', pointerEvents: 'auto' }}
-                >
-                  {isVideoPlaying ? '▌▌' : '▶'}
-                </button>
                 <div className="absolute inset-0 bg-black/30 pointer-events-none" />
               </div>
             </div>

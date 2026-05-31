@@ -8,6 +8,7 @@ import { motion } from "framer-motion";
 import { Play, Pause, Volume2, VolumeX, ChevronLeft, ChevronRight } from "lucide-react";
 import { Button } from "./ui/button";
 import { Badge } from "./ui/badge";
+import VideoPlayer from "@/components/VideoPlayer";
 
 // Import Swiper styles
 import "swiper/css";
@@ -34,8 +35,8 @@ interface VideoCarouselProps {
 
 // 👇 VideoObject Schema للفيديوهات
 const VideoSchema = ({ video }: { video: VideoData }) => {
-  // استخدام window.location.origin إذا كان متاحاً، وإلا استخدم URL ثابت
-  const baseUrl = typeof window !== 'undefined' ? window.location.origin : 'https://www.nightclubegypt.com';
+  // Use a stable canonical URL for schema output to avoid SSR/client mismatch.
+  const baseUrl = 'https://www.nightclubegypt.com';
 
   const videoSchema = {
     "@context": "https://schema.org",
@@ -44,7 +45,7 @@ const VideoSchema = ({ video }: { video: VideoData }) => {
     "description": video.description,
     "thumbnailUrl": `${baseUrl}${video.poster}`,
     "contentUrl": `${baseUrl}${video.src}`,
-    "uploadDate": new Date().toISOString(),
+    "uploadDate": "2026-01-01T00:00:00Z",
     "duration": `PT${video.duration || 25}S`,
     "embedUrl": `${baseUrl}${video.src}`,
     "publisher": {
@@ -78,6 +79,14 @@ const VideoSchema = ({ video }: { video: VideoData }) => {
 };
 
 const defaultVideos: VideoData[] = [
+  {
+    id: "1",
+    src: "/videos/nightclubegypt2.mp4",
+    poster: "images/nightclubeg3.jpg",
+    title: " ",
+    description: " ",
+    duration: "30"
+  },
   {
     id: "2",
     src: "/images/NOX CLUB 01286110562.mp4",
@@ -178,6 +187,12 @@ const VideoCarousel = ({
   };
 
   const handleVideoPlay = (videoId: string) => {
+    videoRefs.current.forEach((video, id) => {
+      if (id !== videoId && !video.paused) {
+        video.pause();
+      }
+    });
+
     setActiveVideo(videoId);
     setIsVideoPlaying(true);
   };
@@ -264,14 +279,14 @@ const VideoCarousel = ({
                   <div className="absolute inset-0 flex items-center justify-center">
                     <Button
                       onClick={() => togglePlayPause(video.id)}
-                      size="lg"
-                      className="w-20 h-20 rounded-full bg-white shadow-md hover:scale-105 text-black transition-all duration-200 flex items-center justify-center"
-                      style={{ boxShadow: "0 12px 30px rgba(0,0,0,0.08)" }}
+                      size="md"
+                      className="w-14 h-14 rounded-full bg-white/10 backdrop-blur-sm text-white border border-white/20 hover:scale-105 transition-all duration-200 flex items-center justify-center"
+                      style={{ boxShadow: "0 6px 12px rgba(0,0,0,0.06)" }}
                     >
                       {activeVideo === video.id ? (
-                        <Pause className="w-8 h-8 text-black" />
+                        <Pause className="w-5 h-5 text-white" />
                       ) : (
-                        <Play className="w-8 h-8 text-black" />
+                        <Play className="w-5 h-5 text-white" />
                       )}
                     </Button>
                   </div>
