@@ -380,10 +380,7 @@ export default function RootLayout({
         <SEOUnified pageType="home" />
 
         <VideoProvider>
-          <BackgroundAudio
-            src={["/videos/Video Project.m4a", "/videos/dj.m4a"]}
-            volume={0.05}
-          />
+          <BackgroundAudio src="/videos/dj.m4a" volume={0.05} />
           {children}
         </VideoProvider>
 
