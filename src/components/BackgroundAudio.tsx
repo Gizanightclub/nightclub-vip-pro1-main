@@ -1,10 +1,10 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import { useVideoContext } from "@/context/VideoContext";
 
 type BackgroundAudioProps = {
-  src: string;
+  src: string | string[];
   label?: string;
   autoPlay?: boolean;
   loop?: boolean;
@@ -19,6 +19,10 @@ export default function BackgroundAudio({
 }: BackgroundAudioProps) {
   const audioRef = useRef<HTMLAudioElement | null>(null);
   const { isVideoPlaying } = useVideoContext();
+  const selectedSrc = useMemo(
+    () => (Array.isArray(src) ? src[Math.floor(Math.random() * src.length)] : src),
+    [src]
+  );
 
   useEffect(() => {
     const audio = audioRef.current;
@@ -71,7 +75,7 @@ export default function BackgroundAudio({
   return (
     <audio
       ref={audioRef}
-      src={src}
+      src={selectedSrc}
       loop={loop}
       preload="auto"
       autoPlay={autoPlay}

@@ -17,7 +17,7 @@ type Props = {
 };
 
 const VideoPlayer = forwardRef<HTMLVideoElement, Props>(
-  ({ src, poster, muted = false, loop = false, volume = 0.01, className = "", showFullscreenButton = true, onPlay, onPause, onEnded }, ref) => {
+  ({ src, poster, muted = false, loop = false, volume = 0.05, className = "", showFullscreenButton = true, onPlay, onPause, onEnded }, ref) => {
     const videoRef = useRef<HTMLVideoElement | null>(null);
     const containerRef = useRef<HTMLDivElement | null>(null);
     const [isFullscreen, setIsFullscreen] = useState(false);
