@@ -6,7 +6,7 @@ import LogoStructuredData from "../components/LogoStructuredData";
 import SEOUnified from "../components/SEOUnified";
 import StructuredData from "../components/StructuredData";
 import GoogleAnalytics from "../components/GoogleAnalytics";
-import BackgroundAudio from "@/components/BackgroundAudio";
+
 import { VideoProvider } from "@/context/VideoContext";
 
 // 👇 تحسين الخطوط العربية والإنجليزية مع preload لتحسين الأداء
@@ -380,7 +380,6 @@ export default function RootLayout({
         <SEOUnified pageType="home" />
 
         <VideoProvider>
-          <BackgroundAudio src="/videos/dj.m4a" volume={0.05} />
           {children}
         </VideoProvider>
 
