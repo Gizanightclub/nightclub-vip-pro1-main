@@ -107,24 +107,18 @@ const HeroSection = () => {
               </div>
             </motion.div>
 
-            <motion.p
+            <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.4 }}
               className="text-lg mb-15 text-gray-300 leading-relaxed"
             >
-              أفضل شركة حجز في مصر! 🔥
-              <br />
-              نحن نوفّر لك أفضل السهرات 🎉
-              <br />
-              الحفلات، والفعاليات بكل سهولة وأمان.
-              <br />
-              <span>يرجى العلم أننا مكتب سياحي لسهرات</span>
-              <br />
-              <span>ليس نشاط غير قانوني أو احتيالي. وله لنا فروع أخرى ❤️</span>
-              <br />
-              تواصل معنا عبر واتساب واحجز مكانك فورًا 📲
-              <br />
+              <p>أفضل شركة حجز في مصر! 🔥</p>
+              <p>نحن نوفّر لك أفضل السهرات 🎉</p>
+              <p>الحفلات، والفعاليات بكل سهولة وأمان.</p>
+              <p>يرجى العلم أننا مكتب سياحي لسهرات</p>
+              <p>ليس نشاط غير قانوني أو احتيالي. وله لنا فروع أخرى ❤️</p>
+              <p>تواصل معنا عبر واتساب واحجز مكانك فورًا 📲</p>
               <div className="flex flex-col sm:flex-row gap-2 justify-center sm:justify-start mt-2">
                 <a
                   href="tel:+201055599706"
@@ -140,7 +134,7 @@ const HeroSection = () => {
                   +20 1268110562
                 </a>
               </div>
-            </motion.p>
+            </motion.div>
 
             {/* الأزرار */}
             <motion.div

@@ -350,20 +350,6 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
                 <div className="flex flex-wrap gap-3 mt-2">
                   <button
                     type="button"
-                    onClick={() => {
-                      setUseInstaPay("instaPay");
-                      setMessage("✅ اخترت InstaPay، يمكنك الآن إكمال الحجز.");
-                    }}
-                    className={`rounded-lg px-4 py-2 font-bold text-sm transition ${
-                      useInstaPay === "instaPay"
-                        ? "bg-gradient-to-r from-fuchsia-500 to-pink-500 text-white shadow-lg shadow-pink-500/40"
-                        : "bg-white/10 text-gray-300 hover:bg-white/20"
-                    }`}
-                  >
-                    InstaPay
-                  </button>
-                  <button
-                    type="button"
                     onClick={() => setUseInstaPay("noPayment")}
                     className={`rounded-lg px-4 py-2 font-bold text-sm transition ${
                       useInstaPay === "noPayment"
@@ -377,9 +363,13 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
                     href="https://ipn.eg/S/sabersry/instapay/2B3xKM"
                     target="_blank"
                     rel="noopener noreferrer"
+                    onClick={() => {
+                      setUseInstaPay("instaPay");
+                      setMessage("✅ تم اختيار الدفع الآن مباشرة عبر InstaPay.");
+                    }}
                     className="rounded-lg px-4 py-2 font-bold text-sm transition bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:shadow-lg hover:shadow-green-500/40"
                   >
-                    💳 ادفع الآن مباشرة
+                    💳 الدفع الآن مباشر InstaPay
                   </a>
                 </div>
               </fieldset>
