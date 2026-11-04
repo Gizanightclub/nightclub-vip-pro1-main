@@ -19,7 +19,7 @@ const PlaceBookingForm = ({ place }: { place: Place }) => {
   const [guestCount, setGuestCount] = useState(2);
   const packages = place.packages;
   const [selectedPackage, setSelectedPackage] = useState<string>(packages[0]?.id || "standard");
-  const [useInstaPay, setUseInstaPay] = useState<PaymentOption>("instaPay");
+  const [useInstaPay, setUseInstaPay] = useState<PaymentOption | null>(null);
   const [paidOnSite, setPaidOnSite] = useState(false);
   const [message, setMessage] = useState<string | null>(null);
   const [discountCode, setDiscountCode] = useState("");
@@ -31,6 +31,7 @@ const PlaceBookingForm = ({ place }: { place: Place }) => {
   const basePrice = (selectedPkg?.price || 0) * guestCount;
   const discountAmount = Math.floor(basePrice * appliedDiscount);
   const total = basePrice - discountAmount;
+  const paymentSelectionError = useInstaPay === null && message?.includes("طريقة الدفع");
 
   // التحقق من كود الخصم
   const checkDiscountCode = () => {
@@ -67,6 +68,11 @@ const PlaceBookingForm = ({ place }: { place: Place }) => {
 
     if (!name.trim() || !phone.trim() || !date.trim()) {
       setMessage("❌ يرجى تعبئة جميع الحقول المطلوبة.");
+      return;
+    }
+
+    if (!useInstaPay) {
+      setMessage("❌ يرجى اختيار طريقة الدفع أولاً قبل إكمال الحجز.");
       return;
     }
 
@@ -128,6 +134,8 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
       setDate("");
       setGuestCount(2);
       setSelectedPackage(packages[0]?.id || "standard");
+      setUseInstaPay(null);
+      setPaidOnSite(false);
       setMessage(null);
       setDiscountCode("");
       setAppliedDiscount(0);
@@ -351,7 +359,14 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
               </div>
 
               {/* طريقة الدفع */}
-              <fieldset className="rounded-lg border border-purple-500/20 p-4 bg-black/20">
+              <fieldset
+                className={`rounded-lg border p-4 bg-black/20 transition-all ${
+                  paymentSelectionError
+                    ? "border-red-500/80 bg-red-500/10 shadow-[0_0_0_1px_rgba(239,68,68,0.35)]"
+                    : "border-purple-500/20"
+                }`}
+                aria-invalid={paymentSelectionError}
+              >
                 <legend className="text-sm font-semibold text-gray-200">طريقة الدفع</legend>
                 <div className="flex flex-wrap gap-3 mt-2">
                   <button
@@ -373,11 +388,25 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
                       setUseInstaPay("instaPay");
                       setMessage("✅ تم اختيار الدفع الآن مباشرة عبر InstaPay.");
                     }}
-                    className="rounded-lg px-4 py-2 font-bold text-sm transition bg-gradient-to-r from-green-500 to-emerald-500 text-white hover:shadow-lg hover:shadow-green-500/40"
+                    className={`rounded-lg px-4 py-2 font-bold text-sm transition ${
+                      useInstaPay === "instaPay"
+                        ? "bg-gradient-to-r from-green-500 to-emerald-500 text-white shadow-lg shadow-green-500/40"
+                        : "bg-white/10 text-gray-300 hover:bg-white/20"
+                    }`}
                   >
                     💳 الدفع الآن مباشر InstaPay
                   </a>
                 </div>
+
+                {useInstaPay === "instaPay" && (
+                  <p className="mt-3 rounded-md border border-amber-400/30 bg-amber-500/10 px-3 py-2 text-xs font-medium text-amber-200">
+                    الرجاء إرسال Screen Shot للتحويل مع رقم الحجز على واتساب للتأكيد.
+                  </p>
+                )}
+
+                {paymentSelectionError && (
+                  <p className="mt-3 text-xs font-medium text-red-400">اختر طريقة الدفع لإكمال الحجز.</p>
+                )}
               </fieldset>
 
               {useInstaPay === "instaPay" && (
