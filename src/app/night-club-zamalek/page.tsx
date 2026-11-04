@@ -34,7 +34,7 @@ export default function NightClubZamalek() {
           <div className="bg-green-100 p-6 rounded-lg my-6">
             <h3 className="text-xl font-semibold mb-2">احجز في الزمالك</h3>
             <p>استمتع بأفضل الأجواء في قلب القاهرة.</p>
-            <a href="tel:01286110562" className="bg-green-600 text-white px-4 py-2 rounded mt-2 inline-block">اتصل الآن</a>
+            <a href="tel:+201055599706" className="bg-green-600 text-white px-4 py-2 rounded mt-2 inline-block">اتصل الآن</a>
           </div>
         </div>
       </div>

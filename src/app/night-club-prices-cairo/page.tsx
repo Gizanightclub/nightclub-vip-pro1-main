@@ -6,7 +6,7 @@ export default function NightClubPricesCairo() {
       <SEOUnified
         pageType="blog"
         customTitle="أسعار نايت كلوب القاهرة 2026 - من 750 جنيه! دليل شامل للأسعار والحجز 🔥"
-        customDescription="اكتشف أسعار نايت كلوب القاهرة 2026! من 750 جنيه للدخول العادي، 1500 جنيه لـ VIP. دليل كامل لأسعار الديسكوهات، الكباريهات، والحجز المباشر. احجز الآن واستمتع بسهرة لا تُنسى! 📞 01286110562"
+        customDescription="اكتشف أسعار نايت كلوب القاهرة 2026! من 750 جنيه للدخول العادي، 1500 جنيه لـ VIP. دليل كامل لأسعار الديسكوهات، الكباريهات، والحجز المباشر. احجز الآن واستمتع بسهرة لا تُنسى! 📞 +201055599706"
         customKeywords={[
           "أسعار نايت كلوب القاهرة",
           "أسعار ديسكوهات القاهرة",
@@ -39,8 +39,8 @@ export default function NightClubPricesCairo() {
 
           <div className="bg-purple-100 p-6 rounded-lg my-6">
             <h3 className="text-xl font-semibold mb-2">احجز الآن!</h3>
-            <p>اتصل بنا على 01286110562 للحصول على أفضل الأسعار والعروض الحصرية.</p>
-            <a href="tel:01286110562" className="bg-purple-600 text-white px-4 py-2 rounded mt-2 inline-block">اتصل الآن</a>
+            <p>اتصل بنا على +201055599706 للحصول على أفضل الأسعار والعروض الحصرية.</p>
+            <a href="tel:+201055599706" className="bg-purple-600 text-white px-4 py-2 rounded mt-2 inline-block">اتصل الآن</a>
           </div>
 
           <h2>نصائح للحصول على أفضل الأسعار</h2>

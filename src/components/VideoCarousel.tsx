@@ -82,23 +82,23 @@ const defaultVideos: VideoData[] = [
   {
     id: "1",
     src: "/videos/nightclubegypt2.mp4",
-    poster: "images/nightclubeg3.jpg",
+    poster: "/images/nightclubeg3.jpg",
     title: " ",
     description: " ",
     duration: "30"
   },
   {
     id: "2",
-    src: "/images/NOX CLUB 01286110562.mp4",
-    poster: "images/nightclubeg3.jpg",
+    src: "/videos/Disco NoX Club.mp4",
+    poster: "/images/nightclubeg3.jpg",
     title: "أفضل السهرات في نايت كلوب مصر",
     description: "استمتع بأجمل سهرات مميزة وأجواء فاخرة مع أشهر النجوم والراقصات.",
     duration: "25"
   },
    {
     id: "3",
-    src: "/images/king.club29 - 7431179644663024914.mp4 ",
-    poster: "images/1000799787.jpg",
+    src: "/videos/King Club.mp4",
+    poster: "/images/1000799787.jpg",
     title: "افضل الرقصات الرقص الشرقي",
     description: "استمتع بأجمل سهرات مميزة وأجواء فاخرة مع أشهر النجوم والراقصات.",
     duration: "25"

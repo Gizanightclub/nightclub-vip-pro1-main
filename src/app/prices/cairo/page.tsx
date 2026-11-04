@@ -134,7 +134,7 @@ export default function CairoPrices() {
         {/* CTA Section */}
         <div className="text-center">
           <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <Link href="https://wa.me/201286110562" target="_blank">
+            <Link href="https://wa.me/201055599706" target="_blank">
               <Button
                 size="lg"
                 className="bg-gradient-to-r from-green-600 to-green-700 hover:from-green-700 hover:to-green-800 text-white px-8 py-3 text-lg"
@@ -143,7 +143,7 @@ export default function CairoPrices() {
                 احجز عبر الواتساب
               </Button>
             </Link>
-            <Link href="tel:01286110562">
+            <Link href="tel:+201055599706">
               <Button
                 size="lg"
                 variant="outline"

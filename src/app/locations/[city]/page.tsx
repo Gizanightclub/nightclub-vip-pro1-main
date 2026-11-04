@@ -58,7 +58,7 @@ export default async function CityLocations({ params }: { params: Promise<{ city
                 </div>
                 <div className="rounded-3xl bg-slate-950/80 p-5 border border-white/10 shadow-lg shadow-black/20">
                   <p className="text-sm uppercase tracking-[0.3em] text-sky-300">التواصل</p>
-                  <p className="mt-3 text-2xl font-bold text-white">01286110562</p>
+                  <p className="mt-3 text-2xl font-bold text-white">+201055599706</p>
                 </div>
               </div>
             </div>
@@ -111,7 +111,7 @@ export default async function CityLocations({ params }: { params: Promise<{ city
                   </div>
                 </div>
                 <Button className="w-full bg-gradient-to-r from-yellow-400 to-amber-500 text-slate-950 font-bold">
-                  اتصل للحجز 01286110562
+                  اتصل للحجز +201055599706
                 </Button>
               </CardContent>
             </Card>

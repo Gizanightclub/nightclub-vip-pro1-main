@@ -419,7 +419,7 @@ export const places: Place[] = [
     originalPrice: 7500,
     features: ["دي جي خليجي", "مشروبات مختارة", "طاولة مشتركة", "باقات احتفالية", "كرسي على البار (محدود) - 3000 جنيه"],
     image: "/images/unnamed.jpg",
-    video: "/videos/Cash cairo 01286110562.mp4",
+    video: "/videos/Cash cairo +201055599706.mp4",
     rating: 4.2,
     packages: [
       { 

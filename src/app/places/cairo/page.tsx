@@ -77,7 +77,7 @@ export default function CairoPlacesPage() {
               <article className="p-4 bg-black/50 rounded-xl">
                 <h3 className="text-lg font-semibold text-white mb-2">❓ إزاي أحجز نايت كلوب في مصر؟</h3>
                 <p className="text-gray-200 text-sm">
-                  ادخل على موقعنا Night Club Egypt، اختار النادي (مثلاً Stage Cairo Club أو Cash Cairo)، واضغط احجز الآن. تتأكد من السعر ثم تواصل عبر واتساب على 01286110562.
+                  ادخل على موقعنا Night Club Egypt، اختار النادي (مثلاً Stage Cairo Club أو Cash Cairo)، واضغط احجز الآن. تتأكد من السعر ثم تواصل عبر واتساب على +201055599706.
                 </p>
               </article>
               <article className="p-4 bg-black/50 rounded-xl">
@@ -108,13 +108,13 @@ export default function CairoPlacesPage() {
 
           <section className="mt-10 text-center">
             <a
-              href="tel:01286110562"
+              href="tel:+201055599706"
               className="inline-block rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 px-8 py-3 font-bold text-white hover:shadow-lg hover:shadow-green-500/50 transition"
             >
-              اتصل الآن 01286110562 للحجز السريع
+              اتصل الآن +201055599706 للحجز السريع
             </a>
             <a
-              href="https://wa.me/201286110562?text=%D8%A3%D8%AF%D9%88%D8%AF+%D8%AD%D8%AC%D8%B2%D8%A9+%D9%86%D8%A7%D9%8A%D8%AA+%D9%83%D9%84%D9%88%D8%A8"
+              href="https://wa.me/201055599706?text=%D8%A3%D8%AF%D9%88%D8%AF+%D8%AD%D8%AC%D8%B2%D8%A9+%D9%86%D8%A7%D9%8A%D8%AA+%D9%83%D9%84%D9%88%D8%A8"
               target="_blank"
               rel="noreferrer"
               className="inline-block mt-3 ml-3 rounded-xl bg-gradient-to-r from-blue-500 to-cyan-500 px-8 py-3 font-bold text-white hover:shadow-lg hover:shadow-cyan-500/50 transition"

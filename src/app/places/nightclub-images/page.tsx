@@ -7,7 +7,7 @@ import Image from "next/image";
 import Script from "next/script";
 
 export default function NightclubImagesPage() {
-  const phone = "01286110562";
+  const phone = "+201055599706";
   const galleryImages = places.map((place) => ({
     url: place.image,
     alt: `صور ${place.name} في ${place.location} - نايت كلوب VIP في القاهرة والجيزة والعجوزة`,
@@ -75,8 +75,8 @@ export default function NightclubImagesPage() {
         customFAQs={[
           {
             question: "كيف أحجز أسرع؟",
-            answer: "اتصل 01286110562 أو افتح صفحة النادي واضغط حجز الآن عبر الواتساب.",
-            keywords: ["حجز سريع", "01286110562", "Night Club Egypt"]
+            answer: "اتصل +201055599706 أو افتح صفحة النادي واضغط حجز الآن عبر الواتساب.",
+            keywords: ["حجز سريع", "+201055599706", "Night Club Egypt"]
           },
           {
             question: "هل الصور واقعية؟",
@@ -122,13 +122,13 @@ export default function NightclubImagesPage() {
 
           <section className="mt-12 rounded-2xl border border-yellow-400/30 bg-black/60 p-6">
             <h2 className="text-2xl font-bold text-white mb-3">أسئلة شائعة</h2>
-            <p className="text-gray-200"><strong>❓ كيف أحجز أسرع؟</strong> اتصل 01286110562 أو اذهب إلى صفحة النادي والضغط على "احجز الآن".</p>
+            <p className="text-gray-200"><strong>❓ كيف أحجز أسرع؟</strong> اتصل +201055599706 أو اذهب إلى صفحة النادي والضغط على "احجز الآن".</p>
             <p className="text-gray-200"><strong>❓ هل الصور واقعية؟</strong> نعم، الصور من تجارب حقيقية في النوادي التي نعرضها في Night Club Egypt.</p>
             <p className="text-gray-200"><strong>❓ هل الأسعار شاملة VIP؟</strong> في معظم النوادي نعرض أسعار VIP وأسعار عادية، مع ضمان أرخص سعر.</p>
           </section>
 
           <section className="mt-10 text-center">
-            <a href="tel:01286110562" className="inline-block rounded-xl bg-green-500 px-8 py-3 font-bold text-white hover:bg-green-600 transition">اتصل الآن للحجز</a>
+            <a href="tel:+201055599706" className="inline-block rounded-xl bg-green-500 px-8 py-3 font-bold text-white hover:bg-green-600 transition">اتصل الآن للحجز</a>
           </section>
 
         </div>

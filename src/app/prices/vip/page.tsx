@@ -64,7 +64,7 @@ export default function VIPPrices() {
                   <li>• خدمة شخصية</li>
                   <li>• دخول سريع بدون انتظار</li>
                 </ul>
-                <Link href="https://wa.me/201286110562" target="_blank">
+                <Link href="https://wa.me/201055599706" target="_blank">
                   <Button className="w-full bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700">
                     احجز VIP أساسي
                   </Button>
@@ -93,7 +93,7 @@ export default function VIPPrices() {
                   <li>• استقبال خاص عند الوصول</li>
                   <li>• إمكانية طلب أغاني خاصة</li>
                 </ul>
-                <Link href="https://wa.me/201286110562" target="_blank">
+                <Link href="https://wa.me/201055599706" target="_blank">
                   <Button className="w-full bg-gradient-to-r from-yellow-600 to-orange-600 hover:from-yellow-700 hover:to-orange-700">
                     احجز VIP بريميوم
                   </Button>
@@ -123,7 +123,7 @@ export default function VIPPrices() {
                   <li>• تنسيق مع الراقصين والفنانين</li>
                   <li>• صور وفيديوهات تذكارية</li>
                 </ul>
-                <Link href="https://wa.me/201286110562" target="_blank">
+                <Link href="https://wa.me/201055599706" target="_blank">
                   <Button className="w-full bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700">
                     احجز VIP لوكشري
                   </Button>
@@ -139,7 +139,7 @@ export default function VIPPrices() {
               <p className="text-gray-300">تواصل معنا للحصول على أفضل العروض والتأكيد الفوري</p>
             </div>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Link href="https://wa.me/201286110562" target="_blank">
+              <Link href="https://wa.me/201055599706" target="_blank">
                 <Button
                   size="lg"
                   className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 text-lg"
@@ -148,7 +148,7 @@ export default function VIPPrices() {
                   احجز عبر الواتساب
                 </Button>
               </Link>
-              <Link href="tel:01286110562">
+              <Link href="tel:+201055599706">
                 <Button
                   size="lg"
                   variant="outline"

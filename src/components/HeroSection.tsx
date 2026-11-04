@@ -24,14 +24,14 @@ const HeroSection = () => {
   }, []);
 
   const handleCall = () => {
-    window.location.href = "tel:+201286110562";
+    window.location.href = "tel:+201055599706";
   };
 
   const handleWhatsApp = () => {
     const message = encodeURIComponent(
       "مرحباً، أود معرفة تفاصيل الحجز والأسعار في أفضل نايت كلوب مصر 🌟"
     );
-    window.location.href = `https://wa.me/201286110562?text=${message}`;
+    window.location.href = `https://wa.me/201055599706?text=${message}`;
   };
 
   return (
@@ -125,12 +125,21 @@ const HeroSection = () => {
               <br />
               تواصل معنا عبر واتساب واحجز مكانك فورًا 📲
               <br />
-              <a
-                href="tel:+201286110562"
-                className="text-yellow-400 hover:text-yellow-300 transition-colors"
-              >
-                01286110562
-              </a>
+              <div className="flex flex-col sm:flex-row gap-2 justify-center sm:justify-start mt-2">
+                <a
+                  href="tel:+201055599706"
+                  className="text-yellow-400 hover:text-yellow-300 transition-colors font-bold"
+                >
+                  +20 1055599706
+                </a>
+                <span className="text-gray-400">|</span>
+                <a
+                  href="tel:+201268110562"
+                  className="text-cyan-400 hover:text-cyan-300 transition-colors font-bold"
+                >
+                  +20 1268110562
+                </a>
+              </div>
             </motion.p>
 
             {/* الأزرار */}

@@ -21,7 +21,7 @@ export default function VIPTypePage() {
       <SEOUnified
         pageType="places"
         customTitle="VIP نايت كلوب مصر | حجز طاولات VIP أسرع - Night Club Egypt"
-        customDescription="أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر 01286110562 مع ضمان أقل سعر."
+        customDescription="أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر +201055599706 مع ضمان أقل سعر."
         customKeywords={[
           "VIP نايت كلوب",
           "حجز VIP",
@@ -55,7 +55,7 @@ export default function VIPTypePage() {
         customFAQs={[
           {
             question: "هل يمكن حجز طاولة VIP الآن؟",
-            answer: "نعم، يمكن حجز طاولة VIP الآن عبر الهاتف أو واتساب على 01286110562.",
+            answer: "نعم، يمكن حجز طاولة VIP الآن عبر الهاتف أو واتساب على +201055599706.",
             keywords: ["حجز VIP", "طاولة VIP", "نايت كلوب VIP"]
           },
           {
@@ -80,7 +80,7 @@ export default function VIPTypePage() {
             "@context": "https://schema.org",
             "@type": "Article",
             "headline": "دليل VIP نايت كلوب مصر - أفضل باقات VIP 2026",
-            "description": "أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر 01286110562 مع ضمان أقل سعر.",
+            "description": "أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر +201055599706 مع ضمان أقل سعر.",
             "image": {
               "@type": "ImageObject",
               "url": `https://www.nightclubegypt.com${seoImage}`,
@@ -143,7 +143,7 @@ export default function VIPTypePage() {
         customFAQs={[
           {
             question: "هل يمكن حجز طاولة VIP الآن؟",
-            answer: "نعم، يمكن حجز طاولة VIP الآن عبر الهاتف أو واتساب على 01286110562.",
+            answer: "نعم، يمكن حجز طاولة VIP الآن عبر الهاتف أو واتساب على +201055599706.",
             keywords: ["حجز VIP", "طاولة VIP", "نايت كلوب VIP"]
           },
           {
@@ -176,7 +176,7 @@ export default function VIPTypePage() {
           </div>
 
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">VIP نايت كلوب مصر | حجز طاولات VIP أسرع</h1>
-          <p className="text-gray-300 mb-8">أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر 01286110562 مع ضمان أقل سعر. طاولات VIP، خدمة خاصة، مشروبات مجانية، وتوصيل فاخر.</p>
+          <p className="text-gray-300 mb-8">أقوى باقات VIP في القاهرة، الجيزة، الغردقة، وشرم الشيخ. حجز فوري عبر +201055599706 مع ضمان أقل سعر. طاولات VIP، خدمة خاصة، مشروبات مجانية، وتوصيل فاخر.</p>
 
           {vipPlaces.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
@@ -187,21 +187,21 @@ export default function VIPTypePage() {
           ) : (
             <div className="bg-white/10 p-6 rounded-xl border border-purple-500/30 text-gray-300">
               <h2 className="text-xl text-white font-bold">لا توجد باقات VIP مفعّلة بعد</h2>
-              <p className="mt-2">واصل معنا على 01286110562 للحصول على أفضل عروض VIP المتاحة.</p>
+              <p className="mt-2">واصل معنا على +201055599706 للحصول على أفضل عروض VIP المتاحة.</p>
             </div>
           )}
 
           <section className="mt-10 bg-white/10 p-6 rounded-xl border border-purple-500/20">
             <h2 className="text-2xl font-bold text-yellow-400 mb-4">أسئلة شائعة VIP</h2>
-            <p className="text-gray-200 mb-2"><strong>❓ هل يمكن حجز طاولة VIP الآن؟</strong> نعم، فقط اتصل 01286110562 أو اضغط حجز عبر واتساب.</p>
+            <p className="text-gray-200 mb-2"><strong>❓ هل يمكن حجز طاولة VIP الآن؟</strong> نعم، فقط اتصل +201055599706 أو اضغط حجز عبر واتساب.</p>
             <p className="text-gray-200 mb-2"><strong>❓ هل يشمل VIP سيارة ذهاب وعودة؟</strong> غالبًا نعم، نقترح تأكيد ذلك عند الحجز مباشرةً.</p>
             <p className="text-gray-200 mb-2"><strong>❓ ما هو أرخص VIP؟</strong> تبدأ الأسعار من 2000 جنيه في أوقات العروض الخاصة.
             </p>
           </section>
 
           <section className="mt-8 text-center">
-            <a href="tel:01286110562" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold hover:bg-green-600 transition">اتصل 01286110562</a>
-            <a href="https://wa.me/201286110562" target="_blank" rel="noreferrer" className="inline-block mt-3 ml-3 rounded-xl bg-cyan-500 px-6 py-3 font-bold hover:bg-cyan-600 transition">واتساب</a>
+            <a href="tel:+201055599706" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold hover:bg-green-600 transition">اتصل +201055599706</a>
+            <a href="https://wa.me/201055599706" target="_blank" rel="noreferrer" className="inline-block mt-3 ml-3 rounded-xl bg-cyan-500 px-6 py-3 font-bold hover:bg-cyan-600 transition">واتساب</a>
           </section>
         </div>
       </main>

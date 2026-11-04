@@ -24,7 +24,7 @@ export default function NightClubsCairoPage() {
       <SEOUnified
         pageType="places"
         customTitle="Night Clubs Cairo | حجز نايت كلوب القاهرة أرخص سعر - Night Club Egypt"
-        customDescription="احجز الآن أفضل نوادي نايت كلوب في القاهرة والجيزة. عروض VIP، سيارات ذهاب وعودة، وخصم خاص عبر 01286110562." 
+        customDescription="احجز الآن أفضل نوادي نايت كلوب في القاهرة والجيزة. عروض VIP، سيارات ذهاب وعودة، وخصم خاص عبر +201055599706." 
         customKeywords={[
           "night club cairo",
           "nightlife egypt",
@@ -42,7 +42,7 @@ export default function NightClubsCairoPage() {
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">Night Clubs Cairo | حجز نايت كلوب القاهرة أرخص سعر</h1>
-          <p className="text-gray-300 mb-8">احجز الآن أفضل نوادي نايت كلوب في القاهرة والجيزة. عروض VIP، سيارات ذهاب وعودة، وخصم خاص عبر 01286110562. Stage Cairo Club، Cash Cairo، Omni Club Cairo، Echo Club، King Club، Cosmo Lounge & Club.</p>
+          <p className="text-gray-300 mb-8">احجز الآن أفضل نوادي نايت كلوب في القاهرة والجيزة. عروض VIP، سيارات ذهاب وعودة، وخصم خاص عبر +201055599706. Stage Cairo Club، Cash Cairo، Omni Club Cairo، Echo Club، King Club، Cosmo Lounge & Club.</p>
 
           <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
             {cCairo.map((place) => (
@@ -85,7 +85,7 @@ export default function NightClubsCairoPage() {
           </div>
 
           <div className="mt-12 text-center">
-            <a href="tel:01286110562" className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-lg font-bold">اتصل 01286110562 للحجز</a>
+            <a href="tel:+201055599706" className="inline-block bg-gradient-to-r from-green-500 to-emerald-500 text-white px-8 py-3 rounded-lg font-bold">اتصل +201055599706 للحجز</a>
           </div>
 
           <div className="mt-8 grid grid-cols-2 md:grid-cols-4 gap-3 text-center">

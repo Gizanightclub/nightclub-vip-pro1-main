@@ -43,7 +43,7 @@ export default function HurghadaPlacesPage() {
             <p className="text-gray-300 mb-6">لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين.</p>
             <div className="flex flex-col gap-4 sm:flex-row justify-center">
               <Link href="/places/cairo" className="rounded-xl bg-cyan-500 px-6 py-3 text-white font-bold hover:bg-cyan-400 transition">عرض أماكن القاهرة</Link>
-              <a href="tel:01286110562" className="rounded-xl bg-amber-400 px-6 py-3 text-slate-950 font-bold hover:bg-amber-300 transition">اتصل الآن 01286110562</a>
+              <a href="tel:+201055599706" className="rounded-xl bg-amber-400 px-6 py-3 text-slate-950 font-bold hover:bg-amber-300 transition">اتصل الآن +201055599706</a>
             </div>
           </div>
         </div>

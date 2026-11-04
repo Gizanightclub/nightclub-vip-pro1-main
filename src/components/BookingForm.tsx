@@ -140,7 +140,7 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} جنيه (${
 استمتعوا بأجمل الأوقات! ✨`.trim();
 
     const encodedMessage = encodeURIComponent(message);
-    const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
+    const whatsappUrl = `https://wa.me/201055599706?text=${encodedMessage}`;
 
     window.open(whatsappUrl, "_blank");
     setFormSubmitted(true);

@@ -10,7 +10,7 @@ export default function BookingGuideEgypt() {
       <SEOUnified
         pageType="blog"
         customTitle="دليل حجز السهرات في مصر | كيف تحجز نايت كلوب - Night Club Egypt"
-        customDescription="تعلم كيف تحجز نايت كلوب في مصر خطوة بخطوة: مقارنات أسعار، VIP، ديسكو، وسيلة النقل. اتصل 01286110562 الآن."
+        customDescription="تعلم كيف تحجز نايت كلوب في مصر خطوة بخطوة: مقارنات أسعار، VIP، ديسكو، وسيلة النقل. اتصل +201055599706 الآن."
         customKeywords={["دليل حجز السهرات مصر", "كيف أحجز نايت كلوب", "booking guide Egypt"]}
         customImage="https://www.nightclubegypt.com/images/nightclubegypt.com.jpg"
       />
@@ -43,7 +43,7 @@ export default function BookingGuideEgypt() {
 
           <section className="bg-white/5 p-6 rounded-2xl border border-purple-500/30">
             <h2 className="text-2xl font-bold text-yellow-300">خطوة 3: احجز فوري</h2>
-            <p className="text-gray-200">استخدم 01286110562 واتساب للحجز أو اضغط رابط الحجز المباشر في كل صفحة نادي.</p>
+            <p className="text-gray-200">استخدم +201055599706 واتساب للحجز أو اضغط رابط الحجز المباشر في كل صفحة نادي.</p>
           </section>
 
           <section className="bg-white/10 p-6 rounded-xl border border-purple-500/20">
@@ -101,7 +101,7 @@ export default function BookingGuideEgypt() {
           </div>
 
           <div className="grid gap-4 sm:grid-cols-2 text-center w-full">
-            <a href="tel:01286110562" className="rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 px-8 py-3 font-bold hover:shadow-lg hover:shadow-green-500/40">اتصل الآن 01286110562</a>
+            <a href="tel:+201055599706" className="rounded-xl bg-gradient-to-r from-green-500 to-emerald-500 px-8 py-3 font-bold hover:shadow-lg hover:shadow-green-500/40">اتصل الآن +201055599706</a>
             <a href="/places" className="rounded-xl bg-white/10 border border-white/20 px-8 py-3 font-bold text-white hover:bg-white/15">شاهد جميع الأماكن</a>
           </div>
         </div>

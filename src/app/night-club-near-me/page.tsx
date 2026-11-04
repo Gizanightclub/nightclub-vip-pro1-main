@@ -35,7 +35,7 @@ export default function NightClubNearMe() {
           <div className="bg-blue-100 p-6 rounded-lg my-6">
             <h3 className="text-xl font-semibold mb-2">احجز موقعك المفضل</h3>
             <p>اتصل بنا لمعرفة أقرب المواقع وأفضل العروض.</p>
-            <a href="tel:01286110562" className="bg-blue-600 text-white px-4 py-2 rounded mt-2 inline-block">اتصل الآن</a>
+            <a href="tel:+201055599706" className="bg-blue-600 text-white px-4 py-2 rounded mt-2 inline-block">اتصل الآن</a>
           </div>
         </div>
       </div>

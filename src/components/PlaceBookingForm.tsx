@@ -103,7 +103,7 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
 `);
 
     // فتح WhatsApp
-    window.open(`https://wa.me/201286110562?text=${whatsappText}`, "_blank");
+    window.open(`https://wa.me/201055599706?text=${whatsappText}`, "_blank");
 
     // إذا اختار InstaPay، افتح الرابط الآمن للدفع
     if (useInstaPay === "instaPay") {

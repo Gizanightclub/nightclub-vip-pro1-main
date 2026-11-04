@@ -49,10 +49,10 @@ export default function LocationsLayout({
                 إذا لم تعرف المنطقة المناسبة، اتصل بنا لحجز الطاولة في أفضل النوادي الليلة نفسها.
               </p>
               <a
-                href="tel:01286110562"
+                href="tel:+201055599706"
                 className="mt-6 inline-flex w-full items-center justify-center rounded-2xl bg-gradient-to-r from-amber-400 to-yellow-500 px-5 py-3 text-sm font-bold text-slate-950 transition hover:scale-[1.01]"
               >
-                اتصل الآن 01286110562
+                اتصل الآن +201055599706
               </a>
             </div>
           </aside>

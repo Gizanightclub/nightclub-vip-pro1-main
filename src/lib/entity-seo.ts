@@ -71,7 +71,7 @@ export const NIGHTLIFE_ENTITIES = {
       type: 'Service',
       attributes: {
         bookingMethod: 'Phone/WhatsApp',
-        contact: '+201286110562',
+        contact: '+201055599706',
         confirmation: 'Instant',
         cancellation: '24h notice'
       },

@@ -112,7 +112,7 @@ export default function Footer() {
               <motion.a
                 whileHover={{ scale: 1.2 }}
                 className="text-white hover:text-green-400 transition-colors"
-                href="https://wa.me/201286110562"
+                href="https://wa.me/201055599706"
                 target="_blank"
                 rel="noopener noreferrer"
                 title="احجز الآن عبر WhatsApp"
@@ -146,10 +146,10 @@ export default function Footer() {
               </motion.div>
               <motion.a
                 className="footer-item flex items-center gap-2 text-white hover:text-yellow-400"
-                href="tel:+201286110562"
+                href="tel:+201055599706"
               >
                 <Phone className="w-4 h-4" />
-                <span>+201286110562</span>
+                <span>+20 1055599706</span>
               </motion.a>
               <motion.a
                 className="footer-item flex items-center gap-2 text-white hover:text-yellow-400"

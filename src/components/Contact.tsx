@@ -152,7 +152,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
 `.trim();
 
   const encodedMessage = encodeURIComponent(whatsappMessage);
-  const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
+  const whatsappUrl = `https://wa.me/201055599706?text=${encodedMessage}`;
   window.open(whatsappUrl, "_blank", "noopener,noreferrer");
 };
 
@@ -161,7 +161,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       name: "WhatsApp",
       icon: MessageCircle,
-      url: "https://wa.me/201286110562",
+      url: "https://wa.me/201055599706",
       color: "bg-green-600 hover:bg-green-700",
     },
     {
@@ -188,7 +188,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       icon: Phone,
       title: "اتصل بنا",
-      description: "01286110562",
+      description: "+20 1055599706",
       color: "text-yellow-400",
       bg: "bg-yellow-400/10",
     },
@@ -256,7 +256,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
             <span className="text-yellow-400 sm:text-transparent sm:bg-clip-text sm:bg-gradient-to-r sm:from-yellow-400 sm:to-yellow-600">
               احجز الآن في أفضل نايت كلوب 2026
             </span>
-            <span className="block text-lg md:text-2xl mt-2">01286110562 - واتس - InstaPay</span>
+            <span className="block text-lg md:text-2xl mt-2">+20 1055599706 - واتس - InstaPay</span>
           </h2>
           <p className="text-base sm:text-lg md:text-2xl text-gray-300 max-w-4xl mx-auto leading-relaxed">
             فريقنا متاح على مدار الساعة لمساعدتك في الحجز والإجابة على

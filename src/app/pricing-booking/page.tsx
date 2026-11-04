@@ -173,7 +173,7 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
 `.trim();
 
         const encodedMessage = encodeURIComponent(message);
-        const whatsappUrl = `https://wa.me/201286110562?text=${encodedMessage}`;
+        const whatsappUrl = `https://wa.me/201055599706?text=${encodedMessage}`;
 
         window.open(whatsappUrl, "_blank");
         setFormSubmitted(true);
@@ -198,7 +198,7 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
                 <SEOUnified
                     pageType="booking"
                     customTitle="حجز باقات نايت كلوب مصر - أسعار مميزة من 2000 جنيه | Night Club Egypt"
-                    customDescription="احجز باقات نايت كلوب مصر بأسعار مميزة من 2000 جنيه. تيكت صف تاني، تيكت VIP، تيكت الشلة. خدمة توصيل وخصومات خاصة عبر 01286110562."
+                    customDescription="احجز باقات نايت كلوب مصر بأسعار مميزة من 2000 جنيه. تيكت صف تاني، تيكت VIP، تيكت الشلة. خدمة توصيل وخصومات خاصة عبر +201055599706."
                     customKeywords={["حجز نايت كلوب", "باقات نايت كلوب", "أسعار نايت كلوب", "تيكت VIP", "تيكت صف تاني", "تيكت الشلة"]}
                 />
                 <div className="min-h-screen bg-gradient-to-b from-black via-purple-900/10 to-black py-20">
@@ -276,7 +276,7 @@ ${discountAmount > 0 ? `💵 قيمة الخصم: ${discountAmount} EGP (${appli
             <SEOUnified
                 pageType="booking"
                 customTitle={`حجز ${selectedPackageData.title} - ${selectedPackageData.price} جنيه | Night Club Egypt`}
-                customDescription={`احجز ${selectedPackageData.title} بقيمة ${selectedPackageData.price} جنيه. خدمة VIP، مشروبات مجانية، توصيل فاخر. اتصل 01286110562 للحجز الفوري.`}
+                customDescription={`احجز ${selectedPackageData.title} بقيمة ${selectedPackageData.price} جنيه. خدمة VIP، مشروبات مجانية، توصيل فاخر. اتصل +201055599706 للحجز الفوري.`}
                 customKeywords={[`حجز ${selectedPackageData.title}`, "نايت كلوب مصر", "حجز VIP", "توصيل فاخر", "مشروبات مجانية"]}
             />
             <div className="min-h-screen bg-gradient-to-b from-black via-purple-900/10 to-black py-20">

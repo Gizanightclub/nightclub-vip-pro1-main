@@ -43,8 +43,8 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
       .slice(0, 3);
   }, [params.slug, place?.price]);
 
-  const phone = "01286110562";
-  const whatsappLink = `https://wa.me/201286110562?text=${encodeURIComponent(`مرحبا، أود حجز ${place?.name} في القاهرة. يرجى التواصل.`)}`;
+  const phone = "+201055599706";
+  const whatsappLink = `https://wa.me/201055599706?text=${encodeURIComponent(`مرحبا، أود حجز ${place?.name} في القاهرة. يرجى التواصل.`)}`;
   const mapQuery = encodeURIComponent(`${place?.name} ${place?.location} القاهرة`);
 
   const videoSrc = place?.video || "/videos/nightclub-promo.mp4";
@@ -121,7 +121,7 @@ export default function PlaceDetailPage({ params: paramsPromise }: PageProps) {
                 datePublished: new Date().toISOString().split("T")[0],
                 reviewRating: { "@type": "Rating", ratingValue: 5 },
                 reviewBody:
-                  "الخدمة ممتازة في اینيچ. حجز VIP وسفر ذهاب وعودة من خلال 01286110562 بسرعة وسهولة."
+                  "الخدمة ممتازة في اینيچ. حجز VIP وسفر ذهاب وعودة من خلال +201055599706 بسرعة وسهولة."
               }
             ]
           }, null, 2)

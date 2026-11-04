@@ -313,5 +313,5 @@ export const CONVERSION_FUNNEL_LINKS = {
   awareness: ['home', 'blog/ultimate-guide-egypt-nightlife'],
   consideration: ['prices/cairo', 'locations/cairo', 'reviews/cairo'],
   decision: ['guides/booking', 'pricing-booking', 'contact'],
-  action: ['tel:01286110562', 'https://wa.me/201286110562']
+  action: ['tel:+201055599706', 'https://wa.me/201055599706']
 }

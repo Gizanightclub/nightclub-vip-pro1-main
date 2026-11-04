@@ -16,7 +16,7 @@ export default function DiscoTypePage() {
       <SEOUnified
         pageType="places"
         customTitle="ديسكو مصر | أفضل سهرات ديسكو وحجز VIP - Night Club Egypt"
-        customDescription="اكتشف نادي ديسكو في القاهرة والجيزة مع عروض VIP وأسعار اقتصادية. اتصل الآن 01286110562 لحجز فوري."
+        customDescription="اكتشف نادي ديسكو في القاهرة والجيزة مع عروض VIP وأسعار اقتصادية. اتصل الآن +201055599706 لحجز فوري."
         customKeywords={[
           "ديسكو",
           "disco",
@@ -47,7 +47,7 @@ export default function DiscoTypePage() {
       <main className="bg-black text-white min-h-screen py-20">
         <div className="container mx-auto px-4">
           <h1 className="text-4xl font-extrabold text-yellow-400 mb-4">ديسكو مصر | أفضل سهرات ديسكو وحجز VIP</h1>
-          <p className="text-gray-300 mb-8">اكتشف نادي ديسكو في القاهرة والجيزة مع عروض VIP وأسعار اقتصادية. DJs محترفين، نظام صوت قوي، رقص، وأجواء ممتعة. اتصل الآن 01286110562 لحجز فوري.</p>
+          <p className="text-gray-300 mb-8">اكتشف نادي ديسكو في القاهرة والجيزة مع عروض VIP وأسعار اقتصادية. DJs محترفين، نظام صوت قوي، رقص، وأجواء ممتعة. اتصل الآن +201055599706 لحجز فوري.</p>
 
           {discoPlaces.length > 0 ? (
             <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-2 gap-6">
@@ -58,7 +58,7 @@ export default function DiscoTypePage() {
           ) : (
             <div className="bg-white/10 p-6 rounded-xl border border-purple-500/30 text-gray-300">
               <h2 className="text-xl text-white font-bold">لم يتم العثور على ديسكو محدد</h2>
-              <p className="mt-2">سجل معنا لتلقي التحديثات، أو اتصل 01286110562 لحجز سريع في خياراتنا المتاحة.</p>
+              <p className="mt-2">سجل معنا لتلقي التحديثات، أو اتصل +201055599706 لحجز سريع في خياراتنا المتاحة.</p>
             </div>
           )}
 
@@ -77,8 +77,8 @@ export default function DiscoTypePage() {
               </a>
             </div>
             <div className="flex flex-col sm:flex-row sm:justify-center gap-3">
-              <a href="tel:01286110562" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold hover:bg-green-600 transition">اتصل 01286110562</a>
-              <a href="https://wa.me/201286110562" target="_blank" rel="noreferrer" className="inline-block rounded-xl bg-cyan-500 px-6 py-3 font-bold hover:bg-cyan-600 transition">واتساب</a>
+              <a href="tel:+201055599706" className="inline-block rounded-xl bg-green-500 px-6 py-3 font-bold hover:bg-green-600 transition">اتصل +201055599706</a>
+              <a href="https://wa.me/201055599706" target="_blank" rel="noreferrer" className="inline-block rounded-xl bg-cyan-500 px-6 py-3 font-bold hover:bg-cyan-600 transition">واتساب</a>
             </div>
           </section>
         </div>

@@ -40,8 +40,8 @@ export default function BestNightclubs2026() {
           },
           {
             question: "كيف أتواصل مع الفريق للحجز الفوري؟",
-            answer: "اتصل أو راسل واتساب على 01286110562 للحصول على حجز فوري وأفضل العروض.",
-            keywords: ["01286110562", "واتساب", "حجز فوري"]
+            answer: "اتصل أو راسل واتساب على +201055599706 للحصول على حجز فوري وأفضل العروض.",
+            keywords: ["+201055599706", "واتساب", "حجز فوري"]
           }
         ]}
       />
@@ -76,7 +76,7 @@ export default function BestNightclubs2026() {
             
             <p className="text-gray-300 text-lg">تريد تجربة **night club** حقيقية؟ هل تبحث عن **سهرات القاهرة** التي تتحدث عنها الجميع؟ في دليلنا، ستكتشف أفضل نايت كلوب في القاهرة مثل **تانجو كلوب**، **فيينا كلوب**، **أوتار كلوب**، و **فوكس كلوب** – كل بميزاتها الفريدة وأجوائها المختلفة. احجز الآن نايت كلوب حلمك واستمتع بـ **nightlife Egypt** الفاخر!</p>
             
-            <p className="text-gray-300 text-lg font-semibold">دعنا ندخل عالم نايت كلوب الحقيقي في مصر – حيث الأجواء الفاخرة، الموسيقى الحية، والحفلات التي لا تنتهي. احجز **night club Cairo** الآن! ☎️ <span className="text-green-400">01286110562</span></p>
+            <p className="text-gray-300 text-lg font-semibold">دعنا ندخل عالم نايت كلوب الحقيقي في مصر – حيث الأجواء الفاخرة، الموسيقى الحية، والحفلات التي لا تنتهي. احجز **night club Cairo** الآن! ☎️ <span className="text-green-400">+201055599706</span></p>
           </section>
 
           <article className="bg-white/5 p-6 rounded-2xl border border-purple-500/30">
@@ -109,7 +109,7 @@ export default function BestNightclubs2026() {
           <article className="bg-white/5 p-6 rounded-2xl border border-purple-500/30">
             <h2 className="text-2xl font-bold text-yellow-300 mb-4">💰 Best Night Club in Cairo for Tourists & International Visitors</h2>
             <p className="text-gray-200 mb-3">If you're visiting Cairo and looking for the best **night club Cairo** experience, you've found the right guide! Egypt's capital offers exceptional **nightlife Egypt** experiences that blend international standards with authentic Egyptian hospitality. Whether you're searching for a luxury **night club** or a vibrant party venue, Cairo has it all.</p>
-            <p className="text-gray-200 mb-3">Places like **Tango Club**, **Vienna Club**, **Royal King**, and **Fox Club** welcome international guests with English-speaking staff and world-class DJs. Nightlife Egypt in Cairo is safe, exciting, and unforgettable. Book your **night club Cairo** now and experience the magic of **nightlife Egypt** like never before! 📱 Call us at <span className="text-green-400">01286110562</span> for instant bookings.</p>
+            <p className="text-gray-200 mb-3">Places like **Tango Club**, **Vienna Club**, **Royal King**, and **Fox Club** welcome international guests with English-speaking staff and world-class DJs. Nightlife Egypt in Cairo is safe, exciting, and unforgettable. Book your **night club Cairo** now and experience the magic of **nightlife Egypt** like never before! 📱 Call us at <span className="text-green-400">+201055599706</span> for instant bookings.</p>
             <p className="text-gray-200">When you book a **night club Cairo**, you get premium drinks, exclusive tables, and access to some of the finest **nightlife Egypt** venues. Don't miss out on the best **night club** experience in Cairo – reserve your spot today!</p>
           </article>
 
@@ -123,7 +123,7 @@ export default function BestNightclubs2026() {
               <li><strong>Premium VIP:</strong> من 5000 إلى 10000 جنيه+ – خدمة شاملة مع فخامة قصوى</li>
             </ul>
             <p className="text-gray-200 mb-3">في **نايت كلوب** مثل **تانجو** و **فيينا** و **فوكس**، الأسعار تعكس الجودة والموقع والخدمة. **احجز نايت كلوب** مسبقاً لتحصل على أفضل سعر في **nightlife Egypt**!</p>
-            <p className="text-gray-200 mb-3"><strong>نصيحة ذهبية:</strong> حجز **نايت كلوب** عبر الإنترنت يوفر لك 10-20% خصم على الأسعار العادية. لماذا تدفع أكثر؟ احجز الآن واستمتع بـ **night club Cairo** بسعر أفضل! ☎️ <span className="text-green-400">01286110562</span></p>
+            <p className="text-gray-200 mb-3"><strong>نصيحة ذهبية:</strong> حجز **نايت كلوب** عبر الإنترنت يوفر لك 10-20% خصم على الأسعار العادية. لماذا تدفع أكثر؟ احجز الآن واستمتع بـ **night club Cairo** بسعر أفضل! ☎️ <span className="text-green-400">+201055599706</span></p>
           </article>
 
           <article className="bg-white/5 p-6 rounded-2xl border border-purple-500/30">
@@ -138,7 +138,7 @@ export default function BestNightclubs2026() {
               <p className="text-gray-200"><strong className="text-cyan-300">5️⃣ استمتع!</strong> انطلق لـ **nightlife Egypt** وعِش أفضل **night club** experience</p>
             </div>
             
-            <p className="text-gray-200 mb-3"><strong className="text-yellow-300">⚡ احجز الآن:</strong> رقم الواتساب والاتصال المباشر: <span className="text-green-400 font-bold">01286110562</span></p>
+            <p className="text-gray-200 mb-3"><strong className="text-yellow-300">⚡ احجز الآن:</strong> رقم الواتساب والاتصال المباشر: <span className="text-green-400 font-bold">+201055599706</span></p>
             <p className="text-gray-200">سهل، سريع، آمن. كل ما تحتاجه في **night club Cairo** متوفر بضغطة زر واحدة!</p>
           </article>
 
@@ -154,7 +154,7 @@ export default function BestNightclubs2026() {
               <li><strong>🎁 عروض حصرية:</strong> استفد من باقات خاصة ومشروبات مجانية</li>
             </ul>
             <p className="text-gray-200 mb-3">حجز **نايت كلوب** أونلاين يعني أنك لن تقلق بشأن التفاصيل. اترك كل شيء لنا وركز على الاستمتاع!</p>
-            <p className="text-gray-200"><strong className="text-yellow-300">🔥 احجز الآن:</strong> <span className="text-green-400 font-bold">01286110562</span> (Whatsapp أو Call)</p>
+            <p className="text-gray-200"><strong className="text-yellow-300">🔥 احجز الآن:</strong> <span className="text-green-400 font-bold">+201055599706</span> (Whatsapp أو Call)</p>
           </article>
 
           <article className="bg-white/5 p-6 rounded-2xl border border-purple-500/30">
@@ -196,9 +196,9 @@ export default function BestNightclubs2026() {
                 <p className="font-bold text-white">👻 Snapchat</p>
                 <p className="text-gray-200 text-sm">@nightclub2029</p>
               </a>
-              <a href="https://wa.me/201286110562" target="_blank" rel="noreferrer" className="bg-green-600 p-4 rounded-lg text-center hover:bg-green-700 transition">
+              <a href="https://wa.me/201055599706" target="_blank" rel="noreferrer" className="bg-green-600 p-4 rounded-lg text-center hover:bg-green-700 transition">
                 <p className="font-bold text-white">💬 WhatsApp</p>
-                <p className="text-gray-200 text-sm">01286110562</p>
+                <p className="text-gray-200 text-sm">+201055599706</p>
               </a>
             </div>
 
@@ -238,7 +238,7 @@ export default function BestNightclubs2026() {
               
               <div className="bg-black/50 p-4 rounded-lg">
                 <p className="text-cyan-300 font-bold mb-2">س: كيف أتواصل مع الفريق للحجز الفوري؟</p>
-                <p className="text-gray-200">ج: اتصل أو راسل واتساب: <span className="text-green-400 font-bold">01286110562</span> – نحن متاحون 24/7!</p>
+                <p className="text-gray-200">ج: اتصل أو راسل واتساب: <span className="text-green-400 font-bold">+201055599706</span> – نحن متاحون 24/7!</p>
               </div>
             </div>
           </article>
@@ -247,10 +247,10 @@ export default function BestNightclubs2026() {
             <h2 className="text-2xl font-bold text-white mb-4 text-center">🔥 احجز أفضل نايت كلوب في مصر الآن!</h2>
             <p className="text-white mb-4 text-center text-lg">لا تتردد! **سهرات القاهرة** تنتظرك. احجز **night club Cairo** الآن واستمتع بـ **nightlife Egypt** الفاخرة!</p>
             <div className="grid gap-4 sm:grid-cols-2 text-center">
-              <a href="tel:01286110562" className="rounded-xl bg-green-500 px-8 py-4 font-bold text-white hover:bg-green-600 transition text-lg">
-                ☎️ اتصل الآن: 01286110562
+              <a href="tel:+201055599706" className="rounded-xl bg-green-500 px-8 py-4 font-bold text-white hover:bg-green-600 transition text-lg">
+                ☎️ اتصل الآن: +201055599706
               </a>
-              <a href="https://wa.me/201286110562?text=أريد%20أن%20أحجز%20نايت%20كلوب%20في%20القاهرة" target="_blank" rel="noreferrer" className="rounded-xl bg-cyan-500 px-8 py-4 font-bold text-white hover:bg-cyan-600 transition text-lg">
+              <a href="https://wa.me/201055599706?text=أريد%20أن%20أحجز%20نايت%20كلوب%20في%20القاهرة" target="_blank" rel="noreferrer" className="rounded-xl bg-cyan-500 px-8 py-4 font-bold text-white hover:bg-cyan-600 transition text-lg">
                 💬 راسل واتساب الآن
               </a>
             </div>
@@ -314,7 +314,7 @@ export default function BestNightclubs2026() {
               <p className="text-cyan-300 font-bold">🎁 عرض #3: أولى مرة في night club</p>
               <p className="text-gray-200">إذا كانت أول مرة في **night club Cairo** غيض لنا – نحن نعطيك 20% خصم!</p>
             </div>
-            <p className="text-gray-200"><strong>احجز الآن:</strong> <span className="text-green-400 font-bold">01286110562</span> – اسأل عن أحدث العروض!</p>
+            <p className="text-gray-200"><strong>احجز الآن:</strong> <span className="text-green-400 font-bold">+201055599706</span> – اسأل عن أحدث العروض!</p>
           </article>
 
           <article className="bg-white/5 p-6 rounded-2xl border border-purple-500/30">
@@ -402,7 +402,7 @@ export default function BestNightclubs2026() {
               <p><strong>🏆 ليالي التنافس والألعاب:</strong> جوائز مالية قيمة كل شهر</p>
               <p><strong>🎭 حفلات تنكرية موضوعية:</strong> احتفل مع أصدقائك بأجواء فريدة</p>
             </div>
-            <p className="text-gray-200"><strong>احجز حفلتك الخاصة:</strong> <span className="text-green-400 font-bold">01286110562</span></p>
+            <p className="text-gray-200"><strong>احجز حفلتك الخاصة:</strong> <span className="text-green-400 font-bold">+201055599706</span></p>
           </article>
 
           <article className="bg-white/5 p-6 rounded-2xl border border-purple-500/30">
@@ -483,8 +483,8 @@ export default function BestNightclubs2026() {
             <h2 className="text-3xl font-extrabold text-white mb-4 text-center">🔥 لا تفوت الفرصة: احجز الآن قبل أن تمتلئ الأماكن!</h2>
             <p className="text-white mb-6 text-center text-lg font-semibold">**نايت كلوب** في القاهرة تمتلئ سريعاً، خاصة في الجمعة والسبت. احجز الآن واضمن أفضل طاولة!</p>
             <div className="grid gap-4 sm:grid-cols-3 text-center">
-              <a href="tel:01286110562" className="rounded-xl bg-lime-500 px-6 py-4 font-bold text-white hover:bg-lime-600 transition shadow-lg hover:shadow-xl transform hover:scale-105">☎️ اتصل الآن</a>
-              <a href="https://wa.me/201286110562" target="_blank" rel="noreferrer" className="rounded-xl bg-green-500 px-6 py-4 font-bold text-white hover:bg-green-600 transition shadow-lg hover:shadow-xl transform hover:scale-105">💬 واتساب</a>
+              <a href="tel:+201055599706" className="rounded-xl bg-lime-500 px-6 py-4 font-bold text-white hover:bg-lime-600 transition shadow-lg hover:shadow-xl transform hover:scale-105">☎️ اتصل الآن</a>
+              <a href="https://wa.me/201055599706" target="_blank" rel="noreferrer" className="rounded-xl bg-green-500 px-6 py-4 font-bold text-white hover:bg-green-600 transition shadow-lg hover:shadow-xl transform hover:scale-105">💬 واتساب</a>
               <a href="/places" className="rounded-xl bg-cyan-500 px-6 py-4 font-bold text-white hover:bg-cyan-600 transition shadow-lg hover:shadow-xl transform hover:scale-105">🏪 جميع الأماكن</a>
             </div>
           </article>
