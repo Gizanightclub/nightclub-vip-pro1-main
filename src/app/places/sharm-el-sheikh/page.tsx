@@ -20,7 +20,7 @@ export default function SharmElSheikhPage() {
         pageType="places"
         customTitle="شرم الشيخ غير متاحة الآن - Night Club Egypt"
         customDescription="لا يوجد حالياً نوادي في شرم الشيخ أو البحر الأحمر. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين."
-        customKeywords={['شرم الشيخ غير متاحة', 'لا يوجد البحر الأحمر', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين']}
+        customKeywords={['شرم الشيخ غير متاحة', 'لا يوجد البحر الأحمر', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين', 'نايت كلوب شرم الشيخ', 'أجواء ليلية شرم الشيخ', 'حجز نايت كلوب شرم الشيخ', 'Sharm El Sheikh nightlife', 'nightclub Sharm El Sheikh', 'party Sharm El Sheikh']}
         customImage="https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg"
         customUrl="https://www.nightclubegypt.com/places/sharm-el-sheikh"
       />

@@ -149,7 +149,7 @@ export default function Footer() {
                 href="tel:+201055599706"
               >
                 <Phone className="w-4 h-4" />
-                <span>+20 1055599706</span>
+                <span>01055599706</span>
               </motion.a>
               <motion.a
                 className="footer-item flex items-center gap-2 text-white hover:text-yellow-400"

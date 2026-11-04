@@ -30,7 +30,7 @@ export default function ElGounaPage() {
         pageType="places"
         customTitle="الجونة غير متاحة الآن - Night Club Egypt"
         customDescription="لا يوجد حالياً نوادي في الجونة. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين."
-        customKeywords={['الجونة غير متاحة', 'لا يوجد أماكن', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين']}
+        customKeywords={['الجونة غير متاحة', 'لا يوجد أماكن', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين', 'نايت كلوب الجونة', 'حجز نايت كلوب الجونة', 'أجواء ليلية الجونة', 'party in El Gouna', 'nightclub El Gouna', 'El Gouna nightlife']}
         customImage="https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg"
         customUrl="https://www.nightclubegypt.com/places/el-gouna"
       />

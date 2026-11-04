@@ -124,14 +124,14 @@ const HeroSection = () => {
                   href="tel:+201055599706"
                   className="text-yellow-400 hover:text-yellow-300 transition-colors font-bold"
                 >
-                  +20 1055599706
+                  01055599706
                 </a>
                 <span className="text-gray-400">|</span>
                 <a
                   href="tel:+201268110562"
                   className="text-cyan-400 hover:text-cyan-300 transition-colors font-bold"
                 >
-                  +20 1268110562
+                  01286110562
                 </a>
               </div>
             </motion.div>

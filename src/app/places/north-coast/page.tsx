@@ -30,7 +30,7 @@ export default function NorthCoastPage() {
         pageType="places"
         customTitle="الساحل الشمالي غير متاح الآن - Night Club Egypt"
         customDescription="لا يوجد حالياً نوادي في الساحل الشمالي. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين."
-        customKeywords={['الساحل الشمالي غير متاح', 'لا يوجد ساحل شمالي', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين']}
+        customKeywords={['الساحل الشمالي غير متاح', 'لا يوجد ساحل شمالي', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين', 'نايت كلوب الساحل الشمالي', 'حجز نايت كلوب الساحل الشمالي', 'North Coast nightlife', 'nightclub North Coast', 'party North Coast']}
         customImage="https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg"
         customUrl="https://www.nightclubegypt.com/places/north-coast"
       />

@@ -11,7 +11,31 @@ export default function PartiesTypePage() {
         pageType="places"
         customTitle="حفلات نايت كلوب وديسكو مصر | احجز مباشرة - Night Club Egypt"
         customDescription="اكتشف أفضل حفلات ومناسبات نايت كلوب في مصر مع أرخص العروض وخدمة VIP وسيارات ذهاب وعودة. اتصل: +201055599706."
-        customKeywords={["حفلات", "مناسبات", "نايت كلوب", "ديسكو", "Booking Egypt"]}
+        customKeywords={[
+          "حفلات",
+          "مناسبات",
+          "نايت كلوب",
+          "ديسكو",
+          "Booking Egypt",
+          "حفلات نايت كلوب مصر",
+          "حجز حفلة نايت كلوب",
+          "حفلات خاصة في مصر",
+          "party night Egypt",
+          "club party Cairo",
+          "VIP party Egypt",
+          "ديسكو مصر",
+          "سهرات في القاهرة",
+          "nightclub party booking",
+          "party booking Egypt",
+          "best club parties Cairo",
+          "مناسبات شركة",
+          "حفلات عيد ميلاد",
+          "زفاف في نايت كلوب",
+          "VIP parties Egypt",
+          "dancing club Egypt",
+          "حفلات ليلية فاخرة",
+          "nightlife events Cairo"
+        ]}
       />
       <Navigation />
       <main className="bg-black text-white min-h-screen py-20">

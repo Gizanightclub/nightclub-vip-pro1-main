@@ -11,7 +11,20 @@ import Link from 'next/link'
 export const metadata: Metadata = {
   title: 'أسعار نايت كلوب القاهرة - دليل الأسعار 2026',
   description: 'أسعار نايت كلوب القاهرة 2026: 1000 جنيه للدخول العادي، 1500 جنيه لـ VIP. احجز الآن واستمتع!',
-  keywords: ['أسعار نايت كلوب القاهرة', 'كم سعر دخول نايت كلوب', 'أسعار VIP القاهرة']
+  keywords: [
+    'أسعار نايت كلوب القاهرة',
+    'كم سعر دخول نايت كلوب',
+    'أسعار VIP القاهرة',
+    'أسعار سهرات القاهرة',
+    'باقات نايت كلوب القاهرة',
+    'حجز نايت كلوب القاهرة',
+    'كلفة VIP في القاهرة',
+    'أسعار ديسكو القاهرة',
+    'nightclub prices Cairo',
+    'VIP table Cairo price',
+    'Cairo nightlife prices',
+    'club ticket prices Egypt'
+  ]
 }
 
 export default function CairoPrices() {

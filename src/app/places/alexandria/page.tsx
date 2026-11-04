@@ -30,7 +30,7 @@ export default function AlexandriaPlacesPage() {
         pageType="places"
         customTitle="الإسكندرية غير متاحة الآن - Night Club Egypt"
         customDescription="لا يوجد حالياً نوادي في الإسكندرية. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين."
-        customKeywords={['الإسكندرية غير متاحة', 'لا يوجد أماكن', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين']}
+        customKeywords={['الإسكندرية غير متاحة', 'لا يوجد أماكن', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين', 'نايت كلوب الإسكندرية', 'أندية الإسكندرية', 'أجواء ليلية الإسكندرية', 'حجز نايت كلوب الإسكندرية', 'nightclub Alexandria', 'Alexandria nightlife', 'club tickets Alexandria']}
         customImage="https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg"
         customUrl="https://www.nightclubegypt.com/places/alexandria"
       />

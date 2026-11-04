@@ -30,7 +30,7 @@ export default function HurghadaPlacesPage() {
         pageType="places"
         customTitle="الغردقة غير متاحة الآن - Night Club Egypt"
         customDescription="لا يوجد حالياً نوادي في الغردقة أو البحر الأحمر. لدينا فقط أماكن في القاهرة، الجيزة، العجوزة، الزمالك، والمهندسين."
-        customKeywords={['الغردقة غير متاحة', 'لا يوجد أماكن', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين']}
+        customKeywords={['الغردقة غير متاحة', 'لا يوجد أماكن', 'القاهرة فقط', 'الزمالك', 'العجوزة', 'المهندسين', 'نايت كلوب الغردقة', 'أجواء ليلية الغردقة', 'حجز نايت كلوب الغردقة', 'Hurghada nightlife', 'nightclub Hurghada', 'party Hurghada']}
         customImage="https://www.nightclubegypt.com/images/nightclubegypt.com1.jpg"
         customUrl="https://www.nightclubegypt.com/places/hurghada"
       />

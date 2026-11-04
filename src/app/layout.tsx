@@ -43,7 +43,7 @@ export const metadata: Metadata = {
     default: "🔥 أفضل نايت كلوب في مصر 2026 - أسعار تبدأ من 750 جنيه | احجز الآن",
     template: "%s | Night Club Egypt - أفضل نايت كلوب في مصر"
   },
-  description: "🔥 نايت كلوب من الآخر في مصر 2026! أحلى أجواء وسهرات مع أشهر النجوم: رحمة محسن، عصام صاصا، بوسي، روح 🎶 خدمة VIP فخمة، رقص شرقي وديسكو، DJs عالميين. الأسعار تبدأ من 750 جنيه بس 💸 في القاهرة، الجيزة، العجوزة، الشيخ زايد، الزمالك. احجز دلوقتي 📞 +20 1055599706 | +20 1268110562",
+  description: "🔥 نايت كلوب من الآخر في مصر 2026! أحلى أجواء وسهرات مع أشهر النجوم: رحمة محسن، عصام صاصا، بوسي، روح 🎶 خدمة VIP فخمة، رقص شرقي وديسكو، DJs عالميين. الأسعار تبدأ من 750 جنيه بس 💸 في القاهرة، الجيزة، العجوزة، الشيخ زايد، الزمالك. احجز دلوقتي 📞 01055599706 | 01286110562",
 
   // 👇 كلمات مفتاحية محسنة باللهجة المصرية ومنظمة بشكل أفضل
   keywords: [
@@ -113,7 +113,7 @@ export const metadata: Metadata = {
     
     // كلمات الحجز والدفع
     "احجز نايت كلوب مصر", "أسعار 750 جنيه", "باقة VIP 1500", "حجز فوري", "دفع InstaPay",
-    "حجز واتساب", "رقم الحجز", "+201055599706", "WhatsApp nightclub", "booking form"
+    "حجز واتساب", "رقم الحجز", "01055599706", "01286110562", "WhatsApp nightclub", "booking form"
   ].join(", "),
 
   authors: [{ name: "Night Club Egypt", url: "https://www.nightclubegypt.com" }],
@@ -164,7 +164,7 @@ export const metadata: Metadata = {
   // 👇 تحسين Open Graph للمشاركة على الشبكات الاجتماعية
   openGraph: {
     title: "🔥 Night Club Egypt | أفضل نايت كلوب في مصر 2026 - أسعار من 750 جنيه",
-    description: "🎉 استمتع بأفضل سهرة ليلية في مصر مع أشهر النجوم: رحمة محسن، عصام صاصا، بوسي، روح! حفلات فاخرة وخدمة VIP استثنائية في القاهرة، الجيزة، العجوزة، الشيخ زايد. أسعار تبدأ من 750 جنيه. احجز الآن 📞 +201055599706",
+    description: "🎉 استمتع بأفضل سهرة ليلية في مصر مع أشهر النجوم: رحمة محسن، عصام صاصا، بوسي، روح! حفلات فاخرة وخدمة VIP استثنائية في القاهرة، الجيزة، العجوزة، الشيخ زايد. أسعار تبدأ من 750 جنيه. احجز الآن 📞 01055599706 أو 01286110562",
     type: "website",
     url: "https://www.nightclubegypt.com",
     siteName: "Night Club Egypt",
@@ -203,7 +203,7 @@ export const metadata: Metadata = {
       }
     ],
     emails: ["nightclub2026@gmail.com"],
-    phoneNumbers: ["+201055599706"],
+    phoneNumbers: ["+201055599706", "+201286110562"],
     ttl: 604800, // 7 days
   },
 
@@ -213,7 +213,7 @@ export const metadata: Metadata = {
     site: "nightclub2026@gmail.com",
     creator: "nightclub2026@gmail.com",
     title: "🔥 Night Club Egypt | أفضل نايت كلوب في مصر 2025 - احجز الآن!",
-    description: "🎉 تجربة ليلية لا تُنسى! حفلات فاخرة مع أشهر النجوم، VIP خدمة، موسيقى عالمية في القاهرة والجيزة والعجوزة والشيخ زايد. أسعار من 750 جنيه. احجز: +201055599706 🔥",
+    description: "🎉 تجربة ليلية لا تُنسى! حفلات فاخرة مع أشهر النجوم، VIP خدمة، موسيقى عالمية في القاهرة والجيزة والعجوزة والشيخ زايد. أسعار من 750 جنيه. احجز: 01055599706 أو 01286110562 🔥",
     images: {
       url: "https://www.nightclubegypt.com/images/logo-seo-1200x1200.png",
       alt: "Night Club Egypt - أفضل نايت كلوب في مصر",
@@ -359,6 +359,19 @@ export default function RootLayout({
           }}
           contactPoint={{
             "telephone": "+201055599706",
+            "contactPoint": [{
+              "@type": "ContactPoint",
+              "telephone": "+201055599706",
+              "contactType": "customer support",
+              "areaServed": "EG",
+              "availableLanguage": ["Arabic", "English"]
+            }, {
+              "@type": "ContactPoint",
+              "telephone": "+201286110562",
+              "contactType": "booking",
+              "areaServed": "EG",
+              "availableLanguage": ["Arabic", "English"]
+            }],
             "email": "nightclub2026@gmail.com",
             "contactType": "customer service",
             "availableLanguage": ["Arabic", "English"]
@@ -368,7 +381,8 @@ export default function RootLayout({
             "https://www.facebook.com/people/%D9%83%D8%A7%D8%B1%D9%8A%D9%87-%D8%A7%D9%84%D8%B9%D8%AC%D9%88%D8%B2%D9%87-Night-Club/61569297924042/",
             "https://www.instagram.com/night_club_5star",
             "https://www.tiktok.com/@night.club993?_t=ZS-8yvVCVK9A5R&_r=1",
-            "https://wa.me/201055599706?countryCode=20&countryName=EG&phoneNumber=1286110562",
+            "https://wa.me/201055599706?countryCode=20&countryName=EG&phoneNumber=1055599706",
+            "https://wa.me/201286110562?countryCode=20&countryName=EG&phoneNumber=1286110562",
             "https://maps.app.goo.gl/E5R8oXS1WQfgZ5W66"
           ]}
         />

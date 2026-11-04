@@ -52,7 +52,9 @@ export const places: Place[] = [
       "موسيقى تانجو كلوب", "تانجو كلوب الجيزة", "احجز تانجو كلوب", "تانجو كلوب العجوزة",
       "Tango Club Giza", "Tango Nightclub Cairo", "Book Tango Club Elgouza", "Tango Club VIP Tables",
       "Dancing Tango Club Giza", "DJ Tango Club Cairo", "Tango Club Booking Online", "Tango Club Prices",
-      "Live Entertainment Tango", "Music Tango Club Giza", "تانجو كلوب كورنيش", "تانجو كلوب النيل"
+      "Live Entertainment Tango", "Music Tango Club Giza", "تانجو كلوب كورنيش", "تانجو كلوب النيل",
+      "تجربة تانجو كلوب", "حجز VIP تانجو", "Tango Club Cairo booking", "Tango Club Agouza", "Tango Club Nile view",
+      "أفضل نادي تانجو كلوب في القاهرة", "حجز تانجو كلوب VIP", "طاولة VIP تانجو", "حجز سهرة تانجو", "Tango Club Cairo VIP table", "Tango night club Cairo", "nightclub in Giza Egypt", "best nightlife Cairo"
     ],
     packages: [
       {
@@ -105,7 +107,8 @@ export const places: Place[] = [
       "موسيقى فيينا كلوب", "فيينا كلوب الجيزة", "احجز فيينا كلوب", "فيينا كلوب العجوزة",
       "Vienna Club Giza", "Vienna Nightclub Cairo", "Book Vienna Club Elgouza", "Vienna Club VIP Tables",
       "Dancing Vienna Club Giza", "DJ Vienna Club Cairo", "Vienna Club Booking Online", "Vienna Club Prices",
-      "Live Entertainment Vienna", "Music Vienna Club Giza", "فيينا كلوب كورنيش", "فيينا كلوب النيل"
+      "Live Entertainment Vienna", "Music Vienna Club Giza", "فيينا كلوب كورنيش", "فيينا كلوب النيل",
+      "أفضل نادي فيينا كلوب في القاهرة", "حجز فيينا كلوب VIP", "طاولة VIP فيينا", "حجز سهرة فيينا", "Vienna Club Cairo VIP table", "Vienna nightlife Cairo", "best nightlife in Giza", "nightclub near Nile"
     ],
     packages: [
       { 
@@ -151,7 +154,8 @@ export const places: Place[] = [
       "Royal King", "رويال كينج", "حجز Royal King", "Royal King booking", "رويال كينج العجوزة",
       "كورنيش النيل رويال", "حجز نايت كلوب رويال", "Royal King VIP", "حجز رويال كينج 2000",
       "نايت كلوب العجوزة", "nightclub Agouza", "Royal King booking online", "Royal King prices",
-      "حجز رويال كينج", "باقات رويال كينج", "Royal King Nile view", "Royal King VIP Tables"
+      "حجز رويال كينج", "باقات رويال كينج", "Royal King Nile view", "Royal King VIP Tables",
+      "أفضل نادي رويال كينج في القاهرة", "حجز رويال كينج VIP", "طاولة VIP رويال كينج", "حجز سهرة رويال كينج", "Royal King Cairo VIP table", "Royal King nightlife Cairo", "best nightclub on Nile", "nightlife booking Giza"
     ],
     packages: [
       {
@@ -207,7 +211,9 @@ export const places: Place[] = [
       "موسيقى فوكس كلوب", "فوكس كلوب الجيزة", "احجز فوكس كلوب", "فوكس كلوب العجوزة",
       "FOX Club Giza", "FOX Nightclub Cairo", "Book FOX Club Elgouza", "FOX Club VIP Tables",
       "Dancing FOX Club Giza", "DJ FOX Club Cairo", "FOX Club Booking Online", "FOX Club Prices",
-      "Live Entertainment FOX", "Music FOX Club Giza", "فوكس كلوب كورنيش", "فوكس كلوب النيل"
+      "Live Entertainment FOX", "Music FOX Club Giza", "فوكس كلوب كورنيش", "فوكس كلوب النيل",
+      "تجربة فوكس كلوب", "Fox Club Cairo", "حجز فوكس كلوب العجوزة", "VIP Fox Club",
+      "أفضل نادي فوكس كلوب في القاهرة", "حجز فوكس كلوب VIP", "طاولة VIP فوكس", "حجز سهرة فوكس", "FOX Club Cairo VIP table", "FOX nightlife Cairo", "best nightclub in Agouza", "nightclub booking Giza"
     ],
     packages: [
       {
@@ -263,7 +269,9 @@ export const places: Place[] = [
       "بيكوك كلوب القاهرة", "احجز بيكوك كلوب", "بيكوك كلوب الزمالك",
       "Peacock Club Cairo", "Peacock Nightclub Zamalek", "Book Peacock Club Zamalek", "Peacock Club VIP Tables",
       "Dancing Peacock Club Cairo", "DJ Peacock Club Zamalek", "Peacock Club Booking Online", "Peacock Club Prices",
-      "Live Entertainment Peacock", "Music Peacock Club Cairo", "بيكوك كلوب كورنيش", "بيكوك كلوب النيل"
+      "Live Entertainment Peacock", "Music Peacock Club Cairo", "بيكوك كلوب كورنيش", "بيكوك كلوب النيل",
+      "تجربة بيكوك كلوب", "Peacock Club VIP booking", "حجز بيكوك الزمالك", "Pearcock Club Cairo",
+      "أفضل نادي بيكوك كلوب في القاهرة", "حجز بيكوك كلوب VIP", "طاولة VIP بيكوك", "حجز سهرة بيكوك", "Peacock Club Cairo VIP table", "Peacock nightlife Cairo", "best club in Zamalek", "nightclub booking Zamalek"
     ],
     packages: [
       {
@@ -315,7 +323,9 @@ export const places: Place[] = [
       "نوكس كلوب القاهرة", "احجز نوكس كلوب", "نوكس كلوب العجوزة",
       "NOX Club Cairo", "NOX Nightclub Agouza", "Book NOX Club Agouza", "NOX Club VIP Tables",
       "Dancing NOX Club Cairo", "DJ NOX Club Agouza", "NOX Club Booking Online", "NOX Club Prices",
-      "Live Entertainment NOX", "Music NOX Club Cairo", "نوكس كلوب كورنيش", "نوكس كلوب النيل"
+      "Live Entertainment NOX", "Music NOX Club Cairo", "نوكس كلوب كورنيش", "نوكس كلوب النيل",
+      "نادي نوكس", "تجربة نوكس كلوب", "NOX Club Cairo booking", "حجز VIP نوكس", "حجز نوكس العجوزة",
+      "أفضل نادي نوكس كلوب في القاهرة", "حجز نوكس كلوب VIP", "طاولة VIP نوكس", "حجز سهرة نوكس", "NOX Club Cairo VIP table", "NOX nightlife Cairo", "best nightlife in Agouza", "nightclub booking Agouza"
     ],
     packages: [
       { 
@@ -367,7 +377,8 @@ export const places: Place[] = [
       "ستيج كلوب القاهرة", "احجز ستيج كلوب", "ستيج كلوب الأهلي",
       "Stage Cairo Club Cairo", "Stage Nightclub Ahly", "Book Stage Club Ahly", "Stage Club VIP Tables",
       "Dancing Stage Club Cairo", "DJ Stage Club Ahly", "Stage Club Booking Online", "Stage Club Prices",
-      "Live Entertainment Stage", "Music Stage Club Cairo", "ستيج كلوب كورنيش", "ستيج كلوب النيل"
+      "Live Entertainment Stage", "Music Stage Club Cairo", "ستيج كلوب كورنيش", "ستيج كلوب النيل",
+      "أفضل نادي ستيج كايرو في القاهرة", "حجز ستيج كايرو VIP", "طاولة VIP ستيج", "حجز سهرة ستيج", "Stage Cairo VIP table", "Stage club Cairo booking", "best nightlife in Cairo", "nightclub in Cairo Egypt"
     ],
     packages: [
       { 
@@ -412,7 +423,8 @@ export const places: Place[] = [
       "كاش كلوب القاهرة", "احجز كاش كلوب", "كاش كلوب المهندسين",
       "Cash Cairo Club Cairo", "Cash Nightclub Engineers", "Book Cash Club Engineers", "Cash Club VIP Tables",
       "Dancing Cash Club Cairo", "DJ Cash Club Engineers", "Cash Club Booking Online", "Cash Club Prices",
-      "Live Entertainment Cash", "Music Cash Club Cairo", "كاش كلوب كورنيش", "كاش كلوب النيل"
+      "Live Entertainment Cash", "Music Cash Club Cairo", "كاش كلوب كورنيش", "كاش كلوب النيل",
+      "أفضل نادي كاش كايرو في القاهرة", "حجز كاش كايرو VIP", "طاولة VIP كاش", "حجز سهرة كاش", "Cash Cairo VIP table", "Cash club Cairo booking", "best club in Cairo", "nightlife in Egypt"
     ],
     description: "مكان عصري بإضاءة نيون وموسيقى VIP مميز.",
     price: 5000,
@@ -472,7 +484,8 @@ export const places: Place[] = [
       "أومني كلوب القاهرة", "احجز أومني كلوب", "أومني كلوب الجزيرة",
       "Omni Club Cairo", "Omni Nightclub Gezira", "Book Omni Club Gezira", "Omni Club VIP Tables",
       "Dancing Omni Club Cairo", "DJ Omni Club Gezira", "Omni Club Booking Online", "Omni Club Prices",
-      "Live Entertainment Omni", "Music Omni Club Cairo", "أومني كلوب كورنيش", "أومني كلوب النيل"
+      "Live Entertainment Omni", "Music Omni Club Cairo", "أومني كلوب كورنيش", "أومني كلوب النيل",
+      "أفضل نادي أومني كلوب في القاهرة", "حجز أومني كلوب VIP", "طاولة VIP أومني", "حجز سهرة أومني", "Omni Club Cairo VIP table", "Omni nightlife Cairo", "best nightlife in Gezira", "nightclub booking Cairo"
     ],
     packages: [
       { 
@@ -517,7 +530,8 @@ export const places: Place[] = [
       "إيكو كلوب القاهرة", "احجز إيكو كلوب", "إيكو كلوب المعادي",
       "Echo Club Cairo", "Echo Nightclub Maadi", "Book Echo Club Maadi", "Echo Club VIP Tables",
       "Dancing Echo Club Cairo", "DJ Echo Club Maadi", "Echo Club Booking Online", "Echo Club Prices",
-      "Live Entertainment Echo", "Music Echo Club Cairo", "إيكو كلوب كورنيش", "إيكو كلوب النيل"
+      "Live Entertainment Echo", "Music Echo Club Cairo", "إيكو كلوب كورنيش", "إيكو كلوب النيل",
+      "أفضل نادي إيكو كلوب في القاهرة", "حجز إيكو كلوب VIP", "طاولة VIP إيكو", "حجز سهرة إيكو", "Echo Club Cairo VIP table", "Echo nightlife Cairo", "best nightlife in Maadi", "nightclub booking Maadi"
     ],
     description: "صوتيات مذهلة مع أضواء ليزر وعروض مع فرق موسيقية حية.",
     price: 5000,
@@ -576,7 +590,8 @@ export const places: Place[] = [
       "كينج كلوب الجيزة", "احجز كينج كلوب", "كينج كلوب البحر الأعظم",
       "King Club Giza", "King Nightclub Cairo", "Book King Club Giza", "King Club VIP Tables",
       "Dancing King Club Giza", "DJ King Club Cairo", "King Club Booking Online", "King Club Prices",
-      "Live Entertainment King", "Music King Club Giza", "كينج كلوب كورنيش", "كينج كلوب النيل"
+      "Live Entertainment King", "Music King Club Giza", "كينج كلوب كورنيش", "كينج كلوب النيل",
+      "أفضل نادي كينج كلوب في القاهرة", "حجز كينج كلوب VIP", "طاولة VIP كينج", "حجز سهرة كينج", "King Club Cairo VIP table", "King nightlife Cairo", "best nightlife in Giza", "nightclub booking Giza"
     ],
     packages: [
       { 
@@ -629,7 +644,8 @@ export const places: Place[] = [
       "كوزمو كلوب القاهرة", "احجز كوزمو كلوب", "كوزمو كلوب الزمالك",
       "Cosmo Club Cairo", "Cosmo Nightclub Zamalek", "Book Cosmo Club Zamalek", "Cosmo Club VIP Tables",
       "Dancing Cosmo Club Cairo", "DJ Cosmo Club Zamalek", "Cosmo Club Booking Online", "Cosmo Club Prices",
-      "Live Entertainment Cosmo", "Music Cosmo Club Cairo", "كوزمو كلوب كورنيش", "كوزمو كلوب النيل"
+      "Live Entertainment Cosmo", "Music Cosmo Club Cairo", "كوزمو كلوب كورنيش", "كوزمو كلوب النيل",
+      "أفضل نادي كوزمو كلوب في القاهرة", "حجز كوزمو كلوب VIP", "طاولة VIP كوزمو", "حجز سهرة كوزمو", "Cosmo Club Cairo VIP table", "Cosmo nightlife Cairo", "best nightlife in Zamalek", "nightclub booking Zamalek"
     ],
     packages: [
       { 
@@ -683,7 +699,8 @@ export const places: Place[] = [
       "أوفيد كلوب القاهرة", "احجز أوفيد كلوب", "أوفيد كلوب أهل مصر",
       "OVID Club Cairo", "OVID Nightclub Nile", "Book OVID Club Nile", "OVID Club VIP Tables",
       "Dancing OVID Club Cairo", "DJ OVID Club Nile", "OVID Club Booking Online", "OVID Club Prices",
-      "Live Entertainment OVID", "Music OVID Club Cairo", "أوفيد كلوب كورنيش", "أوفيد كلوب النيل"
+      "Live Entertainment OVID", "Music OVID Club Cairo", "أوفيد كلوب كورنيش", "أوفيد كلوب النيل",
+      "أفضل نادي أوفيد كلوب في القاهرة", "حجز أوفيد كلوب VIP", "طاولة VIP أوفيد", "حجز سهرة أوفيد", "OVID Club Cairo VIP table", "OVID nightlife Cairo", "best nightlife on Nile", "nightclub booking Nile"
     ],
     packages: [
       { 
@@ -737,7 +754,8 @@ export const places: Place[] = [
       "شوتس كلوب القاهرة", "احجز شوتس كلوب", "شوتس كلوب المعادي",
       "Shots Club Cairo", "Shots Nightclub Maadi", "Book Shots Club Maadi", "Shots Club VIP Tables",
       "Dancing Shots Club Cairo", "DJ Shots Club Maadi", "Shots Club Booking Online", "Shots Club Prices",
-      "Live Entertainment Shots", "Music Shots Club Cairo", "شوتس كلوب كورنيش", "شوتس كلوب النيل"
+      "Live Entertainment Shots", "Music Shots Club Cairo", "شوتس كلوب كورنيش", "شوتس كلوب النيل",
+      "أفضل نادي شوتس كلوب في القاهرة", "حجز شوتس كلوب VIP", "طاولة VIP شوتس", "حجز سهرة شوتس", "Shots Club Cairo VIP table", "Shots nightlife Cairo", "best nightlife in Maadi", "nightclub booking Maadi"
     ],
     packages: [
       { 
@@ -790,7 +808,8 @@ export const places: Place[] = [
       "روفي كلوب القاهرة", "احجز روفي كلوب", "روفي كلوب المعادي",
       "ROVI Club Cairo", "ROVI Nightclub Maadi", "Book ROVI Club Maadi", "ROVI Club VIP Tables",
       "Dancing ROVI Club Cairo", "DJ ROVI Club Maadi", "ROVI Club Booking Online", "ROVI Club Prices",
-      "Live Entertainment ROVI", "Music ROVI Club Cairo", "روفي كلوب كورنيش", "روفي كلوب النيل"
+      "Live Entertainment ROVI", "Music ROVI Club Cairo", "روفي كلوب كورنيش", "روفي كلوب النيل",
+      "أفضل نادي روفي كلوب في القاهرة", "حجز روفي كلوب VIP", "طاولة VIP روفي", "حجز سهرة روفي", "ROVI Club Cairo VIP table", "ROVI nightlife Cairo", "best nightlife in Maadi", "nightclub booking Maadi"
     ],
     packages: [
       { 
@@ -835,7 +854,8 @@ export const places: Place[] = [
       "راي كلوب القاهرة", "احجز راي كلوب", "راي كلوب النيل",
       "Rai Club Cairo", "Rai Nightclub Nile", "Book Rai Club Nile", "Rai Club VIP Tables",
       "Dancing Rai Club Cairo", "DJ Rai Club Nile", "Rai Club Booking Online", "Rai Club Prices",
-      "Live Entertainment Rai", "Music Rai Club Cairo", "راي كلوب كورنيش", "راي كلوب النيل"
+      "Live Entertainment Rai", "Music Rai Club Cairo", "راي كلوب كورنيش", "راي كلوب النيل",
+      "أفضل نادي راي كلوب في القاهرة", "حجز راي كلوب VIP", "طاولة VIP راي", "حجز سهرة راي", "Rai Club Cairo VIP table", "Rai nightlife Cairo", "best Nile boat party", "nightclub booking Cairo"
     ],
     description: "حفلات على المركب مع إطلالة نيلية وموسيقى راي وحفلات حية.",
     price: 2200,
@@ -894,7 +914,8 @@ export const places: Place[] = [
       "احجز فولت لاونج", "فولت لاونج الدقي", "Volt Lounge Giza", "Volt Nightclub Cairo",
       "Book Volt Lounge Doqqi", "Volt Lounge VIP Tables", "Dancing Volt Lounge Giza",
       "DJ Volt Lounge Cairo", "Volt Lounge Booking Online", "Volt Lounge Prices",
-      "Live Entertainment Volt", "Music Volt Lounge Giza", "فولت لاونج كورنيش", "فولت لاونج النيل"
+      "Live Entertainment Volt", "Music Volt Lounge Giza", "فولت لاونج كورنيش", "فولت لاونج النيل",
+      "أفضل نادي فولت لاونج في القاهرة", "حجز فولت لاونج VIP", "طاولة VIP فولت", "حجز سهرة فولت", "Volt Lounge Cairo VIP table", "Volt nightlife Cairo", "best lounge in Giza", "nightclub booking Giza"
     ],
     packages: [
       { 
@@ -946,7 +967,8 @@ export const places: Place[] = [
       "سانسي كلوب الجيزة", "احجز سانسي كلوب", "سانسي كلوب المهندسين",
       "Sansee Club Giza", "Sansee Nightclub Engineers", "Book Sansee Club Engineers", "Sansee Club VIP Tables",
       "Dancing Sansee Club Giza", "DJ Sansee Club Engineers", "Sansee Club Booking Online", "Sansee Club Prices",
-      "Live Entertainment Sansee", "Music Sansee Club Giza", "سانسي كلوب كورنيش", "سانسي كلوب النيل"
+      "Live Entertainment Sansee", "Music Sansee Club Giza", "سانسي كلوب كورنيش", "سانسي كلوب النيل",
+      "أفضل نادي سانسي كلوب في القاهرة", "حجز سانسي كلوب VIP", "طاولة VIP سانسي", "حجز سهرة سانسي", "Sansee Club Cairo VIP table", "Sansee nightlife Cairo", "best nightlife in Giza", "nightclub booking Engineers"
     ],
     packages: [
       { 
@@ -998,7 +1020,8 @@ export const places: Place[] = [
       "نوكس كلوب الجيزة", "احجز نوكس كلوب", "نوكس كلوب العجوزة",
       "Disco NoX Club Giza", "Disco NoX Nightclub Cairo", "Book Disco NoX Club Agouza", "Disco NoX Club VIP Tables",
       "Dancing Disco NoX Club Giza", "DJ Disco NoX Club Cairo", "Disco NoX Club Booking Online", "Disco NoX Club Prices",
-      "Live Entertainment Disco NoX", "Music Disco NoX Club Giza", "نوكس كلوب كورنيش", "نوكس كلوب النيل"
+      "Live Entertainment Disco NoX", "Music Disco NoX Club Giza", "نوكس كلوب كورنيش", "نوكس كلوب النيل",
+      "أفضل نادي ديسكو نوكس كلوب في القاهرة", "حجز ديسكو نوكس كلوب VIP", "طاولة VIP ديسكو نوكس", "حجز سهرة ديسكو نوكس", "Disco NoX Cairo VIP table", "Disco NoX nightlife Cairo", "best nightlife in Agouza", "nightclub booking Giza"
     ],
     packages: [
       { 
@@ -1049,7 +1072,8 @@ export const places: Place[] = [
       "صهله كلوب الجيزة", "احجز صهله كلوب", "صهله كلوب الهرم",
       "Sahalal Club Giza", "Sahalal Nightclub Cairo", "Book Sahalal Club Giza", "Sahalal Club VIP Tables",
       "Dancing Sahalal Club Giza", "DJ Sahalal Club Cairo", "Sahalal Club Booking Online", "Sahalal Club Prices",
-      "Live Entertainment Sahalal", "Music Sahalal Club Giza", "صهله كلوب كورنيش", "صهله كلوب النيل"
+      "Live Entertainment Sahalal", "Music Sahalal Club Giza", "صهله كلوب كورنيش", "صهله كلوب النيل",
+      "أفضل نادي صهله كلوب في القاهرة", "حجز صهله كلوب VIP", "طاولة VIP صهله", "حجز سهرة صهله", "Sahalal Club Cairo VIP table", "Sahalal nightlife Cairo", "best nightlife in Giza", "nightclub booking Giza"
     ],
     packages: [
       { 
@@ -1101,7 +1125,8 @@ export const places: Place[] = [
       "كاليجيه كلوب الجيزة", "احجز كاليجيه كلوب", "كاليجيه كلوب الدقي",
       "Kalije Club Giza", "Kalije Nightclub Cairo", "Book Kalije Club Doqqi", "Kalije Club VIP Tables",
       "Dancing Kalije Club Giza", "DJ Kalije Club Cairo", "Kalije Club Booking Online", "Kalije Club Prices",
-      "Live Entertainment Kalije", "Music Kalije Club Giza", "كاليجيه كلوب كورنيش", "كاليجيه كلوب النيل"
+      "Live Entertainment Kalije", "Music Kalije Club Giza", "كاليجيه كلوب كورنيش", "كاليجيه كلوب النيل",
+      "أفضل نادي كاليجيه كلوب في القاهرة", "حجز كاليجيه كلوب VIP", "طاولة VIP كاليجيه", "حجز سهرة كاليجيه", "Kalije Club Cairo VIP table", "Kalije nightlife Cairo", "best nightlife in Dokki", "nightclub booking Dokki"
     ],
     packages: [
       { 

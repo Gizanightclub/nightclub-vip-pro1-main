@@ -16,7 +16,10 @@ export default function ContactPage() {
           "حجز طاولة VIP", "استعلام أسعار نايت كلوب", "تأكيد حجز نايت كلوب",
           "حجز للسعوديين", "حجز للخليجيين", "احجز من الخليج", "رقم السعوديين نايت كلوب",
           "واتساب حجز سياح", "contact nightclub Egypt", "book from Saudi Arabia", "Gulf visitors booking",
-          "حجز صيفي مصر", "سهرات صيفية 2026", "رحلات سياحية الخليج"
+          "حجز صيفي مصر", "سهرات صيفية 2026", "رحلات سياحية الخليج",
+          "نايت كلوب القاهرة للعرب", "حجز نادي ليلي في مصر", "اتصال مباشر نايت كلوب",
+          "تكلم مع نايت كلوب مصر", "مواعيد الحجز naightclub", "nightclub reservation Egypt",
+          "book nightclub in Cairo", "Egypt nightlife contact", "VIP booking call"
         ]}
         customImage="https://www.nightclubegypt.com/images/nightclubegypt.com4.jpg"
       />

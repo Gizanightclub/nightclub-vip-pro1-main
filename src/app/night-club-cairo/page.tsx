@@ -12,7 +12,20 @@ export default function NightClubCairo() {
           "أفضل نايت كلوب في القاهرة",
           "ديسكو القاهرة",
           "كباريه القاهرة",
-          "نوادي ليلية القاهرة"
+          "نوادي ليلية القاهرة",
+          "حجز نايت كلوب القاهرة",
+          "سهرات VIP القاهرة",
+          "nightclub Cairo 2026",
+          "Cairo nightlife",
+          "VIP table Cairo",
+          "best club in Cairo",
+          "أجواء فاخرة القاهرة",
+          "أرخص نايت كلوب القاهرة",
+          "حفل ليلي في القاهرة",
+          "الأماكن الليلية في القاهرة",
+          "nightclub booking Cairo",
+          "Cairo club tickets",
+          "live music Cairo"
         ]}
       />
 

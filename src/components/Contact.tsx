@@ -188,7 +188,7 @@ ${formData.notes ? `📝 ملاحظات: ${formData.notes}` : ""}
     {
       icon: Phone,
       title: "اتصل بنا",
-      description: "+20 1055599706",
+      description: "01055599706 / 01286110562",
       color: "text-yellow-400",
       bg: "bg-yellow-400/10",
     },
